@@ -15,7 +15,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 HEADINGS = {'HISTÓRIA', 'GEOGRAFIA', 'BIOLOGIA', 'FÍSICA', 'QUÍMICA',
             'MATEMÁTICA', 'LITERATURA', 'LÍNGUA PORTUGUESA', 'LÍNGUA ESTRANGEIRA'}
 
@@ -64,7 +64,9 @@ def ordered_lines(pages, layout):
                 if (re.fullmatch(r'\d+', line['texto']) and line['bbox'][1] > 780
                         and abs((line['bbox'][0] + line['bbox'][2]) / 2 - split) < 16):
                     continue
-                if line['texto'].strip() in HEADINGS:
+                if line['texto'].strip(' -–—') in HEADINGS:
+                    continue
+                if any(re.fullmatch(pattern, line['texto']) for pattern in layout.get('ignorar_linhas', [])):
                     continue
                 columns[column].append(line)
         for column in columns:
@@ -131,10 +133,33 @@ def regions(lines, pages, layout, next_line):
     return result
 
 
-def split_alternatives(text):
-    # Os layouts deste piloto usam A). Marcadores a./b./c. no enunciado
-    # (como UFRR 2026, questão 43) são categorias, não alternativas.
-    matches = list(re.finditer(r'(?m)^([a-eA-E])\)\s+', text))
+def alternative_label_lines(lines, layout):
+    """Distingue o glifo de opção do artigo A por medidas do layout verificado."""
+    geometry = layout.get('geometria_rotulos_alternativas')
+    if not geometry:
+        return None
+    accepted = set()
+    for index, line in enumerate(lines):
+        words = line['palavras']
+        if len(words) < 2 or words[0]['texto'] not in set('ABCDE'):
+            continue
+        first, second = words[:2]
+        width = first['bbox'][2] - first['bbox'][0]
+        gap = second['bbox'][0] - first['bbox'][2]
+        margin = geometry['margens'][line['coluna'] - 1]
+        if (geometry['largura_min'] <= width <= geometry['largura_max']
+                and geometry['gap_min'] <= gap <= geometry['gap_max']
+                and abs(first['bbox'][0] - margin) <= geometry['tolerancia_margem']):
+            accepted.add(index)
+    return accepted
+
+
+def split_alternatives(text, pattern=None, allowed_lines=None):
+    # O padrão pertence ao layout verificado. UERR/Cebraspe usa letras sem
+    # parênteses; a regra padrão A) não trata enumerações a./b./c. como respostas.
+    matches = list(re.finditer(pattern or r'(?m)^([a-eA-E])\)\s+', text))
+    if allowed_lines is not None:
+        matches = [match for match in matches if text[:match.start()].count('\n') in allowed_lines]
     labels = [match.group(1).lower() for match in matches]
     if labels != list('abcde'):
         return None, labels
@@ -181,9 +206,12 @@ def segment(root=ROOT):
                 end = following['indice'] if following else len(lines)
                 item_lines = lines[start:end]
                 text = '\n'.join(line['texto'] for line in item_lines).strip()
-                alternatives, labels = split_alternatives(text)
+                alternatives, labels = split_alternatives(
+                    text, layout.get('marcador_alternativa'), alternative_label_lines(item_lines, layout))
                 issues = []
-                if not following or following['numero'] != number + 1:
+                allowed_end = (not following and number == layout['numero_maximo']
+                               and layout.get('fecha_ultima_questao_no_fim_do_documento') is True)
+                if (not following and not allowed_end) or (following and following['numero'] != number + 1):
                     issues.append('proxima_questao_ausente_ou_nao_consecutiva')
                 if alternatives is None:
                     issues.append('alternativas_textuais_nao_formam_A_E_em_ordem_unica')

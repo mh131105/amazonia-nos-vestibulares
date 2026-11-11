@@ -1,4 +1,4 @@
-# Dicionário de dados — versão 0.1.0
+# Dicionário de dados — versão 0.2.0
 
 Arquivos tabulares em UTF-8, com quebra de linha LF fixa para preservar hashes entre plataformas. Datas são ISO 8601. Páginas são posições do PDF a partir de 1. Campos vazios no CSV e `null` no JSON indicam valor ausente ou não verificado; não significam zero. Listas e regiões geométricas dentro de CSV usam JSON. Booleanos do CSV de segmentação aparecem como `True`/`False`.
 
@@ -29,6 +29,8 @@ Arquivos tabulares em UTF-8, com quebra de linha LF fixa para preservar hashes e
 
 ## Instituições e seleção
 
+`instituicoes-historico.csv` usa `registro_ano_id=instituicao_id@ano` para as 2.459 observações de 2017–2024. Em 2017–2022, `rede_codigo` fica vazio: `rede=publica_por_categoria` para 1/2/3 e `especial_a_verificar` para 7. A planilha/linha do dicionário e seu hash sustentam a regra por ano. `reconciliacao-instituicoes.csv` agrupa observações pelo código, mantendo nomes, siglas, categorias, UFs e fontes anuais. Não resolve identidades entre códigos distintos. `fila-triagem-institucional.csv` cobre os 334 códigos históricos; `parcial` significa que foram registrados processos, nunca investigação institucional concluída.
+
 `codigo_inep` preserva o código original. `instituicao_id` usa o prefixo `inep_`. `ano_fonte=2024` limita a validade da observação; `historico_institucional_status=pendente` impede interpretar a fotografia como categoria válida em toda a década. `fonte_linha` conta o cabeçalho do CSV original como linha 1.
 
 `rede_codigo=1` representa rede pública no dicionário oficial. `categoria_administrativa_codigo` conserva 1 (federal), 2 (estadual), 3 (municipal) ou 7 (especial). Categoria Especial conserva `esfera_administrativa=a_verificar`, mesmo incluída pela rede pública. Siglas não são chave histórica suficiente para reconciliar instituições.
@@ -41,6 +43,8 @@ Os estados de triagem seguem o protocolo: inclusão com recorrência, evidência
 
 `data_prevista` e situação `futura_na_data_de_corte` não são observações de aplicação. A prova futura PSC2027 E3 não tem ano de aplicação observado nem questões contadas no corte.
 
+`aplicacao_ocorrida_data_exata_a_corrobora` identifica caderno/programa localizados com data exata ainda não sustentada. A data prevista não é promovida para `ano_aplicacao`; a grade marca `data_efetiva_pendente`. `banca` e `formato` preservam mudanças relevantes, como os conjuntos recentes Cebraspe/UERR. As fontes C2 estão em `expansao-ufam-c2.json` e `expansao-demais-c2.json`.
+
 `periodo_calendario` segue as faixas `2017-2021`, `2022-2023`, `2024`, `2025-2026`. Esses rótulos descrevem calendário, não comprovam currículo escolar dos candidatos. `serie_alvo`, `ano_serie_alvo`, `coorte_alvo_esperada`, `fonte_do_corte`, `evidencia_implantacao_local`, `alinhamento_explicito_prova`, `regime_curricular_contexto` e `incerteza_classificacao` preservam o contexto e as lacunas. A E2/UFAM aplicada em 2026 se destinou a quem cursou a segunda série em 2025.
 
 ## Documentos e extrações
@@ -50,6 +54,8 @@ Os estados de triagem seguem o protocolo: inclusão com recorrência, evidência
 `redistribuicao_autorizada=null` não autoriza publicar o PDF. `condicoes_uso` informa condição observada ou pendência; não é licença do código nem de todos os dados.
 
 `motor_utilizado` distingue `poppler_bbox_layout` e `pypdf_layout_alternativo`. `falha_motor_primario` preserva o erro que motivou a alternativa. `artefato_poppler_valido=false` identifica que o XML primário não deve ser usado como extração válida. `coordenadas_disponiveis=false` indica ausência de caixas nesse motor; páginas e original continuam localizáveis.
+
+O ciclo 2 acrescenta `pdftohtml_fragmentos_alternativo`: caixas nativas de fragmentos, com `granularidade_coordenadas=fragmento_textual`. O campo compatível `palavras` nas linhas contém unidades geométricas inteiras, não caixas inventadas para cada palavra do fragmento. `controles_xml_substituidos` conta controles ilegais substituídos por U+FFFD na camada de parse; o XML bruto não é reescrito. A flag do XML primário também é falsa quando ele exigiu esse saneamento para leitura. `transporte=curl_tls_sistema` documenta o uso da cadeia TLS validada pelo curl do sistema; não há opção de desativar certificados.
 
 `caracteres_substituicao` conta U+FFFD; não conta todos os erros de extração. `paginas_texto_insuficiente` sinaliza menos de dez palavras, sem distinguir sozinho imagem, página em branco ou falha. `revisar_codificacao`, `revisar_ocr_ou_pagina_visual` e `texto_extraido_nao_revisado` são estados técnicos, não aprovação do conteúdo.
 
@@ -68,3 +74,5 @@ Os estados de triagem seguem o protocolo: inclusão com recorrência, evidência
 Em `gabaritos.csv`, `estado_oficial=alternativa_publicada` conserva a letra em `alternativa_oficial`; `estado_oficial=anulada` exige letra vazia. Documento, hash, página, seção e URL permitem conferir a origem. `vinculo_versao_caderno` e `revisao_humana` continuam pendentes. A fonte oficial não foi substituída por uma resolução do modelo.
 
 `regionalidade` usa as quatro classes do protocolo. Nesta versão não há rótulos preenchidos. `origem_segmentacao=regra_automatica_de_layout` não é anotação humana. O manual define os campos de tema, território, demanda cognitiva e vínculo ao programa que serão usados na revisão.
+
+`configuracao.json` registra Matheus como anotador previsto. `pacote-revisao.json` contém o identificador do caderno e seus IDs, sem enunciados, gabaritos ou sugestões. As imagens e o HTML completos ficam locais em `data/annotation/revisao/`, ignorados no Git. A importação do JSON exportado preserva CSVs anteriores em `data/annotation/historico/` e registra hashes/IDs em `importacoes.jsonl`. Uma declaração de origem humana não é autenticação independente; preencher o nome automaticamente na interface não preenche a classificação.

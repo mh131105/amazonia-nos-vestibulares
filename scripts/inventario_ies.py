@@ -114,7 +114,8 @@ def acquire(year):
         for info in archive.infolist():
             basename = Path(info.filename).name
             is_ies = re.fullmatch(r"MICRODADOS_(?:CADASTRO|ED_SUP)_IES_\d{4}\.CSV", basename, re.I)
-            is_dictionary = basename.lower().endswith(".xlsx") and "dicion" in basename.lower()
+            is_dictionary = (basename.lower().endswith(".xlsx") and "dicion" in basename.lower()
+                             and not basename.startswith("~$"))
             is_md5 = basename.lower().startswith("md5_") and "/dados/" in info.filename.lower()
             if not (is_ies or is_dictionary or is_md5):
                 continue
@@ -221,17 +222,22 @@ def validate_dictionary(source):
         raise ValueError("Dicionário não confirma o mapeamento de TP_REDE")
 
 
-def build_inventory(source):
+def build_inventory(source, *, destination=None, allow_category_fallback=False):
     verify_cached(source)
     validate_dictionary(source)
     cadastro = next(item for item in source["arquivos"] if item["tipo"] == "cadastro_ies")
     path = ROOT / cadastro["caminho_local"]
     with path.open(encoding="cp1252", newline="") as handle:
         reader = csv.DictReader(handle, delimiter=";")
+        has_network_field = "TP_REDE" in reader.fieldnames
         rows = [(number, row) for number, row in enumerate(reader, start=2)]
+    if not has_network_field and not allow_category_fallback:
+        raise ValueError("Cadastro sem TP_REDE; usar o procedimento histórico com critério categorial explícito")
     selected = []
     for number, row in rows:
-        if row["TP_REDE"] != "1":
+        if has_network_field and row["TP_REDE"] != "1":
+            continue
+        if not has_network_field and row['TP_CATEGORIA_ADMINISTRATIVA'] not in CATEGORIES:
             continue
         code = row["TP_CATEGORIA_ADMINISTRATIVA"]
         if code not in CATEGORIES:
@@ -244,7 +250,8 @@ def build_inventory(source):
             "nome": row["NO_IES"], "sigla": row["SG_IES"],
             "uf": row["SG_UF_IES"], "regiao": row["NO_REGIAO_IES"],
             "municipio": row["NO_MUNICIPIO_IES"], "codigo_municipio": row["CO_MUNICIPIO_IES"],
-            "rede_codigo": row["TP_REDE"], "rede": "publica",
+            "rede_codigo": row.get("TP_REDE", ""),
+            "rede": "publica" if has_network_field else "especial_a_verificar" if code == "7" else "publica_por_categoria",
             "categoria_administrativa_codigo": code, "categoria_administrativa": label,
             "esfera_administrativa": sphere,
             "organizacao_academica_codigo": row["TP_ORGANIZACAO_ACADEMICA"],
@@ -260,7 +267,7 @@ def build_inventory(source):
         raise ValueError("CO_IES duplicado no inventário")
     if len({row["uf"] for row in selected}) != 27 or len({row["regiao"] for row in selected}) != 5:
         raise ValueError("Inventário não abrange as 27 UFs e cinco regiões")
-    destination = ROOT / "data/registry/instituicoes.csv"
+    destination = Path(destination) if destination is not None else ROOT / "data/registry/instituicoes.csv"
     destination.parent.mkdir(parents=True, exist_ok=True)
     with destination.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(selected[0]), lineterminator='\n')
@@ -268,10 +275,14 @@ def build_inventory(source):
         writer.writerows(selected)
     summary = {
         "ano_fonte": source["ano_censo"], "linhas_cadastro_total": len(rows),
-        "ies_rede_publica": len(selected), "ids_unicos": len(set(ids)),
+        "ies_rede_publica": len(selected) if has_network_field else None,
+        "ies_selecionadas": len(selected),
+        "ies_publicas_por_categoria": sum(row['categoria_administrativa_codigo'] in {'1', '2', '3'} for row in selected) if not has_network_field else None,
+        "ies_especiais_candidatas": sum(row['categoria_administrativa_codigo'] == '7' for row in selected) if not has_network_field else None,
+        "ids_unicos": len(set(ids)),
         "ufs": 27, "regioes": dict(sorted(Counter(row["regiao"] for row in selected).items())),
         "categorias": dict(sorted(Counter(row["categoria_administrativa"] for row in selected).items())),
-        "criterio": "TP_REDE = 1; categorias originais preservadas, inclusive 7 (Especial)",
+        "criterio": "TP_REDE = 1; categorias originais preservadas, inclusive 7 (Especial)" if has_network_field else "TP_CATEGORIA_ADMINISTRATIVA em 1/2/3 (públicas) ou 7 (Especial candidata, natureza a verificar); TP_REDE ausente",
         "cobertura_historica_completa": False,
         "inventario_sha256": hashlib.sha256(destination.read_bytes()).hexdigest(),
     }

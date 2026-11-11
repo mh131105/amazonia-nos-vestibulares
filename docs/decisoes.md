@@ -42,3 +42,27 @@ A revisão independente também corrigiu duas referências: páginas de programa
 Os gabaritos foram vinculados por `ocorrencia_id` em tabela própria, sem duplicar uma resposta em campos provisórios da segmentação. O piloto encontrou uma anulação oficial, PSC2026 E2/UFAM questão 27, que permanece com alternativa vazia. Isso não exclui a questão do indicador de cobrança aplicada.
 
 As seis páginas relevantes de gabarito foram inspecionadas pelo Codex; isso é conferência assistida por IA. A revisão humana e a confirmação das versões de caderno permanecem pendentes. O banco educacional continua sem itens liberados.
+
+## D007 — 11/11/2026 — Anotador humano definido
+
+O usuário respondeu “Eu, Matheus, farei a anotação”. Matheus passa a constar como anotador previsto. O caderno local permite revisão e exportação sem exibir gabaritos ou predições. Gerar a interface ou definir o nome não cria referência humana: o CSV permanece sem rótulos até a importação ou preenchimento efetivo pelo anotador. Não atribuir ao usuário rótulos produzidos pelo Codex.
+
+## D008 — 11/11/2026 — Cadastro histórico e fila nacional
+
+Os oito cadastros 2017–2024 foram preservados separadamente da fotografia inicial de 2024. Em 2017–2022 não existe `TP_REDE` no arquivo IES; o campo presente em outra planilha do dicionário não pode ser transferido à tabela institucional. As categorias 1/2/3 sustentam natureza pública nesses anos; categoria 7 sem rede permanece candidata a verificar. Em 2023–2024 usa-se o campo de rede presente.
+
+O histórico reúne 334 códigos: 331 com indicação pública em algum ano e três apenas Especiais sem confirmação. A fila de triagem abrange todos os códigos históricos. Sete IES com processos investigados são triagem parcial, não instituições esgotadas. Ausência em 2024, primeira/última observação e mudanças textuais não são provas de criação, extinção ou reorganização jurídica.
+
+## D009 — 11/11/2026 — Calendários, etapas e banca
+
+PSC2021 E1/E2 foi aplicado em 06/03/2022 a séries cursadas em 2020; PSC2022 E1/E2 foi aplicado em 23/10/2022 a séries cursadas em 2021. Uma célula processo × etapa × ano pode conter mais de uma aplicação. Datas previstas não corroboradas ficam separadas de datas observadas e não somam anos para a recorrência ou o contraste temporal.
+
+Geografia regional já aparece nas etapas 1/2 UFAM anteriores a 2024; a observação inicial restrita à E3 não pode ser generalizada ao processo. Também foram mantidos programas sem previsão amazônica explícita nas seções examinadas. UERR passou ao limiar de três anos por disciplina no processo com fontes de 2022, 2025 e 2026; a mudança para Cebraspe nos conjuntos recentes permanece registrada, sem agregação automática de formatos ou atribuição causal à reforma.
+
+## D010 — 11/11/2026 — Extração geométrica e aquisição do arquivo legado
+
+Um caderno legado faz `pdftotext -bbox-layout` abortar. `pdftohtml -xml -hidden -i -zoom 1`, já instalado com Poppler, foi verificado como alternativa com caixas nativas por fragmento textual. Não foram fabricadas caixas de palavras individuais: a granularidade é registrada. O XML bruto é preservado; controles proibidos no XML 1.0 são substituídos por U+FFFD somente na leitura, com contagem explícita. Pypdf permanece como alternativa final sem coordenadas.
+
+O urllib recusou a cadeia TLS do arquivo legado UFAM neste ambiente; o curl do sistema verificou a cadeia com sucesso. Esses documentos usam `curl_tls_sistema`, com HTTPS e verificação de certificados mantidos, limite de tamanho e tempo. As falhas iniciais continuam no histórico. Correções de publicador/banca não alteram hashes dos originais e recebem evento de metadados.
+
+O total de vínculos documentais não é o de arquivos únicos: nesta versão são 121 registros e 120 PDFs por SHA-256. Um comunicado de suspensão compartilhado entre etapas mantém dois vínculos e apenas um original físico. Isso não acrescenta ocorrências de questões.

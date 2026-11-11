@@ -17,4 +17,7 @@ data/raw/
 data/interim/
 data/processed/questoes-texto.jsonl
 data/annotation/textos/
+data/annotation/revisao/
+output/playwright/
+.playwright-cli/
 tmp/

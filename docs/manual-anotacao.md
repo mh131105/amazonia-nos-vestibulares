@@ -1,6 +1,6 @@
 # Manual inicial de revisão e anotação
 
-Versão 0.1.0, 11/11/2026. Aplica-se a História e Geografia pelo mesmo procedimento. A taxonomia inicial é uma proposta a avaliar no desenvolvimento, não um resultado de frequência.
+Versão 0.2.0, 11/11/2026. Aplica-se a História e Geografia pelo mesmo procedimento. A taxonomia inicial é uma proposta a avaliar no desenvolvimento, não um resultado de frequência. Matheus foi definido pelo usuário como anotador humano; essa definição não preenche nenhum rótulo.
 
 ## Unidade e fonte
 
@@ -57,3 +57,17 @@ Somente depois calcular precisão, revocação, F1, suporte, matriz de confusão
 Execute `uv run python scripts/preparar_revisao.py`. O comando gera `data/annotation/fila.csv` e cria as linhas ainda ausentes em `data/annotation/rotulos-humanos.csv`, preservando o preenchimento já existente. A fila aponta para os textos locais; o arquivo de rótulos começa sem qualquer resposta ou assinatura humana.
 
 Preencha primeiro integridade e dependência visual. A regionalidade só deve entrar nos indicadores quando houver evidência e revisão suficientes para o subconjunto analítico correspondente. Um item com anulação oficial integra a cobrança aplicada; a versão para pontuação o exclui do numerador e do denominador.
+
+## Caderno local para Matheus
+
+O arquivo `data/annotation/revisao/index.html` apresenta as 300 questões do acervo atual, por aplicação e disciplina. Ele usa imagens recortadas fielmente do PDF, acompanhadas de página, coluna, link para o documento completo e opção de ampliar. O texto extraído aparece fechado em uma seção complementar. Gabaritos e sugestões de regionalidade não são mostrados.
+
+1. Abra o caderno no navegador. Se for necessário recriá-lo, execute `uv run --locked python scripts/gerar_revisao.py` com o acervo presente.
+2. Confira a fonte visual, registre integridade, regionalidade e uma justificativa curta. Avalie o enunciado sem presumir uma tendência de mudança curricular. A opção de caso ambíguo permanece disponível.
+3. Use **Salvar minha anotação** em cada item. Navegar sem salvar exige confirmação. As anotações ficam no armazenamento do navegador e não são enviadas a um serviço externo.
+4. Use **Exportar anotações** periodicamente para guardar o JSON. **Carregar anotações** permite restaurar esse arquivo se as ocorrências e hashes continuarem válidos; uma atualização do caderno também recupera registros compatíveis do mesmo navegador.
+5. Incorpore o arquivo exportado com `uv run --locked python scripts/importar_anotacoes.py /caminho/para/arquivo.json`. O importador valida os campos, a identidade configurada, a data com fuso e o hash do PDF antes de modificar o CSV. Alterações em anotações já preenchidas exigem `--substituir`; o CSV anterior e um evento de importação são preservados.
+
+O JSON declara a origem humana e registra ações de quem preencheu o formulário; não é autenticação independente da pessoa. O Codex não deve preencher o caderno real se passando por Matheus. Os testes de preenchimento usam somente uma página fictícia separada e diretórios temporários.
+
+Ainda não há teste humano congelado ou sugestão de partição atribuída pela interface. A anotação de integridade e regionalidade inicia a referência; a auditoria, os grupos equivalentes e as partições continuam etapas próprias. Temas, operação e notas podem ser preenchidos no caderno; revisão de gabarito e vínculo ao programa usam a fonte e o CSV em etapa separada.

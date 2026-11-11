@@ -9,7 +9,9 @@ import hashlib
 import json
 import re
 import subprocess
+import ssl
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.parse
@@ -115,6 +117,40 @@ def fetch_pdf(url, max_bytes=MAX_BYTES, timeout=30):
         return content, final, response.headers.get_content_type()
 
 
+def fetch_pdf_curl(url, max_bytes=MAX_BYTES, timeout=30):
+    """Usa a cadeia TLS do sistema; nunca desabilita verificação de certificado."""
+    with tempfile.TemporaryDirectory(prefix='amazonia-download-') as temp:
+        destination = Path(temp) / 'documento.pdf'
+        try:
+            result = subprocess.run(['curl', '--fail', '--silent', '--show-error', '--location',
+                                     '--proto', '=https', '--proto-redir', '=https',
+                                     '--max-time', str(timeout), '--connect-timeout', '10',
+                                     '--max-filesize', str(max_bytes), '--user-agent', USER_AGENT,
+                                     '--output', str(destination), '--write-out', '%{json}', url],
+                                    capture_output=True, timeout=timeout + 5)
+        except subprocess.TimeoutExpired as error:
+            raise TimeoutError('Tempo externo de execução do curl excedido') from error
+        metadata = json.loads(result.stdout or b'{}')
+        if result.returncode:
+            status = metadata.get('http_code', 0)
+            if status >= 400:
+                raise urllib.error.HTTPError(url, status, 'Falha HTTP via curl', None, None)
+            if result.returncode == 63:
+                raise ValueError('Documento excede limite configurado (curl)')
+            if result.returncode == 60:
+                raise urllib.error.URLError(ssl.SSLCertVerificationError('Certificado recusado pelo curl'))
+            raise urllib.error.URLError(f'curl código {result.returncode}: {result.stderr.decode(errors="replace")[:300]}')
+        final = metadata.get('url_effective', '')
+        if urllib.parse.urlsplit(final).scheme != 'https':
+            raise ValueError('Redirecionamento para conexão sem HTTPS')
+        if destination.stat().st_size > max_bytes:
+            raise ValueError('Documento excede limite configurado')
+        content = destination.read_bytes()
+        if b'%PDF-' not in content[:1024]:
+            raise ValueError('Resposta não é PDF; login, erro HTML ou outro formato')
+        return content, final, metadata.get('content_type')
+
+
 def collect(root, *, only=None, attempts=3, interval=MIN_INTERVAL, update=False):
     if not 1 <= attempts <= 3 or interval < MIN_INTERVAL:
         raise ValueError('Usar 1–3 tentativas e intervalo mínimo de 1 segundo')
@@ -139,6 +175,14 @@ def collect(root, *, only=None, attempts=3, interval=MIN_INTERVAL, update=False)
             if local.exists():
                 if sha256(local) != cached['sha256']:
                     raise ValueError(f'Cache adulterado: {key}; investigar antes de substituir')
+                protected = {'sha256', 'tamanho_bytes', 'url_final', 'coletado_em', 'caminho_local', 'mime', 'status'}
+                updated = {**cached, **{k: v for k, v in item.items() if k not in protected}}
+                if updated != cached:
+                    append_jsonl(root / REGISTRY / 'aquisicoes.jsonl', {
+                        'documento_id': key, 'em': now(), 'status': 'metadados_atualizados',
+                        'sha256': cached['sha256'], 'campos_alterados': [k for k in item if cached.get(k) != item[k]]})
+                    records[key] = updated
+                    write_jsonl(path, [records[k] for k in sorted(records)])
                 print(f'cache {key}')
                 continue
         host = urllib.parse.urlsplit(item['url_origem']).hostname
@@ -148,7 +192,8 @@ def collect(root, *, only=None, attempts=3, interval=MIN_INTERVAL, update=False)
             time.sleep(max(0, interval - (time.monotonic() - last_request.get(host, 0))))
             last_request[host] = time.monotonic()
             try:
-                content, final, mime = fetch_pdf(item['url_origem'])
+                fetch = fetch_pdf_curl if item.get('transporte') == 'curl_tls_sistema' else fetch_pdf
+                content, final, mime = fetch(item['url_origem'])
                 digest = hashlib.sha256(content).hexdigest()
                 relative = Path('data/raw/documentos') / (digest + '.pdf')
                 local = root / relative
@@ -180,6 +225,8 @@ def collect(root, *, only=None, attempts=3, interval=MIN_INTERVAL, update=False)
                     'url_origem': item['url_origem'], 'status': 'falha', 'erro': record['erro']})
                 retry = (isinstance(error, urllib.error.HTTPError) and error.code in {429, 500, 502, 503, 504})
                 retry = retry or (isinstance(error, (urllib.error.URLError, TimeoutError)) and not isinstance(error, urllib.error.HTTPError))
+                if isinstance(error, urllib.error.URLError) and isinstance(error.reason, ssl.SSLCertVerificationError):
+                    retry = False
                 if not retry or attempt == attempts:
                     break
                 time.sleep(min(2 ** attempt, 8))
@@ -200,8 +247,14 @@ def collect(root, *, only=None, attempts=3, interval=MIN_INTERVAL, update=False)
     return failed
 
 
+def xml_text(xml_path):
+    raw = xml_path.read_text(encoding='utf-8')
+    return re.subn(r'[\x00-\x08\x0b\x0c\x0e-\x1f\ufffe\uffff]', '\ufffd', raw)
+
+
 def parse_bbox(xml_path):
-    tree = ET.parse(xml_path)
+    safe, _ = xml_text(xml_path)
+    tree = ET.fromstring(safe)
     namespace = {'x': 'http://www.w3.org/1999/xhtml'}
     result = []
     for number, page in enumerate(tree.findall('.//x:page', namespace), 1):
@@ -219,6 +272,29 @@ def parse_bbox(xml_path):
     if not result:
         raise ValueError('Extração sem páginas')
     return result
+
+
+def parse_pdftohtml(xml_path):
+    safe, controls = xml_text(xml_path)
+    tree = ET.fromstring(safe)
+    pages = []
+    for number, page in enumerate(tree.findall('page'), 1):
+        lines = []
+        for fragment in page.findall('text'):
+            text = ''.join(fragment.itertext())
+            if not text.strip():
+                continue
+            x, y = float(fragment.attrib['left']), float(fragment.attrib['top'])
+            box = [x, y, x + float(fragment.attrib['width']), y + float(fragment.attrib['height'])]
+            lines.append({'texto': text, 'palavras': [{'texto': text, 'bbox': box}],
+                          'granularidade_coordenadas': 'fragmento_textual'})
+        pages.append({'pagina': number, 'largura': float(page.attrib['width']),
+                      'altura': float(page.attrib['height']), 'linhas': lines,
+                      'texto_bruto': '\n'.join(r['texto'] for r in lines),
+                      'palavras': sum(len(r['texto'].split()) for r in lines)})
+    if not pages:
+        raise ValueError('Extração pdftohtml sem páginas')
+    return pages, controls
 
 
 def poppler_version():
@@ -244,7 +320,7 @@ def extract(root):
     records = read_jsonl(root / REGISTRY / 'documentos.jsonl')
     existing_path = root / REGISTRY / 'extracoes.jsonl'
     summaries = {r['documento_id']: r for r in read_jsonl(existing_path)}
-    version = poppler_version() + f'; pypdf {pypdf.__version__}; esquema 3'
+    version = poppler_version() + f'; pypdf {pypdf.__version__}; esquema 4'
     for doc in records:
         if doc['status'] != 'coletado':
             continue
@@ -265,18 +341,28 @@ def extract(root):
         if not cache_ok:
             engine = 'poppler_bbox_layout'
             failure = None
+            alternative_failure = None
+            controls = 0
             try:
                 subprocess.run(['pdftotext', '-bbox-layout', '-enc', 'UTF-8', str(source), str(directory / 'poppler.xml')],
                                check=True, capture_output=True, timeout=60)
                 subprocess.run(['pdftotext', '-layout', '-enc', 'UTF-8', str(source), str(directory / 'texto-layout.txt')],
                                check=True, capture_output=True, timeout=60)
                 pages = parse_bbox(directory / 'poppler.xml')
+                _, controls = xml_text(directory / 'poppler.xml')
             except (subprocess.CalledProcessError, subprocess.TimeoutExpired, ET.ParseError) as error:
                 failure = f'{type(error).__name__}: retorno={getattr(error, "returncode", None)}'
                 if getattr(error, 'stderr', None):
                     (directory / 'poppler-erros.txt').write_bytes(error.stderr)
-                engine = 'pypdf_layout_alternativo'
-                pages = extract_pypdf(source)
+                try:
+                    subprocess.run(['pdftohtml', '-xml', '-hidden', '-i', '-zoom', '1', str(source), str(directory / 'pdftohtml.xml')],
+                                   check=True, capture_output=True, timeout=60)
+                    pages, controls = parse_pdftohtml(directory / 'pdftohtml.xml')
+                    engine = 'pdftohtml_fragmentos_alternativo'
+                except (subprocess.CalledProcessError, subprocess.TimeoutExpired, ET.ParseError, ValueError) as secondary:
+                    alternative_failure = f'{type(secondary).__name__}: retorno={getattr(secondary, "returncode", None)}'
+                    engine = 'pypdf_layout_alternativo'
+                    pages = extract_pypdf(source)
                 (directory / 'texto-layout.txt').write_text('\f'.join(p['texto_bruto'] for p in pages), encoding='utf-8')
             for page in pages:
                 page['documento_sha256'] = digest
@@ -293,15 +379,19 @@ def extract(root):
                 extraction_status = 'revisar_ocr_ou_pagina_visual'
             metadata = {'documento_sha256': digest, 'ferramenta': version,
                         'motor_utilizado': engine, 'falha_motor_primario': failure,
-                        'artefato_poppler_valido': engine == 'poppler_bbox_layout',
-                        'coordenadas_disponiveis': engine == 'poppler_bbox_layout',
+                        'falha_motor_geometrico_alternativo': alternative_failure,
+                        'artefato_poppler_valido': engine == 'poppler_bbox_layout' and controls == 0,
+                        'controles_xml_substituidos': controls,
+                        'granularidade_coordenadas': 'palavra' if engine == 'poppler_bbox_layout' else (
+                            'fragmento_textual' if engine == 'pdftohtml_fragmentos_alternativo' else None),
+                        'coordenadas_disponiveis': engine != 'pypdf_layout_alternativo',
                         'extraido_em': now(), 'paginas': len(pages),
                         'palavras': sum(p['palavras'] for p in pages),
                         'paginas_texto_insuficiente': pending_pages,
                         'caracteres_substituicao': replacements,
                         'status': extraction_status,
                         'artefatos_sha256': {name: sha256(directory / name) for name in [
-                            'poppler.xml', 'texto-layout.txt', 'paginas.jsonl', 'normalizado.jsonl', 'poppler-erros.txt']
+                            'poppler.xml', 'pdftohtml.xml', 'texto-layout.txt', 'paginas.jsonl', 'normalizado.jsonl', 'poppler-erros.txt']
                             if (directory / name).exists()}}
             metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         summaries[doc['documento_id']] = {'documento_id': doc['documento_id'], **metadata,
@@ -352,6 +442,11 @@ def unique_index(rows, key):
 
 def verify_relations(root, documents):
     institutions = unique_index(read_csv(root / REGISTRY / 'instituicoes.csv'), 'instituicao_id')
+    historical = read_csv(root / REGISTRY / 'instituicoes-historico.csv')
+    if historical:
+        unique_index(historical, 'registro_ano_id')
+        for row in historical:
+            institutions.setdefault(row['instituicao_id'], row)
     processes = unique_index(read_csv(root / REGISTRY / 'processos.csv'), 'processo_id')
     applications = unique_index(read_csv(root / REGISTRY / 'aplicacoes.csv'), 'aplicacao_id')
     for process in processes.values():
@@ -413,17 +508,21 @@ def make_report(root):
               'paginas', 'palavras', 'sha256', 'url_origem']
     write_csv(root / 'reports/tabelas/cobertura-documentos.csv', rows, fields)
     count = sum(row['status_coleta'] == 'coletado' for row in rows)
+    unique_pdfs = len({row['sha256'] for row in rows if row['status_coleta'] == 'coletado'})
     extracted_count = sum(row['documento_id'] in extracts for row in rows)
+    annotations = read_csv(root / 'data/annotation/rotulos-humanos.csv')
+    annotated = sum(bool(r.get('anotador') and r.get('anotado_em') and r.get('regionalidade')) for r in annotations)
     lines = ['# Cobertura documental inicial', '',
-             f'Documentos previstos no piloto: **{len(rows)}**. Coletados: **{count}**. Com extração registrada: **{extracted_count}**.', '',
-             'Essas contagens descrevem somente os documentos selecionados para testar o procedimento. Não medem cobertura nacional, edições esperadas na década, incidência regional ou dificuldade das questões.', '',
+             f'Documentos registrados nesta versão: **{len(rows)}**. Coletados: **{count}**. Com extração registrada: **{extracted_count}**.', '',
+             f'Os {count} registros coletados correspondem a **{unique_pdfs} PDFs distintos por SHA-256**. Documentos compartilhados entre aplicações conservam os vínculos, sem duplicar o arquivo físico.', '',
+             'Essas contagens descrevem os documentos selecionados e localizados até esta versão. Não medem cobertura nacional, edições esperadas na década, incidência regional ou dificuldade das questões.', '',
              '| Documento | Tipo | Coleta | Páginas | Extração |',
              '| --- | --- | --- | --- | --- |']
     for row in rows:
         lines.append(f"| {row['documento_id']} | {row['tipo']} | {row['status_coleta']} | {row['paginas'] if row['paginas'] is not None else '—'} | {row['status_extracao']} |")
     lines.extend(['', 'A tabela CSV inclui os URLs e os hashes dos originais. `texto_extraido_nao_revisado` não significa seção disciplinar completa: a conferência de itens, imagens, gabaritos e retificações é uma etapa própria.', '',
                   'Páginas com menos de dez palavras são sinalizadas para inspeção visual/OCR; podem ser páginas de imagens ou em branco. O sinalizador não diagnostica sozinho um PDF digitalizado.', '',
-                  'Não há referência humana anotada nem avaliação da IA nesta versão. Não foram executadas chamadas pagas de IA.', '',
+                  f'Linhas com autor, data e regionalidade preenchidos: {annotated}. A referência humana exige auditoria e congelamento do teste; métricas de IA não foram executadas. Não foram feitas chamadas pagas de API de modelos pelo pipeline.', '',
                   'Reprodução: `uv run python scripts/pipeline.py relatorio`. A geração usa somente os registros locais; não requer rede ou IA.'])
     report = root / 'reports/cobertura-inicial.md'
     report.parent.mkdir(parents=True, exist_ok=True)
@@ -435,9 +534,13 @@ def make_report(root):
         inputs.append(inventory)
     inputs.extend(p for p in [root / REGISTRY / name for name in [
         'processos.csv', 'aplicacoes.csv', 'evidencias-programa.csv', 'cobertura-anual.csv',
-        'regras-segmentacao.json', 'segmentacoes.jsonl']] if p.exists())
+        'regras-segmentacao.json', 'segmentacoes.jsonl', 'instituicoes-historico.csv',
+        'reconciliacao-instituicoes.csv', 'fontes_inventario_historico.json',
+        'expansao-ufam-c2.json', 'expansao-demais-c2.json', 'pacote-revisao.json',
+        'fila-triagem-institucional.csv']] if p.exists())
     inputs.extend(p for p in [root / 'data/processed/questoes.csv', root / 'data/processed/gabaritos.csv',
-                              root / 'data/annotation/rotulos-humanos.csv'] if p.exists())
+                              root / 'data/annotation/rotulos-humanos.csv', root / 'data/annotation/configuracao.json',
+                              root / 'templates/revisao.html'] if p.exists())
     inputs.extend(sorted((root / 'scripts').glob('*.py')))
     inputs.extend(p for p in [root / name for name in ['.python-version', 'pyproject.toml', 'uv.lock',
                          'docs/protocolo.md', 'docs/decisoes.md', 'data/registry/triagem_ufam.json',
@@ -445,7 +548,7 @@ def make_report(root):
     outputs = [report, root / 'reports/tabelas/cobertura-documentos.csv']
     if study_report:
         outputs.append(study_report)
-    snapshot = {'versao': '0.1.0', 'tipo': 'cobertura_piloto_nao_corpus_analitico',
+    snapshot = {'versao': '0.2.0', 'tipo': 'cobertura_documental_nao_corpus_analitico_validado',
                 'data_corte_aplicacoes': '2026-11-11', 'fuso_corte': 'America/Manaus',
                 'entradas_sha256': {str(p.relative_to(root)): sha256(p) for p in inputs if p.exists()},
                 'saidas_sha256': {str(p.relative_to(root)): sha256(p) for p in outputs}}
@@ -462,6 +565,10 @@ def make_study_report(root):
     questions = read_csv(root / 'data/processed/questoes.csv')
     verify_relations(root, {r['documento_id']: r for r in read_jsonl(root / REGISTRY / 'documentos.jsonl')})
     keys = read_csv(root / 'data/processed/gabaritos.csv')
+    linked_keys = [r for r in keys if r['estado_oficial'] in {'alternativa_publicada', 'anulada'}]
+    historical = read_csv(root / REGISTRY / 'instituicoes-historico.csv')
+    reconciled = read_csv(root / REGISTRY / 'reconciliacao-instituicoes.csv')
+    proc = {r['processo_id']: r for r in processes}
     annotations = read_csv(root / 'data/annotation/rotulos-humanos.csv')
     human_labels = [r for r in annotations if r.get('anotador') and r.get('anotado_em') and r.get('regionalidade')]
     by_app = defaultdict(list)
@@ -473,7 +580,7 @@ def make_study_report(root):
     classes = Counter(r['disciplina'] for r in questions)
     complete = sum(r['alternativas_textuais_completas'] == 'True' for r in questions)
     lines = ['# História e Geografia da Amazônia nos vestibulares públicos', '',
-             'Relatório de implantação documental — versão 0.1.0. Referência: 11/11/2026, Manaus.', '',
+             'Relatório de implantação e ampliação documental — versão 0.2.0. Referência: 11/11/2026, Manaus.', '',
              '## Resumo', '',
              f'O inventário inicial reúne **{len(institutions)} IES da rede pública no Censo 2024**. A triagem inicial registra **{len(processes)} processos** de **{len({r["instituicao_id"] for r in processes})} IES**. O piloto segmentou **{len(questions)} ocorrências** em **{len(by_app)} cadernos**, sendo **{classes.get("historia", 0)} de História** e **{classes.get("geografia", 0)} de Geografia**.', '',
              'Essas quantidades descrevem o trabalho documental e os itens extraídos. Ainda não respondem qual é a incidência regional, o que mudou nas provas ou como a IA se compara a humanos. O estudo e o inventário histórico permanecem em andamento.', '',
@@ -484,40 +591,50 @@ def make_study_report(root):
     lines.extend(f'| {name} | {count} |' for name, count in sorted(regions.items()))
     lines.extend(['', 'Fonte: [microdados oficiais do Inep](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-da-educacao-superior). `data/registry/fontes_inventario.json` identifica membro, coleta e hashes. As 28 instituições de categoria Especial foram conservadas pelo campo de rede pública e exigem verificação da esfera administrativa.', '',
                   '## Evidências iniciais de programa', '',
-                  'O PSC/UFAM atende ao limiar documental de três anos no processo para cada disciplina, pelas evidências atualmente localizadas. História aparece em 2019, 2024, 2025 e 2026; Geografia em 2024, 2025 e 2026. O terceiro ano de Geografia inclui a etapa 2: isso não demonstra três anos de previsão na etapa 3. Fontes, páginas, retificações e revisão pendente estão nas tabelas de processos e evidências.', '',
-                  'Na UFRR, há dois anos de programa regional verificados (aplicações 2024 e 2025): caso auxiliar para o limiar de dois anos, ainda candidato ao corpus principal. UERR possui evidência em 2022. UEA apresenta pendências de calendário e acesso. As leituras iniciais de UEMA e UEPG não confirmaram previsão amazônica substantiva nas edições examinadas; a UNEMAT exige autenticação documental. Nenhum desses achados exclui automaticamente uma instituição inteira ou toda a década.', '',
+                  'A recorrência documental é registrada por processo e disciplina, sem somar evidências de disciplinas diferentes. A tabela mostra anos de aplicação efetiva sustentada; edições com data exata pendente não acrescentam anos por suposição.', '',
+                  '| Processo | Estado de triagem | Anos com previsão de História | Anos com previsão de Geografia |',
+                  '| --- | --- | --- | --- |'])
+    for process_id in ['ufam-psc', 'ufrr-integral', 'uerr-vestibular']:
+        if process_id in proc:
+            p = proc[process_id]
+            lines.append(f'| {process_id} | {p["estado_triagem"]} | {p.get("anos_previsao_historia", "[]")} | {p.get("anos_previsao_geografia", "[]")} |')
+    lines.extend(['',
+                  'As etapas permanecem separadas. Na UFAM, a ampliação identificou Geografia regional nas etapas 1/2 anteriores a 2024, enquanto programas E3 mais antigos contêm Geografia geral sem menção regional explícita identificada. Essas diferenças não são resultados de incidência nas questões nem efeito da reforma.', '',
+                  'UFRR permanece com dois anos de programa regional comprovados no levantamento atual; o terceiro ano continua pendente. UERR passa a ter três anos de previsão no processo (2022, 2025 e 2026), com mudança para a banca Cebraspe nos conjuntos recentes. UEA apresenta pendências de calendário e acesso. As leituras iniciais de UEMA e UEPG não confirmaram previsão amazônica substantiva nas edições examinadas; a UNEMAT exige autenticação documental. Nenhum achado exclui automaticamente a instituição inteira ou toda a década.', '',
                   'Essas decisões são triagem assistida por IA, com revisão humana pendente. `evidencias-programa.csv` contém pistas documentais, não o inventário integral de tópicos nem vínculos de cada questão ao programa.', '',
                   '## Acervo e integridade', '',
                   '| Aplicação do piloto | Data efetiva registrada | Etapa | História | Geografia |',
                   '| --- | --- | --- | ---: | ---: |'])
-    for app_id, items in sorted(by_app.items(), key=lambda pair: (apps[pair[0]]['data_aplicacao'], pair[0])):
+    for app_id, items in sorted(by_app.items(), key=lambda pair: (apps[pair[0]].get('data_aplicacao') or apps[pair[0]].get('data_prevista') or '9999', pair[0])):
         app = apps[app_id]
         counts = Counter(r['disciplina'] for r in items)
-        lines.append(f'| {app_id} | {app["data_aplicacao"]} | {app["etapa"]} | {counts.get("historia", 0)} | {counts.get("geografia", 0)} |')
+        shown_date = app['data_aplicacao'] or ('Pendente; prevista ' + app.get('data_prevista', ''))
+        lines.append(f'| {app_id} | {shown_date} | {app["etapa"]} | {counts.get("historia", 0)} | {counts.get("geografia", 0)} |')
     lines.extend(['',
                   f'**{complete}/{len(questions)}** itens apresentam a estrutura textual A–E. Os demais exigem revisão de alternativas gráficas ou segmentação. Essa conferência estrutural não garante integridade de enunciados, imagens, legendas ou textos compartilhados. Todos os itens do piloto mantêm `apto_denominador_validado=false`.', '',
-                  f'Registros de gabarito vinculados: **{len(keys)}**. A extração de resposta oficial não é validação humana do item. Anulações permanecem identificadas; não são descartadas da cobrança aplicada.', '',
-                  'Originais são preservados por SHA-256. Extrações bruta e normalizada ficam em camadas separadas, com página e coordenadas quando disponíveis. Falhas reais do Poppler acionam pypdf e são registradas; há caracteres danificados em editais recentes e páginas visuais sinalizadas. Os materiais experimentados têm camada digital; processamento de documentos escaneados e OCR ainda exige validação própria.', '',
+                  f'Respostas ou anulações oficiais identificadas: **{len(linked_keys)}/{len(keys)}** registros de gabarito. Registros não identificados permanecem pendentes. A extração de resposta oficial não é validação humana do item. Anulações não são descartadas da cobrança aplicada.', '',
+                  'Originais são preservados por SHA-256. Extrações bruta e normalizada ficam separadas, com página e coordenadas quando disponíveis. Falhas reais de bbox-layout acionam pdftohtml com geometria de fragmentos; pypdf permanece como alternativa final sem coordenadas. Controles XML proibidos são substituídos por U+FFFD somente na camada de leitura, com contagem e original intacto. Há caracteres danificados e páginas visuais sinalizadas. OCR de documentos escaneados ainda exige validação própria.', '',
                   'O edital PSC2027 E3 registra aplicação futura em 29/11/2026, depois do corte. Não entra no corpus de questões desta versão. Ausência de caderno em um processo não vira zero questões. A grade `cobertura-anual.csv` registra investigação pendente, sem afirmar que houve prova em cada célula.', '',
                   'Na UFRR, PI e PSS-E3 compartilham caderno, mas o subconjunto para pontuação PSS é diferente. O piloto representa PI e não duplica o mesmo documento como outra observação agregada.', '',
                   '## Comparação temporal planejada', '',
-                  '| Estrato com questões segmentadas | 2017–2021: cadernos | 2022–2023: cadernos | 2024: cadernos | 2025–2026: cadernos | Contraste de incidência |',
-                  '| --- | ---: | ---: | ---: | ---: | --- |'])
+                  '| Estrato com questões segmentadas | 2017–2021: cadernos | 2022–2023: cadernos | 2024: cadernos | 2025–2026: cadernos | Data pendente | Contraste de incidência |',
+                  '| --- | ---: | ---: | ---: | ---: | ---: | --- |'])
     strata = defaultdict(Counter)
     for app_id in by_app:
         app = apps[app_id]
         strata[(app['instituicao_sigla'], app['processo_id'], app['etapa'])][app['periodo_calendario']] += 1
     for (sigla, process, stage), counts in sorted(strata.items()):
-        values = [str(counts[b]) if counts[b] else 'Sem caderno segmentado' for b in ['2017-2021', '2022-2023', '2024', '2025-2026']]
+        values = [str(counts[b]) if counts[b] else 'Sem caderno segmentado' for b in ['2017-2021', '2022-2023', '2024', '2025-2026', '']]
         lines.append(f'| {sigla} / {process} / {stage} | ' + ' | '.join(values) + ' | Não calculado |')
     lines.extend(['',
-                  'O contraste obrigatório será 2017–2021 versus 2024–2026, com 2022–2023 fora desse contraste e posterior separado em 2024 e 2025–2026. O piloto UFAM E3 contém cadernos dos dois lados, mas ainda não tem classificações regionais e denominadores validados. Os outros estratos não simulam uma comparação pareada inexistente. Não foi estimado efeito causal da reforma.', '',
+                  'O contraste obrigatório será 2017–2021 versus 2024–2026, com 2022–2023 fora desse contraste e posterior separado em 2024 e 2025–2026. Ainda faltam classificações regionais e denominadores validados. As datas pendentes ficam fora do contraste; estratos com observações de um lado só não simulam comparação pareada. Na pandemia, duas edições das etapas 1/2 UFAM ocorreram em 2022 para séries cursadas em 2020 e 2021; aplicação, edição e ano letivo não são intercambiáveis. Não foi estimado efeito causal da reforma.', '',
                   'Sensibilidades pendentes: limiar de dois anos, exclusão de 2026 (2017–2025, nove anos), painel comparável versus acervo total, itens interdisciplinares e versão válida para pontuação. Ainda não há indicador final a submeter a essas sensibilidades.', '',
                   '## Avaliação da IA', '',
                   f'Linhas com autor, data e regionalidade preenchidos na fila: **{len(human_labels)}**. O preenchimento da fila é uma etapa de trabalho e ainda requer auditoria; linhas vazias não são anotações. Não existe teste humano congelado, baseline avaliado ou métricas de extração/classificação nesta versão. F1, precisão, revocação e custo comparativo permanecem indisponíveis.', '',
-                  'As investigações e inspeções do Codex foram identificadas como assistência de IA. O pipeline não fez chamadas pagas de API de modelos; custos da assistência no aplicativo não foram quantificados. A metodologia futura está em `docs/manual-anotacao.md`.', '',
+                  'Matheus foi definido pelo usuário como anotador humano. O caderno local mostra regiões originais do PDF e não expõe gabaritos nem sugestões de regionalidade. Definir o anotador e preparar a fila não preenche rótulos. As investigações e inspeções do Codex são assistência de IA, não referência humana. O pipeline não fez chamadas pagas de API de modelos; custos da assistência no aplicativo não foram quantificados.', '',
                   '## Limitações e reuso', '',
-                  'Faltam reconciliação institucional histórica, triagem da maior parte das IES, cobertura da década, OCR validado, revisão dos itens, grupos de equivalência, tópicos completos, classificação, avaliação humana e análise substantiva. Não há exportação liberada para o banco educacional. Direitos dos originais e imagens ainda precisam ser examinados por documento.', '',
+                  f'O histórico institucional agora contém {len(historical)} observações anuais e {len(reconciled)} códigos públicos ou Especiais candidatos em 2017–2024. A seleção respeita os campos disponíveis em cada ano: 2017–2022 não têm TP_REDE na tabela IES; Especiais desses anos permanecem candidatos com natureza pendente. Os 17 códigos ausentes da fotografia 2024 e as mudanças textuais observadas exigem fontes jurídicas/institucionais, não inferências automáticas de criação ou extinção.', '',
+                  'Faltam mudanças institucionais 2025–2026, reconciliação jurídica, triagem da maior parte das IES, cobertura da década, OCR validado, revisão dos itens, grupos de equivalência, tópicos completos, classificação, avaliação humana e análise substantiva. Não há exportação liberada para o banco educacional. Direitos dos originais e imagens precisam ser examinados por documento.', '',
                   'Os metadados e referências estão preparados para continuidade. Originais, imagens e enunciados permanecem locais enquanto não houver condição de redistribuição demonstrada; o Git conserva código, metadados e relatório.', '',
                   '## Reprodução', '',
                   'Use a sequência do README. `uv run python scripts/pipeline.py relatorio` reconstrói este relatório sem rede ou IA a partir dos registros versionados. `reports/manifesto-cobertura.json` registra hashes das entradas e saídas. A obtenção e nova extração dos originais são modos separados, dependentes da disponibilidade das fontes oficiais.', '',

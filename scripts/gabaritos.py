@@ -21,10 +21,19 @@ import re
 import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 # Faixas do piloto com disciplina conhecida. Línguas têm colunas diferentes e
 # não recebem uma resposta por conveniência usando a primeira coluna.
-UFAM_SUPPORTED = {2: set(range(17, 29)), 3: set(range(19, 31))}
+UFAM_SUPPORTED = {1: set(range(17, 29)), 2: set(range(17, 29)), 3: set(range(19, 31))}
+# Estes quatro arquivos foram identificados como definitivos no índice oficial
+# legado. O cabeçalho nomeia o projeto de ingresso, que difere da edição nas
+# etapas 1 e 2. Só a igualdade dos bytes conhecidos autoriza essa leitura.
+UFAM_LEGACY_VERIFIED = {
+    (2018, 3): {'projeto': 2018, 'sha256': '7480b62980e531574ae8276a4ea1068b9bd1b8534044a90085d08e40da923a23'},
+    (2019, 1): {'projeto': 2021, 'sha256': '2d7bf8dfdaf7cd5035038b804e53887252f981f598a3093cd05f5621a98c02db'},
+    (2019, 2): {'projeto': 2020, 'sha256': 'c4e2b1116803a1d6896c3e8ee305a93a50601a3897a800d33b7b1e32f2b7c62d'},
+    (2019, 3): {'projeto': 2019, 'sha256': '72902781ecb6d5675e93ecf70de7fe6125d51562aadfac2c014dd8cbc33dcf41'},
+}
 FIELDS = ['ocorrencia_id', 'aplicacao_id', 'numero_questao',
           'disciplina', 'alternativa_oficial', 'estado_oficial',
           'marcador_oficial', 'documento_id', 'documento_sha256', 'pagina_pdf',
@@ -67,20 +76,34 @@ def answer(token, page, section):
             'secao_gabarito': section}
 
 
-def parse_ufam(pages, year, stage, requested):
+def parse_ufam(pages, year, stage, requested, *, source_sha256=None):
     """Restringe os números ao alvo para não confundir opções de língua."""
-    eligible = [(page, normalized(text)) for page, text in pages
-                if 'GABARITO DEFINITIVO' in normalized(text)
-                and re.search(rf'\bPSC\s*{year}\b', normalized(text))
-                and re.search(rf'\b{stage}A\s+ETAPA\b', normalized(text))]
+    legacy = UFAM_LEGACY_VERIFIED.get((year, stage))
+    legacy_verified = legacy is not None and source_sha256 == legacy['sha256']
+    eligible = []
+    for page, original in pages:
+        text = normalized(original)
+        stage_match = re.search(rf'\b{stage}A\s+ETAPA\b', text)
+        current_header = ('GABARITO DEFINITIVO' in text
+                          and re.search(rf'\bPSC\s*{year}\b', text))
+        project_header = (legacy_verified and 'GABARITO' in text
+                          and re.search(r'\bPSC\b', text)
+                          and re.search(rf'\bPROJETO\s*{legacy["projeto"]}\b', text))
+        if stage_match and (current_header or project_header):
+            eligible.append((page, text))
     if len(eligible) != 1:
         return {}, 'pagina_ufam_ano_etapa_nao_unica'
     page, text = eligible[0]
     candidates = defaultdict(list)
-    for number, token in re.findall(r'(?<!\d)(\d{1,2})\.\s*(ANULADA|NULA|[A-E])\b', text):
+    section = f'PSC {year}, {stage}ª Etapa'
+    if legacy_verified:
+        section += f'; cabeçalho Projeto {legacy["projeto"]}, vínculo ao índice oficial conferido por hash'
+    for number, token in re.findall(r'(?<!\d)(\d{1,2})\.?\s*(ANULADA|ANULAR|NULA|[A-E])\b', text):
         number = int(number)
         if number in requested and number in UFAM_SUPPORTED.get(stage, set()):
-            candidates[number].append(answer(token, page, f'PSC {year}, {stage}ª Etapa'))
+            result = answer('ANULADA' if token == 'ANULAR' else token, page, section)
+            result['marcador_oficial'] = token
+            candidates[number].append(result)
     result = {number: entries[0] for number, entries in candidates.items()
               if len(entries) == 1 and 1 <= number <= 54}
     problem = '' if set(result) == set(requested) else 'numero_ausente_ambiguo_ou_fora_da_faixa'
@@ -135,6 +158,49 @@ def load_pages(root, document, extraction):
     return list(enumerate(parts, start=1))
 
 
+def parse_uerr(pages, year, requested):
+    """Lê a matriz Cebraspe verificada, sem escolher uma língua estrangeira."""
+    supported = {
+        2025: ('066_UERR_001_01', set(range(55, 73))),
+        2026: ('225_UERR_001_01', set(range(19, 37))),
+    }
+    if year not in supported or not requested.issubset(supported[year][1]):
+        return {}, 'ano_ou_faixa_uerr_sem_regra_verificada'
+    code, _ = supported[year]
+    eligible = [(page, normalized(text)) for page, text in pages
+                if 'GABARITOS OFICIAIS DEFINITIVOS' in normalized(text)
+                and code in normalized(text)
+                and re.search(rf'PROCESSO\s+SELETIVO\s+VESTIBULAR\s*(?:[-–—]\s*)?{year}\b', normalized(text))]
+    if len(eligible) != 1:
+        return {}, 'gabarito_uerr_ano_versao_nao_unico'
+    page, text = eligible[0]
+    pattern = (r'^[ \t]*QUESTAO[ \t]+([0-9 \t]+)\r?\n'
+               r'[ \t]*GABARITO[ \t]+([A-EX0 \t]+)[ \t]*$')
+    pairs = re.findall(pattern, text, re.MULTILINE)
+    expected_rows = [list(range(1, 19)) + [10, 11],
+                     list(range(12, 32)), list(range(32, 52)),
+                     list(range(52, 72)), [72] + [0] * 19]
+    if len(pairs) != len(expected_rows):
+        return {}, 'matriz_uerr_linhas_ausentes_ou_ambiguas'
+    found = {}
+    for (number_text, token_text), expected in zip(pairs, expected_rows):
+        numbers, tokens = [int(value) for value in number_text.split()], token_text.split()
+        if numbers != expected or len(tokens) != len(numbers):
+            return {}, 'matriz_uerr_numeracao_ou_quantidade_incompativel'
+        for number, token in zip(numbers, tokens):
+            if number == 0 and token != '0':
+                return {}, 'matriz_uerr_preenchimento_zero_inconsistente'
+            if number not in requested:
+                continue
+            if token not in set('ABCDEX') or number in found:
+                return {}, 'numero_uerr_ausente_ambiguo_ou_resposta_desconhecida'
+            result = answer('ANULADA' if token == 'X' else token, page, f'Gabarito definitivo UERR {year}, {code}')
+            result['marcador_oficial'] = token
+            found[number] = result
+    problem = '' if set(found) == requested else 'numero_uerr_ausente_ou_ambiguo'
+    return found, problem
+
+
 def link(root=ROOT):
     root = Path(root).resolve()
     with (root / 'data/processed/questoes.csv').open(encoding='utf-8', newline='') as stream:
@@ -162,10 +228,14 @@ def link(root=ROOT):
             requested = {int(item['numero_questao']) for item in items}
             ufam = re.fullmatch(r'ufam-psc(\d{4})-e([123])', application_id)
             ufrr = re.fullmatch(r'ufrr-vestibular(\d{4})-pi', application_id)
+            uerr = re.fullmatch(r'uerr-vestibular(\d{4})', application_id)
             if ufam:
-                found, problem = parse_ufam(pages, *map(int, ufam.groups()), requested)
+                found, problem = parse_ufam(pages, *map(int, ufam.groups()), requested,
+                                            source_sha256=source['sha256'])
             elif ufrr:
                 found, problem = parse_ufrr_pi(pages, int(ufrr.group(1)), requested)
+            elif uerr:
+                found, problem = parse_uerr(pages, int(uerr.group(1)), requested)
             else:
                 problem = 'layout_sem_regra_verificada'
         for item in sorted(items, key=lambda row: int(row['numero_questao'])):

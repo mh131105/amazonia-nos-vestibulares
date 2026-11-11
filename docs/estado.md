@@ -1,46 +1,49 @@
 # Estado do estudo e continuidade
 
-Ciclo 1 — 11/11/2026. Classificação: **progresso**, com alterações de dados, código, evidências e documentação. A meta do estudo permanece ativa; este ciclo não conclui o projeto nem o levantamento nacional.
+Ciclo 2 — 11/11/2026. Classificação do ciclo anterior: **progresso**, verificado no commit `e853054`. Este ciclo também produz **progresso**; o estudo permanece ativo e incompleto.
 
-## Entrega verificada do ciclo
+## Entrega deste ciclo
 
-Foi implantado um procedimento único para História e Geografia: inventário nacional inicial → triagem → coleta → extração por página → segmentação por layout → vínculo a gabaritos → fila de revisão → relatório de cobertura.
+- Inventário histórico oficial de 2017–2024: **2.459 observações anuais, 334 códigos públicos ou Especiais candidatos**, dos quais 331 têm indicação pública em algum ano. A fotografia inicial de 2024, com 317 IES, foi preservada.
+- Fila nacional de 334 códigos: sete IES com triagem parcial e as demais ainda sem triagem de processos. Nenhuma IES foi declarada esgotada por ter um processo examinado.
+- **121 vínculos documentais, correspondentes a 120 PDFs oficiais distintos**, com hash, origem e extração; **26 aplicações identificadas**, incluindo uma futura no corte e oito com data exata ainda pendente.
+- **23 cadernos e 300 ocorrências**, 150 de História e 150 de Geografia. São 299 estruturas textuais A–E e um caso de alternativas gráficas ainda pendente.
+- **300 vínculos de gabarito**: 290 alternativas publicadas e dez anulações. A revisão humana e a conferência de versões continuam pendentes.
+- Matheus foi definido pelo usuário como anotador. O caderno local de revisão reúne 300 itens e 372 regiões de origem, sem gabaritos ou predições de regionalidade. A fila real continua sem rótulos humanos.
+- **90 testes** passaram. Foram verificados hashes, relações, origem de caixas geométricas, importação de anotações e preservação das versões. O teste interativo usa somente uma página fictícia e não preenche os dados reais.
 
-- 317 IES da rede pública no cadastro Inep de 2024, nas 27 UFs e cinco regiões; 28 têm categoria Especial e esfera a verificar.
-- 18 processos em sete IES registrados na triagem inicial; 22 evidências disciplinares de programa.
-- Nove aplicações identificadas no registro, incluindo uma futura no corte. Seis têm cadernos coletados e segmentados; as outras não são tratadas como ausência de cobrança.
-- 24 PDFs oficiais coletados, com hashes, origem e extração registrada. Esse conjunto inclui a evidência de uma aplicação futura, não suas questões.
-- 84 ocorrências, 42 de cada disciplina; 83 com estrutura textual A–E e uma com alternativas gráficas pendentes.
-- 84 vínculos a gabaritos oficiais: 83 alternativas publicadas e uma anulação, UFAM PSC2026 E2, questão 27. Conferência de versão e revisão humana pendentes.
-- Fila de revisão com 84 linhas sem rótulos humanos, acompanhada de manual. Nenhuma linha vazia é contada como referência humana.
-- Relatórios e tabelas reconstruídos a partir dos registros, com manifesto de hashes.
+O acervo atual inclui UFAM, UFRR e UERR. UERR alcançou três anos de previsão regional no processo (2022, 2025 e 2026). UFRR continua com dois anos confirmados: fontes históricas oficiais estão indisponíveis e não foram substituídas por espelhos não autenticados.
 
-As verificações incluem integridade dos originais e extrações, chaves e relações, datas, faixas de questões, alternativas, reconstrução da leitura por colunas, preservação de anulações, recuperação de arquivos ausentes e rejeição de atualizações silenciosas. Os testes usam exclusivamente dados sintéticos temporários. O procedimento também foi reexecutado no acervo real e os artefatos determinísticos foram comparados por hash.
+## Achados que afetam a comparação
 
-## Pendências diante do protocolo completo
+PSC2021 E1/E2 ocorreu em 06/03/2022 para séries cursadas em 2020; PSC2022 E1/E2 ocorreu em 23/10/2022 para séries de 2021. Uma célula anual admite múltiplas aplicações. Ano letivo, edição, ingresso e data de aplicação permanecem separados.
 
-| Entrega | Estado e critério restante |
-| --- | --- |
-| Protocolo e decisões | Escopo atualizado e original preservado. Referências normativas S2–S6 e histórico de implementação local ainda precisam de auditoria com URLs verificáveis. |
-| Inventário nacional | Fotografia 2024 concluída; reconciliar 2017–2023, criações/alterações 2025–2026, categoria Especial e fontes históricas/e-MEC. |
-| Seleção de processos | Triagem inicial, com evidências e lacunas; investigar a maior parte das IES e demonstrar o alcance da busca antes de qualquer alegação de censo. |
-| Cobertura documental | Piloto verificado; completar todas as aplicações dos processos elegíveis na década. A grade anual contém células de investigação, não provas presumidas. |
-| Extração | PDFs digitais e duas organizações institucionais experimentadas; corrigir caracteres danificados com fonte visual e validar OCR em documentos escaneados reais. |
-| Itens e tópicos | Segmentação inicial concluída; conferir texto, figuras, alternativas, gabaritos, equivalências e tópicos integrais dos programas. |
-| Referência humana | Ainda não existe; revisar a fila e obter anotações identificadas. Meta de pelo menos 200 itens quando o corpus permitir. |
-| Avaliação da IA | Pendente: baseline, partições por prova/grupos equivalentes, teste humano congelado, prompts versionados, métricas e erros. Orçamento de API não definido. |
-| Análise substantiva | Pendente: incidência, temas, vínculo ao programa, demandas, contraste 2017–2021 versus 2024–2026 e sensibilidades. Os relatórios atuais são de implantação e cobertura. |
-| Relatório público | Rascunho legível e reproduzível no repositório local. Publicação externa, séries finais, figuras e conclusões dependem dos dados e revisões. |
-| Exportação educacional | Nenhum item liberado; exige completude, gabarito verificado, revisão e condições de uso compatíveis. |
+A ampliação encontrou Geografia regional nas etapas 1/2 anteriores a 2024 e programas sem previsão amazônica explícita em seções examinadas. Esses achados documentais não são incidência de questões nem efeito da reforma. As oito datas pendentes não entram como datas observadas no contraste.
+
+UERR mudou de banca e de organização das disciplinas. Banca e formato são preservados no registro. Os 17 códigos históricos não encontrados em 2024 e os 35 com diferenças textuais não são automaticamente instituições extintas ou mudanças jurídicas comprovadas.
+
+## Revisão por Matheus
+
+Abra `data/annotation/revisao/index.html` ou o servidor local do README. Confira o PDF, salve suas anotações e exporte o JSON para guardar cópia. `scripts/importar_anotacoes.py` valida e incorpora o arquivo, preservando versões anteriores. Não há anotação humana inferida a partir da configuração do nome.
+
+A anotação é necessária para a referência humana e a avaliação, mas ainda há trabalho documental independente. Não existe teste humano congelado, baseline avaliado ou métricas de IA. Nenhum indicador de incidência foi publicado nem item liberado ao banco educacional.
+
+## Pendências do protocolo completo
+
+1. Completar mudanças institucionais 2025–2026, e-MEC/fontes históricas, natureza dos Especiais e vínculos jurídicos entre códigos.
+2. Triar os processos dos demais códigos da fila nacional e ampliar casos fora da Região Norte. As leituras de UEMA, UNEMAT e UEPG são parciais; não excluem instituições inteiras.
+3. Corroborar oito datas efetivas e auditar as retificações já coletadas; completar todas as etapas e aplicações da década, incluindo anos sem previsão regional.
+4. Resolver UFRR/UEA/UERR antigos por alternativas oficiais autorizadas, sem contornar controles de acesso.
+5. Auditar as referências normativas S2–S6 com URLs e implementação local; calendário escolar não prova alteração simultânea nas provas.
+6. Validar OCR em PDFs digitalizados reais e revisar enunciados, figuras, alternativas, gabaritos e textos compartilhados.
+7. Completar tópicos de programa, taxonomia e equivalência de conteúdos. Obter referência humana, partições por prova/grupo e teste congelado antes dos ajustes finais.
+8. Avaliar extração, detecção, temas e vínculos contra humanos e método simples. Orçamento de API permanece indefinido; o pipeline não fez chamadas pagas de modelos.
+9. Calcular indicadores com denominadores íntegros, contraste temporal e sensibilidades. Publicação externa, relatório final e exportação educacional dependem das revisões, cobertura e direitos.
 
 ## Próxima ação
 
-1. Importar e reconciliar os cadastros nacionais históricos, preservando o inventário de 2024 como fotografia com fonte e ano próprios.
-2. Expandir aplicações e documentos do PSC/UFAM em todas as etapas e anos; obter o terceiro ano de programa da UFRR e resolver as pendências documentais UEA/UERR por alternativas públicas autorizadas.
-3. Auditar mais processos fora da Região Norte, seguindo a fila nacional; não restringir a investigação aos casos encontrados neste piloto.
-4. Revisar os itens piloto e registrar anotações humanas. Preparar agrupamento de equivalências e teste antes dos ajustes finais da classificação.
-5. Só depois calcular indicadores com denominadores íntegros e comparar a IA à referência humana.
+Matheus pode começar a anotação no caderno. Em paralelo, o próximo ciclo documental deve corroborar as datas pendentes, auditar retificações e avançar na fila nacional, especialmente os códigos históricos ausentes em 2024 e os processos fora do Norte. A falta de rótulos humanos não deve interromper esse trabalho independente.
 
-## Retomada
+## Retomada e reprodução
 
-Leia este arquivo, `docs/decisoes.md` e os dois relatórios em `reports/`. Execute a verificação e os testes do README. Confira `git status` antes de modificar dados; rótulos humanos preenchidos devem ser preservados. O acervo local está ignorado no Git e pode ser recuperado pelos comandos documentados, sujeito à disponibilidade e à identidade dos arquivos oficiais.
+Leia as decisões, os relatórios atuais e `reports/verificacao-ciclo2.json`. Os comandos estão no README. `reports/verificacao-ciclo1.json` é evidência histórica da versão do commit `e853054`, não uma validação do manifesto atual. Confira `git status` e preserve anotações preenchidas antes de qualquer modificação.

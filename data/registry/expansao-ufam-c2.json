@@ -1,0 +1,1701 @@
+{
+  "versao": "0.2.0",
+  "data_triagem": "2026-11-11",
+  "responsavel": "Codex - triagem assistida por IA",
+  "revisao_humana": "pendente",
+  "status_entrega": "triagem_ampliada_com_pendencias_explicitas",
+  "janela_aplicacoes": [
+    "2017-01-01",
+    "2026-11-11"
+  ],
+  "fonte_inventario": "https://antigocompec.ufam.edu.br/psc.htm",
+  "aplicacoes": [
+    {
+      "aplicacao_id": "ufam-psc2018-e3",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "3",
+      "edicao": "PSC2018 - 3ª Etapa - Projeto 2018",
+      "ano_ingresso": 2018,
+      "serie_alvo": 3,
+      "ano_serie_alvo": 2017,
+      "data_publicacao_edital": "2017-07-24",
+      "data_aplicacao": "2017-12-03",
+      "data_aplicacao_prevista": null,
+      "ano_aplicacao": 2017,
+      "situacao": "aplicada_documentos_localizados",
+      "fonte_landing": "https://antigocompec.ufam.edu.br/psc.htm",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/Edital_56_2017_PSC2018-3Etapa.pdf",
+          "titulo": "Abertura: Edital nº 56/2017",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "prova",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/prova_psc2018_etapa3.pdf",
+          "titulo": "Prova 3ª Etapa",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/gabarito_psc_2018_et3.pdf",
+          "titulo": "Gabarito Definitivo - 3ª Etapa",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/Aviso_Retificacao_05_PSC2018-56_2017.pdf",
+          "titulo": "Retificação: Aviso de Retificação 05",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/Aviso_Retificacao_Acrescimo_04_PSC2018-56_2017.pdf",
+          "titulo": "Retificação: Aviso de Retificação e Acréscimo 04",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/Aviso_Retificacao_Acrescimo_03_PSC2018-56_2017.pdf",
+          "titulo": "Retificação: Aviso de Retificação e Acréscimo 03",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/Aviso_Retificacao_02_PSC2018-56_2017.pdf",
+          "titulo": "Retificação: Aviso de Retificação 02",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/Aviso_Retificacao_01_PSC2018-54_55_56_2017.pdf",
+          "titulo": "Aviso de Retificação 01 (comum às etapas)",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/Edital_56_2017_PSC2018-3Etapa.pdf",
+        "pagina_pdf": 29,
+        "localizacao": "Cronograma, página PDF 29",
+        "natureza": "Cronograma 03/12/2017 corroborado por notícia institucional de 13/12/2017 que diz que as três etapas ocorreram em 03 de dezembro. A notícia chama a edição de PSC2017, divergindo do edital PSC2018; preservar inconsistência de nomenclatura.",
+        "fonte_corrobora": "https://antigo.ufam.edu.br/2013-04-29-19-37-05/arquivo-de-noticias/7471-compec-divulga-gabaritos-definitivos-do-psc-2017"
+      },
+      "revisao_humana": "pendente",
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/Edital_56_2017_PSC2018-3Etapa.pdf",
+          "paginas_pdf": [
+            26
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Zona Franca de Manaus",
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2018/3_ETAPA/Edital_56_2017_PSC2018-3Etapa.pdf",
+          "paginas_pdf": [
+            26,
+            27
+          ],
+          "previsao_regional": "nao_identificada_no_programa_examinado",
+          "trecho_curto": null,
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 19,
+          "numero_final": 24,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 25,
+          "numero_final": 30,
+          "quantidade_prevista": 6
+        }
+      ]
+    },
+    {
+      "aplicacao_id": "ufam-psc2019-e1",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "1",
+      "edicao": "PSC2019 - 1ª Etapa - Projeto 2021",
+      "ano_ingresso": 2021,
+      "serie_alvo": 1,
+      "ano_serie_alvo": 2018,
+      "data_publicacao_edital": "2018-07-27",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista": "2018-12-02",
+      "ano_aplicacao": null,
+      "situacao": "aplicacao_ocorrida_data_exata_a_corrobora",
+      "fonte_landing": "https://antigocompec.ufam.edu.br/psc.htm",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/Edital_62_PSC2019_1Etapa.pdf",
+          "titulo": "Abertura: Edital Nº 62 de 2018",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "prova",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/prova_psc2019_etapa1.pdf",
+          "titulo": "Prova - 1ª Etapa",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/gabarito_psc2021_et1.pdf",
+          "titulo": "Gabarito Definitivo - 1ª Etapa",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/AVISO_RET_02_EDITAL62_PSC1ETAPA.pdf",
+          "titulo": "Aviso de Retificação Nº 02 do Edital Nº 62 de 2018",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/AVISO_RET_ACR_01_EDITAL62_PSC1ETAPA.pdf",
+          "titulo": "Aviso de Retificação e Acréscimo Nº 01 do Edital Nº 62 de 2018",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/Edital_62_PSC2019_1Etapa.pdf",
+        "pagina_pdf": 14,
+        "localizacao": "Cronograma, página PDF 14",
+        "natureza": "Cronograma; caderno e gabarito posteriores demonstram aplicação, mas não datam o evento no próprio caderno."
+      },
+      "revisao_humana": "pendente",
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/Edital_62_PSC2019_1Etapa.pdf",
+          "paginas_pdf": [
+            10,
+            11
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Sociedades indígenas da Amazônia",
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/Edital_62_PSC2019_1Etapa.pdf",
+          "paginas_pdf": [
+            11
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "O extrativismo mineral no Amazonas",
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ]
+    },
+    {
+      "aplicacao_id": "ufam-psc2019-e2",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "2",
+      "edicao": "PSC2019 - 2ª Etapa - Projeto 2020",
+      "ano_ingresso": 2020,
+      "serie_alvo": 2,
+      "ano_serie_alvo": 2018,
+      "data_publicacao_edital": "2018-07-27",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista": "2018-12-02",
+      "ano_aplicacao": null,
+      "situacao": "aplicacao_ocorrida_data_exata_a_corrobora",
+      "fonte_landing": "https://antigocompec.ufam.edu.br/psc.htm",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/Edital_63_PSC2019_2Etapa.pdf",
+          "titulo": "Abertura: Edital Nº 63 de 2018",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "prova",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/prova_psc2019_etapa2.pdf",
+          "titulo": "Prova - 2ª Etapa",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/gabarito_psc2020_et2.pdf",
+          "titulo": "Gabarito Definitivo - 2ª Etapa",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/AVISO_RET_02_EDITAL63_PSC2ETAPA.pdf",
+          "titulo": "Aviso de Retificação Nº 02 do Edital Nº 63 de 2018",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/AVISO_RET_ACR_01_EDITAL63_PSC2ETAPA.pdf",
+          "titulo": "Aviso de Retificação e Acréscimo Nº 01 do Edital Nº 63 de 2018",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/Edital_63_PSC2019_2Etapa.pdf",
+        "pagina_pdf": 14,
+        "localizacao": "Cronograma, página PDF 14",
+        "natureza": "Cronograma; caderno e gabarito posteriores demonstram aplicação, mas não datam o evento no próprio caderno."
+      },
+      "revisao_humana": "pendente",
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/Edital_63_PSC2019_2Etapa.pdf",
+          "paginas_pdf": [
+            10,
+            11
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "A Conquista da Amazônia",
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/Edital_63_PSC2019_2Etapa.pdf",
+          "paginas_pdf": [
+            11,
+            12
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Amazônia como uma grande região natural",
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ]
+    },
+    {
+      "aplicacao_id": "ufam-psc2019-e3",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "3",
+      "edicao": "PSC2019 - 3ª Etapa - Projeto 2019",
+      "ano_ingresso": 2019,
+      "serie_alvo": 3,
+      "ano_serie_alvo": 2018,
+      "data_publicacao_edital": "2018-07-27",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista": "2018-12-02",
+      "ano_aplicacao": null,
+      "situacao": "aplicacao_ocorrida_data_exata_a_corrobora",
+      "fonte_landing": "https://antigocompec.ufam.edu.br/psc.htm",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/Edital_64_PSC2019_3Etapa.pdf",
+          "titulo": "Abertura: Edital nº 64 de 2018",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "prova",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/prova_psc2019_etapa3.pdf",
+          "titulo": "Prova - 3ª Etapa",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/gabarito_psc2019_et3.pdf",
+          "titulo": "Gabarito Definitivo - 3ª Etapa",
+          "origem_oficial": true
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/AVISO_RET_04_EDITAL64_PSC3ETAPA.pdf",
+          "titulo": "Aviso de Retificação Nº 04 do Edital Nº 64 de 2018",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/AVISO_RET_03_EDITAL64_PSC3ETAPA.pdf",
+          "titulo": "Aviso de Retificação Nº 03 do Edital Nº 64 de 2018",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/AVISO_RET_ACR_02_EDITAL64_PSC3ETAPA.pdf",
+          "titulo": "Aviso de Retificação e Acréscimo Nº 02 do Edital Nº 64 de 2018",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/Edital_64_PSC2019_3Etapa_Aviso_Retificacao_Acrescimo_01.pdf",
+          "titulo": "Aviso de Retificação e Acréscimo nº 01 do Edital nº 64 de 2018",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/Edital_64_PSC2019_3Etapa.pdf",
+        "pagina_pdf": 29,
+        "localizacao": "Cronograma, página PDF 29",
+        "natureza": "Cronograma; caderno e gabarito posteriores demonstram aplicação, mas não datam o evento no próprio caderno."
+      },
+      "revisao_humana": "pendente",
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/Edital_64_PSC2019_3Etapa.pdf",
+          "paginas_pdf": [
+            26
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Zona Franca de Manaus",
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/Edital_64_PSC2019_3Etapa.pdf",
+          "paginas_pdf": [
+            26,
+            27
+          ],
+          "previsao_regional": "nao_identificada_no_programa_examinado",
+          "trecho_curto": null,
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 19,
+          "numero_final": 24,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 25,
+          "numero_final": 30,
+          "quantidade_prevista": 6
+        }
+      ]
+    },
+    {
+      "aplicacao_id": "ufam-psc2020-e1",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "1",
+      "edicao": "PSC2020 - 1ª Etapa - Projeto 2022",
+      "ano_ingresso": 2022,
+      "serie_alvo": 1,
+      "ano_serie_alvo": 2019,
+      "data_publicacao_edital": "2019-08-02",
+      "data_aplicacao": "2019-12-01",
+      "data_aplicacao_prevista": null,
+      "ano_aplicacao": 2019,
+      "situacao": "aplicada_documentos_localizados",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/2943",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "titulo": "Edital 56 de 2019.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/1/Edital%2056%20de%202019.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "retificacao",
+          "titulo": "Edital 56 de 2019 - Retificação 01.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/3/Edital%2056%20de%202019%20-%20Retifica%c3%a7%c3%a3o%2001.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "titulo": "Edital 56 de 2019 - Retificação 02.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/4/Edital%2056%20de%202019%20-%20Retifica%c3%a7%c3%a3o%2002.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "titulo": "Prova.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/7/Prova.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "titulo": "Gabarito Definitivo.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/8/Gabarito%20Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "comunicado",
+          "titulo": "Comunicado COMPEC - Edital 56 de 2019.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/23/Comunicado%20COMPEC%20-%20Edital%2056%20de%202019.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "titulo": "Edital 56 de 2019 - Retificação 03.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/26/Edital%2056%20de%202019%20-%20Retifica%c3%a7%c3%a3o%2003.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "titulo": "Edital 56 de 2019 - Retificação 04.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/31/Edital%2056%20de%202019%20-%20Retifica%c3%a7%c3%a3o%2004.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/7/Prova.pdf",
+        "pagina_pdf": 1,
+        "localizacao": "Capa do caderno",
+        "natureza": "Data explícita da prova"
+      },
+      "revisao_humana": "pendente",
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/1/Edital%2056%20de%202019.pdf",
+          "paginas_pdf": [
+            9,
+            10
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Sociedades indígenas da Amazônia",
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/2943/1/Edital%2056%20de%202019.pdf",
+          "paginas_pdf": [
+            10
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "O extrativismo mineral no Amazonas",
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ]
+    },
+    {
+      "aplicacao_id": "ufam-psc2020-e2",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "2",
+      "edicao": "PSC2020 - 2ª Etapa - Projeto 2021",
+      "ano_ingresso": 2021,
+      "serie_alvo": 2,
+      "ano_serie_alvo": 2019,
+      "data_publicacao_edital": "2019-08-02",
+      "data_aplicacao": "2019-12-01",
+      "data_aplicacao_prevista": null,
+      "ano_aplicacao": 2019,
+      "situacao": "aplicada_documentos_localizados",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/2944",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "titulo": "Edital 57 de 2019.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/2/Edital%2057%20de%202019.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "retificacao",
+          "titulo": "Edital 57 de 2019 - Retificação 01.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/1/Edital%2057%20de%202019%20-%20Retifica%c3%a7%c3%a3o%2001.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "titulo": "Prova.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/4/Prova.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "titulo": "Gabarito Definitivo.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/3/Gabarito%20Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "comunicado",
+          "titulo": "Comunicado COMPEC - Edital 57 de 2019.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/20/Comunicado%20COMPEC%20-%20Edital%2057%20de%202019.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "titulo": "Edital 57 de 2019 - Retificação 02.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/23/Edital%2057%20de%202019%20-%20Retifica%c3%a7%c3%a3o%2002.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "titulo": "Edital 57 de 2019 - Retificação 03.pdf",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/28/Edital%2057%20de%202019%20-%20Retifica%c3%a7%c3%a3o%2003.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/4/Prova.pdf",
+        "pagina_pdf": 1,
+        "localizacao": "Capa do caderno",
+        "natureza": "Data explícita da prova"
+      },
+      "revisao_humana": "pendente",
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/2/Edital%2057%20de%202019.pdf",
+          "paginas_pdf": [
+            10,
+            11
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "A Conquista da Amazônia",
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/2944/2/Edital%2057%20de%202019.pdf",
+          "paginas_pdf": [
+            11,
+            12
+          ],
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Amazônia como uma grande região natural",
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "observacao": "Leitura assistida por IA; não equivale a revisão humana. Programa geral sem menção regional explícita não prova ausência de questões regionais."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ]
+    },
+    {
+      "aplicacao_id": "ufam-psc2021-e1",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "1",
+      "edicao": "PSC2021 - 1ª Etapa - Projeto 2023",
+      "ano_ingresso": 2023,
+      "serie_alvo": 1,
+      "ano_serie_alvo": 2020,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/4767/1/Edital%2018%20de%202021.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2021-08-20",
+      "data_aplicacao": "2022-03-06",
+      "data_aplicacao_prevista": null,
+      "ano_aplicacao": 2022,
+      "situacao": "aplicada_documentos_localizados",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/4767",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4767/1/Edital%2018%20de%202021.pdf",
+          "titulo": "Edital 18 de 2021.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "suspensao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4767/19/Portaria%20GR%20-%20N%c2%ba%20125.2021%20-%20Suspens%c3%a3o%20do%20PSC%202021.pdf",
+          "titulo": "Portaria GR - Nº 125.2021 - Suspensão do PSC 2021.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao_cronograma",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4767/22/PSC2021%201%20Etapa%20-%20Aviso%20de%20Reabertura%20de%20Prazo%20Nro.%2001.pdf",
+          "titulo": "PSC2021 1 Etapa - Aviso de Reabertura de Prazo Nro. 01.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4767/27/PSC2021%201%20Etapa%20-%20Prova%20Objetiva.pdf",
+          "titulo": "PSC2021 1 Etapa - Prova Objetiva.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4767/34/PSC2021%201%20Etapa%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "PSC2021 1 Etapa - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://www.ufam.edu.br/noticias-destaque/4222-ufam-aplica-as-provas-das-etapas-1-e-2-do-processo-seletivo-continuo-2022.html",
+        "localizacao": "Notícia institucional publicada em25/10/2022, primeiro parágrafo e comentário sobre adiamento da edição2021",
+        "natureza": "Aplicação corroborada por notícia institucional pós-evento e cronograma/retificação da edição",
+        "url_retificacao": "https://edoc.ufam.edu.br/bitstream/123456789/4767/22/PSC2021%201%20Etapa%20-%20Aviso%20de%20Reabertura%20de%20Prazo%20Nro.%2001.pdf",
+        "pagina_pdf_retificacao": 2
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4767/1/Edital%2018%20de%202021.pdf",
+          "paginas_pdf": [
+            13,
+            14
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Sociedades indígenas da Amazônia",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4767/1/Edital%2018%20de%202021.pdf",
+          "paginas_pdf": [
+            14
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "O extrativismo mineral no Amazonas",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente",
+      "observacao_calendario": "Aplicada em2022, para série cursada no ano2020; a data original30/01/2022 foi alterada para06/03/2022. Não classificar exposição escolar pela data de aplicação."
+    },
+    {
+      "aplicacao_id": "ufam-psc2021-e2",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "2",
+      "edicao": "PSC2021 - 2ª Etapa - Projeto 2022",
+      "ano_ingresso": 2022,
+      "serie_alvo": 2,
+      "ano_serie_alvo": 2020,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/4766/1/Edital%2019%20de%202021.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2021-08-20",
+      "data_aplicacao": "2022-03-06",
+      "data_aplicacao_prevista": null,
+      "ano_aplicacao": 2022,
+      "situacao": "aplicada_documentos_localizados",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/4766",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4766/1/Edital%2019%20de%202021.pdf",
+          "titulo": "Edital 19 de 2021.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "suspensao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4766/19/Portaria%20GR%20-%20N%c2%ba%20125.2021%20-%20Suspens%c3%a3o%20do%20PSC%202021.pdf",
+          "titulo": "Portaria GR - Nº 125.2021 - Suspensão do PSC 2021.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao_cronograma",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4766/22/PSC2021%202%20Etapa%20-%20Aviso%20de%20Reabertura%20de%20Prazo%20Nro.%2001.pdf",
+          "titulo": "PSC2021 2 Etapa - Aviso de Reabertura de Prazo Nro. 01.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4766/27/PSC2021%202%20Etapa%20-%20Prova%20Objetiva.pdf",
+          "titulo": "PSC2021 2 Etapa - Prova Objetiva.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4766/34/PSC2021%202%20Etapa%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "PSC2021 2 Etapa - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://www.ufam.edu.br/noticias-destaque/4222-ufam-aplica-as-provas-das-etapas-1-e-2-do-processo-seletivo-continuo-2022.html",
+        "localizacao": "Notícia institucional publicada em25/10/2022, primeiro parágrafo e comentário sobre adiamento da edição2021",
+        "natureza": "Aplicação corroborada por notícia institucional pós-evento e cronograma/retificação da edição",
+        "url_retificacao": "https://edoc.ufam.edu.br/bitstream/123456789/4766/22/PSC2021%202%20Etapa%20-%20Aviso%20de%20Reabertura%20de%20Prazo%20Nro.%2001.pdf",
+        "pagina_pdf_retificacao": 2
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4766/1/Edital%2019%20de%202021.pdf",
+          "paginas_pdf": [
+            13,
+            14
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "A Conquista da Amazônia",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4766/1/Edital%2019%20de%202021.pdf",
+          "paginas_pdf": [
+            14,
+            15
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Amazônia como uma grande região natural",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente",
+      "observacao_calendario": "Aplicada em2022, para série cursada no ano2020; a data original30/01/2022 foi alterada para06/03/2022. Não classificar exposição escolar pela data de aplicação."
+    },
+    {
+      "aplicacao_id": "ufam-psc2021-e3",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "3",
+      "edicao": "PSC2021 - 3ª Etapa - Projeto 2021",
+      "ano_ingresso": 2021,
+      "serie_alvo": 3,
+      "ano_serie_alvo": 2020,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/1/Edital%2016%20de%202021.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2021-07-20",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista": "2021-10-31",
+      "ano_aplicacao": null,
+      "situacao": "aplicacao_ocorrida_data_exata_a_corrobora",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/4620",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/1/Edital%2016%20de%202021.pdf",
+          "titulo": "Edital 16 de 2021.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/31/Edital%2016%20de%202021%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%2001.pdf",
+          "titulo": "Edital 16 de 2021 - Aviso de Retificação 01.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/34/Edital%2016%20de%202021%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%2002.pdf",
+          "titulo": "Edital 16 de 2021 - Aviso de Retificação 02.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/42/Edital%2016%20de%202021%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20e%20Acr%c3%a9scimo%2003.pdf",
+          "titulo": "Edital 16 de 2021 - Aviso de Retificação e Acréscimo 03.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/52/Edital%2016%20de%202021%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%2004.pdf",
+          "titulo": "Edital 16 de 2021 - Aviso de Retificação 04.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/68/PSC2021%203%20Etapa%20-%20Prova.pdf",
+          "titulo": "PSC2021 3 Etapa - Prova.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/80/PSC2021%203%20Etapa%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "PSC2021 3 Etapa - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/1/Edital%2016%20de%202021.pdf",
+        "localizacao": "Cronograma do edital, com capa de prova em branco",
+        "natureza": "Data prevista documentada; realização comprovada por caderno/gabarito, mas a data efetiva ainda precisa de corroboração primária."
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/1/Edital%2016%20de%202021.pdf",
+          "paginas_pdf": [
+            30
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "redenção da Amazônia",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/1/Edital%2016%20de%202021.pdf",
+          "paginas_pdf": [
+            30,
+            31
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "nao_identificada_no_programa_examinado",
+          "trecho_curto": null,
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 19,
+          "numero_final": 24,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 25,
+          "numero_final": 30,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente",
+      "fonte_corrobora_pre_evento": "https://www.ufam.edu.br/noticias-destaque/2914-compec-publica-edital-de-reabertura-das-inscricoes-do-processo-seletivo-continuo-psc2021-3-etapa.html"
+    },
+    {
+      "aplicacao_id": "ufam-psc2022-e1",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "1",
+      "edicao": "PSC2022 - 1ª Etapa - Projeto 2024",
+      "ano_ingresso": 2024,
+      "serie_alvo": 1,
+      "ano_serie_alvo": 2021,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/3/Edital%2029%20de%202022.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2022-07-28",
+      "data_aplicacao": "2022-10-23",
+      "data_aplicacao_prevista": null,
+      "ano_aplicacao": 2022,
+      "situacao": "aplicada_documentos_localizados",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/5923",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/3/Edital%2029%20de%202022.pdf",
+          "titulo": "Edital 29 de 2022.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/6/Edital%2029%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2001.pdf",
+          "titulo": "Edital 29 de 2022 - Aviso de Retificação Nro. 01.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/13/Edital%2029%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2002.pdf",
+          "titulo": "Edital 29 de 2022 - Aviso de Retificação Nro. 02.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/24/Edital%2029%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2003.pdf",
+          "titulo": "Edital 29 de 2022 - Aviso de Retificação Nro. 03.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/30/Edital%2029%20de%202022%20-%20Prova.pdf",
+          "titulo": "Edital 29 de 2022 - Prova.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/37/Edital%2029%20de%202022%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "Edital 29 de 2022 - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://www.ufam.edu.br/noticias-destaque/4222-ufam-aplica-as-provas-das-etapas-1-e-2-do-processo-seletivo-continuo-2022.html",
+        "localizacao": "Notícia institucional publicada em25/10/2022, primeiro parágrafo e comentário sobre adiamento da edição2021",
+        "natureza": "Aplicação corroborada por notícia institucional pós-evento e cronograma/retificação da edição"
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/3/Edital%2029%20de%202022.pdf",
+          "paginas_pdf": [
+            13,
+            14
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Sociedades indígenas da Amazônia",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5923/3/Edital%2029%20de%202022.pdf",
+          "paginas_pdf": [
+            14,
+            15
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "O extrativismo mineral no Amazonas",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente",
+      "observacao_calendario": "Outra edição da mesma etapa aplicada também em2022, para série cursada em2021; preservar ambas as ocorrências no ano-calendário."
+    },
+    {
+      "aplicacao_id": "ufam-psc2022-e2",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "2",
+      "edicao": "PSC2022 - 2ª Etapa - Projeto 2023",
+      "ano_ingresso": 2023,
+      "serie_alvo": 2,
+      "ano_serie_alvo": 2021,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/3/Edital%2030%20de%202022.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2022-07-28",
+      "data_aplicacao": "2022-10-23",
+      "data_aplicacao_prevista": null,
+      "ano_aplicacao": 2022,
+      "situacao": "aplicada_documentos_localizados",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/5925",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/3/Edital%2030%20de%202022.pdf",
+          "titulo": "Edital 30 de 2022.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/6/Edital%2030%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2001.pdf",
+          "titulo": "Edital 30 de 2022 - Aviso de Retificação Nro. 01.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/13/Edital%2030%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2002.pdf",
+          "titulo": "Edital 30 de 2022 - Aviso de Retificação Nro. 02.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/24/Edital%2030%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2003.pdf",
+          "titulo": "Edital 30 de 2022 - Aviso de Retificação Nro. 03.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/30/Edital%2030%20de%202022%20-%20Prova.pdf",
+          "titulo": "Edital 30 de 2022 - Prova.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/37/Edital%2030%20de%202022%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "Edital 30 de 2022 - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://www.ufam.edu.br/noticias-destaque/4222-ufam-aplica-as-provas-das-etapas-1-e-2-do-processo-seletivo-continuo-2022.html",
+        "localizacao": "Notícia institucional publicada em25/10/2022, primeiro parágrafo e comentário sobre adiamento da edição2021",
+        "natureza": "Aplicação corroborada por notícia institucional pós-evento e cronograma/retificação da edição"
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/3/Edital%2030%20de%202022.pdf",
+          "paginas_pdf": [
+            18
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "A Conquista da Amazônia",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5925/3/Edital%2030%20de%202022.pdf",
+          "paginas_pdf": [
+            18,
+            19
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Amazônia como uma grande região natural",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente",
+      "observacao_calendario": "Outra edição da mesma etapa aplicada também em2022, para série cursada em2021; preservar ambas as ocorrências no ano-calendário."
+    },
+    {
+      "aplicacao_id": "ufam-psc2022-e3",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "3",
+      "edicao": "PSC2022 - 3ª Etapa - Projeto 2022",
+      "ano_ingresso": 2022,
+      "serie_alvo": 3,
+      "ano_serie_alvo": 2021,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/1/Edital%2013%20de%202022.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2022-04-11",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista": "2022-07-17",
+      "ano_aplicacao": null,
+      "situacao": "aplicacao_ocorrida_data_exata_a_corrobora",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/5418",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/1/Edital%2013%20de%202022.pdf",
+          "titulo": "Edital 13 de 2022.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/20/Edital%2013%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2001.pdf.pdf",
+          "titulo": "Edital 13 de 2022 - Aviso de Retificação Nro. 01.pdf.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/32/Edital%2013%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2002.pdf",
+          "titulo": "Edital 13 de 2022 - Aviso de Retificação Nro. 02.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/43/Edital%2013%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2003.pdf",
+          "titulo": "Edital 13 de 2022 - Aviso de Retificação Nro. 03.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/54/Edital%2013%20de%202022%20-%20Prova.pdf",
+          "titulo": "Edital 13 de 2022 - Prova.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/61/Edital%2013%20de%202022%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "Edital 13 de 2022 - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/1/Edital%2013%20de%202022.pdf",
+        "localizacao": "Cronograma do edital, com capa de prova em branco",
+        "natureza": "Data prevista documentada; realização comprovada por caderno/gabarito, mas a data efetiva ainda precisa de corroboração primária."
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/1/Edital%2013%20de%202022.pdf",
+          "paginas_pdf": [
+            30
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "redenção da Amazônia",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/1/Edital%2013%20de%202022.pdf",
+          "paginas_pdf": [
+            30,
+            31
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "nao_identificada_no_programa_examinado",
+          "trecho_curto": null,
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 19,
+          "numero_final": 24,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 25,
+          "numero_final": 30,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente",
+      "fonte_corrobora_pre_evento": "https://ufam.edu.br/noticias-destaque/3580-ufam-divulga-edital-do-psc-2022-3-etapa-inscricoes-abertas-de-10-a-25-de-maio.html"
+    },
+    {
+      "aplicacao_id": "ufam-psc2023-e1",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "1",
+      "edicao": "PSC2023 - 1ª Etapa - Projeto 2025",
+      "ano_ingresso": 2025,
+      "serie_alvo": 1,
+      "ano_serie_alvo": 2022,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/1/Edital%2013%20de%202023.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2023-04-25",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista": "2023-07-30",
+      "ano_aplicacao": null,
+      "situacao": "aplicacao_ocorrida_data_exata_a_corrobora",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/6870",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/1/Edital%2013%20de%202023.pdf",
+          "titulo": "Edital 13 de 2023.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/10/Edital%2013%20de%202023%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2001.pdf",
+          "titulo": "Edital 13 de 2023 - Aviso de Retificação Nro. 01.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/28/Edital%2013%20de%202023%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2002.pdf",
+          "titulo": "Edital 13 de 2023 - Aviso de Retificação Nro. 02.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/42/Edital%2013%20-%20Prova%201a%20Etapa%20PSC%202023.pdf",
+          "titulo": "Edital 13 - Prova 1a Etapa PSC 2023.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/49/Edital%2013%20de%202023%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "Edital 13 de 2023 - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/1/Edital%2013%20de%202023.pdf",
+        "localizacao": "Cronograma do edital, com capa de prova em branco",
+        "natureza": "Data prevista documentada; realização comprovada por caderno/gabarito, mas a data efetiva ainda precisa de corroboração primária."
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/1/Edital%2013%20de%202023.pdf",
+          "paginas_pdf": [
+            18
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "nao_identificada_no_programa_examinado",
+          "trecho_curto": null,
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/1/Edital%2013%20de%202023.pdf",
+          "paginas_pdf": [
+            18
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "nao_identificada_no_programa_examinado",
+          "trecho_curto": null,
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente",
+      "observacao_programa": "Programa de História e Geografia da primeira etapa foi alterado em relação a2021/2022. Não se identificou previsão regional explícita nessas seções do edital-base; não inferir efeito causal do Novo Ensino Médio nem ausência de questões regionais."
+    },
+    {
+      "aplicacao_id": "ufam-psc2023-e2",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "2",
+      "edicao": "PSC2023 - 2ª Etapa - Projeto 2024",
+      "ano_ingresso": 2024,
+      "serie_alvo": 2,
+      "ano_serie_alvo": 2022,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/1/Edital%2014%20de%202023.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2023-04-25",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista": "2023-07-30",
+      "ano_aplicacao": null,
+      "situacao": "aplicacao_ocorrida_data_exata_a_corrobora",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/6871",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/1/Edital%2014%20de%202023.pdf",
+          "titulo": "Edital 14 de 2023.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/10/Edital%2014%20de%202023%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2001.pdf",
+          "titulo": "Edital 14 de 2023 - Aviso de Retificação Nro. 01.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "retificacao",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/28/Edital%2014%20de%202023%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2002.pdf",
+          "titulo": "Edital 14 de 2023 - Aviso de Retificação Nro. 02.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/42/Edital%2014%20-%20Prova%202a%20Etapa%20PSC%202023.pdf",
+          "titulo": "Edital 14 - Prova 2a Etapa PSC 2023.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/51/Edital%2014%20de%202023%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "Edital 14 de 2023 - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/1/Edital%2014%20de%202023.pdf",
+        "localizacao": "Cronograma do edital, com capa de prova em branco",
+        "natureza": "Data prevista documentada; realização comprovada por caderno/gabarito, mas a data efetiva ainda precisa de corroboração primária."
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/1/Edital%2014%20de%202023.pdf",
+          "paginas_pdf": [
+            19,
+            20
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "A Conquista da Amazônia",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/1/Edital%2014%20de%202023.pdf",
+          "paginas_pdf": [
+            20,
+            21
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "Amazônia como uma grande região natural",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 17,
+          "numero_final": 22,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 23,
+          "numero_final": 28,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente"
+    },
+    {
+      "aplicacao_id": "ufam-psc2023-e3",
+      "processo_id": "ufam-psc",
+      "instituicao_sigla": "UFAM",
+      "etapa": "3",
+      "edicao": "PSC2023 - 3ª Etapa - Projeto 2023",
+      "ano_ingresso": 2023,
+      "serie_alvo": 3,
+      "ano_serie_alvo": 2022,
+      "evidencia_serie_alvo": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/6402/3/Edital%2004%20de%202023%20-%20PSC%202023%20-%203a%20Etapa.pdf",
+        "pagina_pdf": 1,
+        "secao": "Item 1.1 e definição dos candidatos"
+      },
+      "data_publicacao_edital": "2023-01-09",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista": "2023-04-30",
+      "ano_aplicacao": null,
+      "situacao": "aplicacao_ocorrida_data_exata_a_corrobora",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/6402",
+      "documentos": [
+        {
+          "tipo": "edital",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6402/3/Edital%2004%20de%202023%20-%20PSC%202023%20-%203a%20Etapa.pdf",
+          "titulo": "Edital 04 de 2023 - PSC 2023 - 3a Etapa.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "prova",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6402/51/Edital%2004%20de%202023%20-%20Prova%20de%20Conhecimentos%20Gerais%20e%20Prova%20de%20Reda%c3%a7%c3%a3o.pdf",
+          "titulo": "Edital 04 de 2023 - Prova de Conhecimentos Gerais e Prova de Redação.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "leitura_inicial"
+        },
+        {
+          "tipo": "gabarito_definitivo",
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6402/58/Edital%2004%20de%202023%20-%20Gabarito%20Definitivo.pdf",
+          "titulo": "Edital 04 de 2023 - Gabarito Definitivo.pdf",
+          "origem_oficial": true,
+          "conteudo_auditoria": "pendente"
+        }
+      ],
+      "evidencia_data": {
+        "url": "https://edoc.ufam.edu.br/bitstream/123456789/6402/3/Edital%2004%20de%202023%20-%20PSC%202023%20-%203a%20Etapa.pdf",
+        "localizacao": "Cronograma do edital, com capa de prova em branco",
+        "natureza": "Data prevista documentada; realização comprovada por caderno/gabarito, mas a data efetiva ainda precisa de corroboração primária."
+      },
+      "programa": [
+        {
+          "disciplina": "historia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6402/3/Edital%2004%20de%202023%20-%20PSC%202023%20-%203a%20Etapa.pdf",
+          "paginas_pdf": [
+            28
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção historia",
+          "previsao_regional": "substantiva",
+          "trecho_curto": "redenção da Amazônia",
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        },
+        {
+          "disciplina": "geografia",
+          "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6402/3/Edital%2004%20de%202023%20-%20PSC%202023%20-%203a%20Etapa.pdf",
+          "paginas_pdf": [
+            28,
+            29
+          ],
+          "localizacao": "Anexo de conteúdo programático, seção geografia",
+          "previsao_regional": "nao_identificada_no_programa_examinado",
+          "trecho_curto": null,
+          "observacao": "Leitura assistida por IA, não humana; verificar retificações e vigência final antes dos indicadores."
+        }
+      ],
+      "secoes_prova": [
+        {
+          "disciplina": "historia",
+          "numero_inicial": 19,
+          "numero_final": 24,
+          "quantidade_prevista": 6
+        },
+        {
+          "disciplina": "geografia",
+          "numero_inicial": 25,
+          "numero_final": 30,
+          "quantidade_prevista": 6
+        }
+      ],
+      "revisao_humana": "pendente",
+      "fonte_corrobora_pre_evento": "https://ufam.edu.br/noticias-destaque/4441-ufam-lanca-edital-do-psc-2023-3-etapa-para-concluintes-do-ensino-medio-em-2022.html"
+    }
+  ],
+  "aplicacoes_preexistentes": [
+    "ufam-psc2020-e3",
+    "ufam-psc2025-e3",
+    "ufam-psc2026-e3",
+    "ufam-psc2026-e2",
+    "ufam-psc2027-e3"
+  ],
+  "pendencias": [
+    "Conferir retificações antes de afirmar vigência final dos programas.",
+    "Corroborar datas exatas do PSC2019 por fonte primária pós-evento; clippings institucionais de notícias de terceiros são divergentes e não decidem sozinhos.",
+    "Expandir etapas da década; pandemia deslocou provas de edições anteriores para 2022."
+  ],
+  "fontes_inventario": [
+    "https://antigocompec.ufam.edu.br/psc.htm",
+    "https://edoc.ufam.edu.br/handle/123456789/552/browse?type=title&sort_by=1&order=ASC&rpp=200&etal=-1&offset=0"
+  ],
+  "aplicacoes_candidatas_nao_examinadas": [
+    {
+      "aplicacao_id_candidata": "ufam-psc2024-e1",
+      "titulo": "Processo Seletivo Contínuo - 1ª Etapa PSC2024 - Projeto 2026",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/7946",
+      "estado": "fonte_localizada_data_e_documentos_a_examinar"
+    },
+    {
+      "aplicacao_id_candidata": "ufam-psc2025-e1",
+      "titulo": "Processo Seletivo Contínuo - 1ª Etapa PSC2025 - Projeto 2027",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/9423",
+      "estado": "fonte_localizada_data_e_documentos_a_examinar"
+    },
+    {
+      "aplicacao_id_candidata": "ufam-psc2026-e1",
+      "titulo": "Processo Seletivo Contínuo - 1ª Etapa PSC2026 - Projeto 2028",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/11307",
+      "estado": "fonte_localizada_data_e_documentos_a_examinar"
+    },
+    {
+      "aplicacao_id_candidata": "ufam-psc2024-e3",
+      "titulo": "Processo Seletivo Contínuo - 3ª Etapa PSC2024 - Projeto 2024",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/7479",
+      "estado": "fonte_localizada_data_e_documentos_a_examinar"
+    },
+    {
+      "aplicacao_id_candidata": "ufam-psc2027-e1",
+      "titulo": "Processo Seletivo Contínuo - PSC 2027 - 1ª Etapa [Projeto 2029]",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/12241",
+      "estado": "fonte_localizada_data_e_documentos_a_examinar",
+      "observacao": "Edição2027 não determina ano de aplicação; verificar eventual situação futura e janela antes de incluir."
+    },
+    {
+      "aplicacao_id_candidata": "ufam-psc2027-e2",
+      "titulo": "Processo Seletivo Contínuo - PSC 2027 - 2ª Etapa [Projeto 2028]",
+      "fonte_landing": "https://edoc.ufam.edu.br/handle/123456789/12242",
+      "estado": "fonte_localizada_data_e_documentos_a_examinar",
+      "observacao": "Edição2027 não determina ano de aplicação; verificar eventual situação futura e janela antes de incluir."
+    }
+  ],
+  "limites": [
+    "Não é levantamento completo de todas as aplicações PSC da década.",
+    "Retificações foram localizadas, mas sua leitura integral não foi concluída; previsão no edital-base ainda exige auditoria de vigência final.",
+    "Não transforma data prevista em aplicada onde não há corroboração primária suficiente.",
+    "Não baixou listas de candidatos, dados de desempenho ou arquivos pessoais.",
+    "PDFs examinados para localizar programas e seções; nenhuma anotação humana foi produzida."
+  ],
+  "validacoes": {
+    "ids_unicos": true,
+    "aplicacoes_novas": 15,
+    "datas_efetivas_com_corrobora": 7,
+    "documentos_somente_https": true,
+    "documentos_sem_url_duplicada_na_aplicacao": true
+  }
+}

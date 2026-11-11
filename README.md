@@ -6,16 +6,16 @@ Recorte: aplicações de **01/01/2017 a 11/11/2026**, no horário de Manaus. O a
 
 ## Estado e resultados disponíveis
 
-- Inventário inicial: **317 IES da rede pública no Censo 2024**, nas 27 UFs e cinco regiões. O histórico institucional da década está pendente.
+- Inventário histórico: **2.459 observações anuais em 2017–2024**, reunindo **334 códigos públicos ou Especiais candidatos**. A fotografia de 2024, com 317 IES da rede pública, permanece preservada. Mudanças de 2025–2026 e reconciliação jurídica estão pendentes.
 - Triagem inicial: **18 processos em sete IES**, com fontes, decisões e lacunas. O levantamento nacional de processos permanece aberto.
-- Piloto: **24 PDFs oficiais**, incluindo editais, retificações, manuais, provas e gabaritos. São **seis cadernos** UFAM/UFRR com **84 questões segmentadas: 42 de História e 42 de Geografia**.
+- Piloto: **121 vínculos documentais com 120 PDFs oficiais distintos**, incluindo editais, retificações, manuais, provas e gabaritos. São **23 cadernos** UFAM/UFRR/UERR com **300 questões segmentadas: 150 de História e 150 de Geografia**.
 - Os itens têm origem por documento, hash, página e região do PDF. **Ainda não há incidência regional calculada, referência humana, avaliação da IA ou banco educacional liberado.**
 
 Leia o [relatório inicial](reports/relatorio-inicial.md), a [cobertura documental](reports/cobertura-inicial.md) e o [estado do projeto](docs/estado.md). O [manifesto](reports/manifesto-cobertura.json) identifica as entradas e saídas desta versão.
 
 ## Procedimento e reprodução
 
-Ambiente fixado: **Python 3.12.12**, dependências em `uv.lock`. O extrator usa **Poppler** (`pdftotext`, testado na versão 26.04.0) e **pypdf 7.0.1** como alternativa para falhas reais. A aquisição do cadastro Inep usa `curl` e leitura parcial do ZIP. O OCR ainda não foi validado neste ambiente.
+Ambiente fixado: **Python 3.12.12**, dependências em `uv.lock`. O extrator usa **Poppler** (`pdftotext`, testado na versão 26.04.0) e **pypdf 7.0.1** como alternativa para falhas reais. A aquisição Inep usa `curl` e leitura parcial do ZIP. PDFs do arquivo legado UFAM usam a cadeia TLS do sistema pelo `curl`, sem desativar certificados. `pdftohtml` preserva coordenadas de fragmentos nos PDFs que fazem o extrator principal falhar. O OCR ainda não foi validado neste ambiente.
 
 ### 1. Reconstruir relatórios dos registros versionados
 
@@ -34,6 +34,7 @@ Requer fontes oficiais disponíveis e Poppler instalado. Execute na raiz do proj
 
 ```sh
 uv run --locked python scripts/inventario_ies.py
+uv run --locked python scripts/historico_ies.py
 uv run --locked python scripts/consolidar_registro.py
 uv run --locked python scripts/pipeline.py coletar
 uv run --locked python scripts/pipeline.py extrair
@@ -52,6 +53,20 @@ Com originais presentes, `uv run --locked python scripts/inventario_ies.py --off
 
 Essa etapa ainda não está implementada. Depende de referência humana, partições por prova e grupos equivalentes, teste congelado, orçamento e avaliação contra um método simples por palavras-chave. Não foram feitas chamadas pagas de API de modelos pelo pipeline. Custos da assistência no aplicativo não foram quantificados.
 
+## Revisão por Matheus
+
+O [caderno local de revisão](data/annotation/revisao/index.html) reúne as questões por prova e disciplina com imagens da fonte. Ele não mostra gabaritos nem sugestões de regionalidade. Abra o arquivo no navegador, salve suas decisões e use **Exportar anotações** para guardar uma cópia. As datas não corroboradas aparecem como pendentes.
+
+```sh
+# Recriar o caderno a partir do acervo local
+uv run --locked python scripts/gerar_revisao.py
+
+# Incorporar um arquivo exportado por você
+uv run --locked python scripts/importar_anotacoes.py /caminho/para/anotacoes-amazonia.json
+```
+
+A importação confere ocorrência, versão do PDF, autor, data, evidência e campos obrigatórios. Correções de anotações existentes exigem `--substituir` e preservam a versão anterior. Gerar o caderno não cria rótulos humanos. Para servir apenas o caderno local: `uv run --locked python -m http.server 8765 --bind 127.0.0.1 --directory data/annotation/revisao`.
+
 ## Verificação
 
 ```sh
@@ -64,7 +79,7 @@ Os testes protegem integridade dos originais, mudanças de versão, limites de c
 ## Documentação e dados
 
 - [Protocolo](docs/protocolo.md), [decisões posteriores](docs/decisoes.md) e [texto original preservado](docs/protocolo-original.txt).
-- [Inventário nacional e pendências históricas](docs/notas-inventario.md).
+- [Inventário nacional inicial](docs/notas-inventario.md) e [cadastros históricos 2017–2024](docs/notas-historico-ies.md).
 - [Notas da triagem documental](docs/notas-triagem-demais.md) e [dicionário de dados](docs/dicionario-dados.md).
 - [Manual de revisão e anotação](docs/manual-anotacao.md).
 - Registros em `data/registry/`; metadados dos itens e gabaritos em `data/processed/`; fila de revisão em `data/annotation/`.

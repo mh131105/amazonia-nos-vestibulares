@@ -1,0 +1,311 @@
+{
+  "versao": "0.2.0",
+  "tipo": "fragmento_para_merge_sob_revisao_do_root",
+  "escopo": "15 cadernos UFAM adicionais; mesma classificação por disciplina; sem aprovação humana dos itens.",
+  "layouts": {
+    "ufam_legado_sem_capa_c2": {
+      "pagina_inicial": 1,
+      "divisao_colunas_fracao": 0.5,
+      "y_min": 44,
+      "y_max": 801,
+      "marcador_questao": "^(\\d{1,2})\\.\\s+",
+      "margens_inicio_questao": [
+        29,
+        308
+      ],
+      "tolerancia_margem": 14,
+      "numero_maximo": 54
+    },
+    "ufam_instrucao_duas_colunas_c2": {
+      "pagina_inicial": 3,
+      "divisao_colunas_fracao": 0.5,
+      "y_min": 50,
+      "y_max": 796,
+      "marcador_questao": "^(\\d{1,2})\\.\\s+",
+      "margens_inicio_questao": [
+        28.08,
+        311.69
+      ],
+      "tolerancia_margem": 14,
+      "numero_maximo": 54
+    }
+  },
+  "documentos": [
+    {
+      "documento_id": "ufam-psc2018-e3-prova",
+      "documento_sha256": "eb722fa9c3edd74c90ab39055d57acbe7ae8b92037a52e484a06bf1c92a4acea",
+      "layout": "ufam_legado_sem_capa_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 19,
+          "fim": 24
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 25,
+          "fim": 30
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2019-e1-prova",
+      "documento_sha256": "b54b10d7ef9f8afd7b8d0cda0d818e27727ae6f595e4ca606568cc0a487e4050",
+      "layout": "ufam_legado_sem_capa_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2019-e2-prova",
+      "documento_sha256": "62c2282ddead36722dfc5b86b93b4ac53fb3b34013c29fab0a590a3e5184c692",
+      "layout": "ufam_legado_sem_capa_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2019-e3-prova",
+      "documento_sha256": "b6ca2ed230e3472a24a57361d351b3e9f9dc967a6bd8dfcbe4856e76808af6d4",
+      "layout": "ufam_legado_sem_capa_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 19,
+          "fim": 24
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 25,
+          "fim": 30
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2020-e1-prova",
+      "documento_sha256": "1a4d535589686b71e14c81a53d7d45a0d53235469092c9bec03954c055a273a6",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2020-e2-prova",
+      "documento_sha256": "c9aca8764f5267ccd8bc70c445e682a6f8e96cc6d368096b5ae63bc5bf2aa264",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2021-e1-prova",
+      "documento_sha256": "4a59b05da6caf94e427f4547614d7e4ae50ac5ee82dbf4b97e566d0b5c47ead8",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2021-e2-prova",
+      "documento_sha256": "8416c83d87764e9fb79864cb7c3fcc5e7c26d214af00322406f746f68d2f002c",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2021-e3-prova",
+      "documento_sha256": "811e00e1cf10e6326f305ce57ca575e48267d10ce5f268de74453f45915c679e",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 19,
+          "fim": 24
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 25,
+          "fim": 30
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2022-e1-prova",
+      "documento_sha256": "c38b5f939f51572ef90dcd7ce3d318ee4e3d26c798ea945baef387bd9d5b965a",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2022-e2-prova",
+      "documento_sha256": "4f410bf2acc11ed27e14c997fa4d1a14393f896839541e136f10cef83a6322ea",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2022-e3-prova",
+      "documento_sha256": "02b9de37e2eea13477b92ed7a41817f8690b0aff203f88d884631004b41306ad",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 19,
+          "fim": 24
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 25,
+          "fim": 30
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2023-e1-prova",
+      "documento_sha256": "0dbbbf10547b64865a3eeb85c90cd10ab157d12a7258dc56814a5efb5b8ee33e",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2023-e2-prova",
+      "documento_sha256": "63530b82717821527688d32f1695442457e8460bfcaab2be99a918a2329c5f8e",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 17,
+          "fim": 22
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 23,
+          "fim": 28
+        }
+      ]
+    },
+    {
+      "documento_id": "ufam-psc2023-e3-prova",
+      "documento_sha256": "d32d3b278277ec147c6b916293fee403e8ccf57b3fdd721b84081c53c5b20896",
+      "layout": "ufam_instrucao_duas_colunas_c2",
+      "secoes": [
+        {
+          "disciplina": "historia",
+          "inicio": 19,
+          "fim": 24
+        },
+        {
+          "disciplina": "geografia",
+          "inicio": 25,
+          "fim": 30
+        }
+      ]
+    }
+  ],
+  "verificacoes_visuais_amostrais": [
+    {
+      "documento_id": "ufam-psc2018-e3-prova",
+      "pagina_pdf": 7,
+      "responsavel": "Codex",
+      "data": "2026-11-11",
+      "observacao": "História 19 inicia na esquerda; alternativas da questão 20 continuam na direita. Corpo começa em Y=48; faixa antiga precisa y_min=44 e pagina_inicial=1."
+    },
+    {
+      "documento_id": "ufam-psc2019-e1-prova",
+      "pagina_pdf": 4,
+      "responsavel": "Codex",
+      "data": "2026-11-11",
+      "observacao": "História 17 começa ao fim da esquerda e alternativas seguem na direita. O texto no topo inicia em Y=46, que seria cortado pelo layout recente."
+    }
+  ],
+  "limites": [
+    "Hash de pesquisa deve coincidir com aquisição definitiva antes do merge.",
+    "Alguns PDFs antigos exigem extração geométrica alternativa por pdftohtml-xml; pypdf sem coordenadas não sustenta estas regras.",
+    "O estado estrutural não valida imagens nem denominadores."
+  ]
+}
