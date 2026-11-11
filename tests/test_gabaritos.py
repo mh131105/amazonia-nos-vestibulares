@@ -8,6 +8,30 @@ from scripts import gabaritos
 
 
 class GabaritosTests(unittest.TestCase):
+    def test_discursive_guidance_retains_reference_without_inventing_letter(self):
+        pages = [(1, 'Caderno de Respostas Esperadas — FUVEST 2024 — 2ª fase'),
+                 (27, 'Geografia\n  G01    Título alinhado na mesma linha\nObjetivo da questão\nExemplo de resposta'),
+                 (33, 'História\nH01\nExemplo de resposta')]
+        found, _ = gabaritos.parse_fuvest_discursiva(pages, 2024, {'G01', 'H01'})
+        self.assertEqual(set(found), {'G01', 'H01'})
+        self.assertEqual(found['G01']['pagina_pdf'], 27)
+        self.assertEqual(found['H01']['pagina_pdf'], 33)
+        self.assertTrue(all(r['estado_oficial'] == 'orientacao_discursiva_publicada'
+                            and not r.get('alternativa_oficial') for r in found.values()))
+        self.assertFalse(gabaritos.parse_fuvest_discursiva(pages, 2025, {'G01'})[0])
+        ambiguous = pages + [(28, 'G01\nContinuação sem desambiguação')]
+        self.assertNotIn('G01', gabaritos.parse_fuvest_discursiva(ambiguous, 2024, {'G01'})[0])
+
+    def test_discursive_continuation_requires_the_verified_original_hash_and_pages(self):
+        pages = [(1, 'Abordagens Esperadas — FUVEST 2024 — 2ª fase'),
+                 (31, 'G05 Título\nInício da orientação'), (32, 'G05 Título\nContinuação da orientação')]
+        digest = next(key[1] for key in gabaritos.FUVEST_CONTINUACOES_VERIFICADAS if key[0] == 2024)
+        self.assertFalse(gabaritos.parse_fuvest_discursiva(pages, 2024, {'G05'})[0])
+        found, _ = gabaritos.parse_fuvest_discursiva(pages, 2024, {'G05'}, source_sha256=digest)
+        self.assertEqual(found['G05']['paginas_pdf'], [31, 32])
+        wrong = [pages[0], pages[1], (33, pages[2][1])]
+        self.assertFalse(gabaritos.parse_fuvest_discursiva(wrong, 2024, {'G05'}, source_sha256=digest)[0])
+
     def test_anulacao_ufam_nao_vira_alternativa(self):
         text = 'Gabarito Deﬁnitivo\n2ª Etapa [PSC 2026 - Projeto 2027]\n26. A 53. C\n27. ANULADA 54. B'
         found, error = gabaritos.parse_ufam([(1, text)], 2026, 2, {26, 27})

@@ -330,6 +330,8 @@ def extract(root):
         digest = sha256(source)
         if digest != doc['sha256']:
             raise ValueError(f"Original alterado: {doc['documento_id']}")
+        if doc.get('extracao_automatica') is False:
+            continue
         directory = root / 'data/interim/extraido' / digest
         directory.mkdir(parents=True, exist_ok=True)
         metadata_path = directory / 'metadados.json'
@@ -480,6 +482,11 @@ def verify_relations(root, documents):
             raise ValueError('Aplicação futura com data inconsistente')
         if app.get('data_aplicacao') and str(app.get('ano_aplicacao')) != app['data_aplicacao'][:4]:
             raise ValueError('Ano de aplicação difere da data efetiva')
+        if app.get('documento_id_evidencia_data'):
+            source = documents.get(app['documento_id_evidencia_data'])
+            if (not source or source.get('sha256') != app.get('fonte_data_sha256')
+                    or source['url_origem'] != app['fonte_data'] or source['aplicacao_id'] != app['aplicacao_id']):
+                raise ValueError('Data efetiva sem versão correspondente da evidência primária')
     evidence = read_csv(root / REGISTRY / 'evidencias-programa.csv')
     unique_index(evidence, 'evidencia_id')
     for row in evidence:
@@ -500,12 +507,21 @@ def verify_relations(root, documents):
     for key in keys.values():
         question = questions.get(key['ocorrencia_id'])
         doc = documents.get(key['documento_id'])
-        if not question or not doc or doc['sha256'] != key['documento_sha256']:
+        if not question or key['aplicacao_id'] != question['aplicacao_id'] or key['numero_questao'] != question['numero_questao']:
+            raise ValueError('Gabarito sem questão ou de outra aplicação/número')
+        if not key.get('documento_id'):
+            if key['estado_oficial'] != 'nao_identificado' or key.get('documento_sha256') or key.get('alternativa_oficial'):
+                raise ValueError('Resposta preenchida sem fonte oficial identificada')
+            continue
+        if not doc or doc['sha256'] != key['documento_sha256']:
             raise ValueError('Gabarito sem questão ou original correspondente')
         if doc['aplicacao_id'] != question['aplicacao_id'] or key['numero_questao'] != question['numero_questao']:
             raise ValueError('Gabarito de outra aplicação ou número')
         if key['estado_oficial'] == 'anulada' and key['alternativa_oficial']:
             raise ValueError('Questão anulada com alternativa preenchida')
+        if key['estado_oficial'] == 'orientacao_discursiva_publicada':
+            if question.get('tipo_resposta') != 'discursiva' or key['alternativa_oficial'] or doc['tipo'] != 'respostas_esperadas':
+                raise ValueError('Orientação discursiva associada a formato ou documento incompatível')
         if doc.get('finalidade_documental') and key.get('finalidade_documental') != doc['finalidade_documental']:
             raise ValueError('Gabarito omite a ressalva de finalidade do documento')
     for annotation in read_csv(root / 'data/annotation/rotulos-humanos.csv'):
@@ -529,7 +545,8 @@ def make_report(root):
         rows.append({'documento_id': item['documento_id'], 'instituicao': item['instituicao_sigla'],
                      'aplicacao_id': item['aplicacao_id'], 'tipo': item['tipo'],
                      'status_coleta': doc.get('status', 'nao_tentado'),
-                     'status_extracao': ext.get('status', 'desatualizada' if item['documento_id'] in all_extracts else 'nao_extraido'),
+                     'status_extracao': ext.get('status', 'desatualizada' if item['documento_id'] in all_extracts else
+                                               'nao_solicitada_preservacao_original' if doc.get('extracao_automatica') is False else 'nao_extraido'),
                      'paginas': ext.get('paginas'), 'palavras': ext.get('palavras'),
                      'sha256': doc.get('sha256'), 'url_origem': item['url_origem']})
     fields = ['documento_id', 'instituicao', 'aplicacao_id', 'tipo', 'status_coleta', 'status_extracao',
@@ -566,7 +583,8 @@ def make_report(root):
         'reconciliacao-instituicoes.csv', 'fontes_inventario_historico.json',
         'expansao-ufam-c2.json', 'expansao-demais-c2.json', 'pacote-revisao.json',
         'fila-triagem-institucional.csv', 'auditoria-datas-c3.json',
-        'triagem-sul-sudeste-c3.json', 'triagem-ne-co-c3.json', 'contexto-normativo.json']] if p.exists())
+        'triagem-sul-sudeste-c3.json', 'triagem-ne-co-c3.json', 'contexto-normativo.json',
+        'auditoria-datas-c4.json', 'expansao-fuvest-c4.json', 'expansao-ufms-c4.json']] if p.exists())
     inputs.extend(p for p in [root / 'data/processed/questoes.csv', root / 'data/processed/gabaritos.csv',
                               root / 'data/annotation/rotulos-humanos.csv', root / 'data/annotation/configuracao.json',
                               root / 'templates/revisao.html'] if p.exists())
@@ -575,11 +593,12 @@ def make_report(root):
                          'docs/protocolo.md', 'docs/decisoes.md', 'docs/contexto-temporal.md',
                          'docs/notas-datas-ciclo3.md', 'docs/notas-triagem-sul-sudeste-c3.md',
                          'docs/notas-triagem-ne-co-c3.md', 'data/registry/triagem_ufam.json',
+                         'docs/notas-datas-ciclo4.md', 'docs/notas-fuvest-ciclo4.md', 'docs/notas-ufms-ciclo4.md',
                          'data/registry/triagem_demais.json', 'data/registry/fontes_inventario.json']] if p.exists())
     outputs = [report, root / 'reports/tabelas/cobertura-documentos.csv']
     if study_report:
         outputs.append(study_report)
-    snapshot = {'versao': '0.3.0', 'tipo': 'cobertura_documental_nao_corpus_analitico_validado',
+    snapshot = {'versao': '0.4.0', 'tipo': 'cobertura_documental_nao_corpus_analitico_validado',
                 'data_corte_aplicacoes': '2026-11-11', 'fuso_corte': 'America/Manaus',
                 'entradas_sha256': {str(p.relative_to(root)): sha256(p) for p in inputs if p.exists()},
                 'saidas_sha256': {str(p.relative_to(root)): sha256(p) for p in outputs}}
@@ -610,12 +629,14 @@ def make_study_report(root):
     regions = Counter(r['regiao'] for r in institutions)
     classes = Counter(r['disciplina'] for r in questions)
     complete = sum(r['alternativas_textuais_completas'] == 'True' for r in questions)
+    discursive = sum(r.get('tipo_resposta') == 'discursiva' for r in questions)
+    guidance = sum(r['estado_oficial'] == 'orientacao_discursiva_publicada' for r in keys)
     pending_dates = sum(not r.get('data_aplicacao') and r['situacao'] != 'futura_na_data_de_corte' for r in apps.values())
     pending_finality = sum(r.get('finalidade_documental') == 'definitivo_indicado_no_indice_sem_confirmacao_no_arquivo' for r in keys)
     lines = ['# História e Geografia da Amazônia nos vestibulares públicos', '',
-             'Relatório de implantação e ampliação documental — versão 0.3.0. Referência: 11/11/2026, Manaus.', '',
+             'Relatório de implantação e ampliação documental — versão 0.4.0. Referência: 11/11/2026, Manaus.', '',
              '## Resumo', '',
-             f'O inventário inicial reúne **{len(institutions)} IES da rede pública no Censo 2024**. A triagem registra **{len(processes)} processos ou ramos de investigação** de **{len({r["instituicao_id"] for r in processes})} IES**. Ramos ainda não desagregados não equivalem a processos únicos comprovados. O piloto segmentou **{len(questions)} ocorrências** em **{len(by_app)} cadernos**, sendo **{classes.get("historia", 0)} de História** e **{classes.get("geografia", 0)} de Geografia**.', '',
+             f'O inventário inicial reúne **{len(institutions)} IES da rede pública no Censo 2024**. A triagem registra **{len(processes)} processos ou ramos de investigação** de **{len({r["instituicao_id"] for r in processes})} IES**. Ramos ainda não desagregados não equivalem a processos únicos comprovados. Foram segmentadas **{len(questions)} ocorrências** em documentos de **{len(by_app)} eventos de prova**, sendo **{classes.get("historia", 0)} de História** e **{classes.get("geografia", 0)} de Geografia**. Há cadernos e compilação oficial de variantes; essa contagem não mede exposição individual.', '',
              'Essas quantidades descrevem o trabalho documental e os itens extraídos. Ainda não respondem qual é a incidência regional, o que mudou nas provas ou como a IA se compara a humanos. O estudo e o inventário histórico permanecem em andamento.', '',
              '## Pergunta e seleção', '',
              'O estudo investiga a previsão nos programas e a cobrança substantiva de conhecimentos históricos e geográficos da Amazônia. As disciplinas usam o mesmo procedimento e denominadores próprios. A motivação sobre procura e dificuldade é uma hipótese; os documentos não demonstram demanda comercial nem dificuldade empírica.', '',
@@ -633,6 +654,8 @@ def make_study_report(root):
             lines.append(f'| {process_id} | {p["estado_triagem"]} | {p.get("anos_previsao_historia", "[]")} | {p.get("anos_previsao_geografia", "[]")} |')
     lines.extend(['',
                   'A FUVEST apresenta previsão amazônica em Geografia nas edições 2022–2024, aplicadas em 2021–2023. Isso confirma recorrência documental dessa disciplina, sem demonstrar incidência de questões ou recorrência autônoma de História. Na UFMS, três aplicações (2023–2025) têm previsão em Ciências Humanas integradas; os anos ficam em campo próprio, sem duplicação nas colunas disciplinares. A triagem nacional não esgota as instituições ou processos examinados. Fontes e alcance estão nos registros `triagem-sul-sudeste-c3.json` e `triagem-ne-co-c3.json`.', '',
+                  'A expansão FUVEST C4 inventaria 32 eventos de aplicação em 2017–2026: dez primeiras fases e 22 dias de segunda fase, com 11 programas anuais compartilhados. A primeira fase da edição 2027 ocorreu em 01/11/2026, dentro do corte; sua segunda fase permanece futura. O programa novo das edições 2026/2027 exige leitura própria: a previsão amazônica nominal dos programas antigos não foi transferida automaticamente. As versões e lacunas estão em `expansao-fuvest-c4.json`.', '',
+                  'O manual FUVEST2021 preservado tem versão nominal posterior às provas. A previsão encontrada nele fica como conteúdo do arquivo, com adoção pré-prova pendente; suas evidências não acrescentam anos de programa aplicado. O ano de 2021 também tem outra edição, cujo programa foi confirmado separadamente. Documento programático e ano de calendário não são intercambiáveis.', '',
                   'As etapas permanecem separadas. Na UFAM, a ampliação identificou Geografia regional nas etapas 1/2 anteriores a 2024, enquanto programas E3 mais antigos contêm Geografia geral sem menção regional explícita identificada. Essas diferenças não são resultados de incidência nas questões nem efeito da reforma.', '',
                   'UFRR permanece com dois anos de programa regional comprovados no levantamento atual; o terceiro ano continua pendente. UERR passa a ter três anos de previsão no processo (2022, 2025 e 2026), com mudança para a banca Cebraspe nos conjuntos recentes. UEA apresenta pendências de calendário e acesso. As leituras iniciais de UEMA e UEPG não confirmaram previsão amazônica substantiva nas edições examinadas; a UNEMAT exige autenticação documental. Nenhum achado exclui automaticamente a instituição inteira ou toda a década.', '',
                   'Essas decisões são triagem assistida por IA, com revisão humana pendente. `evidencias-programa.csv` contém pistas documentais, não o inventário integral de tópicos nem vínculos de cada questão ao programa.', '',
@@ -645,14 +668,16 @@ def make_study_report(root):
         shown_date = app['data_aplicacao'] or ('Pendente; prevista ' + app.get('data_prevista', ''))
         lines.append(f'| {app_id} | {shown_date} | {app["etapa"]} | {counts.get("historia", 0)} | {counts.get("geografia", 0)} |')
     lines.extend(['',
-                  f'**{complete}/{len(questions)}** itens apresentam a estrutura textual A–E. Os demais exigem revisão de alternativas gráficas ou segmentação. Essa conferência estrutural não garante integridade de enunciados, imagens, legendas ou textos compartilhados. Todos os itens do piloto mantêm `apto_denominador_validado=false`.', '',
-                  f'Respostas ou anulações oficiais identificadas: **{len(linked_keys)}/{len(keys)}** registros de gabarito. Registros não identificados permanecem pendentes. A extração de resposta oficial não é validação humana do item. Anulações não são descartadas da cobrança aplicada.', '',
-                  f'**{pending_finality}** respostas têm ressalva de finalidade documental: no PSC2019 E2, o índice oficial chama o arquivo de definitivo, mas o PDF traz apenas “GABARITO” e data de divulgação no dia da prova. As letras são preservadas como publicadas; a versão final para pontuação exige confirmação. Isso não demonstra que o arquivo seja preliminar.', '',
+                  f'**{complete}/{len(questions) - discursive}** questões objetivas apresentam a estrutura textual A–E. As demais objetivas exigem revisão de alternativas gráficas ou segmentação. Há **{discursive} questões discursivas**, cujos subitens permanecem juntos; alternativas são não aplicáveis. A conferência estrutural não garante integridade visual. Todos os itens mantêm `apto_denominador_validado=false`.', '',
+                  f'Alternativas ou anulações oficiais identificadas: **{len(linked_keys)}** registros. Orientações oficiais discursivas localizadas: **{guidance}**. Os exemplos de resposta não são convertidos em letras nem esgotam as respostas possíveis. A identificação automática não é validação humana, e anulações permanecem na cobrança aplicada.', '',
+                  f'Ressalvas de finalidade ainda abertas do ciclo 3: **{pending_finality}** respostas. A auditoria C4 corroborou a finalidade do PSC2019 E2 pelo repositório institucional, pelos mesmos bytes e pelas decisões pós-recurso. O rodapé antigo permanece documentado; letras e anulações não mudaram. A revisão humana e a correspondência da versão do caderno seguem pendentes.', '',
+                  'Na FUVEST 2024, o PDF do segundo dia reúne 36 questões, mas cada candidato respondeu 12 conforme a carreira: seis de duas disciplinas, quatro de três ou três de quatro. O recorte segmentado preserva G01–G06 e H01–H06 como 12 questões, sem contar subitens como ocorrências adicionais. As proporções por caderno/carreira exigem a matriz de exposição; a compilação não é uma prova uniforme de 36 itens por pessoa. História permanece como acervo auxiliar, sem inferir sua elegibilidade da previsão de Geografia.', '',
+                  'Na UFMS, os arquivos preservam presencial, base digital pública, anexo de gabarito e editais. A randomização individual do digital não cria uma nova aplicação por ordem de questões/alternativas. Blocos conjuntos de Filosofia/História/Sociologia ou de Humanas não foram convertidos automaticamente em História; mapas numéricos não comprovados ficam pendentes.', '',
                   'Originais são preservados por SHA-256. Extrações bruta e normalizada ficam separadas, com página e coordenadas quando disponíveis. Falhas reais de bbox-layout acionam pdftohtml com geometria de fragmentos; pypdf permanece como alternativa final sem coordenadas. Controles XML proibidos são substituídos por U+FFFD somente na camada de leitura, com contagem e original intacto. Há caracteres danificados e páginas visuais sinalizadas. OCR de documentos escaneados ainda exige validação própria.', '',
                   'O edital PSC2027 E3 registra aplicação futura em 29/11/2026, depois do corte. Não entra no corpus de questões desta versão. Ausência de caderno em um processo não vira zero questões. A grade `cobertura-anual.csv` registra investigação pendente, sem afirmar que houve prova em cada célula.', '',
                   'Na UFRR, PI e PSS-E3 compartilham caderno, mas o subconjunto para pontuação PSS é diferente. O piloto representa PI e não duplica o mesmo documento como outra observação agregada.', '',
                   '## Comparação temporal planejada', '',
-                  f'Permanecem **{pending_dates}** aplicações com data efetiva exata pendente. A auditoria C3 confirmou PSC2019 E1/E2/E3 em 02/12/2018 por notícia institucional posterior ao evento, preservando cronograma e divergência editorial nas fontes.', '',
+                  f'Permanecem **{pending_dates}** aplicações com data efetiva exata pendente. A auditoria C3 confirmou PSC2019 E1/E2/E3 em 02/12/2018 por notícia institucional posterior ao evento. A C4 confirmou PSC2023 E1/E2 em 30/07/2023 por histórico administrativo explícito; emissão e pagamento não foram usados como datas da prova. Cronogramas e divergências permanecem preservados.', '',
                   '| Estrato com questões segmentadas | 2017–2021: cadernos | 2022–2023: cadernos | 2024: cadernos | 2025–2026: cadernos | Data pendente | Contraste de incidência |',
                   '| --- | ---: | ---: | ---: | ---: | ---: | --- |'])
     strata = defaultdict(Counter)

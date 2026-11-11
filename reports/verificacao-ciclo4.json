@@ -1,0 +1,84 @@
+{
+  "ciclo": 4,
+  "verificado_em": "2026-11-11T15:40:45.949990-04:00",
+  "commit_base": "d88b369",
+  "tipo": "ampliacao_documental_nao_conclusao_do_estudo",
+  "testes_unitarios": {
+    "quantidade": 143,
+    "resultado": "passou",
+    "comando": "uv run --locked python -m unittest discover -s tests -q"
+  },
+  "processos_ou_ramos": 39,
+  "ies_parcialmente_triadas": 24,
+  "aplicacoes_registradas": 62,
+  "eventos_fuvest_fases_comuns": 32,
+  "datas_efetivas_pendentes": 3,
+  "datas_ufam_confirmadas_c4": 2,
+  "registros_documentais": 231,
+  "pdfs_unicos_sha256": 225,
+  "registros_extracao": 227,
+  "vinculos_preservados_sem_extracao_automatica": 4,
+  "questoes": 312,
+  "objetivas": 300,
+  "discursivas": 12,
+  "rotulos_subitens_discursivos_detectados": 36,
+  "anulacoes": 10,
+  "orientacoes_discursivas": 12,
+  "textos_e_fontes_300_questoes_anteriores_preservados": true,
+  "respostas_e_anulacoes_300_anteriores_preservadas": true,
+  "linhas_humanas_anteriores_preservadas_byte_a_byte": true,
+  "novas_linhas_humanas_vazias": 12,
+  "rotulos_humanos_importados": 0,
+  "snapshot_2024_preservado": true,
+  "protocolo_original_preservado": true,
+  "reexecucao_offline_identica": true,
+  "coleta_cache_sem_rede_verificada": true,
+  "arquivos_deterministicos_comparados": 23,
+  "consolidacao_e_relatorios_sem_acervo_identicos": true,
+  "comandos_reexecucao": [
+    [
+      "scripts/consolidar_registro.py"
+    ],
+    [
+      "scripts/segmentar.py"
+    ],
+    [
+      "scripts/gabaritos.py"
+    ],
+    [
+      "scripts/preparar_revisao.py"
+    ],
+    [
+      "scripts/gerar_revisao.py"
+    ],
+    [
+      "scripts/pipeline.py",
+      "verificar"
+    ],
+    [
+      "scripts/pipeline.py",
+      "relatorio"
+    ]
+  ],
+  "regioes_visuais_com_hash_conferido": 384,
+  "paginas_fuvest_2024_hg_inspecionadas_visualmente_por_ia": [
+    26,
+    28,
+    30,
+    32,
+    34,
+    36
+  ],
+  "orientacao_g05_continuacao_p31_p32_conferida_no_hash": true,
+  "ui_fixture_discursiva_exportacao_importacao_aprovada": true,
+  "ui_fixture_mobile_inspecionada": true,
+  "links_locais_validos": 35,
+  "manifesto_relatorio_sha256": "4461d682f20cfd10fb28aec87309f96edf3285fc53cb6da30a3a3c302742ff75",
+  "limites": [
+    "Estudo nacional, cobertura da década e inventário institucional permanecem incompletos.",
+    "As compilações FUVEST não são exposição uniforme; matriz completa por carreira e demais segmentações pendentes.",
+    "Manual FUVEST2021 tem vigência pré-prova pendente; fontes de realização exigem completar preservação local, incluindo relatório anual2022 acima do limite da pesquisa.",
+    "Referência humana, teste congelado, baseline, avaliação de IA e análise substantiva pendentes.",
+    "Metadados reproduzidos sem acervo não substituem recuperação e conferência dos originais."
+  ]
+}

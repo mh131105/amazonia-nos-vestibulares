@@ -40,7 +40,9 @@ def import_annotations(path, root=ROOT, *, replace=False):
             raise ValueError('Regionalidade ou evidência inválida')
         if row.get('integridade_enunciado') not in {'completo', 'incompleto', 'a_revisar'}:
             raise ValueError('Integridade de enunciado não preenchida')
-        if row.get('integridade_alternativas') not in {'completas', 'incompletas', 'a_revisar'}:
+        allowed_alternatives = ({'nao_se_aplica_discursiva', 'a_revisar'} if question.get('tipo_resposta') == 'discursiva'
+                                else {'completas', 'incompletas', 'a_revisar'})
+        if row.get('integridade_alternativas') not in allowed_alternatives:
             raise ValueError('Integridade das alternativas não preenchida')
         if row.get('dependencia_visual') not in {'sim', 'nao', 'a_verificar'} or row.get('conferido_pdf') != 'sim':
             raise ValueError('Conferência da fonte visual pendente')

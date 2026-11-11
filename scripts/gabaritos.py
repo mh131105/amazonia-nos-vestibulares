@@ -22,7 +22,7 @@ import re
 import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.3.0'
+VERSION = '0.4.0'
 # Faixas do piloto com disciplina conhecida. Línguas têm colunas diferentes e
 # não recebem uma resposta por conveniência usando a primeira coluna.
 UFAM_SUPPORTED = {1: set(range(17, 29)), 2: set(range(17, 29)), 3: set(range(19, 31))}
@@ -36,9 +36,14 @@ UFAM_LEGACY_VERIFIED = {
     (2019, 2): {'projeto': 2020, 'sha256': 'c4e2b1116803a1d6896c3e8ee305a93a50601a3897a800d33b7b1e32f2b7c62d'},
     (2019, 3): {'projeto': 2019, 'sha256': '72902781ecb6d5675e93ecf70de7fe6125d51562aadfac2c014dd8cbc33dcf41'},
 }
+FUVEST_CONTINUACOES_VERIFICADAS = {
+    # As duas páginas repetem código e título e continuam a mesma orientação.
+    # Conferência visual pelo Codex; não é revisão humana do item.
+    (2024, 'ac5d38390febca1415a61caf3e3e291115662fd9dfb6417c81d857b9e6ccffad'): {'G05': [31, 32]},
+}
 FIELDS = ['ocorrencia_id', 'aplicacao_id', 'numero_questao',
-          'disciplina', 'alternativa_oficial', 'estado_oficial',
-          'marcador_oficial', 'documento_id', 'documento_sha256', 'finalidade_documental', 'pagina_pdf',
+          'disciplina', 'tipo_resposta', 'alternativa_oficial', 'estado_oficial',
+          'marcador_oficial', 'documento_id', 'documento_sha256', 'finalidade_documental', 'pagina_pdf', 'paginas_pdf',
           'secao_gabarito', 'url_origem', 'origem', 'revisao_humana',
           'vinculo_versao_caderno', 'responsavel_extracao', 'versao_extrator',
           'problemas']
@@ -213,6 +218,34 @@ def parse_uerr(pages, year, requested):
     return found, problem
 
 
+def question_number(value):
+    return int(value) if str(value).isdigit() else str(value)
+
+
+def parse_fuvest_discursiva(pages, year, requested, *, source_sha256=None):
+    """Localiza a orientação oficial por código; não converte exemplo em letra."""
+    header = ' '.join(normalized(text) for _, text in pages[:3])
+    header = ' '.join(header.split())
+    if (not re.search(rf'FUVEST\s+{year}\b', header) or '2A FASE' not in header
+            or not any(title in header for title in ['RESPOSTAS ESPERADAS', 'ABORDAGENS ESPERADAS'])):
+        return {}, 'orientacoes_fuvest_ano_fase_nao_confirmados'
+    candidates = defaultdict(list)
+    for page, original in pages:
+        for line in normalized(original).splitlines():
+            match = re.match(r'^\s*([GH]\d{2})(?:\s|$)', line)
+            code = match.group(1) if match else None
+            if code in requested:
+                candidates[code].append(page)
+    found = {}
+    continuations = FUVEST_CONTINUACOES_VERIFICADAS.get((year, source_sha256), {})
+    for code, locations in candidates.items():
+        if len(locations) == 1 or locations == continuations.get(code):
+            found[code] = {'estado_oficial': 'orientacao_discursiva_publicada',
+                           'pagina_pdf': locations[0], 'paginas_pdf': locations, 'marcador_oficial': code,
+                           'secao_gabarito': f'FUVEST {year}, 2ª fase, orientação para {code}; não esgota respostas possíveis'}
+    return found, 'codigo_discursivo_ausente_ou_nao_unico'
+
+
 def link(root=ROOT):
     root = Path(root).resolve()
     with (root / 'data/processed/questoes.csv').open(encoding='utf-8', newline='') as stream:
@@ -221,14 +254,17 @@ def link(root=ROOT):
     if len(ids) != len(set(ids)):
         raise ValueError('IDs de ocorrência duplicados em questoes.csv')
     documents = read_jsonl(root / 'data/registry/documentos.jsonl')
-    audit_path = root / 'data/registry/auditoria-datas-c3.json'
-    findings = (json.loads(audit_path.read_text(encoding='utf-8')).get('auditoria_gabaritos', [])
-                if audit_path.exists() else [])
+    latest_findings = {}
+    for audit_path in [root / f'data/registry/auditoria-datas-c{cycle}.json' for cycle in (3, 4)]:
+        if audit_path.exists():
+            for finding in json.loads(audit_path.read_text(encoding='utf-8')).get('auditoria_gabaritos', []):
+                latest_findings[finding['documento_id']] = finding
+    findings = list(latest_findings.values())
     extracts = {row['documento_id']: row for row in read_jsonl(root / 'data/registry/extracoes.jsonl')}
     by_application = defaultdict(list)
     for document in documents:
         if (document.get('status') == 'coletado' and document.get('origem_oficial') is True
-                and document.get('tipo') == 'gabarito_definitivo'):
+                and document.get('tipo') in {'gabarito_definitivo', 'respostas_esperadas'}):
             by_application[document['aplicacao_id']].append(document)
     groups = defaultdict(list)
     for question in questions:
@@ -240,10 +276,11 @@ def link(root=ROOT):
         found, problem = {}, 'gabarito_definitivo_oficial_ausente_ou_nao_unico'
         if source:
             pages = load_pages(root, source, extracts.get(source['documento_id']))
-            requested = {int(item['numero_questao']) for item in items}
+            requested = {question_number(item['numero_questao']) for item in items}
             ufam = re.fullmatch(r'ufam-psc(\d{4})-e([123])', application_id)
             ufrr = re.fullmatch(r'ufrr-vestibular(\d{4})-pi', application_id)
             uerr = re.fullmatch(r'uerr-vestibular(\d{4})', application_id)
+            fuvest = re.fullmatch(r'usp-fuvest(\d{4})-f2-d[23]', application_id)
             if ufam:
                 found, problem = parse_ufam(pages, *map(int, ufam.groups()), requested,
                                             source_sha256=source['sha256'])
@@ -251,14 +288,19 @@ def link(root=ROOT):
                 found, problem = parse_ufrr_pi(pages, int(ufrr.group(1)), requested)
             elif uerr:
                 found, problem = parse_uerr(pages, int(uerr.group(1)), requested)
+            elif (fuvest and source['tipo'] == 'respostas_esperadas'
+                  and all(item.get('tipo_resposta') == 'discursiva' for item in items)):
+                found, problem = parse_fuvest_discursiva(pages, int(fuvest.group(1)), requested,
+                                                         source_sha256=source['sha256'])
             else:
                 problem = 'layout_sem_regra_verificada'
-        for item in sorted(items, key=lambda row: int(row['numero_questao'])):
-            number = int(item['numero_questao'])
+        for item in sorted(items, key=lambda row: str(row['numero_questao']).zfill(3)):
+            number = question_number(item['numero_questao'])
             result = found.get(number, {})
             row = {'ocorrencia_id': item['ocorrencia_id'],
                    'aplicacao_id': application_id, 'numero_questao': number,
                    'disciplina': item['disciplina'],
+                   'tipo_resposta': item.get('tipo_resposta', 'objetiva_multipla_escolha'),
                    'alternativa_oficial': result.get('alternativa_oficial'),
                    'estado_oficial': result.get('estado_oficial', 'nao_identificado'),
                    'marcador_oficial': result.get('marcador_oficial'),
@@ -266,6 +308,7 @@ def link(root=ROOT):
                    'documento_sha256': source['sha256'] if source else None,
                    'finalidade_documental': documentary_purpose(source, findings) if source else None,
                    'pagina_pdf': result.get('pagina_pdf'), 'secao_gabarito': result.get('secao_gabarito'),
+                   'paginas_pdf': json.dumps(result.get('paginas_pdf', [result['pagina_pdf']] if result.get('pagina_pdf') else [])),
                    'url_origem': source['url_origem'] if source else None,
                    'origem': 'extracao_gabarito_oficial', 'revisao_humana': 'pendente',
                    'vinculo_versao_caderno': 'conferencia_humana_pendente_sem_reordenacao_inferida',

@@ -15,7 +15,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.2.0'
+VERSION = '0.4.0'
 HEADINGS = {'HISTÓRIA', 'GEOGRAFIA', 'BIOLOGIA', 'FÍSICA', 'QUÍMICA',
             'MATEMÁTICA', 'LITERATURA', 'LÍNGUA PORTUGUESA', 'LÍNGUA ESTRANGEIRA'}
 
@@ -46,6 +46,8 @@ def ordered_lines(pages, layout):
     result = []
     for page in sorted(pages, key=lambda item: item['pagina']):
         if page['pagina'] < layout['pagina_inicial']:
+            continue
+        if layout.get('paginas_corpo') and page['pagina'] not in layout['paginas_corpo']:
             continue
         split = page['largura'] * layout['divisao_colunas_fracao']
         columns = [[], []]
@@ -95,8 +97,10 @@ def markers(lines, layout):
             margin = layout['margens_inicio_questao'][line['coluna'] - 1]
             if abs(line['bbox'][0] - margin) > layout['tolerancia_margem']:
                 continue
-        number = int(match.group(1))
-        if 1 <= number <= layout['numero_maximo']:
+        code = match.group(1)
+        number = code if layout.get('codigos_questoes') else int(code)
+        if (number in layout['codigos_questoes'] if layout.get('codigos_questoes')
+                else 1 <= number <= layout['numero_maximo']):
             result.append({'indice': index, 'numero': number})
     return result
 
@@ -196,7 +200,7 @@ def segment(root=ROOT):
         found = markers(lines, layout)
         selected = []
         for section in rule['secoes']:
-            for number in range(section['inicio'], section['fim'] + 1):
+            for number in section.get('codigos') or range(section['inicio'], section['fim'] + 1):
                 positions = [index for index, marker in enumerate(found) if marker['numero'] == number]
                 if len(positions) != 1:
                     raise ValueError(f'Início da questão {number} não é único: {doc_id} ({len(positions)})')
@@ -206,20 +210,28 @@ def segment(root=ROOT):
                 end = following['indice'] if following else len(lines)
                 item_lines = lines[start:end]
                 text = '\n'.join(line['texto'] for line in item_lines).strip()
-                alternatives, labels = split_alternatives(
+                response_type = section.get('tipo_resposta', 'objetiva_multipla_escolha')
+                if response_type not in {'objetiva_multipla_escolha', 'discursiva'}:
+                    raise ValueError('Tipo de resposta sem regra de segmentação')
+                alternatives, labels = (None, []) if response_type == 'discursiva' else split_alternatives(
                     text, layout.get('marcador_alternativa'), alternative_label_lines(item_lines, layout))
                 issues = []
-                allowed_end = (not following and number == layout['numero_maximo']
+                sequence = layout.get('codigos_questoes')
+                last = sequence[-1] if sequence else layout['numero_maximo']
+                expected_next = (sequence[sequence.index(number) + 1] if sequence and number != last
+                                 else None if sequence else number + 1)
+                allowed_end = (not following and number == last
                                and layout.get('fecha_ultima_questao_no_fim_do_documento') is True)
-                if (not following and not allowed_end) or (following and following['numero'] != number + 1):
+                if (not following and not allowed_end) or (following and following['numero'] != expected_next):
                     issues.append('proxima_questao_ausente_ou_nao_consecutiva')
-                if alternatives is None:
+                if alternatives is None and response_type != 'discursiva':
                     issues.append('alternativas_textuais_nao_formam_A_E_em_ordem_unica')
                 if '\ufffd' in text:
                     issues.append('caractere_de_substituicao_na_extracao')
                 if len(text) < 70:
                     issues.append('texto_extraido_curto_revisar')
-                occurrence = f"{document['aplicacao_id']}-q{number:02d}"
+                suffix = f'{number:02d}' if isinstance(number, int) else '-' + number.lower()
+                occurrence = f"{document['aplicacao_id']}-q{suffix}"
                 source_regions = regions(item_lines, pages, layout, lines[end] if end < len(lines) else None)
                 metadata = {
                     'ocorrencia_id': occurrence,
@@ -231,11 +243,13 @@ def segment(root=ROOT):
                     'url_origem': document['url_origem'],
                     'numero_questao': number,
                     'disciplina': section['disciplina'],
+                    'tipo_resposta': response_type,
                     'paginas_pdf': sorted({line['pagina'] for line in item_lines}),
                     'regioes_origem': source_regions,
                     'quantidade_caracteres_extraidos': len(text),
                     'alternativas_rotulos_detectados': [label.upper() for label in labels],
-                    'alternativas_textuais_completas': alternatives is not None,
+                    'subitens_rotulos_detectados': re.findall(r'(?m)^([a-z])\)\s', text) if response_type == 'discursiva' else [],
+                    'alternativas_textuais_completas': alternatives is not None if response_type != 'discursiva' else None,
                     'status_estrutural': 'estrutura_textual_completa_revisao_pendente' if not issues else 'incompleta_ou_ambigua_revisar',
                     'problemas_extracao': issues,
                     'dependencia_visual': 'a_verificar',
@@ -260,7 +274,7 @@ def segment(root=ROOT):
                            'extracao_paginas_sha256': digest(pages_path),
                            'regras_sha256': digest(config_path), 'layout': rule['layout'],
                            'versao_segmentador': VERSION,
-                           'questoes_esperadas': sum(s['fim'] - s['inicio'] + 1 for s in rule['secoes']),
+                           'questoes_esperadas': sum(len(s['codigos']) if s.get('codigos') else s['fim'] - s['inicio'] + 1 for s in rule['secoes']),
                            'questoes_segmentadas': len(selected),
                            'estrutura_textual_completa': sum(not row['problemas_extracao'] for row in selected),
                            'denominadores_validados': 0,
@@ -289,7 +303,7 @@ def main():
     args = parser.parse_args()
     for row in segment(args.root):
         print(f"{row['documento_id']}: {row['questoes_segmentadas']}/{row['questoes_esperadas']} itens; "
-              f"{row['estrutura_textual_completa']} com alternativas textuais A–E; revisão pendente")
+              f"{row['estrutura_textual_completa']} sem alerta estrutural; revisão pendente")
 
 
 if __name__ == '__main__':

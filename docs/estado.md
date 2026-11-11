@@ -1,53 +1,48 @@
 # Estado do estudo e continuidade
 
-Ciclo 3 — 11/11/2026. Classificação do ciclo anterior: **progresso**, verificado no commit `d7efda0`. Este ciclo também produz **progresso**; o estudo permanece ativo e incompleto.
+Ciclo 4 — 11/11/2026. O ciclo anterior foi **progresso**, verificado no commit `d88b369`. Este ciclo também produz **progresso**; o estudo permanece ativo e incompleto.
 
-## Entrega deste ciclo
+## Entrega e verificação
 
-- Inventário histórico oficial de 2017–2024: **2.459 observações anuais, 334 códigos públicos ou Especiais candidatos**, dos quais 331 têm indicação pública em algum ano. A fotografia inicial de 2024, com 317 IES, foi preservada.
-- Fila nacional de 334 códigos: **24 IES com triagem parcial**, 310 ainda sem triagem de processos. O registro tem **39 processos ou ramos de investigação**, com alcance nas cinco regiões. Ramos a desagregar não equivalem a processos únicos comprovados; nenhuma IES foi declarada esgotada.
-- **131 vínculos documentais, correspondentes a 129 PDFs oficiais distintos**, com hash, origem e extração; **33 aplicações identificadas**, incluindo uma futura no corte e cinco com data exata ainda pendente.
-- FUVEST: três anos de previsão amazônica em Geografia (aplicações 2021–2023). UFMS: três anos em Ciências Humanas integradas (2023–2025), conservados separadamente das recorrências disciplinares. Seis programas dessas instituições foram preservados e extraídos; nenhum caderno ou questão foi presumido.
-- Marcos normativos S2–S6 auditados em **cinco fontes arquivadas por hash**, fora das contagens de vestibulares. O [contexto temporal](contexto-temporal.md) preserva os cortes do protocolo e distingue atos federais, reproduções oficiais e contexto local.
-- **23 cadernos e 300 ocorrências**, 150 de História e 150 de Geografia. São 299 estruturas textuais A–E e um caso de alternativas gráficas ainda pendente.
-- **300 vínculos de gabarito**: 290 alternativas publicadas e dez anulações. Doze respostas do PSC2019 E2 têm finalidade documental pendente: o índice chama o arquivo de definitivo, mas o PDF não o confirma no cabeçalho. Letras e anulações foram preservadas. A revisão humana e a conferência de versões continuam pendentes.
-- Matheus foi definido pelo usuário como anotador. O caderno local de revisão reúne 300 itens e 372 regiões de origem, sem gabaritos ou predições de regionalidade. A fila real continua sem rótulos humanos.
-- **120 testes** passaram. Foram verificados hashes, relações, datas primárias, atribuição integrada sem duplicação, propagação da ressalva do gabarito, preservação do cache normativo e reprodução. A inspeção interativa do ciclo 2 usou somente uma página fictícia, sem preencher dados reais; neste ciclo não houve mudança de layout.
+- Mantidos os 2.459 registros anuais de instituições em 2017–2024 e os 334 códigos públicos ou Especiais candidatos. A fotografia de 2024, com 317 IES, permanece intacta. A fila tem 24 IES parcialmente triadas e 310 ainda não iniciadas; nenhum processo examinado esgota a instituição.
+- Registro consolidado: **39 processos ou ramos em 24 IES**, **62 eventos de aplicação**, um futuro no corte e três com dia efetivo ainda pendente. Ramos a desagregar não equivalem a processos únicos comprovados.
+- **231 vínculos documentais e 225 PDFs oficiais distintos** preservados por hash, sem falhas de coleta. Há **227 registros de extração**. Quatro vínculos administrativos/de recursos preservam originais sem extração textual automática de dados pessoais fora da evidência.
+- FUVEST: **32 eventos das fases comuns**, dez primeiras fases e 22 dias de segunda fase, com onze programas compartilhados. A primeira fase da edição 2027 ocorreu em 01/11/2026; as provas de dezembro permanecem fora do corte. Calendários superados não foram usados como datas efetivas.
+- UFMS: três eventos de referência preservados, seis variantes presencial/digital e quinze documentos coletados. As bases digitais públicas evitam depender de cadernos pessoais; a randomização não cria outra aplicação por ordenação. A continuidade entre os atos PSV/PSVD de 2024 ainda exige desagregação.
+- **312 questões**: 300 objetivas de 23 cadernos e doze discursivas da compilação FUVEST2024, totalizando **156 de História e 156 de Geografia**. Foram detectados 36 rótulos de subitens nesse recorte discursivo, mantendo doze ocorrências. São 299 estruturas textuais A–E entre as 300 objetivas; um caso gráfico continua pendente.
+- **290 alternativas publicadas, dez anulações e doze referências a orientações discursivas oficiais**. As orientações não viram letras ou respostas únicas. A finalidade PSC2019 E2 foi corroborada no mesmo hash por repositório e decisões pós-recurso; nenhuma letra/anulação foi alterada.
+- As etapas 1/2 do PSC2023 tiveram **30/07/2023 confirmado** por histórico administrativo explícito de realização. Emissão, pagamento e data do item do repositório não datam a prova. As três E3 restantes mantêm data efetiva vazia.
+- **143 testes passaram**, incluindo formatos, subitens, integridade, datas previstas/efetivas, vigência do programa, compartilhamento e importação de anotações. Exportação/importação discursiva foi conferida no navegador somente em página fictícia isolada. As 300 linhas anteriores da fila foram preservadas byte a byte e receberam doze linhas novas vazias.
 
-O acervo atual inclui UFAM, UFRR e UERR. UERR alcançou três anos de previsão regional no processo (2022, 2025 e 2026). UFRR continua com dois anos confirmados: fontes históricas oficiais estão indisponíveis e não foram substituídas por espelhos não autenticados.
+O caderno local reúne 312 itens e 384 regiões visuais. Matheus permanece como anotador humano; não há rótulos humanos importados no CSV. Imagens e textos continuam locais, fora do Git. Os cinco marcos normativos S2–S6 permanecem em registro separado das aplicações de vestibular.
 
-## Achados que afetam a comparação
+## Achados e limites que afetam as análises
 
-PSC2021 E1/E2 ocorreu em 06/03/2022 para séries cursadas em 2020; PSC2022 E1/E2 ocorreu em 23/10/2022 para séries de 2021. Uma célula anual admite múltiplas aplicações. Ano letivo, edição, ingresso e data de aplicação permanecem separados.
+Na FUVEST, a compilação do segundo dia de 2024 reúne 36 questões, mas cada candidato respondeu doze conforme a carreira, com três, quatro ou seis questões por disciplina. A matriz completa de exposição e a equivalência entre versões precisam ser conferidas antes de indicadores por caderno/carreira. História não herda a elegibilidade documental confirmada de Geografia.
 
-A ampliação encontrou Geografia regional nas etapas 1/2 anteriores a 2024 e programas sem previsão amazônica explícita em seções examinadas. Esses achados documentais não são incidência de questões nem efeito da reforma. A auditoria C3 confirmou PSC2019 E1/E2/E3 em 02/12/2018 por notícia institucional posterior ao evento; as cinco datas restantes não entram como datas observadas no contraste.
+O programa FUVEST2021 preservado tem versão nominal de 23/03/2021, posterior às provas. A previsão geográfica foi conservada como conteúdo do arquivo; sua adoção pré-prova não foi confirmada e não alimenta a recorrência como evidência aplicada. Os programas novos de 2026/2027 foram lidos em suas próprias seções; a previsão nominal dos antigos não foi transferida automaticamente.
 
-Foram examinadas 21 retificações e um comunicado no alcance da auditoria UFAM, sem alteração identificada de programa de História/Geografia ou do dia da prova. Duas retificações e o comunicado compartilhado E1/E2 foram incorporados ao acervo. O levantamento não declara encerrada a auditoria de toda a década.
+Blocos UFMS de Filosofia/História/Sociologia ou Humanas não foram convertidos em História exclusiva. Os mapas numéricos digitais de 2024/2025 e a correspondência final entre bases e chaves continuam pendentes. O presencial 2024 exige atenção a caracteres perdidos e possível OCR seletivo.
 
-UERR mudou de banca e de organização das disciplinas. Banca e formato são preservados no registro. Os 17 códigos históricos não encontrados em 2024 e os 35 com diferenças textuais não são automaticamente instituições extintas ou mudanças jurídicas comprovadas.
+Aplicação, edição, ingresso, ano letivo e regime curricular seguem separados. As aplicações UFAM adiadas para 2022 representam séries escolares de 2020/2021; a FUVEST também tem calendários deslocados. Os cortes do protocolo continuam descritivos e observacionais, sem exposição curricular individual presumida ou efeito causal estimado.
 
-## Revisão por Matheus
+## Anotação por Matheus
 
-Abra `data/annotation/revisao/index.html` ou o servidor local do README. Confira o PDF, salve suas anotações e exporte o JSON para guardar cópia. `scripts/importar_anotacoes.py` valida e incorpora o arquivo, preservando versões anteriores. Não há anotação humana inferida a partir da configuração do nome.
+Abra o caderno local indicado no README, confira a fonte e salve/exporte suas decisões. Nas discursivas, use a opção de alternativas não aplicáveis e mantenha os subitens juntos. A interface mostra códigos, fase/dia e compilação por carreira, sem gabaritos ou sugestões de regionalidade.
 
-A anotação é necessária para a referência humana e a avaliação, mas ainda há trabalho documental independente. Não existe teste humano congelado, baseline avaliado ou métricas de IA. Nenhum indicador de incidência foi publicado nem item liberado ao banco educacional.
+Não existe referência humana congelada, teste separado, baseline avaliado ou métricas de IA. Todos os itens continuam sem validação para denominador ou liberação educacional. A revisão de versões, direitos e gabaritos não é substituída pela concordância entre modelos ou pela inspeção do Codex.
 
-## Pendências do protocolo completo
+## Pendências e próxima entrega
 
-1. Completar mudanças institucionais 2025–2026, e-MEC/fontes históricas, natureza dos Especiais e vínculos jurídicos entre códigos.
-2. Triar os processos dos demais códigos da fila nacional e completar as instituições parcialmente examinadas. As leituras e negativas limitadas a edições/seções não excluem instituições inteiras.
-3. Corroborar cinco datas efetivas, resolver a finalidade do gabarito PSC2019 E2 e ampliar a auditoria de retificações; completar todas as etapas e aplicações da década, incluindo anos sem previsão regional.
-4. Resolver UFRR/UEA/UERR antigos por alternativas oficiais autorizadas, sem contornar controles de acesso.
-5. Completar fontes originais e atos posteriores aos marcos S2–S6, além de implementação local e alinhamento dos processos; calendário escolar não prova alteração simultânea nas provas.
-6. Validar OCR em PDFs digitalizados reais e revisar enunciados, figuras, alternativas, gabaritos e textos compartilhados.
-7. Completar tópicos de programa, taxonomia e equivalência de conteúdos. Obter referência humana, partições por prova/grupo e teste congelado antes dos ajustes finais.
-8. Avaliar extração, detecção, temas e vínculos contra humanos e método simples. Orçamento de API permanece indefinido; o pipeline não fez chamadas pagas de modelos.
-9. Calcular indicadores com denominadores íntegros, contraste temporal e sensibilidades. Publicação externa, relatório final e exportação educacional dependem das revisões, cobertura e direitos.
-
-## Próxima ação
-
-Matheus pode começar a anotação no caderno. Em paralelo, o próximo ciclo documental deve ampliar as aplicações da FUVEST, desagregar formatos da UFMS e recuperar programas incorporados por remissão (por exemplo, UNESP/UNICAMP), além das cinco datas UFAM e do gabarito pendente. Continuar a fila nacional e a reconciliação dos códigos históricos. A falta de rótulos humanos não deve interromper esse trabalho independente.
+1. Segmentar e conferir as demais compilações FUVEST de História/Geografia, preservando alterações de layout, subitens, respostas oficiais e matrizes por carreira. A primeira fase e os dias comuns antigos permanecem integrados até identificação disciplinar sustentada.
+2. Concluir mapas e continuidade dos formatos UFMS; validar OCR em páginas reais problemáticas, sem inventar caracteres ou fronteiras disciplinares.
+3. Recuperar fontes primárias novas para PSC2021 E3, PSC2022 E3 e PSC2023 E3; não repetir buscas sem pista nova. As rotas e limites examinados estão na auditoria C4.
+4. Completar fontes originais de realização FUVEST e a cadeia de versões programáticas, incluindo o manual 2021. O relatório anual 2022 excedeu 25 MiB na pesquisa dirigida; a evidência textual oficial e página impressa 40 foram preservadas, mas página física/original local continuam pendentes.
+5. Prosseguir a fila nacional de instituições/processos, mudanças de 2025–2026 e reconciliação jurídica. Os 17 códigos históricos ausentes em 2024 e as diferenças textuais não são automaticamente extinções ou sucessões legais.
+6. Completar tópicos integrais dos programas, taxonomia comum, equivalências de conteúdo, referência humana e partições por prova/grupo; congelar o teste antes de ajustes finais.
+7. Avaliar extração, detecção, temas e vínculos contra humanos e método simples. Não foram feitas chamadas pagas de API de modelos; orçamento permanece indefinido.
+8. Calcular incidência, contraste temporal e sensibilidades somente com cobertura e denominadores adequados. Relatório final, publicação externa e exportação educacional permanecem pendentes.
 
 ## Retomada e reprodução
 
-Leia as decisões, os relatórios atuais e `reports/verificacao-ciclo3.json`. Os comandos estão no README. Os arquivos de verificação dos ciclos 1/2 são evidências históricas dos commits `e853054`/`d7efda0`, não validações do manifesto atual. Confira `git status` e preserve anotações preenchidas antes de qualquer modificação.
+Leia as decisões, as notas C4, os relatórios atuais e `reports/verificacao-ciclo4.json`. Os comandos estão no README. As verificações C1–C3 são históricas dos commits `e853054`, `d7efda0` e `d88b369`; não validam o manifesto atual. Preserve anotações efetivamente preenchidas antes de qualquer atualização.

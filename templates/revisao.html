@@ -15,6 +15,7 @@
 'use strict';
 const pack=JSON.parse(document.getElementById('package').textContent), items=pack.itens;
 const $=id=>document.getElementById(id), form=$('form'), key='amazonia-revisao:'+pack.pacote_id;
+const notApplicable=document.createElement('option');notApplicable.value='nao_se_aplica_discursiva';notApplicable.textContent='Não se aplica (questão discursiva)';$('alternatives').append(notApplicable);
 let index=0, records={}, available=true, dirty=false;
 try{records=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){available=false}
 const allowed=new Set(items.map(q=>q.id));
@@ -24,8 +25,10 @@ function persist(){try{localStorage.setItem(key,JSON.stringify(records))}catch(e
 function render(){
 dirty=false;
 const q=items[index]; form.reset(); $('author').value=pack.anotador_previsto;
+const discursive=q.tipo_resposta==='discursiva';notApplicable.hidden=!discursive;notApplicable.disabled=!discursive;for(const option of $('alternatives').options){if(['completas','incompletas'].includes(option.value)){option.hidden=discursive;option.disabled=discursive}}
 $('number').textContent=q.numero; $('discipline').textContent=q.disciplina==='historia'?'História':'Geografia';
 $('edition').textContent=q.edicao; $('date').textContent=q.instituicao+' · '+(q.data?'aplicação em '+q.data.split('-').reverse().join('/'):'data efetiva a confirmar'+(q.data_prevista?' · prevista '+q.data_prevista.split('-').reverse().join('/'):''));
+if(q.fase)$('date').textContent+=' · '+q.fase+'ª fase'+(q.dia?' · dia '+q.dia:'');if(q.compilacao_por_carreira)$('date').textContent+=' · compilação por carreira';
 $('identifier').textContent=q.id; $('pdf').href=q.url; $('extracted').textContent=q.texto_extraido;
 $('views').replaceChildren(); for(const view of q.imagens){const holder=document.createElement('div');holder.className='original';const caption=document.createElement('div');caption.className='caption';caption.textContent='PDF · página '+view.pagina+' · coluna '+view.coluna+' · ';const zoom=document.createElement('a');zoom.href=view.arquivo;zoom.target='_blank';zoom.rel='noopener';zoom.textContent='Ampliar imagem';caption.append(zoom);const image=document.createElement('img');image.src=view.arquivo;image.alt='Questão '+q.numero+' na página '+view.pagina+', coluna '+view.coluna+' do PDF original';holder.append(caption,image);$('views').append(holder)}
 const saved=records[q.id]; if(saved){for(const [name,value] of Object.entries(saved)){for(const field of form.elements){if(field.name===name){if(field.type==='radio')field.checked=field.value===value;else if(field.type==='checkbox')field.checked=value==='sim';else field.value=value||''}}}}

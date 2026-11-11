@@ -8,10 +8,10 @@ Recorte: aplicações de **01/01/2017 a 11/11/2026**, no horário de Manaus. O a
 
 - Inventário histórico: **2.459 observações anuais em 2017–2024**, reunindo **334 códigos públicos ou Especiais candidatos**. A fotografia de 2024, com 317 IES da rede pública, permanece preservada. Mudanças de 2025–2026 e reconciliação jurídica estão pendentes.
 - Triagem: **39 registros de processos ou ramos em 24 IES**, com fontes, decisões e lacunas nas cinco regiões. Ramos ainda não desagregados não equivalem a processos únicos comprovados. O levantamento nacional permanece aberto.
-- Piloto de questões: **23 cadernos** UFAM/UFRR/UERR com **300 questões segmentadas: 150 de História e 150 de Geografia**. A ampliação nacional acrescenta programas documentados, sem acrescentar questões presumidas.
-- Acervo de vestibulares: **131 vínculos documentais e 129 PDFs oficiais distintos**. Os cinco marcos normativos ficam em registro separado.
-- FUVEST: três anos de previsão amazônica em Geografia. UFMS: três anos em Ciências Humanas integradas, mantidos em campo próprio. O mesmo procedimento preserva a atribuição disciplinar da fonte.
-- Três datas UFAM foram confirmadas; cinco permanecem pendentes. Um gabarito tem ressalva de finalidade documental, com respostas publicadas preservadas e confirmação da versão final ainda necessária.
+- Questões: **312 ocorrências, 156 de História e 156 de Geografia**. São 300 objetivas de 23 cadernos UFAM/UFRR/UERR e 12 discursivas da compilação FUVEST2024. Subitens e versões por carreira não multiplicam as ocorrências.
+- Acervo de vestibulares: **231 vínculos documentais e 225 PDFs oficiais distintos**, com **62 eventos registrados**. Os cinco marcos normativos ficam em registro separado. Quatro vínculos administrativos/de recursos preservam originais e metadados, sem extração textual automática.
+- FUVEST: 32 eventos das fases comuns em 2017–2026, com versões e programas compartilhados. A primeira fase de ingresso 2027 ocorreu em 01/11/2026 e está incluída; sua segunda fase permanece futura. UFMS: variantes presencial/digital preservadas, sem converter blocos integrados em História exclusiva.
+- As auditorias confirmaram cinco datas UFAM; três E3 continuam pendentes. A finalidade do gabarito PSC2019 E2 foi corroborada por cadeia institucional e pós-recursos, mantendo as mesmas letras e anulações. Revisão humana e versão de caderno permanecem pendentes.
 - Os itens têm origem por documento, hash, página e região do PDF. **Ainda não há incidência regional calculada, referência humana, avaliação da IA ou banco educacional liberado.**
 
 Leia o [relatório inicial](reports/relatorio-inicial.md), a [cobertura documental](reports/cobertura-inicial.md) e o [estado do projeto](docs/estado.md). O [manifesto](reports/manifesto-cobertura.json) identifica as entradas e saídas desta versão.
@@ -61,7 +61,7 @@ Essa etapa ainda não está implementada. Depende de referência humana, partiç
 
 ## Revisão por Matheus
 
-O [caderno local de revisão](data/annotation/revisao/index.html) reúne as questões por prova e disciplina com imagens da fonte. Ele não mostra gabaritos nem sugestões de regionalidade. Abra o arquivo no navegador, salve suas decisões e use **Exportar anotações** para guardar uma cópia. As datas não corroboradas aparecem como pendentes.
+O [caderno local de revisão](data/annotation/revisao/index.html) reúne as questões por prova e disciplina com imagens da fonte. Ele não mostra gabaritos nem sugestões de regionalidade. Nas discursivas, as alternativas são não aplicáveis; mantenha os subitens na mesma questão. Abra o arquivo no navegador, salve suas decisões e use **Exportar anotações** para guardar uma cópia. As datas não corroboradas aparecem como pendentes.
 
 ```sh
 # Recriar o caderno a partir do acervo local
@@ -88,6 +88,7 @@ Os testes protegem integridade dos originais, mudanças de versão, limites de c
 - [Inventário nacional inicial](docs/notas-inventario.md) e [cadastros históricos 2017–2024](docs/notas-historico-ies.md).
 - [Notas da triagem documental](docs/notas-triagem-demais.md) e [dicionário de dados](docs/dicionario-dados.md).
 - Ampliação C3: [Sul/Sudeste](docs/notas-triagem-sul-sudeste-c3.md), [Nordeste/Centro-Oeste](docs/notas-triagem-ne-co-c3.md) e [auditoria temporal UFAM](docs/notas-datas-ciclo3.md).
+- Ampliação C4: [FUVEST](docs/notas-fuvest-ciclo4.md), [UFMS](docs/notas-ufms-ciclo4.md) e [datas e gabarito UFAM](docs/notas-datas-ciclo4.md).
 - [Manual de revisão e anotação](docs/manual-anotacao.md).
 - Registros em `data/registry/`; metadados dos itens e gabaritos em `data/processed/`; fila de revisão em `data/annotation/`.
 

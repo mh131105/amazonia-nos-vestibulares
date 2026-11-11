@@ -84,3 +84,27 @@ O índice oficial chama o gabarito PSC2019 E2 de definitivo; o PDF examinado tra
 Os marcos S2–S6 foram auditados e arquivados por hash em registro próprio. Leis, cronogramas originais, suspensão de prazos e diretrizes curriculares não recebem aplicações fictícias de vestibular nem aumentam o acervo de provas. A documentação diferencia publicação original, reprodução em portal oficial e transcrição em ato local. O contexto do Distrito Federal não foi generalizado ao país.
 
 Os cortes 2017–2021, transição 2022–2023 e posterior 2024–2026 permanecem os do protocolo, com 2024 separado de 2025–2026. A auditoria normativa não demonstra implantação homogênea ou mudança simultânea nas provas. Implementação local, trajetória escolar dos candidatos e alinhamento explícito de cada seleção seguem pendentes. Ver [contexto temporal](contexto-temporal.md).
+
+## D014 — 11/11/2026 — Discursivas e exposição por carreira
+
+O mesmo procedimento passa a representar questões discursivas com código impresso, fonte geométrica, subitens juntos e alternativas não aplicáveis. G01 e H01 recebem IDs distintos. A compilação FUVEST2024 reúne 36 itens, mas cada candidato respondeu doze conforme a carreira. O recorte segmentado contém seis questões de cada disciplina; não é uma prova uniforme aplicada a toda pessoa. A matriz completa de exposição permanece necessária para os indicadores. História não recebe automaticamente a elegibilidade de Geografia.
+
+Orientações oficiais discursivas são referências de página e código, sem conversão em letras ou resposta única. G05 tem continuação nas páginas 31–32 do original conferido por hash. O formulário e a importação aceitam alternativas não aplicáveis somente nesse formato. Nenhuma anotação humana foi preenchida pelo Codex.
+
+## D015 — 11/11/2026 — Calendário efetivo e versão programática FUVEST
+
+A primeira fase da edição 2027 ocorreu em 01/11/2026, conforme gabarito e notícia posteriores à realização. O calendário anterior foi superado; sua segunda fase permanece futura no corte. As fases comuns de 2017–2026 foram inventariadas sem incluir a primeira fase de ingresso 2017, aplicada em 2016.
+
+O manual 2021 preservado tem versão nominal posterior às provas. Seu conteúdo regional permanece documentado, mas as evidências dessa versão ficam com vigência pré-prova pendente. Os programas novos de 2026/2027 foram lidos em suas próprias seções, incluindo História; não se transferiu a previsão dos antigos por analogia.
+
+## D016 — 11/11/2026 — Confirmação administrativa e cadeia pós-recursos UFAM
+
+PSC2023 E1/E2 foi confirmado em 30/07/2023 por histórico administrativo que declara a realização do certame. A data do pagamento, emissão ou depósito no repositório não foi usada como aplicação. O original e seu hash ficam vinculados às duas etapas; dados pessoais/financeiros fora da evidência não foram transcritos nem extraídos automaticamente.
+
+A finalidade do gabarito PSC2019 E2 foi corroborada por outro índice institucional, identidade integral dos bytes e decisões pós-recurso, incluindo manutenção Q24 e anulação Q50. A auditoria C4 sobrepõe a ressalva C3 sem apagar sua história ou modificar letras. Revisão humana e versão de caderno continuam pendentes. As três datas E3 não confirmadas permanecem vazias.
+
+## D017 — 11/11/2026 — Variantes UFMS e preservação dos originais
+
+Presencial e base digital publicada são variantes documentais; a ordenação individual aleatória não cria nova aplicação ou questão no agregado. A identidade histórica entre os atos PSV/PSVD de 2024 e os formatos posteriores permanece pendente. Não converter blocos conjuntos de Humanas ou Filosofia/História/Sociologia em História exclusiva por leitura temática.
+
+Cópias oficiais já inspecionadas foram incorporadas por hash com eventos que distinguem preservação local de publicação. Os demais arquivos foram recuperados pelo coletor. Os originais continuam locais e fora do Git, enquanto metadados, código, decisões e cobertura são versionados.

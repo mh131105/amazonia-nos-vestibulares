@@ -10,7 +10,7 @@ from pathlib import Path
 
 from pipeline import ROOT, read_csv, read_jsonl, sha256, verify
 
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 DPI = 120
 
 
@@ -67,13 +67,16 @@ def generate(root=ROOT, *, only=None):
                                    'imagem_sha256': sha256(destination)})
         items.append({'id': question['ocorrencia_id'], 'documento_sha256': doc['sha256'],
                       'aplicacao_id': question['aplicacao_id'], 'disciplina': question['disciplina'],
+                      'tipo_resposta': question.get('tipo_resposta', 'objetiva_multipla_escolha'),
+                      'fase': app.get('fase'), 'dia': app.get('dia'),
+                      'compilacao_por_carreira': 'compilacao' in app.get('formato', ''),
                       'numero': question['numero_questao'], 'edicao': app['edicao'], 'data': app['data_aplicacao'] or '',
                       'data_prevista': app.get('data_prevista') or '',
                       'instituicao': question['instituicao_sigla'], 'url': doc['url_origem'],
                       'imagens': views, 'texto_extraido': raw['texto_bruto_segmentado']})
     if not items:
         raise ValueError('Nenhuma questão selecionada')
-    items.sort(key=lambda r: (r['data'] or r['data_prevista'], r['aplicacao_id'], int(r['numero'])))
+    items.sort(key=lambda r: (r['data'] or r['data_prevista'], r['aplicacao_id'], str(r['numero']).zfill(3)))
     package_id = hashlib.sha256(json.dumps(items, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     package = {'versao': VERSION, 'pacote_id': package_id, 'anotador_previsto': config['anotador_previsto'], 'itens': items}
     template = (root / 'templates/revisao.html').read_text(encoding='utf-8')

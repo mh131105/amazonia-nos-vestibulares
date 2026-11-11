@@ -1,4 +1,4 @@
-# Dicionário de dados — versão 0.3.0
+# Dicionário de dados — versão 0.4.0
 
 Arquivos tabulares em UTF-8, com quebra de linha LF fixa para preservar hashes entre plataformas. Datas são ISO 8601. Páginas são posições do PDF a partir de 1. Campos vazios no CSV e `null` no JSON indicam valor ausente ou não verificado; não significam zero. Listas e regiões geométricas dentro de CSV usam JSON. Booleanos do CSV de segmentação aparecem como `True`/`False`.
 
@@ -13,6 +13,8 @@ Arquivos tabulares em UTF-8, com quebra de linha LF fixa para preservar hashes e
 | `data/registry/triagem-sul-sudeste-c3.json` e `triagem-ne-co-c3.json` | Fontes, processos/ramos e evidências | Triagem nacional C3, com adoção do programa, datas efetivas e alcance das leituras. |
 | `data/registry/auditoria-datas-c3.json` | Verificação documental por aplicação | Datas confirmadas ou pendentes, retificações examinadas e ressalva de finalidade de gabarito. |
 | `data/registry/contexto-normativo.json` | Versão de fonte normativa; `fonte_id` | Marcos S2–S6 arquivados por hash, separados dos documentos de aplicações de vestibular. |
+| `data/registry/expansao-fuvest-c4.json` e `expansao-ufms-c4.json` | Aplicação, programa compartilhado e versões de documento | Datas efetivas, fases/dias, formatos, exposição por carreira e bases digitais. |
+| `data/registry/auditoria-datas-c4.json` | Complemento temporal e finalidade de gabarito | Confirmações primárias, limites e cadeia documental; preserva a auditoria C3. |
 | `data/registry/processos.csv` | Processo; `processo_id` | Consolidação de decisões com instituição, anos de programa por disciplina e alcance limitado às fontes examinadas. |
 | `data/registry/aplicacoes.csv` | Aplicação; `aplicacao_id` | Datas, edição, ingresso, etapa, contexto curricular e evidência temporal. |
 | `data/registry/evidencias-programa.csv` | Evidência disciplinar; `evidencia_id` | Páginas e fontes da triagem; não é transcrição integral dos tópicos nem vínculo questão–programa. |
@@ -52,11 +54,15 @@ O ciclo 3 conserva `ciencias_humanas_integradas` como atribuição conjunta ofic
 
 `periodo_calendario` segue as faixas `2017-2021`, `2022-2023`, `2024`, `2025-2026`. Esses rótulos descrevem calendário, não comprovam currículo escolar dos candidatos. `serie_alvo`, `ano_serie_alvo`, `coorte_alvo_esperada`, `fonte_do_corte`, `evidencia_implantacao_local`, `alinhamento_explicito_prova`, `regime_curricular_contexto` e `incerteza_classificacao` preservam o contexto e as lacunas. A E2/UFAM aplicada em 2026 se destinou a quem cursou a segunda série em 2025.
 
+No C4, `fase` e `dia` separam eventos da segunda fase FUVEST, preservando a etapa. `estrutura_documentada` descreve quantidades e exposição por carreira; `variantes_documentadas` distingue presencial/digital sem criar outra aplicação por ordenação. `programa_documento_id` pode referenciar um programa mantido por outro dia da mesma edição; `aplicacoes_vinculadas` explicita o compartilhamento. `vigencia_confirmada=false` e `previsao_regional=pendente_vigencia_versao_programa` preservam a dúvida do manual2021, nominalmente posterior às provas. A previsão lida fica em `previsao_regional_documento`; ela não comprova adoção pré-prova.
+
 ## Documentos e extrações
 
 `sha256`/`documento_sha256` se referem aos bytes do original; não são hashes de um texto corrigido. Os arquivos locais são preservados por conteúdo. A fonte pode publicar outra versão no mesmo URL: recuperação sem `--atualizar` recusa bytes diferentes dos conhecidos. Aquisição explícita de nova versão preserva histórico e originais anteriores.
 
 `redistribuicao_autorizada=null` não autoriza publicar o PDF. `condicoes_uso` informa condição observada ou pendência; não é licença do código nem de todos os dados.
+
+`extracao_automatica=false` conserva original e hash sem solicitar extração de conteúdo pessoal/financeiro fora da evidência necessária. A cobertura mostra `nao_solicitada_preservacao_original`. Não é falha de OCR nem exclusão do acervo. `documento_id_evidencia_data` e `fonte_data_sha256` ligam a confirmação administrativa ao original e à aplicação; emissão ou pagamento não datam a prova.
 
 `motor_utilizado` distingue `poppler_bbox_layout` e `pypdf_layout_alternativo`. `falha_motor_primario` preserva o erro que motivou a alternativa. `artefato_poppler_valido=false` identifica que o XML primário não deve ser usado como extração válida. `coordenadas_disponiveis=false` indica ausência de caixas nesse motor; páginas e original continuam localizáveis.
 
@@ -70,6 +76,8 @@ O ciclo 2 acrescenta `pdftohtml_fragmentos_alternativo`: caixas nativas de fragm
 
 `ocorrencia_id` é a chave para juntar itens, gabaritos e fila humana. `disciplina` vale `historia` ou `geografia` no piloto. A seção original define essa disciplina; uma classificação futura de interdisciplinaridade não pode duplicar o item no agregado.
 
+`numero_questao` conserva o identificador impresso, inclusive G01/H01 nas discursivas. O ID inclui esse código, evitando colisão entre disciplinas com o mesmo ordinal. `tipo_resposta` distingue `objetiva_multipla_escolha` e `discursiva`. Nesta última, `alternativas_textuais_completas` fica vazio e `subitens_rotulos_detectados` registra letras sem criar novas ocorrências. A estrutura textual não substitui conferência visual/humana.
+
 `regioes_origem` contém página, coluna, caixa da região e do texto, largura e altura da página. As coordenadas são pontos PDF, com origem superior esquerda, e preservam acesso ao espaço visual entre linhas. O texto sozinho não preserva uma figura.
 
 `alternativas_textuais_completas=True` significa marcadores A–E únicos, em ordem, com texto extraído. `status_estrutural` também considera marcadores de questão, tamanho de texto e caracteres danificados. Nenhum desses campos equivale à revisão humana. `dependencia_visual=a_verificar`, `integridade_revisada_humano=False` e `apto_denominador_validado=False` permanecem em todos os itens desta versão.
@@ -80,6 +88,10 @@ Em `gabaritos.csv`, `estado_oficial=alternativa_publicada` conserva a letra em `
 
 `finalidade_documental=definitivo_indicado_no_indice_sem_confirmacao_no_arquivo` preserva a divergência entre o rótulo do índice oficial e o conteúdo do PDF PSC2019 E2. As letras continuam publicadas; a finalidade para pontuação exige confirmação. O valor não classifica o documento como preliminar. `sha256_auditado`, quando presente no registro esperado, fixa os bytes examinados pela auditoria; a verificação recusa outra versão.
 
+A auditoria C4 sobrepõe, sem apagar a fonte C3, `finalidade_documental=definitivo_corrobora_repositorio_e_pos_recursos` para os mesmos bytes. Isso corrobora a finalidade institucional e mantém revisão humana pendente. Em discursivas, `estado_oficial=orientacao_discursiva_publicada` indica referência oficial com código e páginas, sem letra de alternativa ou declaração de resposta única. `paginas_pdf` conserva continuações; G05/FUVEST2024, pp.31–32, depende de hash verificado. Fonte ausente permanece `nao_identificado`, sem resposta fabricada.
+
 `regionalidade` usa as quatro classes do protocolo. Nesta versão não há rótulos preenchidos. `origem_segmentacao=regra_automatica_de_layout` não é anotação humana. O manual define os campos de tema, território, demanda cognitiva e vínculo ao programa que serão usados na revisão.
 
 `configuracao.json` registra Matheus como anotador previsto. `pacote-revisao.json` contém o identificador do caderno e seus IDs, sem enunciados, gabaritos ou sugestões. As imagens e o HTML completos ficam locais em `data/annotation/revisao/`, ignorados no Git. A importação do JSON exportado preserva CSVs anteriores em `data/annotation/historico/` e registra hashes/IDs em `importacoes.jsonl`. Uma declaração de origem humana não é autenticação independente; preencher o nome automaticamente na interface não preenche a classificação.
+
+`integridade_alternativas=nao_se_aplica_discursiva` é aceito somente em questão discursiva. Matheus registra a conferência no formulário. As linhas existentes são preservadas, e novas questões recebem apenas linhas vazias.

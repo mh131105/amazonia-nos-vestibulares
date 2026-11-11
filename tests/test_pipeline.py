@@ -210,6 +210,16 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'bytes examinados'):
             pipeline.verify(self.root, require_local=False)
 
+    def test_preservation_only_document_is_hashed_without_automatic_text_extraction(self):
+        record, _ = self.cached_record()
+        record['extracao_automatica'] = False
+        self.save('documentos.jsonl', [record])
+        with patch.object(pipeline, 'poppler_version', return_value='fixture'):
+            with patch.object(pipeline.subprocess, 'run', side_effect=AssertionError('Não deve extrair este original')):
+                pipeline.extract(self.root)
+        self.assertEqual(pipeline.read_jsonl(self.registry / 'extracoes.jsonl'), [])
+        self.assertFalse((self.root / 'data/interim/extraido').exists())
+
     def test_normative_context_is_verified_separately_from_exam_documents(self):
         self.cached_record()
         context = self.registry / 'contexto-normativo.json'
@@ -236,7 +246,7 @@ class PipelineTests(unittest.TestCase):
             'ocorrencia_id': 'q-teste', 'documento_id': 'prova-teste', 'documento_sha256': digest,
             'aplicacao_id': 'app-teste', 'disciplina': 'historia', 'numero_questao': '1',
         }])
-        key = {'ocorrencia_id': 'q-teste', 'documento_id': 'gab-teste', 'documento_sha256': digest,
+        key = {'ocorrencia_id': 'q-teste', 'aplicacao_id': 'app-teste', 'documento_id': 'gab-teste', 'documento_sha256': digest,
                'numero_questao': '1', 'estado_oficial': 'alternativa_publicada', 'alternativa_oficial': 'A'}
         table('data/processed/gabaritos.csv', [key])
         reservation = 'definitivo_indicado_no_indice_sem_confirmacao_no_arquivo'

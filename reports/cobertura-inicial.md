@@ -1,8 +1,8 @@
 # Cobertura documental inicial
 
-Documentos registrados nesta versão: **131**. Coletados: **131**. Com extração registrada: **131**.
+Documentos registrados nesta versão: **231**. Coletados: **231**. Com extração registrada: **227**.
 
-Os 131 registros coletados correspondem a **129 PDFs distintos por SHA-256**. Documentos compartilhados entre aplicações conservam os vínculos, sem duplicar o arquivo físico.
+Os 231 registros coletados correspondem a **225 PDFs distintos por SHA-256**. Documentos compartilhados entre aplicações conservam os vínculos, sem duplicar o arquivo físico.
 
 Essas contagens descrevem os documentos selecionados e localizados até esta versão. Não medem cobertura nacional, edições esperadas na década, incidência regional ou dificuldade das questões.
 
@@ -139,6 +139,106 @@ Essas contagens descrevem os documentos selecionados e localizados até esta ver
 | usp-fuvest2022-f1-programa | programa | coletado | 92 | revisar_ocr_ou_pagina_visual |
 | usp-fuvest2023-f1-programa | programa | coletado | 96 | revisar_ocr_ou_pagina_visual |
 | usp-fuvest2024-f1-programa | programa | coletado | 69 | texto_extraido_nao_revisado |
+| usp-fuvest2024-f2-d2-prova | prova | coletado | 38 | texto_extraido_nao_revisado |
+| usp-fuvest2024-f2-d2-respostas-esperadas | respostas_esperadas | coletado | 54 | revisar_codificacao |
+| usp-fuvest2017-f2-d1-prova | prova | coletado | 14 | revisar_codificacao |
+| usp-fuvest2017-programa | programa | coletado | 261 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2017-f2-d2-prova | prova | coletado | 20 | revisar_codificacao |
+| usp-fuvest2017-f2-d3-prova | prova | coletado | 38 | revisar_codificacao |
+| usp-fuvest2018-f1-prova-v | prova | coletado | 28 | revisar_codificacao |
+| usp-fuvest2018-f1-gabarito | gabarito | coletado | 1 | texto_extraido_nao_revisado |
+| usp-fuvest2018-programa | programa | coletado | 257 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2018-f2-d1-prova | prova | coletado | 14 | revisar_codificacao |
+| usp-fuvest2018-f2-d2-prova | prova | coletado | 20 | revisar_codificacao |
+| usp-fuvest2018-f2-d3-prova | prova | coletado | 38 | revisar_codificacao |
+| usp-fuvest2019-f1-prova-publicada | prova | coletado | 25 | texto_extraido_nao_revisado |
+| usp-fuvest2019-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2019-programa | programa | coletado | 86 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2019-f2-d1-prova | prova | coletado | 14 | revisar_codificacao |
+| usp-fuvest2019-f2-d2-prova | prova | coletado | 38 | revisar_codificacao |
+| usp-fuvest2020-f1-prova-v | prova | coletado | 26 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2020-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2020-programa | programa | coletado | 88 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2020-f2-d1-prova | prova | coletado | 14 | revisar_codificacao |
+| usp-fuvest2020-f2-d2-prova | prova | coletado | 37 | texto_extraido_nao_revisado |
+| usp-fuvest2021-f1-prova-publicada | prova | coletado | 28 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2021-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2021-programa | programa | coletado | 88 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2021-f2-d1-prova | prova | coletado | 14 | texto_extraido_nao_revisado |
+| usp-fuvest2021-f2-d2-prova | prova | coletado | 38 | texto_extraido_nao_revisado |
+| usp-fuvest2022-f1-prova-v | prova | coletado | 26 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2022-f1-prova-k | prova | coletado | 26 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2022-f1-prova-q | prova | coletado | 26 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2022-f1-prova-x | prova | coletado | 26 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2022-f1-prova-z | prova | coletado | 26 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2022-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2022-f2-d1-prova | prova | coletado | 14 | revisar_codificacao |
+| usp-fuvest2022-f2-d2-prova | prova | coletado | 38 | texto_extraido_nao_revisado |
+| usp-fuvest2023-f1-prova-v | prova | coletado | 28 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2023-f1-prova-k | prova | coletado | 28 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2023-f1-prova-q | prova | coletado | 28 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2023-f1-prova-x | prova | coletado | 28 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2023-f1-prova-z | prova | coletado | 28 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2023-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2023-f2-d1-prova | prova | coletado | 14 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2023-f2-d1-respostas-esperadas | respostas_esperadas | coletado | 73 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2023-f2-d2-prova | prova | coletado | 38 | texto_extraido_nao_revisado |
+| usp-fuvest2023-f2-d2-respostas-esperadas | respostas_esperadas | coletado | 73 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2024-f1-prova-v | prova | coletado | 36 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2024-f1-prova-k | prova | coletado | 36 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2024-f1-prova-q | prova | coletado | 36 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2024-f1-prova-x | prova | coletado | 36 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2024-f1-prova-z | prova | coletado | 36 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2024-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2024-f2-d1-prova | prova | coletado | 14 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2024-f2-d1-respostas-esperadas | respostas_esperadas | coletado | 54 | revisar_codificacao |
+| usp-fuvest2025-f1-prova-v1 | prova | coletado | 34 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2025-f1-prova-v2 | prova | coletado | 34 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2025-f1-prova-v3 | prova | coletado | 34 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2025-f1-prova-v4 | prova | coletado | 34 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2025-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2025-programa | programa | coletado | 58 | texto_extraido_nao_revisado |
+| usp-fuvest2025-f2-d1-prova | prova | coletado | 7 | texto_extraido_nao_revisado |
+| usp-fuvest2025-f2-d1-respostas-esperadas | respostas_esperadas | coletado | 79 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2025-f2-d2-prova | prova | coletado | 44 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2025-f2-d2-respostas-esperadas | respostas_esperadas | coletado | 79 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f1-prova-v1 | prova | coletado | 38 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f1-prova-v2 | prova | coletado | 38 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f1-prova-v3 | prova | coletado | 38 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f1-prova-v4 | prova | coletado | 38 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2026-programa | programa | coletado | 53 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f2-d1-prova | prova | coletado | 16 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f2-d1-respostas-esperadas-1 | respostas_esperadas | coletado | 11 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f2-d1-respostas-esperadas-redacao | respostas_esperadas | coletado | 4 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f2-d2-prova | prova | coletado | 43 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f2-d2-respostas-esperadas-historia | respostas_esperadas | coletado | 7 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2026-f2-d2-respostas-esperadas-geografia | respostas_esperadas | coletado | 7 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2027-f1-prova-v1 | prova | coletado | 32 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2027-f1-prova-v2 | prova | coletado | 32 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2027-f1-prova-v3 | prova | coletado | 32 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2027-f1-prova-v4 | prova | coletado | 32 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2027-f1-gabarito | gabarito | coletado | 2 | texto_extraido_nao_revisado |
+| usp-fuvest2027-programa | programa | coletado | 53 | revisar_ocr_ou_pagina_visual |
+| ufms-vestibular2024-unica-edital-presencial | edital | coletado | 36 | texto_extraido_nao_revisado |
+| ufms-vestibular2024-unica-edital-digital | edital | coletado | 41 | revisar_ocr_ou_pagina_visual |
+| ufms-vestibular2024-unica-prova-presencial | prova | coletado | 24 | revisar_ocr_ou_pagina_visual |
+| ufms-vestibular2024-unica-gabarito-definitivo-presencial | gabarito_definitivo | coletado | 3 | texto_extraido_nao_revisado |
+| ufms-vestibular2024-unica-gabarito-definitivo-digital-com-base | gabarito_definitivo | coletado | 66 | texto_extraido_nao_revisado |
+| ufms-vestibular2024-unica-gabarito-preliminar-presencial | gabarito_preliminar | coletado | 4 | texto_extraido_nao_revisado |
+| ufms-vestibular2024-unica-gabarito-preliminar-digital | gabarito_preliminar | coletado | 67 | texto_extraido_nao_revisado |
+| ufms-vestibular2025-unica-edital-presencial-digital | edital | coletado | 35 | texto_extraido_nao_revisado |
+| ufms-vestibular2025-unica-prova-presencial | prova | coletado | 23 | texto_extraido_nao_revisado |
+| ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital | gabarito_definitivo | coletado | 73 | texto_extraido_nao_revisado |
+| ufms-vestibular2025-unica-gabarito-preliminar-presencial-digital | gabarito_preliminar | coletado | 75 | texto_extraido_nao_revisado |
+| ufms-vestibular2026-unica-edital-presencial-digital | edital | coletado | 32 | texto_extraido_nao_revisado |
+| ufms-vestibular2026-unica-prova-presencial | prova | coletado | 26 | texto_extraido_nao_revisado |
+| ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital | gabarito_definitivo | coletado | 32 | texto_extraido_nao_revisado |
+| ufms-vestibular2026-unica-gabarito-preliminar-presencial-digital | gabarito_preliminar | coletado | 33 | texto_extraido_nao_revisado |
+| ufam-psc2023-e1-historico-aplicacao-setembro2023 | evidencia_data_administrativa | coletado | — | nao_solicitada_preservacao_original |
+| ufam-psc2023-e2-historico-aplicacao-setembro2023 | evidencia_data_administrativa | coletado | — | nao_solicitada_preservacao_original |
+| ufam-psc2019-e2-resposta-recurso-q24 | resposta_recurso | coletado | — | nao_solicitada_preservacao_original |
+| ufam-psc2019-e2-resposta-recurso-q50 | resposta_recurso | coletado | — | nao_solicitada_preservacao_original |
 
 A tabela CSV inclui os URLs e os hashes dos originais. `texto_extraido_nao_revisado` não significa seção disciplinar completa: a conferência de itens, imagens, gabaritos e retificações é uma etapa própria.
 

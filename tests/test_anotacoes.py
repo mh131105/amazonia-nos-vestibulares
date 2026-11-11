@@ -103,6 +103,16 @@ class AnnotationTests(unittest.TestCase):
         self.assertEqual(self.import_data(), 0)
         self.assertEqual(self.path.read_bytes(), before)
 
+    def test_discursive_alternatives_are_explicitly_not_applicable_only_for_that_format(self):
+        self.row['integridade_alternativas'] = 'nao_se_aplica_discursiva'
+        self.exported()
+        with self.assertRaisesRegex(ValueError, 'alternativas'):
+            self.import_data()
+        self.questions[0]['tipo_resposta'] = 'discursiva'
+        write_csv(self.root / 'data/processed/questoes.csv', self.questions, list(self.questions[0]))
+        self.assertEqual(self.import_data(), 1)
+        self.assertEqual(read_csv(self.path)[0]['integridade_alternativas'], 'nao_se_aplica_discursiva')
+
 
 if __name__ == '__main__':
     unittest.main()

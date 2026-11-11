@@ -99,6 +99,39 @@ class SegmentarTests(unittest.TestCase):
         segmentar.segment(self.root)
         return segmentar.read_jsonl(self.root / "data/processed/questoes-texto.jsonl")
 
+    def test_discursive_codes_keep_subitems_together_and_exclude_answer_sheets(self):
+        self.layout.update(pagina_inicial=3, divisao_colunas_fracao=1.0,
+                           paginas_corpo=[3, 5], marcador_questao=r'^([GH]\d{2})$',
+                           codigos_questoes=['G01', 'G02', 'H01', 'H02'],
+                           fecha_ultima_questao_no_fim_do_documento=True)
+        self.layout.pop('margens_inicio_questao')
+        self.config['documentos'][0]['secoes'] = [
+            {'disciplina': 'geografia', 'codigos': ['G01', 'G02'], 'tipo_resposta': 'discursiva'},
+            {'disciplina': 'historia', 'codigos': ['H01', 'H02'], 'tipo_resposta': 'discursiva'},
+        ]
+        self.pages = [page(3, [
+            line('G01', 30, 80), line('Enunciado sintético de Geografia, sem alternativas objetivas.', 30, 100),
+            line('a) Primeiro subitem discursivo.', 30, 120), line('b) Segundo subitem discursivo.', 30, 140),
+            line('c) Terceiro subitem discursivo.', 30, 160),
+            line('G02', 30, 400), line('Segundo enunciado geográfico sintético, conservado como uma questão integral.', 30, 420),
+        ], self.sha), page(4, [line('H01', 30, 80), line('FOLHA DE RESPOSTA EXCLUÍDA, sem enunciado.', 30, 100)], self.sha),
+            page(5, [line('H01', 30, 80), line('Enunciado histórico sintético, cujo ordinal também é 01 sem colidir com G01.', 30, 100),
+                     line('H02', 30, 400), line('Último enunciado histórico sintético, fechado explicitamente ao fim do corpo.', 30, 420)], self.sha)]
+        self.save_inputs()
+        rows = self.segment()
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(len({r['ocorrencia_id'] for r in rows}), 4)
+        first = next(r for r in rows if r['numero_questao'] == 'G01')
+        self.assertEqual(first['ocorrencia_id'], 'aplicacao-ficticia-q-g01')
+        self.assertIn('Terceiro subitem discursivo', first['texto_bruto_segmentado'])
+        self.assertNotIn('G02', first['texto_bruto_segmentado'])
+        self.assertEqual(first['subitens_rotulos_detectados'], ['a', 'b', 'c'])
+        self.assertTrue(all(r['tipo_resposta'] == 'discursiva' and r['alternativas'] is None
+                            and r['alternativas_textuais_completas'] is None for r in rows))
+        self.assertTrue(all(not r['problemas_extracao'] and not r['apto_denominador_validado'] for r in rows))
+        self.assertTrue(all(4 not in r['paginas_pdf'] for r in rows))
+        self.assertTrue(all(region['bbox_regiao'][2] == 595.32 for r in rows for region in r['regioes_origem']))
+
     def test_shuffled_flows_keep_column_order_and_join_split_alternative(self):
         expected = segmentar.ordered_lines(self.pages, self.layout)
         shuffled = copy.deepcopy(self.pages)

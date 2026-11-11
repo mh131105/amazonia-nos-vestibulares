@@ -1,6 +1,6 @@
 # Manual inicial de revisão e anotação
 
-Versão 0.2.0, 11/11/2026. Aplica-se a História e Geografia pelo mesmo procedimento. A taxonomia inicial é uma proposta a avaliar no desenvolvimento, não um resultado de frequência. Matheus foi definido pelo usuário como anotador humano; essa definição não preenche nenhum rótulo.
+Versão 0.4.0, 11/11/2026. Aplica-se a História e Geografia pelo mesmo procedimento. A taxonomia inicial é uma proposta a avaliar no desenvolvimento, não um resultado de frequência. Matheus foi definido pelo usuário como anotador humano; essa definição não preenche nenhum rótulo.
 
 ## Unidade e fonte
 
@@ -10,7 +10,7 @@ Abra o original indicado em `data/registry/documentos.jsonl` e confira as regiõ
 
 ## Ordem de revisão
 
-1. Verifique número, disciplina, enunciado integral, alternativas na ordem original e continuidade entre colunas/páginas. O sinalizador A–E confirma apenas uma estrutura textual, não o sentido ou a completude visual.
+1. Verifique código/número, disciplina, enunciado integral e continuidade entre colunas/páginas. Em objetivas, confira alternativas na ordem original; o sinalizador A–E confirma somente estrutura. Em discursivas, use `nao_se_aplica_discursiva` para alternativas e confira todos os subitens; a,b,c permanecem na mesma ocorrência.
 2. Veja se há mapa, imagem, gráfico, tabela, legenda ou texto compartilhado indispensável. Não complete uma parte ausente com memória ou IA. Se estiver ilegível ou incompleta, registre a pendência.
 3. Confira gabarito e anulações na fonte oficial da mesma versão de caderno. Uma alternativa encontrada automaticamente ainda precisa dessa conferência. Gabarito ausente não impede necessariamente análise temática, mas impede liberação para o banco educacional.
 4. Classifique regionalidade com evidência que explique qual conhecimento é necessário para resolver o item. A ocorrência de uma palavra regional sozinha não decide a classe.
@@ -60,7 +60,9 @@ Preencha primeiro integridade e dependência visual. A regionalidade só deve en
 
 ## Caderno local para Matheus
 
-O arquivo `data/annotation/revisao/index.html` apresenta as 300 questões do acervo atual, por aplicação e disciplina. Ele usa imagens recortadas fielmente do PDF, acompanhadas de página, coluna, link para o documento completo e opção de ampliar. O texto extraído aparece fechado em uma seção complementar. Gabaritos e sugestões de regionalidade não são mostrados.
+O arquivo `data/annotation/revisao/index.html` apresenta as 312 questões do acervo atual, por aplicação e disciplina. Ele usa imagens recortadas fielmente do PDF, acompanhadas de página, coluna, link para o documento completo e opção de ampliar. O texto extraído aparece fechado em uma seção complementar. Gabaritos e sugestões de regionalidade não são mostrados.
+
+Na compilação FUVEST2024, G01–G06/H01–H06 são códigos oficiais de Geografia/História. O arquivo reúne variantes por carreira; não representa 36 itens respondidos por toda pessoa. A anotação aqui é do conteúdo da questão, sem estimar exposição dos candidatos. As folhas intermediárias em branco foram excluídas do corpo, e figuras das páginas de enunciado permanecem nas imagens.
 
 1. Abra o caderno no navegador. Se for necessário recriá-lo, execute `uv run --locked python scripts/gerar_revisao.py` com o acervo presente.
 2. Confira a fonte visual, registre integridade, regionalidade e uma justificativa curta. Avalie o enunciado sem presumir uma tendência de mudança curricular. A opção de caso ambíguo permanece disponível.

@@ -1,5 +1,5 @@
 {
-  "versao": "0.2.0",
+  "versao": "0.4.0",
   "escopo": "Piloto de procedimento; layouts validados por amostras visuais, sem validação humana dos itens.",
   "coordenadas": "pontos PDF; origem no canto superior esquerdo; bbox [x_min,y_min,x_max,y_max]",
   "ordem_leitura": "página crescente, coluna esquerda, coluna direita; Y crescente dentro da coluna",
@@ -52,6 +52,20 @@
       "responsavel": "Codex",
       "data": "2026-11-11",
       "observacao": "História 17 começa ao fim da esquerda e alternativas seguem na direita. O texto no topo inicia em Y=46, que seria cortado pelo layout recente."
+    },
+    {
+      "documento_id": "usp-fuvest2024-f2-d2-prova",
+      "paginas_pdf": [
+        1,
+        26,
+        27,
+        28,
+        36,
+        37
+      ],
+      "responsavel": "Codex",
+      "data": "2026-11-11",
+      "observacao": "Capa e páginas de História/Geografia renderizadas; uma coluna, dois códigos por página, folhas de resposta em branco entre pares. G/H conservam disciplina oficial; a,b,c são subitens, não alternativas. Não é anotação humana."
     }
   ],
   "limites": [
@@ -132,6 +146,37 @@
       ],
       "tolerancia_margem": 14,
       "numero_maximo": 54
+    },
+    "fuvest_2024_discursivas_coluna_unica": {
+      "pagina_inicial": 26,
+      "divisao_colunas_fracao": 1.0,
+      "paginas_corpo": [
+        26,
+        28,
+        30,
+        32,
+        34,
+        36
+      ],
+      "y_min": 42,
+      "y_max": 810,
+      "marcador_questao": "^([GH]\\d{2})$",
+      "codigos_questoes": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "H01",
+        "H02",
+        "H03",
+        "H04",
+        "H05",
+        "H06"
+      ],
+      "fecha_ultima_questao_no_fim_do_documento": true,
+      "observacao": "Compilação oficial. Folhas intermediárias de resposta em branco e contracapa excluídas do corpo. Subitens mantidos na questão. Fase e exposição por carreira separadas."
     }
   },
   "documentos": [
@@ -523,6 +568,37 @@
           "disciplina": "geografia",
           "inicio": 25,
           "fim": 30
+        }
+      ]
+    },
+    {
+      "documento_id": "usp-fuvest2024-f2-d2-prova",
+      "documento_sha256": "cc591c016f2dbbc3a6f22e80bc4b95539378cce8f2f24fc88dd34cf9e4c8d0c7",
+      "layout": "fuvest_2024_discursivas_coluna_unica",
+      "secoes": [
+        {
+          "disciplina": "geografia",
+          "codigos": [
+            "G01",
+            "G02",
+            "G03",
+            "G04",
+            "G05",
+            "G06"
+          ],
+          "tipo_resposta": "discursiva"
+        },
+        {
+          "disciplina": "historia",
+          "codigos": [
+            "H01",
+            "H02",
+            "H03",
+            "H04",
+            "H05",
+            "H06"
+          ],
+          "tipo_resposta": "discursiva"
         }
       ]
     }

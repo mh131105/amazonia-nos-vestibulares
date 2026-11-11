@@ -11,9 +11,13 @@ from pathlib import Path
 if __package__:
     from .pipeline import ROOT, REGISTRY, read_jsonl, read_csv, write_csv, write_jsonl
     from .triagem_nacional import integrar, documentos_selecionados
+    from .expansao_documental import integrar as integrar_expansoes
+    from .auditoria_temporal import integrar as integrar_auditoria_temporal
 else:
     from pipeline import ROOT, REGISTRY, read_jsonl, read_csv, write_csv, write_jsonl
     from triagem_nacional import integrar, documentos_selecionados
+    from expansao_documental import integrar as integrar_expansoes
+    from auditoria_temporal import integrar as integrar_auditoria_temporal
 
 ALIASES = {
     'ufam_psc_2019_e3': 'ufam-psc2020-e3',
@@ -341,11 +345,13 @@ def main():
     selected_ids = {row['documento_id']: row for row in expected}
     for row in documentos_selecionados(registry, applications):
         known = selected_ids.get(row['documento_id'])
-        if known and known != row:
+        if known and (known['url_origem'] != row['url_origem'] or known['aplicacao_id'] != row['aplicacao_id']):
             raise ValueError('Solicitação nacional mudou; investigar antes de substituir')
         if not known:
             expected.append(row)
             selected_ids[row['documento_id']] = row
+    integrar_expansoes(registry, institutions, applications, evidence, processes, expected)
+    integrar_auditoria_temporal(registry, applications, evidence, processes, expected)
     for label, rows, key in [('processos', processes, 'processo_id'), ('aplicacoes', applications, 'aplicacao_id'), ('evidencias-programa', evidence, 'evidencia_id')]:
         if label == 'aplicacoes':
             for row in rows:

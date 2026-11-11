@@ -1,0 +1,2511 @@
+{
+  "versao": "0.1.0",
+  "data_verificacao": "2026-11-11",
+  "responsavel": "Codex; conferência humana por Matheus pendente",
+  "escopo": "Vestibular UFMS, edições2024/2025/2026; desagregação documental por formato e base publicada, preservando os três eventos C3.",
+  "convencao_paginas": "Páginas físicas PDF a partir de1; números impressos separados e nulos quando não conferidos.",
+  "aplicacoes": [
+    {
+      "aplicacao_id": "ufms-vestibular2024-unica",
+      "instituicao_id": "inep_694",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "etapa_id": "objetiva_redacao",
+      "edicao": "Vestibular 2024",
+      "ano_ingresso": 2024,
+      "data_aplicacao": "2023-12-03",
+      "ano_aplicacao": 2023,
+      "fonte_data_id": "neco_c3_ufms_data_2024",
+      "fonte_data_url": "https://www.ufms.br/candidatos-realizam-as-provas-presencial-e-on-line-do-vestibular-ufms-2024/",
+      "situacao_data": "realizacao_confirmada_no_ciclo3_e_corrobora_gabaritos_oficiais",
+      "modalidade_aplicacao": "presencial_e_digital_bases_distintas",
+      "turno": null,
+      "variantes": [
+        {
+          "variante_id": "ufms-vestibular2024-unica-presencial-caderno-publicado",
+          "aplicacao_id": "ufms-vestibular2024-unica",
+          "modalidade_aplicacao": "presencial",
+          "rotulo_oficial_modalidade": "presencial",
+          "processo_formal_documento": "PSV-UFMS2024",
+          "prova_documento_id": "ufms-vestibular2024-unica-prova-presencial",
+          "gabarito_documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-presencial",
+          "edital_documento_id": "ufms-vestibular2024-unica-edital-presencial",
+          "turno": "manha",
+          "turno_fonte": "capa do caderno presencial",
+          "hora_inicio": "08:00",
+          "hora_fim": "13:00",
+          "fuso_fonte": "horário de Mato Grosso do Sul",
+          "cor_caderno": null,
+          "tipo_caderno": null,
+          "codigo_organizador": null,
+          "rotulo_versao": "caderno publicado no índice institucional; versão/cor não identificada",
+          "combinacao_componentes": [
+            "objetiva",
+            "redacao"
+          ],
+          "idiomas_oferecidos": [
+            "espanhol",
+            "ingles"
+          ],
+          "idioma_escolha_individual": null,
+          "total_questoes_objetivas": 60,
+          "quantidade_humanas_oficial": 15,
+          "numeros_humanas_confirmados": [
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "rotulo_bloco_humanas": "Ciências Humanas e suas Tecnologias",
+          "historia_exclusiva_por_numero": null,
+          "geografia_exclusiva_por_numero": null,
+          "rotulos_subdisciplinares_gabarito": [
+            "Geografia",
+            "Filosofia, História e Sociologia"
+          ],
+          "regra_questoes_integradas": "Preservar o rótulo conjunto; nenhum item classificado em História/Geografia por leitura temática nesta etapa.",
+          "aleatorizacao_questoes_alternativas": false,
+          "referencia_numeracao": "números do caderno presencial publicado",
+          "equivalencia_com_outra_modalidade": "nao_verificada; nenhuma correspondência presumida",
+          "revisao_humana": "pendente",
+          "segmentacao": "apta_apenas_para_bloco_humanas_integrado_apos_coleta_e_QA",
+          "paginas_humanas_pdf": [
+            17,
+            18,
+            19,
+            20
+          ],
+          "limite_recorte": "Recortar apenasQ46–60. Lista de páginas é janela de busca, não atribuição de todas as questões da página aHumanas."
+        },
+        {
+          "variante_id": "ufms-vestibular2024-unica-digital-base-publicada",
+          "aplicacao_id": "ufms-vestibular2024-unica",
+          "modalidade_aplicacao": "digital",
+          "rotulo_oficial_modalidade": "digital on-line",
+          "processo_formal_documento": "PSVD-UFMS2024",
+          "prova_documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-digital-com-base",
+          "gabarito_documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-digital-com-base",
+          "edital_documento_id": "ufms-vestibular2024-unica-edital-digital",
+          "turno": null,
+          "turno_fonte": "sem rótulo específico no caderno-base lido; horários oficiais abaixo",
+          "hora_inicio": "08:00",
+          "hora_fim": "13:00",
+          "fuso_fonte": "horário de Mato Grosso do Sul",
+          "cor_caderno": null,
+          "tipo_caderno": "001 — Conhecimentos Gerais e Redação",
+          "codigo_organizador": "UFMS2301",
+          "rotulo_versao": "base pública da prova digital",
+          "combinacao_componentes": [
+            "objetiva",
+            "redacao"
+          ],
+          "idiomas_oferecidos": [
+            "espanhol",
+            "ingles"
+          ],
+          "idioma_escolha_individual": null,
+          "total_questoes_objetivas": 50,
+          "quantidade_humanas_oficial": 10,
+          "numeros_humanas_confirmados": null,
+          "rotulo_bloco_humanas": "Ciências Humanas e suas Tecnologias",
+          "historia_exclusiva_por_numero": null,
+          "geografia_exclusiva_por_numero": null,
+          "rotulos_subdisciplinares_gabarito": null,
+          "regra_questoes_integradas": "Preservar o rótulo conjunto; nenhum item classificado em História/Geografia por leitura temática nesta etapa.",
+          "aleatorizacao_questoes_alternativas": true,
+          "referencia_numeracao": "base pública; posição sorteada de cada candidato não foi recuperada",
+          "equivalencia_com_outra_modalidade": "nao_verificada; nenhuma correspondência presumida",
+          "revisao_humana": "pendente",
+          "partes_horarias_oficiais": [
+            {
+              "inicio": "08:00",
+              "fim": "10:00",
+              "competencias": [
+                "Linguagens",
+                "Ciências Humanas"
+              ]
+            },
+            {
+              "inicio": "10:00",
+              "fim": "10:15",
+              "intervalo_minutos": 15
+            },
+            {
+              "inicio": "10:15",
+              "fim": "13:00",
+              "competencias": [
+                "Ciências da Natureza",
+                "Matemática",
+                "Redação"
+              ]
+            }
+          ],
+          "segmentacao": "coleta_integral_da_base; numeros_do_bloco_humanas_pendentes_de_fonte_explicita",
+          "paginas_humanas_pdf": null
+        }
+      ],
+      "nao_multiplicar_evento": "Duas modalidades/subunidades documentais ligadas ao mesmo ID C3. Não criar aplicação adicional sem regra metodológica e evidência de data/hora.",
+      "vinculo_historico_processos": "Em2024 os editais distinguemPSV dePSVD;2025/2026 regulam ambos formatos noPSV. Preservar a diferença e não presumir continuidade/equivalência de processo por partilharem data.",
+      "etapa": "objetiva_redacao",
+      "situacao": "aplicada_documentos_localizados",
+      "data_aplicacao_prevista": null,
+      "evidencia_data": {
+        "url": "https://www.ufms.br/candidatos-realizam-as-provas-presencial-e-on-line-do-vestibular-ufms-2024/",
+        "natureza": "noticia_pos_aplicacao",
+        "localizacao": "Notícia institucional de 2023-12-03; data no cabeçalho e parágrafos iniciais registram realização presencial e on-line.",
+        "fonte_id": "neco_c3_ufms_data_2024"
+      },
+      "fonte_landing": "https://ingresso.ufms.br/processo/vestibular/vestibular-em-andamento/",
+      "banca": "UFMS/FAPEC; Vunesp identificada na base digital",
+      "formato": "prova objetiva e redação; formatos presencial e digital em variantes documentais separadas",
+      "estrutura": {
+        "unidade_evento": "Um evento C3 preservado; modalidades e bases não criam aplicações adicionais.",
+        "variantes_ids": [
+          "ufms-vestibular2024-unica-presencial-caderno-publicado",
+          "ufms-vestibular2024-unica-digital-base-publicada"
+        ],
+        "estrutura_por_modalidade": [
+          {
+            "variante_id": "ufms-vestibular2024-unica-presencial-caderno-publicado",
+            "modalidade_aplicacao": "presencial",
+            "processo_formal_documento": "PSV-UFMS2024",
+            "total_questoes_objetivas": 60,
+            "quantidade_humanas_oficial": 15,
+            "numeros_humanas_confirmados": [
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "paginas_humanas_pdf": [
+              17,
+              18,
+              19,
+              20
+            ],
+            "prova_documento_id": "ufms-vestibular2024-unica-prova-presencial",
+            "gabarito_documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-presencial",
+            "edital_documento_id": "ufms-vestibular2024-unica-edital-presencial"
+          },
+          {
+            "variante_id": "ufms-vestibular2024-unica-digital-base-publicada",
+            "modalidade_aplicacao": "digital",
+            "processo_formal_documento": "PSVD-UFMS2024",
+            "total_questoes_objetivas": 50,
+            "quantidade_humanas_oficial": 10,
+            "numeros_humanas_confirmados": null,
+            "paginas_humanas_pdf": null,
+            "prova_documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-digital-com-base",
+            "gabarito_documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-digital-com-base",
+            "edital_documento_id": "ufms-vestibular2024-unica-edital-digital"
+          }
+        ],
+        "rotulo_humanas": "Ciências Humanas e suas Tecnologias",
+        "atribuir_historia_ou_geografia_por_conteudo": false,
+        "equivalencia_entre_modalidades": "nao_verificada",
+        "revisao_humana": "pendente"
+      },
+      "fonte_data_corrobora": [
+        {
+          "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_415.pdf",
+          "natureza": "gabarito_pos_aplicacao",
+          "documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-presencial",
+          "paginas_pdf": [
+            1
+          ],
+          "localizacao": "Item 1.1: declara a aplicação presencial em 03/12/2023."
+        },
+        {
+          "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_417.pdf",
+          "natureza": "gabarito_pos_aplicacao",
+          "documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-digital-com-base",
+          "paginas_pdf": [
+            66
+          ],
+          "localizacao": "Anexo II, data no cabeçalho do gabarito da base digital"
+        }
+      ]
+    },
+    {
+      "aplicacao_id": "ufms-vestibular2025-unica",
+      "instituicao_id": "inep_694",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "etapa_id": "objetiva_redacao",
+      "edicao": "Vestibular 2025",
+      "ano_ingresso": 2025,
+      "data_aplicacao": "2024-12-01",
+      "ano_aplicacao": 2024,
+      "fonte_data_id": "neco_c3_ufms_data_2025",
+      "fonte_data_url": "https://www.ufms.br/cerca-de-20-mil-candidatos-fazem-provas-do-vestibular-ufms-2025-neste-domingo/",
+      "situacao_data": "realizacao_confirmada_no_ciclo3_e_corrobora_gabaritos_oficiais",
+      "modalidade_aplicacao": "presencial_e_digital_bases_distintas",
+      "turno": null,
+      "variantes": [
+        {
+          "variante_id": "ufms-vestibular2025-unica-presencial-caderno-publicado",
+          "aplicacao_id": "ufms-vestibular2025-unica",
+          "modalidade_aplicacao": "presencial",
+          "rotulo_oficial_modalidade": "presencial",
+          "processo_formal_documento": "PSV-UFMS2025",
+          "prova_documento_id": "ufms-vestibular2025-unica-prova-presencial",
+          "gabarito_documento_id": "ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital",
+          "edital_documento_id": "ufms-vestibular2025-unica-edital-presencial-digital",
+          "turno": "manha",
+          "turno_fonte": "capa do caderno presencial",
+          "hora_inicio": "08:00",
+          "hora_fim": "13:00",
+          "fuso_fonte": "horário de Mato Grosso do Sul",
+          "cor_caderno": null,
+          "tipo_caderno": null,
+          "codigo_organizador": null,
+          "rotulo_versao": "caderno publicado no índice institucional; versão/cor não identificada",
+          "combinacao_componentes": [
+            "objetiva",
+            "redacao"
+          ],
+          "idiomas_oferecidos": [
+            "espanhol",
+            "ingles"
+          ],
+          "idioma_escolha_individual": null,
+          "total_questoes_objetivas": 60,
+          "quantidade_humanas_oficial": 15,
+          "numeros_humanas_confirmados": [
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "rotulo_bloco_humanas": "Ciências Humanas e suas Tecnologias",
+          "historia_exclusiva_por_numero": null,
+          "geografia_exclusiva_por_numero": null,
+          "rotulos_subdisciplinares_gabarito": [
+            "Geografia",
+            "Filosofia, História e Sociologia"
+          ],
+          "regra_questoes_integradas": "Preservar o rótulo conjunto; nenhum item classificado em História/Geografia por leitura temática nesta etapa.",
+          "aleatorizacao_questoes_alternativas": false,
+          "referencia_numeracao": "números do caderno presencial publicado",
+          "equivalencia_com_outra_modalidade": "nao_verificada; nenhuma correspondência presumida",
+          "revisao_humana": "pendente",
+          "segmentacao": "apta_apenas_para_bloco_humanas_integrado_apos_coleta_e_QA",
+          "paginas_humanas_pdf": [
+            16,
+            17,
+            18,
+            19
+          ],
+          "limite_recorte": "Recortar apenasQ46–60. Lista de páginas é janela de busca, não atribuição de todas as questões da página aHumanas."
+        },
+        {
+          "variante_id": "ufms-vestibular2025-unica-digital-base-publicada",
+          "aplicacao_id": "ufms-vestibular2025-unica",
+          "modalidade_aplicacao": "digital",
+          "rotulo_oficial_modalidade": "digital on-line",
+          "processo_formal_documento": "PSV-UFMS2025",
+          "prova_documento_id": "ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital",
+          "gabarito_documento_id": "ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital",
+          "edital_documento_id": "ufms-vestibular2025-unica-edital-presencial-digital",
+          "turno": null,
+          "turno_fonte": "sem rótulo específico no caderno-base lido; horários oficiais abaixo",
+          "hora_inicio": "08:00",
+          "hora_fim": "13:00",
+          "fuso_fonte": "horário de Mato Grosso do Sul",
+          "cor_caderno": null,
+          "tipo_caderno": "001 — Conhecimentos Gerais e Redação",
+          "codigo_organizador": "UFMS2401",
+          "rotulo_versao": "base pública da prova digital",
+          "combinacao_componentes": [
+            "objetiva",
+            "redacao"
+          ],
+          "idiomas_oferecidos": [
+            "espanhol",
+            "ingles"
+          ],
+          "idioma_escolha_individual": null,
+          "total_questoes_objetivas": 60,
+          "quantidade_humanas_oficial": 15,
+          "numeros_humanas_confirmados": null,
+          "rotulo_bloco_humanas": "Ciências Humanas e suas Tecnologias",
+          "historia_exclusiva_por_numero": null,
+          "geografia_exclusiva_por_numero": null,
+          "rotulos_subdisciplinares_gabarito": null,
+          "regra_questoes_integradas": "Preservar o rótulo conjunto; nenhum item classificado em História/Geografia por leitura temática nesta etapa.",
+          "aleatorizacao_questoes_alternativas": true,
+          "referencia_numeracao": "base pública; posição sorteada de cada candidato não foi recuperada",
+          "equivalencia_com_outra_modalidade": "nao_verificada; nenhuma correspondência presumida",
+          "revisao_humana": "pendente",
+          "partes_horarias_oficiais": [
+            {
+              "inicio": "08:00",
+              "fim": "10:00",
+              "competencias": [
+                "Linguagens",
+                "Ciências Humanas"
+              ]
+            },
+            {
+              "inicio": "10:00",
+              "fim": "10:15",
+              "intervalo_minutos": 15
+            },
+            {
+              "inicio": "10:15",
+              "fim": "13:00",
+              "competencias": [
+                "Ciências da Natureza",
+                "Matemática",
+                "Redação"
+              ]
+            }
+          ],
+          "segmentacao": "coleta_integral_da_base; numeros_do_bloco_humanas_pendentes_de_fonte_explicita",
+          "paginas_humanas_pdf": null
+        }
+      ],
+      "nao_multiplicar_evento": "Duas modalidades/subunidades documentais ligadas ao mesmo ID C3. Não criar aplicação adicional sem regra metodológica e evidência de data/hora.",
+      "vinculo_historico_processos": "Em2024 os editais distinguemPSV dePSVD;2025/2026 regulam ambos formatos noPSV. Preservar a diferença e não presumir continuidade/equivalência de processo por partilharem data.",
+      "etapa": "objetiva_redacao",
+      "situacao": "aplicada_documentos_localizados",
+      "data_aplicacao_prevista": null,
+      "evidencia_data": {
+        "url": "https://www.ufms.br/cerca-de-20-mil-candidatos-fazem-provas-do-vestibular-ufms-2025-neste-domingo/",
+        "natureza": "noticia_pos_aplicacao",
+        "localizacao": "Notícia institucional de 2024-12-01; data no cabeçalho e parágrafos iniciais registram realização presencial e on-line.",
+        "fonte_id": "neco_c3_ufms_data_2025"
+      },
+      "fonte_landing": "https://ingresso.ufms.br/processo/vestibular/2025/",
+      "banca": "UFMS/FAPEC; Vunesp identificada na base digital",
+      "formato": "prova objetiva e redação; formatos presencial e digital em variantes documentais separadas",
+      "estrutura": {
+        "unidade_evento": "Um evento C3 preservado; modalidades e bases não criam aplicações adicionais.",
+        "variantes_ids": [
+          "ufms-vestibular2025-unica-presencial-caderno-publicado",
+          "ufms-vestibular2025-unica-digital-base-publicada"
+        ],
+        "estrutura_por_modalidade": [
+          {
+            "variante_id": "ufms-vestibular2025-unica-presencial-caderno-publicado",
+            "modalidade_aplicacao": "presencial",
+            "processo_formal_documento": "PSV-UFMS2025",
+            "total_questoes_objetivas": 60,
+            "quantidade_humanas_oficial": 15,
+            "numeros_humanas_confirmados": [
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "paginas_humanas_pdf": [
+              16,
+              17,
+              18,
+              19
+            ],
+            "prova_documento_id": "ufms-vestibular2025-unica-prova-presencial",
+            "gabarito_documento_id": "ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital",
+            "edital_documento_id": "ufms-vestibular2025-unica-edital-presencial-digital"
+          },
+          {
+            "variante_id": "ufms-vestibular2025-unica-digital-base-publicada",
+            "modalidade_aplicacao": "digital",
+            "processo_formal_documento": "PSV-UFMS2025",
+            "total_questoes_objetivas": 60,
+            "quantidade_humanas_oficial": 15,
+            "numeros_humanas_confirmados": null,
+            "paginas_humanas_pdf": null,
+            "prova_documento_id": "ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital",
+            "gabarito_documento_id": "ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital",
+            "edital_documento_id": "ufms-vestibular2025-unica-edital-presencial-digital"
+          }
+        ],
+        "rotulo_humanas": "Ciências Humanas e suas Tecnologias",
+        "atribuir_historia_ou_geografia_por_conteudo": false,
+        "equivalencia_entre_modalidades": "nao_verificada",
+        "revisao_humana": "pendente"
+      },
+      "fonte_data_corrobora": [
+        {
+          "url": "https://ingresso.ufms.br/files/2025/01/edital_prograd_2025_8_1.pdf",
+          "natureza": "gabarito_pos_aplicacao",
+          "documento_id": "ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital",
+          "paginas_pdf": [
+            1
+          ],
+          "localizacao": "Itens 1.1 e 1.2: declaram aplicação presencial e digital em 2024-12-01."
+        }
+      ]
+    },
+    {
+      "aplicacao_id": "ufms-vestibular2026-unica",
+      "instituicao_id": "inep_694",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "etapa_id": "objetiva_redacao",
+      "edicao": "Vestibular 2026",
+      "ano_ingresso": 2026,
+      "data_aplicacao": "2025-12-07",
+      "ano_aplicacao": 2025,
+      "fonte_data_id": "neco_c3_ufms_data_2026",
+      "fonte_data_url": "https://www.ufms.br/mais-de-175-mil-candidatos-realizam-o-vestibular-ufms-2026/",
+      "situacao_data": "realizacao_confirmada_no_ciclo3_e_corrobora_gabaritos_oficiais",
+      "modalidade_aplicacao": "presencial_e_digital_bases_distintas",
+      "turno": null,
+      "variantes": [
+        {
+          "variante_id": "ufms-vestibular2026-unica-presencial-caderno-publicado",
+          "aplicacao_id": "ufms-vestibular2026-unica",
+          "modalidade_aplicacao": "presencial",
+          "rotulo_oficial_modalidade": "presencial",
+          "processo_formal_documento": "PSV-UFMS2026",
+          "prova_documento_id": "ufms-vestibular2026-unica-prova-presencial",
+          "gabarito_documento_id": "ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital",
+          "edital_documento_id": "ufms-vestibular2026-unica-edital-presencial-digital",
+          "turno": "manha",
+          "turno_fonte": "capa do caderno presencial",
+          "hora_inicio": "08:00",
+          "hora_fim": "13:00",
+          "fuso_fonte": "horário de Mato Grosso do Sul",
+          "cor_caderno": null,
+          "tipo_caderno": null,
+          "codigo_organizador": null,
+          "rotulo_versao": "caderno publicado no índice institucional; versão/cor não identificada",
+          "combinacao_componentes": [
+            "objetiva",
+            "redacao"
+          ],
+          "idiomas_oferecidos": [
+            "espanhol",
+            "ingles"
+          ],
+          "idioma_escolha_individual": null,
+          "total_questoes_objetivas": 60,
+          "quantidade_humanas_oficial": 15,
+          "numeros_humanas_confirmados": [
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "rotulo_bloco_humanas": "Ciências Humanas e suas Tecnologias",
+          "historia_exclusiva_por_numero": null,
+          "geografia_exclusiva_por_numero": null,
+          "rotulos_subdisciplinares_gabarito": [
+            "Geografia, Filosofia, História e Sociologia"
+          ],
+          "regra_questoes_integradas": "Preservar o rótulo conjunto; nenhum item classificado em História/Geografia por leitura temática nesta etapa.",
+          "aleatorizacao_questoes_alternativas": false,
+          "referencia_numeracao": "números do caderno presencial publicado",
+          "equivalencia_com_outra_modalidade": "nao_verificada; nenhuma correspondência presumida",
+          "revisao_humana": "pendente",
+          "segmentacao": "apta_apenas_para_bloco_humanas_integrado_apos_coleta_e_QA",
+          "paginas_humanas_pdf": [
+            19,
+            20,
+            21,
+            22
+          ],
+          "limite_recorte": "Recortar apenasQ46–60. Lista de páginas é janela de busca, não atribuição de todas as questões da página aHumanas."
+        },
+        {
+          "variante_id": "ufms-vestibular2026-unica-digital-base-publicada",
+          "aplicacao_id": "ufms-vestibular2026-unica",
+          "modalidade_aplicacao": "digital",
+          "rotulo_oficial_modalidade": "digital on-line",
+          "processo_formal_documento": "PSV-UFMS2026",
+          "prova_documento_id": "ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital",
+          "gabarito_documento_id": "ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital",
+          "edital_documento_id": "ufms-vestibular2026-unica-edital-presencial-digital",
+          "turno": null,
+          "turno_fonte": "sem rótulo específico no caderno-base lido; horários oficiais abaixo",
+          "hora_inicio": "08:00",
+          "hora_fim": "13:00",
+          "fuso_fonte": "horário de Mato Grosso do Sul",
+          "cor_caderno": null,
+          "tipo_caderno": null,
+          "codigo_organizador": null,
+          "rotulo_versao": "base pública da prova digital",
+          "combinacao_componentes": [
+            "objetiva",
+            "redacao"
+          ],
+          "idiomas_oferecidos": [
+            "espanhol",
+            "ingles"
+          ],
+          "idioma_escolha_individual": null,
+          "total_questoes_objetivas": 60,
+          "quantidade_humanas_oficial": 15,
+          "numeros_humanas_confirmados": [
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "rotulo_bloco_humanas": "Ciências Humanas e suas Tecnologias",
+          "historia_exclusiva_por_numero": null,
+          "geografia_exclusiva_por_numero": null,
+          "rotulos_subdisciplinares_gabarito": [
+            "Geografia, Filosofia, História e Sociologia"
+          ],
+          "regra_questoes_integradas": "Preservar o rótulo conjunto; nenhum item classificado em História/Geografia por leitura temática nesta etapa.",
+          "aleatorizacao_questoes_alternativas": true,
+          "referencia_numeracao": "base pública; posição sorteada de cada candidato não foi recuperada",
+          "equivalencia_com_outra_modalidade": "nao_verificada; nenhuma correspondência presumida",
+          "revisao_humana": "pendente",
+          "partes_horarias_oficiais": [
+            {
+              "inicio": "08:00",
+              "fim": "10:00",
+              "competencias": [
+                "Linguagens",
+                "Ciências Humanas"
+              ]
+            },
+            {
+              "inicio": "10:00",
+              "fim": "10:15",
+              "intervalo_minutos": 15
+            },
+            {
+              "inicio": "10:15",
+              "fim": "13:00",
+              "competencias": [
+                "Ciências da Natureza",
+                "Matemática",
+                "Redação"
+              ]
+            }
+          ],
+          "segmentacao": "apta_apenas_para_bloco_humanas_integrado_apos_coleta_e_QA",
+          "paginas_humanas_pdf": [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "limite_recorte": "Recortar apenasQ46–60. Lista de páginas é janela de busca, não atribuição de todas as questões da página aHumanas."
+        }
+      ],
+      "nao_multiplicar_evento": "Duas modalidades/subunidades documentais ligadas ao mesmo ID C3. Não criar aplicação adicional sem regra metodológica e evidência de data/hora.",
+      "vinculo_historico_processos": "Em2024 os editais distinguemPSV dePSVD;2025/2026 regulam ambos formatos noPSV. Preservar a diferença e não presumir continuidade/equivalência de processo por partilharem data.",
+      "etapa": "objetiva_redacao",
+      "situacao": "aplicada_documentos_localizados",
+      "data_aplicacao_prevista": null,
+      "evidencia_data": {
+        "url": "https://www.ufms.br/mais-de-175-mil-candidatos-realizam-o-vestibular-ufms-2026/",
+        "natureza": "noticia_pos_aplicacao",
+        "localizacao": "Notícia institucional de 2025-12-07; data no cabeçalho e parágrafos iniciais registram realização presencial e on-line.",
+        "fonte_id": "neco_c3_ufms_data_2026"
+      },
+      "fonte_landing": "https://ingresso.ufms.br/processo/vestibular/2026/",
+      "banca": "UFMS/FAPEC",
+      "formato": "prova objetiva e redação; formatos presencial e digital em variantes documentais separadas",
+      "estrutura": {
+        "unidade_evento": "Um evento C3 preservado; modalidades e bases não criam aplicações adicionais.",
+        "variantes_ids": [
+          "ufms-vestibular2026-unica-presencial-caderno-publicado",
+          "ufms-vestibular2026-unica-digital-base-publicada"
+        ],
+        "estrutura_por_modalidade": [
+          {
+            "variante_id": "ufms-vestibular2026-unica-presencial-caderno-publicado",
+            "modalidade_aplicacao": "presencial",
+            "processo_formal_documento": "PSV-UFMS2026",
+            "total_questoes_objetivas": 60,
+            "quantidade_humanas_oficial": 15,
+            "numeros_humanas_confirmados": [
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "paginas_humanas_pdf": [
+              19,
+              20,
+              21,
+              22
+            ],
+            "prova_documento_id": "ufms-vestibular2026-unica-prova-presencial",
+            "gabarito_documento_id": "ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital",
+            "edital_documento_id": "ufms-vestibular2026-unica-edital-presencial-digital"
+          },
+          {
+            "variante_id": "ufms-vestibular2026-unica-digital-base-publicada",
+            "modalidade_aplicacao": "digital",
+            "processo_formal_documento": "PSV-UFMS2026",
+            "total_questoes_objetivas": 60,
+            "quantidade_humanas_oficial": 15,
+            "numeros_humanas_confirmados": [
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "paginas_humanas_pdf": [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "prova_documento_id": "ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital",
+            "gabarito_documento_id": "ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital",
+            "edital_documento_id": "ufms-vestibular2026-unica-edital-presencial-digital"
+          }
+        ],
+        "rotulo_humanas": "Ciências Humanas e suas Tecnologias",
+        "atribuir_historia_ou_geografia_por_conteudo": false,
+        "equivalencia_entre_modalidades": "nao_verificada",
+        "revisao_humana": "pendente"
+      },
+      "fonte_data_corrobora": [
+        {
+          "url": "https://ingresso.ufms.br/files/2025/12/edital_prograd_518.pdf",
+          "natureza": "gabarito_pos_aplicacao",
+          "documento_id": "ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital",
+          "paginas_pdf": [
+            1
+          ],
+          "localizacao": "Itens 1.1 e 1.2: declaram aplicação presencial e digital em 2025-12-07."
+        }
+      ]
+    }
+  ],
+  "documentos": [
+    {
+      "documento_id": "ufms-vestibular2024-unica-edital-presencial",
+      "aplicacao_id": "ufms-vestibular2024-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "edital",
+      "url_origem": "https://ingresso.ufms.br/files/2023/09/edital_prograd_2023_283_CONSOLIDADO.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-inscricao-edital-no-283-2023/",
+      "fonte_id": "ufms_c4_2024_edital_presencial",
+      "fonte_vinculo_id": "ufms_c4_2024_abertura_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial"
+      ],
+      "paginas_pdf_total_observadas": 36,
+      "observacao": "Edital283/2023 consolidado. Distribuição oficial de competências na página física9; ano da edição difere do ano de aplicação.",
+      "localizacoes": [
+        {
+          "secao": "11.1 e11.2",
+          "paginas_pdf": [
+            9
+          ]
+        }
+      ],
+      "versao_consultada_posterior_aplicacao": false,
+      "url": "https://ingresso.ufms.br/files/2023/09/edital_prograd_2023_283_CONSOLIDADO.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2024_abertura_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-inscricao-edital-no-283-2023/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    },
+    {
+      "documento_id": "ufms-vestibular2024-unica-edital-digital",
+      "aplicacao_id": "ufms-vestibular2024-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "edital",
+      "url_origem": "https://ingresso.ufms.br/files/2023/08/edital_prograd_2023_284_CONSOLIDADO-1.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-inscricao-edital-no-284-2023/",
+      "fonte_id": "ufms_c4_2024_edital_digital",
+      "fonte_vinculo_id": "ufms_c4_2024_abertura_digital_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 41,
+      "observacao": "Edital284/2023 consolidado. Distribuição oficial de competências na página física9; ano da edição difere do ano de aplicação.",
+      "localizacoes": [
+        {
+          "secao": "11.1 e11.2",
+          "paginas_pdf": [
+            9
+          ]
+        },
+        {
+          "secao": "14.17 — aleatorização digital",
+          "paginas_pdf": [
+            11
+          ]
+        }
+      ],
+      "versao_consultada_posterior_aplicacao": false,
+      "url": "https://ingresso.ufms.br/files/2023/08/edital_prograd_2023_284_CONSOLIDADO-1.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2024_abertura_digital_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-inscricao-edital-no-284-2023/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    },
+    {
+      "documento_id": "ufms-vestibular2025-unica-edital-presencial-digital",
+      "aplicacao_id": "ufms-vestibular2025-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "edital",
+      "url_origem": "https://ingresso.ufms.br/files/2024/10/edital_prograd_2024_303_1_consolidado.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2025-inscricao-edital-no-303-2024/",
+      "fonte_id": "ufms_c4_2025_edital_presencial_digital",
+      "fonte_vinculo_id": "ufms_c4_2025_abertura_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial",
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 35,
+      "observacao": "Edital303/2024 consolidado. Distribuição oficial de competências na página física12; ano da edição difere do ano de aplicação.",
+      "localizacoes": [
+        {
+          "secao": "12.1 e12.1.1",
+          "paginas_pdf": [
+            12
+          ]
+        }
+      ],
+      "versao_consultada_posterior_aplicacao": false,
+      "url": "https://ingresso.ufms.br/files/2024/10/edital_prograd_2024_303_1_consolidado.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2025_abertura_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2025-inscricao-edital-no-303-2024/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    },
+    {
+      "documento_id": "ufms-vestibular2026-unica-edital-presencial-digital",
+      "aplicacao_id": "ufms-vestibular2026-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "edital",
+      "url_origem": "https://ingresso.ufms.br/files/2026/01/edital_prograd_394_consolidado_2.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/vestibular/vestibular-2026-inscricao-edital-no-394-2025/",
+      "fonte_id": "ufms_c4_2026_edital_presencial_digital",
+      "fonte_vinculo_id": "ufms_c4_2026_abertura_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial",
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 32,
+      "observacao": "Edital394/2025 consolidado. Distribuição oficial de competências na página física10; ano da edição difere do ano de aplicação.",
+      "localizacoes": [
+        {
+          "secao": "12.1 e12.1.1",
+          "paginas_pdf": [
+            10
+          ]
+        }
+      ],
+      "versao_consultada_posterior_aplicacao": true,
+      "url": "https://ingresso.ufms.br/files/2026/01/edital_prograd_394_consolidado_2.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2026_abertura_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/vestibular/vestibular-2026-inscricao-edital-no-394-2025/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    },
+    {
+      "documento_id": "ufms-vestibular2024-unica-prova-presencial",
+      "aplicacao_id": "ufms-vestibular2024-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "prova",
+      "url_origem": "https://ingresso.ufms.br/files/2023/12/PSV_UFMS_PB.pdf",
+      "fonte_url": "https://ingresso.ufms.br/vestibular/",
+      "fonte_id": "ufms_c4_2024_prova_presencial",
+      "fonte_vinculo_id": "ufms_c4_portal_provas",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial"
+      ],
+      "paginas_pdf_total_observadas": 24,
+      "observacao": "Caderno publicado no índice oficial. Capa identifica PSV-UFMS e MANHÃ/08h; não há cor ou número de tipo confirmado. Humanas Q46–60 pelo cabeçalho e numeração do próprio caderno.",
+      "escopo_paginas_publicas": [
+        {
+          "finalidade": "caderno_integral",
+          "paginas_pdf": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        },
+        {
+          "finalidade": "bloco_humanas",
+          "paginas_pdf": [
+            17,
+            18,
+            19,
+            20
+          ],
+          "numeros_questao": [
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "exige_recorte_por_numero": true
+        }
+      ],
+      "revisao_humana": "pendente",
+      "hash_referencia_leitura_temporaria": "3e537f0c04bf72e81c362c979a2a3325fa2248d0e45bb744beba616853f1a917",
+      "observacao_integridade": "Hash somente da cópia temporária lida no ciclo3; root deve coletar e comparar, sem presumir nova aquisição no ciclo4.",
+      "url": "https://ingresso.ufms.br/files/2023/12/PSV_UFMS_PB.pdf",
+      "sha256_esperado": "3e537f0c04bf72e81c362c979a2a3325fa2248d0e45bb744beba616853f1a917",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_portal_provas",
+        "url": "https://ingresso.ufms.br/vestibular/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      },
+      "sha256_auditado": "3e537f0c04bf72e81c362c979a2a3325fa2248d0e45bb744beba616853f1a917",
+      "natureza_sha256_auditado": "Hash da cópia temporária previamente lida no ciclo3, conferido novamente; não declara nova aquisição binária no ciclo4."
+    },
+    {
+      "documento_id": "ufms-vestibular2025-unica-prova-presencial",
+      "aplicacao_id": "ufms-vestibular2025-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "prova",
+      "url_origem": "https://ingresso.ufms.br/files/2025/05/Caderno-de-Prova-Vestibular-PSV-UFMS.pdf",
+      "fonte_url": "https://ingresso.ufms.br/vestibular/",
+      "fonte_id": "ufms_c4_2025_prova_presencial",
+      "fonte_vinculo_id": "ufms_c4_portal_provas",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial"
+      ],
+      "paginas_pdf_total_observadas": 23,
+      "observacao": "Caderno publicado no índice oficial. Capa identifica PSV-UFMS e MANHÃ/08h; não há cor ou número de tipo confirmado. Humanas Q46–60 pelo cabeçalho e numeração do próprio caderno.",
+      "escopo_paginas_publicas": [
+        {
+          "finalidade": "caderno_integral",
+          "paginas_pdf": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        {
+          "finalidade": "bloco_humanas",
+          "paginas_pdf": [
+            16,
+            17,
+            18,
+            19
+          ],
+          "numeros_questao": [
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "exige_recorte_por_numero": true
+        }
+      ],
+      "revisao_humana": "pendente",
+      "hash_referencia_leitura_temporaria": "20c78794c9bcd3a0892ceed07efb1ba43f0888f7a0dc679a4469ec0c0b7cafa3",
+      "observacao_integridade": "Hash somente da cópia temporária lida no ciclo3; root deve coletar e comparar, sem presumir nova aquisição no ciclo4.",
+      "url": "https://ingresso.ufms.br/files/2025/05/Caderno-de-Prova-Vestibular-PSV-UFMS.pdf",
+      "sha256_esperado": "20c78794c9bcd3a0892ceed07efb1ba43f0888f7a0dc679a4469ec0c0b7cafa3",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_portal_provas",
+        "url": "https://ingresso.ufms.br/vestibular/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      },
+      "sha256_auditado": "20c78794c9bcd3a0892ceed07efb1ba43f0888f7a0dc679a4469ec0c0b7cafa3",
+      "natureza_sha256_auditado": "Hash da cópia temporária previamente lida no ciclo3, conferido novamente; não declara nova aquisição binária no ciclo4."
+    },
+    {
+      "documento_id": "ufms-vestibular2026-unica-prova-presencial",
+      "aplicacao_id": "ufms-vestibular2026-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "prova",
+      "url_origem": "https://ingresso.ufms.br/files/2026/08/Vestibular_PSV_UFMS_2026.pdf",
+      "fonte_url": "https://ingresso.ufms.br/vestibular/",
+      "fonte_id": "ufms_c4_2026_prova_presencial",
+      "fonte_vinculo_id": "ufms_c4_portal_provas",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial"
+      ],
+      "paginas_pdf_total_observadas": 26,
+      "observacao": "Caderno publicado no índice oficial. Capa identifica PSV-UFMS e MANHÃ/08h; não há cor ou número de tipo confirmado. Humanas Q46–60 pelo cabeçalho e numeração do próprio caderno.",
+      "escopo_paginas_publicas": [
+        {
+          "finalidade": "caderno_integral",
+          "paginas_pdf": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ]
+        },
+        {
+          "finalidade": "bloco_humanas",
+          "paginas_pdf": [
+            19,
+            20,
+            21,
+            22
+          ],
+          "numeros_questao": [
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "exige_recorte_por_numero": true
+        }
+      ],
+      "revisao_humana": "pendente",
+      "hash_referencia_leitura_temporaria": "bc1aa092fe6fef878956c6c24dc16d3149d299a207c5191d8efc746aadf372b4",
+      "observacao_integridade": "Hash somente da cópia temporária lida no ciclo3; root deve coletar e comparar, sem presumir nova aquisição no ciclo4.",
+      "url": "https://ingresso.ufms.br/files/2026/08/Vestibular_PSV_UFMS_2026.pdf",
+      "sha256_esperado": "bc1aa092fe6fef878956c6c24dc16d3149d299a207c5191d8efc746aadf372b4",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_portal_provas",
+        "url": "https://ingresso.ufms.br/vestibular/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      },
+      "sha256_auditado": "bc1aa092fe6fef878956c6c24dc16d3149d299a207c5191d8efc746aadf372b4",
+      "natureza_sha256_auditado": "Hash da cópia temporária previamente lida no ciclo3, conferido novamente; não declara nova aquisição binária no ciclo4."
+    },
+    {
+      "documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-presencial",
+      "aplicacao_id": "ufms-vestibular2024-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "gabarito_definitivo",
+      "url_origem": "https://ingresso.ufms.br/files/2023/12/edital_prograd_415.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-edital-no-415-2023/",
+      "fonte_id": "ufms_c4_2024_gabarito_definitivo_presencial",
+      "fonte_vinculo_id": "ufms_c4_2024_gab_definitivo_presencial_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial"
+      ],
+      "paginas_pdf_total_observadas": 3,
+      "observacao": "Edital415/2023: aplicação03/12/2023 no item1.1. AnexoÚnico na página3; asterisco significa anulada. A tabela distingue Geografia de Filosofia/História/Sociologia; fronteiras de colunas ainda devem ser verificadas visualmente no arquivo coletado.",
+      "escopo_paginas_publicas": [
+        {
+          "finalidade": "gabarito_definitivo_presencial",
+          "paginas_pdf": [
+            3
+          ]
+        }
+      ],
+      "anulacoes_transcricao_preliminar": {
+        "referencia_numeracao": "caderno_presencial",
+        "numeros": [
+          24,
+          32,
+          41,
+          53,
+          57
+        ],
+        "simbolo_original": "*",
+        "pagina_pdf": 3,
+        "validacao_humana": "pendente"
+      },
+      "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_415.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2024_gab_definitivo_presencial_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-edital-no-415-2023/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    },
+    {
+      "documento_id": "ufms-vestibular2024-unica-gabarito-definitivo-digital-com-base",
+      "aplicacao_id": "ufms-vestibular2024-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "gabarito_definitivo",
+      "url_origem": "https://ingresso.ufms.br/files/2023/12/edital_prograd_417.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-edital-no-417-2023/",
+      "fonte_id": "ufms_c4_2024_gabarito_definitivo_digital_com_base",
+      "fonte_vinculo_id": "ufms_c4_2024_gab_definitivo_digital_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 66,
+      "observacao": "Edital417/2023 declara ausência de alteração do preliminar. AnexoI contém prova-base eAnexoII gabarito50itens. Não é caderno individual. O código público éUFMS2301/001-ConhecGerais.",
+      "escopo_paginas_publicas": [
+        {
+          "finalidade": "ato_publicacao",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "finalidade": "prova_base_digital_com_redacao",
+          "intervalo_pdf": [
+            3,
+            65
+          ]
+        },
+        {
+          "finalidade": "gabarito_definitivo_digital",
+          "paginas_pdf": [
+            66
+          ]
+        }
+      ],
+      "bases_digital": [
+        {
+          "identificador": "UFMS2301 | 001-ConhecGerais",
+          "anexo": "I",
+          "intervalo_pdf": [
+            3,
+            65
+          ],
+          "numeros_questao": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50
+          ],
+          "idiomas_com_numeracao_alternativa": {
+            "numeros": [
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "idiomas": [
+              "espanhol",
+              "ingles"
+            ]
+          },
+          "gabarito_paginas_pdf": [
+            66
+          ],
+          "numeracao": "base_publicada; não é ordem individual sorteada",
+          "mapeamento_humanas_por_numero": null
+        }
+      ],
+      "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_417.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2024_gab_definitivo_digital_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-edital-no-417-2023/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      },
+      "bases_digitais": [
+        {
+          "identificador": "UFMS2301 | 001-ConhecGerais",
+          "anexo": "I",
+          "intervalo_pdf": [
+            3,
+            65
+          ],
+          "numeros_questao": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50
+          ],
+          "idiomas_com_numeracao_alternativa": {
+            "numeros": [
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "idiomas": [
+              "espanhol",
+              "ingles"
+            ]
+          },
+          "gabarito_paginas_pdf": [
+            66
+          ],
+          "numeracao": "base_publicada; não é ordem individual sorteada",
+          "mapeamento_humanas_por_numero": null
+        }
+      ]
+    },
+    {
+      "documento_id": "ufms-vestibular2025-unica-gabarito-definitivo-presencial-digital",
+      "aplicacao_id": "ufms-vestibular2025-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "gabarito_definitivo",
+      "url_origem": "https://ingresso.ufms.br/files/2025/01/edital_prograd_2025_8_1.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/vestibular/vestibular-2025-divulgacao-do-gabarito-definitivo-da-prova-objetiva-edital-no-8-2025/",
+      "fonte_id": "ufms_c4_2025_gabarito_definitivo_presencial_digital",
+      "fonte_vinculo_id": "ufms_c4_2025_gab_definitivo_presencial_digital_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial",
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 73,
+      "observacao": "Edital8/2025: AnexoI presencial; II gabarito digital; III prova-base digital. Há cabeçalhos antigos375/2024/PRELIMINAR sobrepostos aos novos8/2025/DEFINITIVO nos anexos: preservar o PDF e conferir a versão antes de liberar respostas.",
+      "escopo_paginas_publicas": [
+        {
+          "finalidade": "ato_publicacao",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "finalidade": "gabarito_definitivo_presencial",
+          "paginas_pdf": [
+            3
+          ]
+        },
+        {
+          "finalidade": "gabarito_definitivo_digital",
+          "paginas_pdf": [
+            4
+          ]
+        },
+        {
+          "finalidade": "prova_base_digital_com_redacao",
+          "intervalo_pdf": [
+            5,
+            73
+          ]
+        }
+      ],
+      "bases_digital": [
+        {
+          "identificador": "UFMS2401 | 001-ConhecGerais",
+          "anexo": "III",
+          "intervalo_pdf": [
+            5,
+            73
+          ],
+          "numeros_questao": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "idiomas_com_numeracao_alternativa": {
+            "numeros": [
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "idiomas": [
+              "espanhol",
+              "ingles"
+            ]
+          },
+          "gabarito_paginas_pdf": [
+            4
+          ],
+          "numeracao": "base_publicada; não é ordem individual sorteada",
+          "mapeamento_humanas_por_numero": null
+        }
+      ],
+      "anulacoes_transcricao_preliminar": {
+        "modalidade": "presencial",
+        "numeros": [
+          20
+        ],
+        "marcacao": "ANULADA",
+        "pagina_pdf": 3,
+        "validacao_humana": "pendente"
+      },
+      "url": "https://ingresso.ufms.br/files/2025/01/edital_prograd_2025_8_1.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2025_gab_definitivo_presencial_digital_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/vestibular/vestibular-2025-divulgacao-do-gabarito-definitivo-da-prova-objetiva-edital-no-8-2025/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      },
+      "bases_digitais": [
+        {
+          "identificador": "UFMS2401 | 001-ConhecGerais",
+          "anexo": "III",
+          "intervalo_pdf": [
+            5,
+            73
+          ],
+          "numeros_questao": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "idiomas_com_numeracao_alternativa": {
+            "numeros": [
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "idiomas": [
+              "espanhol",
+              "ingles"
+            ]
+          },
+          "gabarito_paginas_pdf": [
+            4
+          ],
+          "numeracao": "base_publicada; não é ordem individual sorteada",
+          "mapeamento_humanas_por_numero": null
+        }
+      ]
+    },
+    {
+      "documento_id": "ufms-vestibular2026-unica-gabarito-definitivo-presencial-digital",
+      "aplicacao_id": "ufms-vestibular2026-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "gabarito_definitivo",
+      "url_origem": "https://ingresso.ufms.br/files/2025/12/edital_prograd_518.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2026-gabarito-definitivo-edital-no-518-2025/",
+      "fonte_id": "ufms_c4_2026_gabarito_definitivo_presencial_digital",
+      "fonte_vinculo_id": "ufms_c4_2026_gab_definitivo_presencial_digital_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial",
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 32,
+      "observacao": "Edital518/2025: AnexoI gabarito presencialp3; AnexoII digitalp4; AnexoIII prova-base digitalp5–32. Tabelas de ambas as modalidades rotulam Q46–60 conjuntamente como Geografia/Filosofia/História/Sociologia.",
+      "escopo_paginas_publicas": [
+        {
+          "finalidade": "ato_publicacao",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "finalidade": "gabarito_definitivo_presencial",
+          "paginas_pdf": [
+            3
+          ]
+        },
+        {
+          "finalidade": "gabarito_definitivo_digital",
+          "paginas_pdf": [
+            4
+          ]
+        },
+        {
+          "finalidade": "prova_base_digital_com_redacao",
+          "intervalo_pdf": [
+            5,
+            32
+          ]
+        }
+      ],
+      "bases_digital": [
+        {
+          "identificador": "PSV-UFMS2026 — Prova Objetiva Base; FAPEC2025",
+          "anexo": "III",
+          "intervalo_pdf": [
+            5,
+            32
+          ],
+          "numeros_questao": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "gabarito_paginas_pdf": [
+            4
+          ],
+          "numeracao": "base_publicada; não é ordem individual sorteada",
+          "bloco_humanas": {
+            "numeros": [
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "paginas_pdf": [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "rotulo_oficial": "Ciências Humanas e suas Tecnologias; Geografia, Filosofia, História e Sociologia",
+            "exige_recorte_por_numero": true
+          },
+          "idiomas_com_numeracao_alternativa": {
+            "numeros": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "idiomas": [
+              "espanhol",
+              "ingles"
+            ]
+          }
+        }
+      ],
+      "anulacoes_transcricao_preliminar": {
+        "modalidade": "presencial",
+        "numeros": [
+          16
+        ],
+        "marcacao": "ANULADA",
+        "pagina_pdf": 3,
+        "validacao_humana": "pendente"
+      },
+      "url": "https://ingresso.ufms.br/files/2025/12/edital_prograd_518.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2026_gab_definitivo_presencial_digital_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2026-gabarito-definitivo-edital-no-518-2025/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      },
+      "bases_digitais": [
+        {
+          "identificador": "PSV-UFMS2026 — Prova Objetiva Base; FAPEC2025",
+          "anexo": "III",
+          "intervalo_pdf": [
+            5,
+            32
+          ],
+          "numeros_questao": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "gabarito_paginas_pdf": [
+            4
+          ],
+          "numeracao": "base_publicada; não é ordem individual sorteada",
+          "bloco_humanas": {
+            "numeros": [
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "paginas_pdf": [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "rotulo_oficial": "Ciências Humanas e suas Tecnologias; Geografia, Filosofia, História e Sociologia",
+            "exige_recorte_por_numero": true
+          },
+          "idiomas_com_numeracao_alternativa": {
+            "numeros": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "idiomas": [
+              "espanhol",
+              "ingles"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "documento_id": "ufms-vestibular2024-unica-gabarito-preliminar-presencial",
+      "aplicacao_id": "ufms-vestibular2024-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "gabarito_preliminar",
+      "url_origem": "https://ingresso.ufms.br/files/2023/12/edital_prograd_2023_389.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-edital-no-389-2023/",
+      "fonte_id": "ufms_c4_2024_gabarito_preliminar_presencial",
+      "fonte_vinculo_id": "ufms_c4_2024_gab_preliminar_presencial_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial"
+      ],
+      "paginas_pdf_total_observadas": 4,
+      "observacao": "Versão preliminar a preservar para comparação; usar o edital definitivo correspondente para a chave final. Os preliminares digitais também contêm prova-base; não multiplicar o mesmo item por reaparecer no definitivo.",
+      "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_2023_389.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2024_gab_preliminar_presencial_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-edital-no-389-2023/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    },
+    {
+      "documento_id": "ufms-vestibular2024-unica-gabarito-preliminar-digital",
+      "aplicacao_id": "ufms-vestibular2024-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "gabarito_preliminar",
+      "url_origem": "https://ingresso.ufms.br/files/2023/12/edital_prograd_2023_390.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-edital-no-390-2023/",
+      "fonte_id": "ufms_c4_2024_gabarito_preliminar_digital",
+      "fonte_vinculo_id": "ufms_c4_2024_gab_preliminar_digital_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 67,
+      "observacao": "Versão preliminar a preservar para comparação; usar o edital definitivo correspondente para a chave final. Os preliminares digitais também contêm prova-base; não multiplicar o mesmo item por reaparecer no definitivo.",
+      "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_2023_390.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2024_gab_preliminar_digital_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-edital-no-390-2023/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    },
+    {
+      "documento_id": "ufms-vestibular2025-unica-gabarito-preliminar-presencial-digital",
+      "aplicacao_id": "ufms-vestibular2025-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "gabarito_preliminar",
+      "url_origem": "https://ingresso.ufms.br/files/2024/12/edital_prograd_375.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2025-gabarito-preliminar-edital-no-375-2024/",
+      "fonte_id": "ufms_c4_2025_gabarito_preliminar_presencial_digital",
+      "fonte_vinculo_id": "ufms_c4_2025_gab_preliminar_presencial_digital_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial",
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 75,
+      "observacao": "Versão preliminar a preservar para comparação; usar o edital definitivo correspondente para a chave final. Os preliminares digitais também contêm prova-base; não multiplicar o mesmo item por reaparecer no definitivo.",
+      "url": "https://ingresso.ufms.br/files/2024/12/edital_prograd_375.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2025_gab_preliminar_presencial_digital_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2025-gabarito-preliminar-edital-no-375-2024/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    },
+    {
+      "documento_id": "ufms-vestibular2026-unica-gabarito-preliminar-presencial-digital",
+      "aplicacao_id": "ufms-vestibular2026-unica",
+      "instituicao_sigla": "UFMS",
+      "processo_id": "ufms-vestibular",
+      "tipo": "gabarito_preliminar",
+      "url_origem": "https://ingresso.ufms.br/files/2025/12/edital_prograd_500.pdf",
+      "fonte_url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2026-gabarito-preliminar-edital-no-500-2025/",
+      "fonte_id": "ufms_c4_2026_gabarito_preliminar_presencial_digital",
+      "fonte_vinculo_id": "ufms_c4_2026_gab_preliminar_presencial_digital_pagina",
+      "publicador": "UFMS/PROGRAD; elaboração por FAPEC/Vunesp conforme o documento",
+      "origem_oficial": true,
+      "condicoes_uso": "nao_verificadas",
+      "redistribuicao_autorizada": null,
+      "transporte": "curl_tls_sistema",
+      "escopo_coleta": "ufms_ciclo4",
+      "modalidades_abrangidas": [
+        "presencial",
+        "digital"
+      ],
+      "paginas_pdf_total_observadas": 33,
+      "observacao": "Versão preliminar a preservar para comparação; usar o edital definitivo correspondente para a chave final. Os preliminares digitais também contêm prova-base; não multiplicar o mesmo item por reaparecer no definitivo.",
+      "url": "https://ingresso.ufms.br/files/2025/12/edital_prograd_500.pdf",
+      "origem_documentada": {
+        "fonte_vinculo_id": "ufms_c4_2026_gab_preliminar_presencial_digital_pagina",
+        "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2026-gabarito-preliminar-edital-no-500-2025/",
+        "criterio": "Documento diretamente vinculado por página de publicação oficial ou pelo índice institucional de provas aplicadas."
+      }
+    }
+  ],
+  "fontes": [
+    {
+      "fonte_id": "ufms_c4_portal_provas",
+      "url": "https://ingresso.ufms.br/vestibular/",
+      "tipo": "indice_provas_aplicadas",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "localizacao": "Provas Aplicadas — Vestibular UFMS, links2024/2025/2026"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_indice",
+      "url": "https://ingresso.ufms.br/processo/vestibular/vestibular-em-andamento/",
+      "tipo": "indice_edicao",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2025_indice",
+      "url": "https://ingresso.ufms.br/processo/vestibular/2025/",
+      "tipo": "indice_edicao",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2026_indice",
+      "url": "https://ingresso.ufms.br/processo/vestibular/2026/",
+      "tipo": "indice_edicao",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_indice_digital",
+      "url": "https://ingresso.ufms.br/processo/vestibular-ufms-digital/vestibular-ufms-digital-2024/",
+      "tipo": "indice_edicao_modalidade",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_abertura_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-inscricao-edital-no-283-2023/",
+      "tipo": "abertura_com_anexos",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2025_abertura_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2025-inscricao-edital-no-303-2024/",
+      "tipo": "abertura_com_anexos",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2026_abertura_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/vestibular/vestibular-2026-inscricao-edital-no-394-2025/",
+      "tipo": "abertura_com_anexos",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_abertura_digital_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-inscricao-edital-no-284-2023/",
+      "tipo": "abertura_com_anexos",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_gab_definitivo_presencial_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-edital-no-415-2023/",
+      "tipo": "publicacao_gabarito_definitivo",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_gab_definitivo_digital_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-edital-no-417-2023/",
+      "tipo": "publicacao_gabarito_definitivo",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_gab_preliminar_presencial_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-edital-no-389-2023/",
+      "tipo": "publicacao_gabarito_preliminar",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_gab_preliminar_digital_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-digital-2024-edital-no-390-2023/",
+      "tipo": "publicacao_gabarito_preliminar",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2025_gab_definitivo_presencial_digital_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/vestibular/vestibular-2025-divulgacao-do-gabarito-definitivo-da-prova-objetiva-edital-no-8-2025/",
+      "tipo": "publicacao_gabarito_definitivo",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2025_gab_preliminar_presencial_digital_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2025-gabarito-preliminar-edital-no-375-2024/",
+      "tipo": "publicacao_gabarito_preliminar",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2026_gab_definitivo_presencial_digital_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2026-gabarito-definitivo-edital-no-518-2025/",
+      "tipo": "publicacao_gabarito_definitivo",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2026_gab_preliminar_presencial_digital_pagina",
+      "url": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2026-gabarito-preliminar-edital-no-500-2025/",
+      "tipo": "publicacao_gabarito_preliminar",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_edital_presencial",
+      "url": "https://ingresso.ufms.br/files/2023/09/edital_prograd_2023_283_CONSOLIDADO.pdf",
+      "tipo": "edital",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 36
+    },
+    {
+      "fonte_id": "ufms_c4_2024_edital_digital",
+      "url": "https://ingresso.ufms.br/files/2023/08/edital_prograd_2023_284_CONSOLIDADO-1.pdf",
+      "tipo": "edital",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 41
+    },
+    {
+      "fonte_id": "ufms_c4_2025_edital_presencial_digital",
+      "url": "https://ingresso.ufms.br/files/2024/10/edital_prograd_2024_303_1_consolidado.pdf",
+      "tipo": "edital",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 35
+    },
+    {
+      "fonte_id": "ufms_c4_2026_edital_presencial_digital",
+      "url": "https://ingresso.ufms.br/files/2026/01/edital_prograd_394_consolidado_2.pdf",
+      "tipo": "edital",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 32
+    },
+    {
+      "fonte_id": "ufms_c4_2024_prova_presencial",
+      "url": "https://ingresso.ufms.br/files/2023/12/PSV_UFMS_PB.pdf",
+      "tipo": "prova",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "copia_temporaria_ciclo3_lida_com_inspecao_visual_parcial; fonte_indice_reverificada",
+      "paginas_pdf_total": 24
+    },
+    {
+      "fonte_id": "ufms_c4_2025_prova_presencial",
+      "url": "https://ingresso.ufms.br/files/2025/05/Caderno-de-Prova-Vestibular-PSV-UFMS.pdf",
+      "tipo": "prova",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "copia_temporaria_ciclo3_lida_com_inspecao_visual_parcial; fonte_indice_reverificada",
+      "paginas_pdf_total": 23
+    },
+    {
+      "fonte_id": "ufms_c4_2026_prova_presencial",
+      "url": "https://ingresso.ufms.br/files/2026/08/Vestibular_PSV_UFMS_2026.pdf",
+      "tipo": "prova",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "copia_temporaria_ciclo3_lida_com_inspecao_visual_parcial; fonte_indice_reverificada",
+      "paginas_pdf_total": 26
+    },
+    {
+      "fonte_id": "ufms_c4_2024_gabarito_definitivo_presencial",
+      "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_415.pdf",
+      "tipo": "gabarito_definitivo",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 3
+    },
+    {
+      "fonte_id": "ufms_c4_2024_gabarito_definitivo_digital_com_base",
+      "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_417.pdf",
+      "tipo": "gabarito_definitivo",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 66
+    },
+    {
+      "fonte_id": "ufms_c4_2025_gabarito_definitivo_presencial_digital",
+      "url": "https://ingresso.ufms.br/files/2025/01/edital_prograd_2025_8_1.pdf",
+      "tipo": "gabarito_definitivo",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 73
+    },
+    {
+      "fonte_id": "ufms_c4_2026_gabarito_definitivo_presencial_digital",
+      "url": "https://ingresso.ufms.br/files/2025/12/edital_prograd_518.pdf",
+      "tipo": "gabarito_definitivo",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 32
+    },
+    {
+      "fonte_id": "ufms_c4_2024_gabarito_preliminar_presencial",
+      "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_2023_389.pdf",
+      "tipo": "gabarito_preliminar",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 4
+    },
+    {
+      "fonte_id": "ufms_c4_2024_gabarito_preliminar_digital",
+      "url": "https://ingresso.ufms.br/files/2023/12/edital_prograd_2023_390.pdf",
+      "tipo": "gabarito_preliminar",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 67
+    },
+    {
+      "fonte_id": "ufms_c4_2025_gabarito_preliminar_presencial_digital",
+      "url": "https://ingresso.ufms.br/files/2024/12/edital_prograd_375.pdf",
+      "tipo": "gabarito_preliminar",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 75
+    },
+    {
+      "fonte_id": "ufms_c4_2026_gabarito_preliminar_presencial_digital",
+      "url": "https://ingresso.ufms.br/files/2025/12/edital_prograd_500.pdf",
+      "tipo": "gabarito_preliminar",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_em_indice_web; aquisicao_binaria_local_pendente",
+      "paginas_pdf_total": 33
+    },
+    {
+      "fonte_id": "neco_c3_ufms_data_2024",
+      "url": "https://www.ufms.br/candidatos-realizam-as-provas-presencial-e-on-line-do-vestibular-ufms-2024/",
+      "tipo": "noticia_pos_aplicacao",
+      "publicador": "UFMS",
+      "origem_oficial": true,
+      "status_acesso": "fonte_ciclo3_preservada"
+    },
+    {
+      "fonte_id": "neco_c3_ufms_data_2025",
+      "url": "https://www.ufms.br/cerca-de-20-mil-candidatos-fazem-provas-do-vestibular-ufms-2025-neste-domingo/",
+      "tipo": "noticia_pos_aplicacao",
+      "publicador": "UFMS",
+      "origem_oficial": true,
+      "status_acesso": "fonte_ciclo3_preservada"
+    },
+    {
+      "fonte_id": "neco_c3_ufms_data_2026",
+      "url": "https://www.ufms.br/mais-de-175-mil-candidatos-realizam-o-vestibular-ufms-2026/",
+      "tipo": "noticia_pos_aplicacao",
+      "publicador": "UFMS",
+      "origem_oficial": true,
+      "status_acesso": "fonte_ciclo3_preservada"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_vunesp",
+      "url": "https://www.vunesp.com.br/UFMS2301",
+      "tipo": "indice_organizador",
+      "publicador": "Vunesp",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "localizacao": "ProvaDigital; Provas eGabaritos; data03/12/2023/08hMS"
+    },
+    {
+      "fonte_id": "ufms_c4_2024_vunesp_login",
+      "url": "https://www.vunesp.com.br/AreaCandidato/Posicionar/UFMS2301/ProvaGabarito",
+      "tipo": "rota_area_candidato",
+      "publicador": "Vunesp",
+      "origem_oficial": true,
+      "status_acesso": "redireciona_login; não_acessado_area_privada",
+      "url_final_observada": "https://www.vunesp.com.br/Conta/Login?ReturnUrl=/AreaCandidato/Posicionar/UFMS2301/ProvaGabarito"
+    },
+    {
+      "fonte_id": "ufms_c4_2026_edital_rota_antiga",
+      "url": "https://ingresso.ufms.br/files/2025/09/Edital_Prograd_394_2025_CONSOLIDADO.pdf",
+      "tipo": "rota_historica_edital",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "404_na_abertura_atual; conteúdo_indexado_antigo_não_usado_como_fonte_primaria",
+      "substituida_por": "ufms_c4_2026_edital_presencial_digital"
+    },
+    {
+      "fonte_id": "ufms_c4_2025_recursos_nao_coletar",
+      "url": "https://ingresso.ufms.br/files/2025/01/edital_prograd_2025_7.pdf",
+      "tipo": "resultado_recursos_com_lista_nominal",
+      "publicador": "UFMS/PROGRAD",
+      "origem_oficial": true,
+      "status_acesso": "natureza_documental_verificada; sem_coleta_no_acervo",
+      "coleta_recomendada": false,
+      "motivo": "Contém nomes e inscrições de candidatos; o objetivo pode ser atendido com os gabaritos públicos sem reproduzir lista pessoal."
+    }
+  ],
+  "decisoes_segmentacao": [
+    {
+      "decisao_id": "UFMS-C4-D1",
+      "texto": "Preservar os três IDs de eventoC3. Registrar seis variantes documentais; não contar formato, idioma, preliminar/definitivo ou anexo como aplicação independente."
+    },
+    {
+      "decisao_id": "UFMS-C4-D2",
+      "texto": "Os três cadernos presenciais têm blocoHumanasQ46–60 confirmado por cabeçalho, números e edital. Em2026 a base digital também temQ46–60 sobHumanas e gabarito conjunto. Extrair esses blocos comoHumanas integradas."
+    },
+    {
+      "decisao_id": "UFMS-C4-D3",
+      "texto": "As tabelas presenciais2024/2025 distinguemGeografia eFilosofia/História/Sociologia, mas fronteiras exatas de colunas aguardam QAvisual dos PDFs de gabarito. Nenhum subconjunto foi promovido aHistória exclusiva. Bases digitais2024/2025 permanecem com númerosHumanas nulos, sem inferência pelo conteúdo."
+    },
+    {
+      "decisao_id": "UFMS-C4-D4",
+      "texto": "Na prova digital, a base publicada fornece identidade pública estável. A ordem e alternativas individuais foram aleatórias; não recuperar prova pessoal ou supor permutação igual à presencial."
+    },
+    {
+      "decisao_id": "UFMS-C4-D5",
+      "texto": "O mesmo PDF definitivo contém gabaritos e prova-base. Coletar uma vez, preservar páginas por papel e deduplicar itens que reaparecem no preliminar e definitivo. Idiomas alternativos não duplicam o bloco comum deHumanas."
+    }
+  ],
+  "pendencias": [
+    {
+      "codigo": "UFMS-C4-P1",
+      "texto": "Coleta binária/hash dos documentos novos por root. O indexador web leu os PDFs, mas os downloads locais tentados neste ciclo sofreram timeoutTCP443 para ingresso.ufms.br. Não foi alegada preservação binária nova nem calculado hash de conteúdo não baixado."
+    },
+    {
+      "codigo": "UFMS-C4-P2",
+      "texto": "Conferir visualmente as células dos gabaritos2024/2025 antes de registrar números exclusivos deGeografia; manterHistória/Filosofia/Sociologia conjunta. A numeração46–60 do blocoHumanas está confirmada."
+    },
+    {
+      "codigo": "UFMS-C4-P3",
+      "texto": "Obter mapa oficial por número paraHumanas nas bases digitais2024 e2025. Quantidades10 e15, respectivamente, são oficiais; a identificação de quais números não foi inferida por assunto ou por ordem presumida de competências."
+    },
+    {
+      "codigo": "UFMS-C4-P4",
+      "texto": "O definitivo2025 contém cabeçalhos reaproveitadosPRELIMINAR/375/2024 e novosDEFINITIVO/8/2025 no mesmo anexo. Conferir o PDF e correspondência base/chave; guardar ambos os atos originais."
+    },
+    {
+      "codigo": "UFMS-C4-P5",
+      "texto": "Verificar se existem outras cores/tipos presenciais; não há identificação no material lido. Ausência de rótulo não comprova existência de um só tipo."
+    },
+    {
+      "codigo": "UFMS-C4-P6",
+      "texto": "Não considerar continuidade histórica entrePSVD2024 ePSV2025/2026 apenas por data, instituição ou currículo conjunto. Os editais e formatos mudam."
+    },
+    {
+      "codigo": "UFMS-C4-P7",
+      "texto": "Camada textual do caderno presencial2024 perde caracteres e números em alguns trechos; Poppler/pypdf exigem QAvisual/OCR seletivo na segmentação. Renderizações locais confirmaram capa, fimQ60p20 e início da redaçãop21."
+    }
+  ]
+}
