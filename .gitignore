@@ -1,0 +1,13 @@
+.DS_Store
+
+# Configuração local e credenciais
+.env
+.env.*
+!.env.example
+
+# Ambiente e arquivos temporários de Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
