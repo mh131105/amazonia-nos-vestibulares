@@ -1,23 +1,7 @@
 .DS_Store
-
-# Configuração local e credenciais
-.env
-.env.*
-!.env.example
-
-# Ambiente e arquivos temporários de Python
 .venv/
-venv/
 __pycache__/
 *.py[cod]
-.ipynb_checkpoints/
-
-# Acervo de terceiros: preservar localmente; publicar somente quando autorizado
-data/raw/
-data/interim/
-data/processed/questoes-texto.jsonl
-data/annotation/textos/
-data/annotation/revisao/
-output/playwright/
-.playwright-cli/
-tmp/
+.env
+.env.*
+acervo/

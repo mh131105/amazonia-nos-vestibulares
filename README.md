@@ -1,97 +1,86 @@
-# História e Geografia da Amazônia nos vestibulares públicos
+# História e Geografia da Amazônia nos vestibulares
 
-Estudo documental da previsão nos programas e da cobrança nas provas de processos próprios de ingresso na graduação de IES públicas brasileiras. História e Geografia seguem **um único procedimento**, com a disciplina registrada em cada item e com denominadores separados.
+Banco curado de **196 questões amazônicas**, organizado em **53 tópicos padronizados**, com origem por instituição, prova, edição, fase/etapa, número, página e PDF. A pergunta da análise é: **quanto do conteúdo previsto na ementa realmente apareceu nas provas?**
 
-Recorte: aplicações de **01/01/2017 a 11/11/2026**, no horário de Manaus. O ano de 2026 é parcial. A comparação temporal em torno do Novo Ensino Médio é observacional, sem atribuição causal à reforma.
+Leia a [análise exploratória](resultados/relatorio.md) e abra o [dataset limpo](dados/curado/questoes.csv). A comparação considera os tópicos previstos e as questões efetivamente relacionadas a eles; assuntos com nomes diferentes são reconciliados na mesma taxonomia.
 
-## Estado e resultados disponíveis
+Nas **43 provas com ementa regional integral e triagem completa**, houve cobrança identificada em **141 de 682 pares prova × tópico previsto (20,7%)**. A [lista padronizada de conteúdos e tópicos](dados/topicos.csv) orienta tanto a classificação das questões quanto essa comparação.
 
-- Inventário histórico: **2.459 observações anuais em 2017–2024**, reunindo **334 códigos públicos ou Especiais candidatos**. A fotografia de 2024, com 317 IES da rede pública, permanece preservada. Mudanças de 2025–2026 e reconciliação jurídica estão pendentes.
-- Triagem: **39 registros de processos ou ramos em 24 IES**, com fontes, decisões e lacunas nas cinco regiões. Ramos ainda não desagregados não equivalem a processos únicos comprovados. O levantamento nacional permanece aberto.
-- Questões: **312 ocorrências, 156 de História e 156 de Geografia**. São 300 objetivas de 23 cadernos UFAM/UFRR/UERR e 12 discursivas da compilação FUVEST2024. Subitens e versões por carreira não multiplicam as ocorrências.
-- Acervo de vestibulares: **231 vínculos documentais e 225 PDFs oficiais distintos**, com **62 eventos registrados**. Os cinco marcos normativos ficam em registro separado. Quatro vínculos administrativos/de recursos preservam originais e metadados, sem extração textual automática.
-- FUVEST: 32 eventos das fases comuns em 2017–2026, com versões e programas compartilhados. A primeira fase de ingresso 2027 ocorreu em 01/11/2026 e está incluída; sua segunda fase permanece futura. UFMS: variantes presencial/digital preservadas, sem converter blocos integrados em História exclusiva.
-- As auditorias confirmaram cinco datas UFAM; três E3 continuam pendentes. A finalidade do gabarito PSC2019 E2 foi corroborada por cadeia institucional e pós-recursos, mantendo as mesmas letras e anulações. Revisão humana e versão de caderno permanecem pendentes.
-- Os itens têm origem por documento, hash, página e região do PDF. **Ainda não há incidência regional calculada, referência humana, avaliação da IA ou banco educacional liberado.**
+## Executar
 
-Leia o [relatório inicial](reports/relatorio-inicial.md), a [cobertura documental](reports/cobertura-inicial.md) e o [estado do projeto](docs/estado.md). O [manifesto](reports/manifesto-cobertura.json) identifica as entradas e saídas desta versão.
-
-## Procedimento e reprodução
-
-Ambiente fixado: **Python 3.12.12**, dependências em `uv.lock`. O extrator usa **Poppler** (`pdftotext`, testado na versão 26.04.0) e **pypdf 7.0.1** como alternativa para falhas reais. A aquisição Inep usa `curl` e leitura parcial do ZIP. PDFs do arquivo legado UFAM usam a cadeia TLS do sistema pelo `curl`, sem desativar certificados. `pdftohtml` preserva coordenadas de fragmentos nos PDFs que fazem o extrator principal falhar. O OCR ainda não foi validado neste ambiente.
-
-### 1. Reconstruir relatórios dos registros versionados
-
-Depois de preparar o ambiente com `uv sync --locked`:
+Requer **Python 3.10 ou superior**, sem instalar bibliotecas. Execute na raiz do repositório:
 
 ```sh
-uv run --locked python scripts/pipeline.py verificar --somente-metadados
-uv run --locked python scripts/pipeline.py relatorio
+python3 scripts/limpeza.py
+python3 scripts/analise.py
+python3 -m unittest discover -s tests -v
 ```
 
-Esses comandos usam os registros versionados e dispensam PDFs, rede e chamadas de IA. Não recriam a extração sem os originais. `reports/manifesto-cobertura.json` permite conferir os hashes das entradas e saídas.
+Os dois primeiros comandos reconstroem o dataset limpo e os resultados a partir dos dados versionados. Funcionam sem internet e sem chamadas de IA. A curadoria semântica já está registrada nos dados brutos.
 
-### 2. Obter originais e reconstruir o piloto
-
-Requer fontes oficiais disponíveis e Poppler instalado. Execute na raiz do projeto:
+Para recuperar e conferir os PDFs catalogados, com `curl` instalado:
 
 ```sh
-uv run --locked python scripts/inventario_ies.py
-uv run --locked python scripts/historico_ies.py
-uv run --locked python scripts/contexto_normativo.py
-uv run --locked python scripts/consolidar_registro.py
-uv run --locked python scripts/pipeline.py coletar
-uv run --locked python scripts/pipeline.py extrair
-uv run --locked python scripts/segmentar.py
-uv run --locked python scripts/gabaritos.py
-uv run --locked python scripts/preparar_revisao.py
-uv run --locked python scripts/pipeline.py verificar
-uv run --locked python scripts/pipeline.py relatorio
+python3 scraping/coletar.py
+
+# Opcional: extrair a camada textual dos PDFs; requer pdftotext/Poppler
+python3 scraping/coletar.py --extrair
 ```
 
-A coleta reaproveita arquivos íntegros, limita frequência e tentativas e registra falhas. Em uma cópia sem o acervo local, recupera os bytes conhecidos; se o URL retornar outra versão, preserva a divergência e recusa a substituição silenciosa. Para consultar e aceitar uma atualização explicitamente, use `--atualizar` nos comandos de inventário ou coleta. Novos conteúdos são preservados por hash; regras de segmentação vinculadas a outro hash exigem revisão.
+Os originais ficam em `acervo/`, fora do Git, e são reaproveitados quando íntegros. O coletor confere SHA-256 antes de aceitar um arquivo. Fontes cujo original não foi recuperado permanecem identificadas como pendentes. A disponibilidade externa dos endereços não é necessária para reproduzir a análise.
 
-Com originais presentes, `uv run --locked python scripts/inventario_ies.py --offline` reconstrói o cadastro sem rede. Reexecutar a preparação da fila preserva os rótulos humanos já preenchidos.
+## O que cada arquivo faz
 
-Os cinco marcos S2–S6 ficam em acervo separado, sem aplicações fictícias de vestibular. `uv run --locked python scripts/contexto_normativo.py --offline` confere os originais arquivados; os cortes temporais e as limitações estão no [contexto temporal](docs/contexto-temporal.md).
+| Arquivo | Função |
+| --- | --- |
+| `scraping/coletar.py` | Um coletor para todos os PDFs do catálogo, com verificação de integridade e extração textual opcional. |
+| `scripts/limpeza.py` | Padroniza texto, remove duplicatas exatas e confere IDs, fontes e vínculos; gera o dataset curado. |
+| `scripts/analise.py` | Calcula frequências, cobertura da ementa e comparação das fases; gera o relatório e as tabelas. |
+| `dados/topicos.csv` | Taxonomia: disciplina → conteúdo → tópico, com definição de cada categoria. |
+| `dados/fontes.csv` | Catálogo dos PDFs: endereço de download, publicação institucional, hash e origem oficial ou cópia pública identificada. |
+| `dados/provas.csv` | Provas examinadas, inclusive as sem questões elegíveis; anos, fases, extensão da triagem e cobertura das ementas. |
+| `dados/ementas.csv` | Redação dos itens previstos, páginas, fontes e correspondência com os tópicos padronizados. |
+| `dados/brutos/questoes.jsonl` | Questões selecionadas pelos agentes, antes da padronização final, com decisões de curadoria. |
+| `dados/brutos/triagem.csv` | Registro dos itens examinados e da decisão de incluir ou excluir; permite conferir o recorte do banco. |
+| `dados/curado/questoes.csv` | Dataset final: uma linha por questão, com texto, alternativas, tópicos, ementa e origem. |
+| `resultados/relatorio.md` | Análise exploratória e resposta à pergunta do estudo. |
+| `resultados/frequencia-topicos.csv` | Frequência dos tópicos principais, anos, provas e instituições, inclusive categorias sem questões. |
+| `resultados/previsto-cobrado.csv` | Quantidade e proporção de tópicos previstos/cobrados em cada prova. |
+| `resultados/itens-ementa.csv` | Detalhamento dos itens oficiais, questões associadas e tópicos com ou sem cobrança identificada. |
+| `tests/test_estudo.py` | Verifica integridade da limpeza e se o cálculo exige um vínculo pertinente com a ementa. |
+| `.gitignore` e `.gitattributes` | Mantêm originais e arquivos temporários fora do Git e padronizam as quebras de linha. |
 
-### 3. Reclassificar com IA
+## Cobertura
 
-Essa etapa ainda não está implementada. Depende de referência humana, partições por prova e grupos equivalentes, teste congelado, orçamento e avaliação contra um método simples por palavras-chave. Não foram feitas chamadas pagas de API de modelos pelo pipeline. Custos da assistência no aplicativo não foram quantificados.
+Recorte de aplicação: **01/01/2017 a 11/11/2026**, com 2026 parcial.
 
-## Revisão por Matheus
+| Origem | Recorte examinado | Questões amazônicas |
+| --- | --- | --- |
+| UEA — Vestibular/Macro | Edições 2017–2026, Conhecimentos Gerais e Conhecimentos Específicos de Humanas | 107 |
+| UFAM — PSC | Edições 2018–2026, três etapas, aplicadas dentro do recorte | 45 |
+| Enem — Inep | Aplicação regular impressa, caderno azul de Humanas, edições 2017–2025 | 17 |
+| USP — FUVEST | História e Geografia da segunda fase, edições 2017–2026 | 8 |
+| UERR | Vestibulares 2025/2026 | 10 |
+| UFRR | Prova Integral 2025/2026 | 9 |
 
-O [caderno local de revisão](data/annotation/revisao/index.html) reúne as questões por prova e disciplina com imagens da fonte. Ele não mostra gabaritos nem sugestões de regionalidade. Nas discursivas, as alternativas são não aplicáveis; mantenha os subitens na mesma questão. Abra o arquivo no navegador, salve suas decisões e use **Exportar anotações** para guardar uma cópia. As datas não corroboradas aparecem como pendentes.
+Cada fase/etapa tem seu identificador de prova, dentro do mesmo dataset. Cores e ordenações equivalentes não são multiplicadas. Subitens discursivos ficam na mesma questão.
 
-```sh
-# Recriar o caderno a partir do acervo local
-uv run --locked python scripts/gerar_revisao.py
+O levantamento inclui **70 provas**. UEA e PSC formam o núcleo; as outras origens permitem observar a cobrança fora dele. A cobertura não representa todas as instituições e modalidades brasileiras. O Enem 2026 já teve o [primeiro dia aplicado em 08/11/2026](https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/enem/participantes-concluem-primeiro-dia-do-enem-2026), mas seu PDF oficial não foi localizado na consulta. O programa UEA 2017 e dois editais PSC 2018 permanecem sem recuperação integral; suas questões continuam no banco e essas provas ficam fora da proporção programática.
 
-# Incorporar um arquivo exportado por você
-uv run --locked python scripts/importar_anotacoes.py /caminho/para/anotacoes-amazonia.json
-```
+## Curadoria e leitura dos dados
 
-A importação confere ocorrência, versão do PDF, autor, data, evidência e campos obrigatórios. Correções de anotações existentes exigem `--substituir` e preservam a versão anterior. Gerar o caderno não cria rótulos humanos. Para servir apenas o caderno local: `uv run --locked python -m http.server 8765 --bind 127.0.0.1 --directory data/annotation/revisao`.
+A lista de conteúdos parte das ementas. Os agentes selecionaram questões cujo objeto é histórico ou geográfico amazônico, incluindo Amazonas e outras partes da Amazônia. Instituição regional, nome de uma pessoa ou Amazônia em um distrator não bastam. Questões gerais sobre guerras, tratados ou outros assuntos entram somente quando há cobrança amazônica substantiva.
 
-## Verificação
+`topico_id` é a classificação principal; `topicos_ids` contém os demais tópicos exigidos. `ementa_itens` aponta os itens da ementa correspondente. Campos com várias referências usam `|`. Os códigos dos itens são internos; a redação original e a página permitem localizar a fonte.
 
-```sh
-uv run --locked python -m unittest discover -s tests -v
-git diff --check
-```
+`disciplina`, `conteudo` e `topico` seguem a hierarquia do tópico principal. `disciplina_origem` preserva a identificação registrada na coleta; ela pode diferir da classificação analítica em questões interdisciplinares.
 
-Os testes protegem integridade dos originais, mudanças de versão, limites de coleta, identificação de páginas e coordenadas, leitura de colunas, alternativas incompletas e reprodução. Fixtures sintéticas ficam somente nos testes e nunca entram no corpus histórico.
+`tipo_vinculo_ementa` distingue **direto**, **amplo** e **não localizado**. Uma questão regional pode estar amparada por uma cláusula geral do edital. Por isso, a proporção principal usa apenas a previsão regional explícita e integralmente levantada; vínculos amplos ficam disponíveis para consulta. Ausência de vínculo não significa questão fora do edital.
 
-## Documentação e dados
+`foco_regional` distingue conteúdo central de cobrança regional substantiva em contexto misto. A curadoria foi feita por agentes de IA (Codex), identificada como tal. A reprodução executa as decisões registradas; não depende de anotação manual nem de nova classificação por um modelo.
 
-- [Protocolo](docs/protocolo.md), [decisões posteriores](docs/decisoes.md) e [texto original preservado](docs/protocolo-original.txt).
-- [Inventário nacional inicial](docs/notas-inventario.md) e [cadastros históricos 2017–2024](docs/notas-historico-ies.md).
-- [Notas da triagem documental](docs/notas-triagem-demais.md) e [dicionário de dados](docs/dicionario-dados.md).
-- Ampliação C3: [Sul/Sudeste](docs/notas-triagem-sul-sudeste-c3.md), [Nordeste/Centro-Oeste](docs/notas-triagem-ne-co-c3.md) e [auditoria temporal UFAM](docs/notas-datas-ciclo3.md).
-- Ampliação C4: [FUVEST](docs/notas-fuvest-ciclo4.md), [UFMS](docs/notas-ufms-ciclo4.md) e [datas e gabarito UFAM](docs/notas-datas-ciclo4.md).
-- [Manual de revisão e anotação](docs/manual-anotacao.md).
-- Registros em `data/registry/`; metadados dos itens e gabaritos em `data/processed/`; fila de revisão em `data/annotation/`.
+Os enunciados conservam as alternativas publicadas, inclusive distratores incorretos. Gabarito vazio significa não incorporado; não houve resolução automática para preenchê-lo. Mapas, gráficos e alternativas visuais devem ser consultados no PDF na página indicada. O texto limpo tem hash próprio, distinto do hash do documento.
 
-Originais, extrações com enunciados e imagens permanecem locais e ignorados no Git enquanto não houver condição de redistribuição demonstrada. Metadados, código e resultados de cobertura são versionados. Não há licença geral aplicada aos materiais de terceiros.
+O repositório anterior foi substituído por esta estrutura. O histórico permanece no Git; notas, protótipos, inventário institucional e módulo de anotação antigos foram preservados em arquivo local externo à pasta ativa.
 
-Autoria do projeto: **Matheus Garcia**. Inventário, pesquisa documental, código e verificações iniciais preparados com assistência do **Codex**. Essa assistência não constitui anotação humana independente.
+Autoria do projeto: **Matheus Garcia**, com pesquisa, curadoria e implementação assistidas por Codex.
