@@ -1,0 +1,895 @@
+{
+  "versao": "0.1.0",
+  "data_triagem": "2026-11-11",
+  "responsavel": "Codex - triagem assistida por IA; revisão humana pendente",
+  "janela_aplicacao": [
+    "2017-01-01",
+    "2026-11-11"
+  ],
+  "escopo": "História e Geografia da Amazônia, com um procedimento documental e disciplina como campo analítico",
+  "completude": "Triagem inicial de candidatos; não é inventário completo nacional nem censo de processos elegíveis.",
+  "convencao_paginas": "paginas_pdf e paginas_impressas são 1-based; quando ausente página impressa, usar posição do PDF.",
+  "fontes": [
+    {
+      "fonte_id": "ufrr_manual_2026",
+      "url": "https://editais.ufrr.br/editais/arquivo/951/manual-do-candidato-vestibular-ufrr-2026.pdf",
+      "tipo": "manual_com_edital_e_programa",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 54
+    },
+    {
+      "fonte_id": "ufrr_indice_2026",
+      "url": "https://editais.ufrr.br/processo/141/Vestibular-2026",
+      "tipo": "indice_documental",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufrr_aplicacao_2026",
+      "url": "https://ufrr.br/noticias/cpv-ufrr-divulga-cadernos-de-prova-e-gabarito-preliminar-da-prova-objetiva-do-vestibular-2026/",
+      "tipo": "noticia_pos_aplicacao",
+      "publicador": "UFRR",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "publicado_em": "2025-11-30"
+    },
+    {
+      "fonte_id": "ufrr_prova_2026_e1",
+      "url": "https://editais.ufrr.br/editais/arquivo/1203/caderno-de-prova-vestibular-2026-e1-pss.pdf",
+      "tipo": "prova",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 12
+    },
+    {
+      "fonte_id": "ufrr_prova_2026_e2",
+      "url": "https://editais.ufrr.br/editais/arquivo/1204/caderno-de-prova-vestibular-2026-e2-pss.pdf",
+      "tipo": "prova",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 11
+    },
+    {
+      "fonte_id": "ufrr_prova_2026_e3pi",
+      "url": "https://editais.ufrr.br/editais/arquivo/1205/caderno-de-prova-vestibular-2026-e3-pi.pdf",
+      "tipo": "prova",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 32
+    },
+    {
+      "fonte_id": "ufrr_gabarito_2026",
+      "url": "https://editais.ufrr.br/editais/arquivo/1209/edital-n-93-25-gabarito-oficial-vestibular-ufrr-2026.pdf",
+      "tipo": "gabarito_oficial",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "publicado_em": "2025-12-09",
+      "paginas_pdf": 4
+    },
+    {
+      "fonte_id": "ufrr_manual_2025",
+      "url": "https://editais.ufrr.br/editais/arquivo/322/manual-do-candidato-2025.pdf",
+      "tipo": "manual_com_edital_e_programa",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 61
+    },
+    {
+      "fonte_id": "ufrr_indice_2025",
+      "url": "https://editais.ufrr.br/processo/78/vestibular-2025",
+      "tipo": "indice_documental",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufrr_aplicacao_2025",
+      "url": "https://ufrr.br/noticias/cpv-ufrr-divulga-gabarito-preliminar-e-tambem-os-cadernos-de-prova-do-vestibular-2025/",
+      "tipo": "noticia_pos_aplicacao",
+      "publicador": "UFRR",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "publicado_em": "2024-11-24"
+    },
+    {
+      "fonte_id": "ufrr_prova_2025_e3pi",
+      "url": "https://editais.ufrr.br/editais/arquivo/529/caderno-de-prova-2025-e3pi.pdf",
+      "tipo": "prova",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 31
+    },
+    {
+      "fonte_id": "ufrr_gabarito_2025",
+      "url": "https://editais.ufrr.br/editais/arquivo/568/edital-n-97-24-gabarito-oficial-vestibular-2025.pdf",
+      "tipo": "gabarito_oficial",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 6
+    },
+    {
+      "fonte_id": "ufrr_aplicacao_2024",
+      "url": "https://ufrr.br/cpv/noticias/cadernos-de-prova-e-gabarito-preliminar-vestibular-2024/",
+      "tipo": "noticia_pos_aplicacao",
+      "publicador": "UFRR/CPV",
+      "origem_oficial": true,
+      "status_acesso": "resultado_indexado_abertura_502",
+      "publicado_em": "2023-11-26"
+    },
+    {
+      "fonte_id": "ufrr_indigena_2024",
+      "url": "https://ufrr.br/noticias/ufrr-lanca-edital-do-vestibular-indigena-2024/",
+      "tipo": "noticia_com_link_para_edital",
+      "publicador": "UFRR",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "publicado_em": "2023-06-21"
+    },
+    {
+      "fonte_id": "uea_sis_2020_indice",
+      "url": "https://selecao1.uea.edu.br/?dest=info&selecao=3021",
+      "tipo": "indice_com_incorporacao_do_programa",
+      "publicador": "UEA",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uea_sis_2020_programa",
+      "url": "https://selecao1.uea.edu.br/xfiles/data/xselecao/6740.pdf",
+      "tipo": "programa",
+      "publicador": "UEA",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 12
+    },
+    {
+      "fonte_id": "uea_sis_2020_edital",
+      "url": "https://selecao1.uea.edu.br/xfiles/data/xselecao/6883.pdf",
+      "tipo": "edital_republicado",
+      "publicador": "UEA",
+      "origem_oficial": true,
+      "status_acesso": "resultado_indexado_abertura_502"
+    },
+    {
+      "fonte_id": "uea_sis_2020_adiamento",
+      "url": "https://imprensaoficial.am.gov.br/ohs/data/docs/10/vol.1_covid_2021.pdf",
+      "tipo": "compendio_oficial_com_comunicado_de_adiamento",
+      "publicador": "Imprensa Oficial do Estado do Amazonas",
+      "origem_oficial": true,
+      "status_acesso": "resultado_indexado_abertura_tamanho_excedido_95MB"
+    },
+    {
+      "fonte_id": "uea_vestibular_2024_indice",
+      "url": "https://www.vunesp.com.br/UEAM2401",
+      "tipo": "portal_da_banca",
+      "publicador": "Fundação Vunesp/UEA",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uea_vestibular_2024_edital",
+      "url": "https://documento.vunesp.com.br/documento/stream/NTk1NzQ2Ng%3D%3D",
+      "url_final": "https://documento.vunesp.com.br/documento/stream/NTk1NzQ2Ng==",
+      "tipo": "edital",
+      "publicador": "Fundação Vunesp/UEA",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 51
+    },
+    {
+      "fonte_id": "uea_vestibular_2024_provas_acesso",
+      "url": "https://www.vunesp.com.br/Conta/Login?ReturnUrl=/AreaCandidato/Posicionar/UEAM2401/ProvaGabarito",
+      "tipo": "pagina_de_login",
+      "publicador": "Fundação Vunesp",
+      "origem_oficial": true,
+      "status_acesso": "login_necessario_na_rota_publicada"
+    },
+    {
+      "fonte_id": "uea_sis_2024_indice",
+      "url": "https://www.vunesp.com.br/UEAM2402",
+      "tipo": "portal_da_banca",
+      "publicador": "Fundação Vunesp/UEA",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uea_sis_2024_provas_acesso",
+      "url": "https://www.vunesp.com.br/Conta/Login?ReturnUrl=/AreaCandidato/Posicionar/UEAM2402/ProvaGabarito",
+      "tipo": "pagina_de_login",
+      "publicador": "Fundação Vunesp",
+      "origem_oficial": true,
+      "status_acesso": "login_necessario_na_rota_publicada"
+    },
+    {
+      "fonte_id": "uerr_edital_2023",
+      "url": "https://www.uerr.edu.br/wp-content/uploads/2022/08/SEI_GRR-5728859-Edital.pdf",
+      "tipo": "edital_com_programa",
+      "publicador": "UERR",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 11
+    },
+    {
+      "fonte_id": "uerr_prova_2023_indice",
+      "url": "https://cpc.uerr.edu.br/post/9775/",
+      "tipo": "publicacao_de_prova_e_gabarito_preliminar",
+      "publicador": "UERR/CPCV",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "publicado_em": "2022-10-23"
+    },
+    {
+      "fonte_id": "uerr_prova_2023",
+      "url": "https://cpc.uerr.edu.br/wpadmin/wp-content/uploads/2022/10/CadernoProvas_Vestiular_2023_Edital_041_2022.pdf",
+      "tipo": "prova",
+      "publicador": "UERR/CPCV",
+      "origem_oficial": true,
+      "status_acesso": "http_403_na_rota_publicada"
+    },
+    {
+      "fonte_id": "uerr_gabarito_2023",
+      "url": "https://cpc.uerr.edu.br/wp-content/uploads/2022/11/Gab_DEFINITIVO_Matriz_741_VEST_UERR_001.pdf",
+      "tipo": "gabarito_definitivo",
+      "publicador": "UERR/CPCV",
+      "origem_oficial": true,
+      "status_acesso": "pdf_indexado_lido"
+    },
+    {
+      "fonte_id": "uerr_gabarito_2023_indice",
+      "url": "https://cpc.uerr.edu.br/post/9824/",
+      "tipo": "publicacao_do_gabarito_oficial",
+      "publicador": "UERR/CPCV",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "publicado_em": "2022-11-04"
+    },
+    {
+      "fonte_id": "uema_edital_2026",
+      "url": "https://www.prog.uema.br/wp-content/uploads/2025/08/Edital_57-2025-GR-UEMA_-_PAES_2026_FINAL.pdf",
+      "tipo": "edital_com_programa",
+      "publicador": "UEMA/PROG",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 213
+    },
+    {
+      "fonte_id": "uema_edicoes",
+      "url": "https://dados.uema.br/editais-do-paes-uema/",
+      "tipo": "indice_historico_com_datas_de_aplicacao",
+      "publicador": "UEMA",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "unemat_vestibular_2026",
+      "url": "https://unemat.br/noticias/5-11-2025-unemat-divulga-locais-de-realizacao-das-provas-do-vestibular",
+      "tipo": "noticia_institucional_com_link_para_banca",
+      "publicador": "UNEMAT",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "publicado_em": "2025-11-05"
+    },
+    {
+      "fonte_id": "unemat_banca_2026",
+      "url": "https://portaldocandidato.com/unemat-vestibular-2026/",
+      "tipo": "portal_indicado_pela_instituicao",
+      "publicador": "Portal do Candidato/UNEMAT",
+      "origem_oficial": true,
+      "status_acesso": "ciclo_de_redirecionamento"
+    },
+    {
+      "fonte_id": "unemat_programa_candidato_2026",
+      "url": "https://storage.googleapis.com/r-s1/portaldocandidato/eventos/58/publicacoes/edital-unemat-vestibular-2026-anexo-iv-programa-das-areas--1755106942.pdf",
+      "tipo": "programa_candidato_a_autenticar",
+      "publicador": "arquivo_em_armazenamento_do_portal",
+      "origem_oficial": null,
+      "status_acesso": "pdf_lido_incorporacao_pelo_edital_pendente",
+      "paginas_pdf": 7
+    },
+    {
+      "fonte_id": "uepg_programa_2024",
+      "url": "https://cps.uepg.br/2024/vestibular/conteudoprogramatico.pdf",
+      "tipo": "programa",
+      "publicador": "UEPG/CPS",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 10
+    },
+    {
+      "fonte_id": "uepg_manual_2024",
+      "url": "https://cps.uepg.br/vestibular/documentos/2024/vestibular/MANUAL_DO_CANDIDATO_VESTIBULAR_2024_RETIFICADO.pdf",
+      "tipo": "manual_com_incorporacao_do_programa",
+      "publicador": "UEPG/CPS",
+      "origem_oficial": true,
+      "status_acesso": "resultado_indexado_lido"
+    }
+  ],
+  "evidencias": [
+    {
+      "evidencia_id": "ufrr_programa_2026",
+      "fontes_ids": [
+        "ufrr_manual_2026"
+      ],
+      "edicao": "Vestibular 2026",
+      "data_aplicacao": "2025-11-30",
+      "fontes_data_ids": [
+        "ufrr_manual_2026",
+        "ufrr_aplicacao_2026"
+      ],
+      "situacao_data": "cronograma_corrobora_publicacao_pos_aplicacao",
+      "disciplinas": [
+        {
+          "disciplina": "historia",
+          "paginas_pdf": [
+            34,
+            35
+          ],
+          "paginas_impressas": [
+            33,
+            34
+          ],
+          "secao": "Conteúdo Programático, 2ª Etapa E2, História do Brasil e História Regional",
+          "trecho_curto": "A Amazônia no Império: a Cabanagem",
+          "interpretacao": "Previsão histórica amazônica substantiva; PI/E3 incorporam o programa de todas as etapas conforme item 7.3."
+        },
+        {
+          "disciplina": "geografia",
+          "paginas_pdf": [
+            31
+          ],
+          "paginas_impressas": [
+            30
+          ],
+          "secao": "Conteúdo Programático, 1ª Etapa E1, Geografia",
+          "trecho_curto": "Região Amazônica",
+          "interpretacao": "Há tópicos regionais de biodiversidade, projetos e problemas ambientais. E2 e E3 contêm ainda geografia substantiva de Roraima."
+        }
+      ],
+      "elegibilidade_ano": "previsao_regional_verificada",
+      "fonte_programa_id": "ufrr_manual_2026"
+    },
+    {
+      "evidencia_id": "ufrr_programa_2025",
+      "fontes_ids": [
+        "ufrr_manual_2025"
+      ],
+      "edicao": "Vestibular 2025",
+      "data_aplicacao": "2024-11-24",
+      "fontes_data_ids": [
+        "ufrr_manual_2025",
+        "ufrr_aplicacao_2025"
+      ],
+      "situacao_data": "cronograma_corrobora_publicacao_pos_aplicacao",
+      "disciplinas": [
+        {
+          "disciplina": "historia",
+          "paginas_pdf": [
+            32
+          ],
+          "secao": "Conteúdo Programático, E2, História do Brasil e História Regional",
+          "trecho_curto": "Amazônia colonial brasileira",
+          "interpretacao": "Inclui formação colonial, Cabanagem e economia da borracha; PI/E3 usam programas das três etapas."
+        },
+        {
+          "disciplina": "geografia",
+          "paginas_pdf": [
+            28
+          ],
+          "secao": "Conteúdo Programático, E1, Geografia",
+          "trecho_curto": "Região Amazônica",
+          "interpretacao": "Previsão regional substantiva com biodiversidade, projetos, queimadas e geografia de Roraima."
+        }
+      ],
+      "elegibilidade_ano": "previsao_regional_verificada",
+      "fonte_programa_id": "ufrr_manual_2025"
+    },
+    {
+      "evidencia_id": "uea_sis_programa_2020",
+      "fontes_ids": [
+        "uea_sis_2020_indice",
+        "uea_sis_2020_programa"
+      ],
+      "edicao": "SIS 2020",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista_ultima_localizada": "2021-06-01",
+      "fontes_data_ids": [
+        "uea_sis_2020_adiamento"
+      ],
+      "situacao_data": "adiamento_oficial_indexado_pendente_verificacao_pos_aplicacao",
+      "disciplinas": [
+        {
+          "disciplina": "historia",
+          "paginas_pdf": [
+            2,
+            6,
+            10,
+            11
+          ],
+          "secao": "História das três séries",
+          "trecho_curto": "Sociedades indígenas da Amazônia",
+          "interpretacao": "Conteúdo regional em povos indígenas, incorporação ao Império, Província do Amazonas, borracha e projetos de integração."
+        },
+        {
+          "disciplina": "geografia",
+          "paginas_pdf": [
+            3,
+            11
+          ],
+          "secao": "Geografia das séries 1 e 3",
+          "trecho_curto": "A Amazônia e as políticas ambientais",
+          "interpretacao": "Bacias do Amazonas na primeira série e política ambiental amazônica na terceira. A segunda série exige auditoria do conteúdo mais amplo."
+        }
+      ],
+      "elegibilidade_ano": "programa_verificado_data_efetiva_pendente",
+      "fonte_programa_id": "uea_sis_2020_programa"
+    },
+    {
+      "evidencia_id": "uerr_programa_2023",
+      "fontes_ids": [
+        "uerr_edital_2023"
+      ],
+      "edicao": "Vestibular 2023 / Edital 41/2022",
+      "data_aplicacao": "2022-10-23",
+      "fontes_data_ids": [
+        "uerr_gabarito_2023",
+        "uerr_prova_2023_indice"
+      ],
+      "situacao_data": "gabarito_definitivo_informa_data_de_aplicacao",
+      "disciplinas": [
+        {
+          "disciplina": "historia",
+          "paginas_pdf": [
+            10
+          ],
+          "secao": "Anexo I, 7. História, História Regional e História do Brasil",
+          "trecho_curto": "Características da Amazônia nos séculos XVII, XVIII e XIX",
+          "interpretacao": "Conteúdo substantivo, independente do lema institucional presente nos cabeçalhos."
+        },
+        {
+          "disciplina": "geografia",
+          "paginas_pdf": [
+            10
+          ],
+          "secao": "Anexo I, 8. Geografia",
+          "trecho_curto": "Amazônia: Desmatamento, garimpos e conflitos agrários",
+          "interpretacao": "Conteúdo regional substantivo; inclui ainda biodiversidade, geopolítica e economia regional."
+        }
+      ],
+      "elegibilidade_ano": "previsao_regional_verificada",
+      "fonte_programa_id": "uerr_edital_2023"
+    },
+    {
+      "evidencia_id": "uema_paes_2026_exame_programa",
+      "fontes_ids": [
+        "uema_edital_2026",
+        "uema_edicoes"
+      ],
+      "edicao": "PAES 2026",
+      "data_aplicacao": "2025-11-30",
+      "fontes_data_ids": [
+        "uema_edicoes"
+      ],
+      "situacao_data": "indice_institucional_historico_identifica_aplicacao",
+      "disciplinas": [
+        {
+          "disciplina": "historia",
+          "paginas_pdf": [
+            98
+          ],
+          "secao": "Apêndice I, Área de Ciências Humanas e suas Tecnologias, História",
+          "trecho_curto": null,
+          "interpretacao": "Programa histórico geral e temas do Maranhão; não foi identificado tópico amazônico específico nesta seção. Maranhão não equivale automaticamente à Amazônia.",
+          "paginas_impressas": [
+            66
+          ]
+        },
+        {
+          "disciplina": "geografia",
+          "paginas_pdf": [
+            98
+          ],
+          "secao": "Apêndice I, Área de Ciências Humanas e suas Tecnologias, Geografia",
+          "trecho_curto": null,
+          "interpretacao": "Conteúdos amplos de Brasil e Maranhão podem abranger a Amazônia; não sustentam sozinhos previsão regional substantiva segundo a regra adotada.",
+          "paginas_impressas": [
+            66
+          ]
+        }
+      ],
+      "elegibilidade_ano": "previsao_regional_nao_confirmada_nesta_edicao",
+      "fonte_programa_id": "uema_edital_2026",
+      "nota_paginacao": "Revisão em 11/11/2026: o arquivo oficial de 213 páginas traz o Apêndice I na posição PDF 98, impressa como 66. Corrigida a confusão entre as duas numerações."
+    },
+    {
+      "evidencia_id": "unemat_programa_candidato_2026",
+      "fontes_ids": [
+        "unemat_vestibular_2026",
+        "unemat_banca_2026",
+        "unemat_programa_candidato_2026"
+      ],
+      "edicao": "Vestibular 2026/1",
+      "data_aplicacao": null,
+      "data_aplicacao_prevista_ultima_localizada": "2025-11-30",
+      "fontes_data_ids": [
+        "unemat_vestibular_2026"
+      ],
+      "situacao_data": "noticia_pre_aplicacao",
+      "disciplinas": [
+        {
+          "disciplina": "historia",
+          "paginas_pdf": [
+            5,
+            6
+          ],
+          "secao": "Ciências Humanas e suas tecnologias, 8. Mato Grosso",
+          "trecho_curto": null,
+          "interpretacao": "Há conteúdo histórico de Mato Grosso, mas seu vínculo substantivo com a Amazônia e incorporação oficial deste arquivo ainda exigem verificação."
+        },
+        {
+          "disciplina": "geografia",
+          "paginas_pdf": [
+            5,
+            6
+          ],
+          "secao": "Ciências Humanas e suas tecnologias, 7. Brasil e 8. Mato Grosso",
+          "trecho_curto": null,
+          "interpretacao": "Biomas, geografia e povos de Mato Grosso são pistas; não equivalem automaticamente a previsão amazônica substantiva."
+        }
+      ],
+      "elegibilidade_ano": "autenticidade_e_previsao_regional_pendentes",
+      "fonte_programa_id": "unemat_programa_candidato_2026"
+    },
+    {
+      "evidencia_id": "uepg_programa_2024_exame",
+      "fontes_ids": [
+        "uepg_programa_2024",
+        "uepg_manual_2024"
+      ],
+      "edicao": "Vestibular 2024",
+      "data_aplicacao": null,
+      "fontes_data_ids": [],
+      "situacao_data": "nao_verificada_neste_ciclo",
+      "disciplinas": [
+        {
+          "disciplina": "historia",
+          "paginas_pdf": [
+            2,
+            3
+          ],
+          "secao": "IV - História",
+          "trecho_curto": null,
+          "interpretacao": "Tópicos nacionais e gerais; nenhuma previsão especificamente amazônica foi confirmada nesta leitura."
+        },
+        {
+          "disciplina": "geografia",
+          "paginas_pdf": [
+            3
+          ],
+          "secao": "V - Geografia",
+          "trecho_curto": null,
+          "interpretacao": "Regionalização brasileira e complexos regionais têm abrangência ampla; a ocorrência desse conceito não basta para assumir recorrência amazônica substantiva."
+        }
+      ],
+      "elegibilidade_ano": "previsao_regional_nao_confirmada_nesta_edicao",
+      "fonte_programa_id": "uepg_programa_2024"
+    }
+  ],
+  "processos": [
+    {
+      "processo_id": "ufrr_pi",
+      "instituicao_sigla": "UFRR",
+      "instituicao_nome": "Universidade Federal de Roraima",
+      "uf": "RR",
+      "regiao": "Norte",
+      "esfera": "federal",
+      "processo_nome": "Prova Integral",
+      "etapas": [
+        "PI"
+      ],
+      "status": "candidato_evidencia_insuficiente",
+      "evidencias_ids": [
+        "ufrr_programa_2025",
+        "ufrr_programa_2026"
+      ],
+      "anos_aplicacao_com_programa_regional_verificado": [
+        2024,
+        2025
+      ],
+      "anos_aplicacao_com_programa_verificavel": [
+        2024,
+        2025
+      ],
+      "disciplinas_com_previsao_regional": [
+        "historia",
+        "geografia"
+      ],
+      "fontes_ids": [
+        "ufrr_indice_2025",
+        "ufrr_indice_2026"
+      ],
+      "lacunas": [
+        "Terceiro ano distinto de programa aplicável ainda não comprovado neste ciclo.",
+        "Inventariar todas as aplicações de 2017 a 2026, incluindo anos sem menção regional.",
+        "Auditar existência de retificações além das versões consultadas."
+      ],
+      "observacoes": [
+        "PI e PSS-E3 usam o mesmo caderno; preservar compartilhamento físico e vínculos analíticos sem duplicar no agregado."
+      ]
+    },
+    {
+      "processo_id": "ufrr_pss",
+      "instituicao_sigla": "UFRR",
+      "instituicao_nome": "Universidade Federal de Roraima",
+      "uf": "RR",
+      "regiao": "Norte",
+      "esfera": "federal",
+      "processo_nome": "Processo Seletivo Seriado",
+      "etapas": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "status": "candidato_evidencia_insuficiente",
+      "evidencias_ids": [
+        "ufrr_programa_2025",
+        "ufrr_programa_2026"
+      ],
+      "anos_aplicacao_com_programa_regional_verificado": [
+        2024,
+        2025
+      ],
+      "anos_aplicacao_com_programa_verificavel": [
+        2024,
+        2025
+      ],
+      "disciplinas_com_previsao_regional": [
+        "historia",
+        "geografia"
+      ],
+      "fontes_ids": [
+        "ufrr_indice_2025",
+        "ufrr_indice_2026"
+      ],
+      "lacunas": [
+        "Confirmar terceiro ano distinto.",
+        "Auditar recorrência por disciplina e etapa, sem atribuir a E1 História regional de E2.",
+        "Coletar programas e provas antigos e identificar coortes de ingresso."
+      ],
+      "observacoes": [
+        "Manual 2026, item 7.1.4: só as três últimas questões por disciplina contam para a pontuação PSS-E3; o caderno apresentado contém nove por disciplina.",
+        "Item 7.3 do manual 2026: candidatos PI/E3 estudam programas E1+E2+E3.",
+        "O programa E1 de História no manual 2026 é História Geral; a presença regional em E2 não autoriza replicá-la para todas as etapas."
+      ]
+    },
+    {
+      "processo_id": "ufrr_psei",
+      "instituicao_sigla": "UFRR",
+      "instituicao_nome": "Universidade Federal de Roraima",
+      "uf": "RR",
+      "regiao": "Norte",
+      "esfera": "federal",
+      "processo_nome": "Processo Seletivo Específico Indígena / Vestibular Indígena",
+      "etapas": [
+        "processo_especial_a_auditar"
+      ],
+      "status": "pendente_por_lacuna_documental",
+      "evidencias_ids": [],
+      "anos_aplicacao_com_programa_regional_verificado": [],
+      "anos_aplicacao_com_programa_verificavel": [],
+      "disciplinas_com_previsao_regional": [],
+      "fontes_ids": [
+        "ufrr_indigena_2024"
+      ],
+      "lacunas": [
+        "Ler edital/manual aplicáveis e verificar conteúdo regional e disciplinas.",
+        "Confirmar data efetiva: notícia de abertura prevê 17/09/2023 para ingresso 2024.",
+        "Verificar regularidade documental histórica em série separada."
+      ]
+    },
+    {
+      "processo_id": "uea_sis",
+      "instituicao_sigla": "UEA",
+      "instituicao_nome": "Universidade do Estado do Amazonas",
+      "uf": "AM",
+      "regiao": "Norte",
+      "esfera": "estadual",
+      "processo_nome": "Sistema de Ingresso Seriado",
+      "etapas": [
+        "Acompanhamento I",
+        "Acompanhamento II",
+        "Acompanhamento III"
+      ],
+      "status": "candidato_evidencia_insuficiente",
+      "evidencias_ids": [
+        "uea_sis_programa_2020"
+      ],
+      "anos_aplicacao_com_programa_regional_verificado": [],
+      "anos_aplicacao_com_programa_verificavel": [],
+      "disciplinas_com_previsao_regional": [
+        "historia",
+        "geografia"
+      ],
+      "fontes_ids": [
+        "uea_sis_2020_indice",
+        "uea_sis_2024_indice",
+        "uea_sis_2024_provas_acesso"
+      ],
+      "lacunas": [
+        "Confirmar data real da aplicação denominada SIS 2020 após adiamentos de pandemia.",
+        "Programa SIS2020 verificado; faltam três anos de aplicação documentalmente vinculados.",
+        "Rota Provas e Gabaritos da Vunesp 2024 conduz a login; buscar alternativa pública autorizada.",
+        "Não confundir etapa de matrícula com Prova de Acompanhamento."
+      ]
+    },
+    {
+      "processo_id": "uea_vestibular",
+      "instituicao_sigla": "UEA",
+      "instituicao_nome": "Universidade do Estado do Amazonas",
+      "uf": "AM",
+      "regiao": "Norte",
+      "esfera": "estadual",
+      "processo_nome": "Concurso Vestibular",
+      "etapas": [
+        "Conhecimentos Gerais",
+        "Conhecimentos Específicos"
+      ],
+      "status": "pendente_por_lacuna_documental",
+      "evidencias_ids": [],
+      "anos_aplicacao_com_programa_regional_verificado": [],
+      "anos_aplicacao_com_programa_verificavel": [],
+      "disciplinas_com_previsao_regional": [],
+      "fontes_ids": [
+        "uea_vestibular_2024_indice",
+        "uea_vestibular_2024_edital",
+        "uea_vestibular_2024_provas_acesso"
+      ],
+      "lacunas": [
+        "O edital 044/2024 incorpora Anexo II; localizar e ler a versão oficial do anexo.",
+        "Cronograma do edital prevê gerais 21/10/2024 e específicos 22/10/2024; confirmar realização com fonte posterior.",
+        "Rota Provas e Gabaritos da Vunesp conduz a login.",
+        "Excluir vagas de portadores de diploma do recorte de ingresso inicial, preservando caderno compartilhado."
+      ]
+    },
+    {
+      "processo_id": "uerr_vestibular",
+      "instituicao_sigla": "UERR",
+      "instituicao_nome": "Universidade Estadual de Roraima",
+      "uf": "RR",
+      "regiao": "Norte",
+      "esfera": "estadual",
+      "processo_nome": "Vestibular presencial",
+      "etapas": [
+        "etapa_unica"
+      ],
+      "status": "candidato_evidencia_insuficiente",
+      "evidencias_ids": [
+        "uerr_programa_2023"
+      ],
+      "anos_aplicacao_com_programa_regional_verificado": [
+        2022
+      ],
+      "anos_aplicacao_com_programa_verificavel": [
+        2022
+      ],
+      "disciplinas_com_previsao_regional": [
+        "historia",
+        "geografia"
+      ],
+      "fontes_ids": [
+        "uerr_edital_2023",
+        "uerr_prova_2023_indice",
+        "uerr_gabarito_2023_indice"
+      ],
+      "lacunas": [
+        "Faltam mais dois anos distintos de programa aplicável.",
+        "Caderno publicado no índice oficial retorna HTTP403 nesta consulta; não contornar acesso.",
+        "O gabarito definitivo marca anulações; preservar status por item."
+      ]
+    },
+    {
+      "processo_id": "uema_paes",
+      "instituicao_sigla": "UEMA",
+      "instituicao_nome": "Universidade Estadual do Maranhão",
+      "instituicoes_atendidas_tambem": [
+        "UEMASUL"
+      ],
+      "uf": "MA",
+      "regiao": "Nordeste",
+      "esfera": "estadual",
+      "processo_nome": "Processo Seletivo de Acesso à Educação Superior - PAES",
+      "etapas": [
+        "etapa_unica_em_2026"
+      ],
+      "status": "candidato_evidencia_insuficiente",
+      "evidencias_ids": [
+        "uema_paes_2026_exame_programa"
+      ],
+      "anos_aplicacao_com_programa_regional_verificado": [],
+      "anos_aplicacao_com_programa_verificavel": [
+        2025
+      ],
+      "disciplinas_com_previsao_regional": [],
+      "fontes_ids": [
+        "uema_edital_2026",
+        "uema_edicoes"
+      ],
+      "lacunas": [
+        "Previsão substantiva amazônica não confirmada na edição examinada; isso não exclui toda a década.",
+        "Auditar programas de outras edições e separar mudanças de etapas.",
+        "Investigar relação territorial histórica de tópicos maranhenses antes de interpretar regionalidade."
+      ],
+      "observacoes": [
+        "UEMA e UEMASUL compartilham o PAES nesta edição; não duplicar fisicamente o mesmo caderno."
+      ]
+    },
+    {
+      "processo_id": "unemat_vestibular",
+      "instituicao_sigla": "UNEMAT",
+      "instituicao_nome": "Universidade do Estado de Mato Grosso",
+      "uf": "MT",
+      "regiao": "Centro-Oeste",
+      "esfera": "estadual",
+      "processo_nome": "Vestibular com prova",
+      "etapas": [
+        "objetiva",
+        "redacao"
+      ],
+      "status": "pendente_por_lacuna_documental",
+      "evidencias_ids": [
+        "unemat_programa_candidato_2026"
+      ],
+      "anos_aplicacao_com_programa_regional_verificado": [],
+      "anos_aplicacao_com_programa_verificavel": [],
+      "disciplinas_com_previsao_regional": [],
+      "fontes_ids": [
+        "unemat_vestibular_2026",
+        "unemat_banca_2026"
+      ],
+      "lacunas": [
+        "Portal indicado pela UNEMAT apresenta ciclo de redirecionamento nesta consulta.",
+        "Autenticar Anexo IV localizado em armazenamento do Portal do Candidato e comprovar incorporação por edital.",
+        "Conteúdo de Mato Grosso não equivale automaticamente a História/Geografia da Amazônia.",
+        "Separar seleção por prova de seleção por histórico escolar, dependentes do curso."
+      ]
+    },
+    {
+      "processo_id": "uepg_vestibular",
+      "instituicao_sigla": "UEPG",
+      "instituicao_nome": "Universidade Estadual de Ponta Grossa",
+      "uf": "PR",
+      "regiao": "Sul",
+      "esfera": "estadual",
+      "processo_nome": "Vestibular",
+      "etapas": [
+        "Conhecimentos Gerais",
+        "Vocacionada"
+      ],
+      "status": "candidato_evidencia_insuficiente",
+      "evidencias_ids": [
+        "uepg_programa_2024_exame"
+      ],
+      "anos_aplicacao_com_programa_regional_verificado": [],
+      "anos_aplicacao_com_programa_verificavel": [],
+      "disciplinas_com_previsao_regional": [],
+      "fontes_ids": [
+        "uepg_programa_2024",
+        "uepg_manual_2024"
+      ],
+      "lacunas": [
+        "Auditar programas de outras edições e aplicação efetiva.",
+        "A leitura das seções História e Geografia desta edição não confirmou tópicos especificamente amazônicos.",
+        "Conteúdos de regionalização nacional são abrangentes; não rotular ausência de cobrança nas provas."
+      ]
+    }
+  ]
+}

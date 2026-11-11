@@ -1,0 +1,75 @@
+{
+  "versao": "0.1.0",
+  "escopo": "Piloto de procedimento; layouts validados por amostras visuais, sem validação humana dos itens.",
+  "coordenadas": "pontos PDF; origem no canto superior esquerdo; bbox [x_min,y_min,x_max,y_max]",
+  "ordem_leitura": "página crescente, coluna esquerda, coluna direita; Y crescente dentro da coluna",
+  "verificacoes_visuais_amostrais": [
+    {"documento_id": "ufam-psc2020-e3-prova", "pagina_pdf": 9, "responsavel": "Codex", "data": "2026-11-11", "observacao": "Coluna esquerda contém Francês e a direita inicia História 19; confirmado que o texto de Francês não entra na questão 19."},
+    {"documento_id": "ufam-psc2025-e3-prova", "pagina_pdf": 10, "responsavel": "Codex", "data": "2026-11-11", "observacao": "História 19 inicia no fim da coluna esquerda e suas alternativas continuam no topo da direita, antes da questão 20; reconstrução confrontada à página renderizada."},
+    {"documento_id": "ufrr-vestibular2025-pi-prova", "pagina_pdf": 15, "responsavel": "Codex", "data": "2026-11-11", "observacao": "Geografia 44 inicia na esquerda e continua no topo da direita antes de 45; História 46 inicia no rodapé da direita e continua na página seguinte."}
+  ],
+  "limites": [
+    "Não é um segmentador universal de vestibulares. Novos layouts exigem regras e inspeção próprias.",
+    "A contagem A–E é verificação estrutural; não prova integridade de imagens, mapas ou alternativas gráficas.",
+    "Dependência visual e integridade permanecem pendentes; nenhum item é automaticamente liberado para denominador ou banco educacional.",
+    "Hash textual é indício de duplicação e não comprova equivalência de itens com imagens."
+  ],
+  "layouts": {
+    "ufam_duas_colunas": {
+      "pagina_inicial": 3,
+      "divisao_colunas_fracao": 0.5,
+      "y_min": 50,
+      "y_max": 796,
+      "marcador_questao": "^(\\d{1,2})\\.\\s+",
+      "margens_inicio_questao": [28.08, 311.69],
+      "tolerancia_margem": 14,
+      "numero_maximo": 54
+    },
+    "ufrr_duas_colunas": {
+      "pagina_inicial": 2,
+      "divisao_colunas_fracao": 0.5,
+      "y_min": 30,
+      "y_max": 749,
+      "marcador_questao": "^QUESTÃO\\s+(\\d{1,2})$",
+      "numero_maximo": 72
+    }
+  },
+  "documentos": [
+    {
+      "documento_id": "ufam-psc2020-e3-prova",
+      "documento_sha256": "2804e5ea8b53d626425a71ec4a80d209d75675675e9c7abc4ba26c55e5e9e700",
+      "layout": "ufam_duas_colunas",
+      "secoes": [{"disciplina": "historia", "inicio": 19, "fim": 24}, {"disciplina": "geografia", "inicio": 25, "fim": 30}]
+    },
+    {
+      "documento_id": "ufam-psc2025-e3-prova",
+      "documento_sha256": "7deed574c81bfd47582027e9f221df0727a7d04bd4d07b81ff3e81de2c7b0cde",
+      "layout": "ufam_duas_colunas",
+      "secoes": [{"disciplina": "historia", "inicio": 19, "fim": 24}, {"disciplina": "geografia", "inicio": 25, "fim": 30}]
+    },
+    {
+      "documento_id": "ufam-psc2026-e3-prova",
+      "documento_sha256": "cbf51a0ae5aa39e6772b35cc04deff7d5888d1690bbc35d3d4071c68f27fb68e",
+      "layout": "ufam_duas_colunas",
+      "secoes": [{"disciplina": "historia", "inicio": 19, "fim": 24}, {"disciplina": "geografia", "inicio": 25, "fim": 30}]
+    },
+    {
+      "documento_id": "ufam-psc2026-e2-prova",
+      "documento_sha256": "2015e765a798c6ceef9174665a1888e4bc1e86d26ac0b2bd02b39685372dda3f",
+      "layout": "ufam_duas_colunas",
+      "secoes": [{"disciplina": "historia", "inicio": 17, "fim": 22}, {"disciplina": "geografia", "inicio": 23, "fim": 28}]
+    },
+    {
+      "documento_id": "ufrr-vestibular2025-pi-prova",
+      "documento_sha256": "bc891f263f97c34a580e98ce2a2b1d346b2d23be5b93ee8282b1af0270cc211b",
+      "layout": "ufrr_duas_colunas",
+      "secoes": [{"disciplina": "geografia", "inicio": 37, "fim": 45}, {"disciplina": "historia", "inicio": 46, "fim": 54}]
+    },
+    {
+      "documento_id": "ufrr-vestibular2026-pi-prova",
+      "documento_sha256": "7b89b6eeb2fc6ecaa16ecf0d47bab89f91312b3e1e3e3ce0360eb820cb53470d",
+      "layout": "ufrr_duas_colunas",
+      "secoes": [{"disciplina": "geografia", "inicio": 37, "fim": 45}, {"disciplina": "historia", "inicio": 46, "fim": 54}]
+    }
+  ]
+}

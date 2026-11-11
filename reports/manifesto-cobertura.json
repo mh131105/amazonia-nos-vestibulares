@@ -1,0 +1,40 @@
+{
+  "versao": "0.1.0",
+  "tipo": "cobertura_piloto_nao_corpus_analitico",
+  "data_corte_aplicacoes": "2026-11-11",
+  "fuso_corte": "America/Manaus",
+  "entradas_sha256": {
+    "data/registry/documentos-esperados.jsonl": "f82ca4562357012b3290f81489766385b0947ca75c02af092351c663acc7ecbd",
+    "data/registry/documentos.jsonl": "9e39afd61dbc9d48fccd968084554ab2ffb9eee5b0732913581588e4fc470547",
+    "data/registry/extracoes.jsonl": "b50e8ec6cc5fac4b97150441158e0b83847061b7a08c3fdb668b36eac954ccff",
+    "data/registry/instituicoes.csv": "e1083ee0bc897fced8e92a195fb31a5d70f29c4ab3c529c033843174c80922d4",
+    "data/registry/processos.csv": "ced719d9712a86a266b76e2929b3dcac66877b83663f755b50b7d60a1e32b425",
+    "data/registry/aplicacoes.csv": "bb7245a61f4a0a66fcb932f767a2ffea16dc02029afc6f9235085dfe4ebb0fff",
+    "data/registry/evidencias-programa.csv": "19167e3b1bafce800b2ddcbe4ebbb1a11a869bd9c5157576e5ad12b0a2219ae2",
+    "data/registry/cobertura-anual.csv": "bfde166f96e62eb19944a31a0f690acd8a7e82c79df896824f4ca3225c18969f",
+    "data/registry/regras-segmentacao.json": "60cb85f0c374aa8a5e50902e92d287201fb1be5c192beaeb0b5f6574654cef24",
+    "data/registry/segmentacoes.jsonl": "ec706e1defe228871bf42065030103e4c13bf5c79f5fa0aad02178dbefd2bc8e",
+    "data/processed/questoes.csv": "05d67b7c921925c858c5d03beff96229e314336bf2529d2c58d867918faba5f3",
+    "data/processed/gabaritos.csv": "48421fa2199fdbcb48eef45de0d6b05f8113fef7717b1c65c1acd6e7f541ca49",
+    "data/annotation/rotulos-humanos.csv": "7a64df4bf006b8099acfcd5c6b1e0bfd4aa5d11fced6a71f07f988ce557cf384",
+    "scripts/consolidar_registro.py": "bedab425d262f7ffd7ec40da0cc867bdc98a3ae1456b8b66379105c23b6656be",
+    "scripts/gabaritos.py": "1bfd97445962e7854c5d7fa6f11a075e0921b00f900e6ad9e384db62c979acb4",
+    "scripts/inventario_ies.py": "9cb32f18092d409aae2122c99073664aafe37f3a44f7686d636481b075dea9e8",
+    "scripts/pipeline.py": "174b8e7c0fcb84ab0bb8de69e99889a20e9d0b89a4be2ad54283e24618c3c9a7",
+    "scripts/preparar_revisao.py": "8d081663b6f0a8fcd59738f6f09eb85ff09c1337fcc94800936f8789de8efdb2",
+    "scripts/segmentar.py": "8dec372181c29f0846fe87e04829acd3b2cfd5024cf04b2a61741a75c36b8f9c",
+    ".python-version": "f01d748a75eb195e6fd73201279bfb23f09036ddd360eb3e9ff40ef042acbc8a",
+    "pyproject.toml": "42ab2b95d0edba1dc8cd02abd860e67997523b74cb6c2f04aef7e168370bc025",
+    "uv.lock": "af78fc6c0475667f4e9e64b30fa58b4da518626667fadc27510c6fbea927ffa8",
+    "docs/protocolo.md": "2d792c8a7f281f5bc52ff7975c84994e74ad78bf1f907ee74f6d6937345a073d",
+    "docs/decisoes.md": "6be5452a3e348ff493d9d74153f9b4b63dc3ae034b28cee5df8f0154ced320c5",
+    "data/registry/triagem_ufam.json": "460ed6c88dc82c360a093bc828e5c64404c3750b98a313dd8d396b95736c95e6",
+    "data/registry/triagem_demais.json": "e16b217b6ee87733263ad49606d6b8bfcff7e982c018cba89414bf547ba84673",
+    "data/registry/fontes_inventario.json": "f1155eb6a97df7fe0184eea91e11847ff032b9f23f2f336fd9e2c7939352b401"
+  },
+  "saidas_sha256": {
+    "reports/cobertura-inicial.md": "db4132a48376247d151aef24a4bd7a380fb6eadd04bd63eb065d47787da6d833",
+    "reports/tabelas/cobertura-documentos.csv": "0b20b23a4bbe7beeac8279230a1140c2a534d4e0acc12400d17411d3b37e75c2",
+    "reports/relatorio-inicial.md": "389cb77e7105d20b5c265670e6982d03f311d9e61e107a7c502711e2bd3fbce0"
+  }
+}

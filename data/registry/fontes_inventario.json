@@ -1,0 +1,48 @@
+{
+  "fontes": [
+    {
+      "fonte_id": "inep_ces_2024_aaa37fb9433d",
+      "ano_censo": 2024,
+      "instituicao_publicadora": "Inep",
+      "pagina_origem": "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-da-educacao-superior",
+      "url_arquivo": "https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_2024.zip",
+      "url_final": "https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_2024.zip",
+      "coletado_em": "2026-11-11T13:03:38-04:00",
+      "zip_tamanho_bytes": 456807449,
+      "zip_etag": "\"1b3a5419-656471ec297c0\"",
+      "zip_last_modified": "Fri, 10 Jul 2026 19:55:19 GMT",
+      "zip_sha256": null,
+      "zip_integral_baixado": false,
+      "metodo_aquisicao": "HTTP Range dos membros selecionados; CRC ZIP e MD5 oficial do cadastro verificados",
+      "requisicoes_range": 12,
+      "bytes_range_recebidos": 1056704,
+      "arquivos": [
+        {
+          "caminho_local": "data/raw/inep/2024/517023969de7/dicionário_dados_educação_superior.xlsx",
+          "sha256": "517023969de7d7387b2aaeb0965e0a84ee6ea6a2d0314e2f63015c9025c3b467",
+          "tamanho_bytes": 54534,
+          "membro_zip": "microdados_censo_da_educacao_superior_2024/Anexos/ANEXO I - Dicionário de Dados/dicionário_dados_educação_superior.xlsx",
+          "crc32_zip": "974bd3a0",
+          "tipo": "dicionario"
+        },
+        {
+          "caminho_local": "data/raw/inep/2024/d92c44abd286/md5_microdados_ed_superior_2024.txt",
+          "sha256": "d92c44abd286d31092eb978de9058e492b1e8e183c2bdc759f52983a7a703625",
+          "tamanho_bytes": 139,
+          "membro_zip": "microdados_censo_da_educacao_superior_2024/dados/md5_microdados_ed_superior_2024.txt",
+          "crc32_zip": "438a67e1",
+          "tipo": "checksums_md5"
+        },
+        {
+          "caminho_local": "data/raw/inep/2024/aaa37fb9433d/MICRODADOS_ED_SUP_IES_2024.CSV",
+          "sha256": "aaa37fb9433d005686616bb9e48c5d7083526fdcc171973e787eed35a2ee349d",
+          "tamanho_bytes": 1000086,
+          "membro_zip": "microdados_censo_da_educacao_superior_2024/dados/MICRODADOS_ED_SUP_IES_2024.CSV",
+          "crc32_zip": "324c3ba2",
+          "tipo": "cadastro_ies",
+          "md5_oficial_verificado": "dbe25e67857aa68b12beaeffa194f53f"
+        }
+      ]
+    }
+  ]
+}

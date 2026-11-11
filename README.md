@@ -1,29 +1,74 @@
-# História da Amazônia nos vestibulares públicos (2017–2026)
+# História e Geografia da Amazônia nos vestibulares públicos
 
-Projeto de análise de dados sobre a presença de História da Amazônia nos programas e nas questões de processos próprios de ingresso na graduação de instituições públicas brasileiras.
+Estudo documental da previsão nos programas e da cobrança nas provas de processos próprios de ingresso na graduação de IES públicas brasileiras. História e Geografia seguem **um único procedimento**, com a disciplina registrada em cada item e com denominadores separados.
 
-O estudo prevê um levantamento nacional, comparação entre programas e provas e análise temporal em torno da implantação do Novo Ensino Médio, sem atribuição causal à reforma.
+Recorte: aplicações de **01/01/2017 a 11/11/2026**, no horário de Manaus. O ano de 2026 é parcial. A comparação temporal em torno do Novo Ensino Médio é observacional, sem atribuição causal à reforma.
 
-## Recorte
+## Estado e resultados disponíveis
 
-- Aplicações de **01/01/2017 a 11/11/2026**, considerando o horário de Manaus; 2026 é parcial.
-- Seleção de processos por evidência documental de cobrança regional recorrente, conforme o protocolo.
-- Preservação das questões de História necessárias aos denominadores, das fontes e da cobertura documental.
-- Uso de IA com registro das execuções, avaliação contra anotações humanas e revisão.
+- Inventário inicial: **317 IES da rede pública no Censo 2024**, nas 27 UFs e cinco regiões. O histórico institucional da década está pendente.
+- Triagem inicial: **18 processos em sete IES**, com fontes, decisões e lacunas. O levantamento nacional de processos permanece aberto.
+- Piloto: **24 PDFs oficiais**, incluindo editais, retificações, manuais, provas e gabaritos. São **seis cadernos** UFAM/UFRR com **84 questões segmentadas: 42 de História e 42 de Geografia**.
+- Os itens têm origem por documento, hash, página e região do PDF. **Ainda não há incidência regional calculada, referência humana, avaliação da IA ou banco educacional liberado.**
 
-## Documentação
+Leia o [relatório inicial](reports/relatorio-inicial.md), a [cobertura documental](reports/cobertura-inicial.md) e o [estado do projeto](docs/estado.md). O [manifesto](reports/manifesto-cobertura.json) identifica as entradas e saídas desta versão.
 
-- [Protocolo integral](docs/protocolo.md): escopo, metodologia, critérios, entregáveis e fontes iniciais, com formatação em Markdown.
-- [Texto original](docs/protocolo-original.txt): cópia integral do material recebido, sem alterações.
+## Procedimento e reprodução
 
-As referências do protocolo foram preservadas conforme fornecidas no texto original.
+Ambiente fixado: **Python 3.12.12**, dependências em `uv.lock`. O extrator usa **Poppler** (`pdftotext`, testado na versão 26.04.0) e **pypdf 7.0.1** como alternativa para falhas reais. A aquisição do cadastro Inep usa `curl` e leitura parcial do ZIP. O OCR ainda não foi validado neste ambiente.
 
-## Estado atual
+### 1. Reconstruir relatórios dos registros versionados
 
-Repositório iniciado com a documentação do projeto. O inventário, a coleta, a avaliação da IA e as análises ainda estão pendentes; não há resultados ou corpus congelado nesta versão.
+Depois de preparar o ambiente com `uv sync --locked`:
 
-O próximo passo é iniciar o inventário nacional de instituições e processos, registrando fontes, elegibilidade e pendências conforme as seções 4 e 19 do protocolo.
+```sh
+uv run --locked python scripts/pipeline.py verificar --somente-metadados
+uv run --locked python scripts/pipeline.py relatorio
+```
 
-## Autoria e assistência
+Esses comandos usam os registros versionados e dispensam PDFs, rede e chamadas de IA. Não recriam a extração sem os originais. `reports/manifesto-cobertura.json` permite conferir os hashes das entradas e saídas.
 
-Autoria do projeto: Matheus Garcia. Preparação inicial do repositório e formatação da documentação com assistência do Codex.
+### 2. Obter originais e reconstruir o piloto
+
+Requer fontes oficiais disponíveis e Poppler instalado. Execute na raiz do projeto:
+
+```sh
+uv run --locked python scripts/inventario_ies.py
+uv run --locked python scripts/consolidar_registro.py
+uv run --locked python scripts/pipeline.py coletar
+uv run --locked python scripts/pipeline.py extrair
+uv run --locked python scripts/segmentar.py
+uv run --locked python scripts/gabaritos.py
+uv run --locked python scripts/preparar_revisao.py
+uv run --locked python scripts/pipeline.py verificar
+uv run --locked python scripts/pipeline.py relatorio
+```
+
+A coleta reaproveita arquivos íntegros, limita frequência e tentativas e registra falhas. Em uma cópia sem o acervo local, recupera os bytes conhecidos; se o URL retornar outra versão, preserva a divergência e recusa a substituição silenciosa. Para consultar e aceitar uma atualização explicitamente, use `--atualizar` nos comandos de inventário ou coleta. Novos conteúdos são preservados por hash; regras de segmentação vinculadas a outro hash exigem revisão.
+
+Com originais presentes, `uv run --locked python scripts/inventario_ies.py --offline` reconstrói o cadastro sem rede. Reexecutar a preparação da fila preserva os rótulos humanos já preenchidos.
+
+### 3. Reclassificar com IA
+
+Essa etapa ainda não está implementada. Depende de referência humana, partições por prova e grupos equivalentes, teste congelado, orçamento e avaliação contra um método simples por palavras-chave. Não foram feitas chamadas pagas de API de modelos pelo pipeline. Custos da assistência no aplicativo não foram quantificados.
+
+## Verificação
+
+```sh
+uv run --locked python -m unittest discover -s tests -v
+git diff --check
+```
+
+Os testes protegem integridade dos originais, mudanças de versão, limites de coleta, identificação de páginas e coordenadas, leitura de colunas, alternativas incompletas e reprodução. Fixtures sintéticas ficam somente nos testes e nunca entram no corpus histórico.
+
+## Documentação e dados
+
+- [Protocolo](docs/protocolo.md), [decisões posteriores](docs/decisoes.md) e [texto original preservado](docs/protocolo-original.txt).
+- [Inventário nacional e pendências históricas](docs/notas-inventario.md).
+- [Notas da triagem documental](docs/notas-triagem-demais.md) e [dicionário de dados](docs/dicionario-dados.md).
+- [Manual de revisão e anotação](docs/manual-anotacao.md).
+- Registros em `data/registry/`; metadados dos itens e gabaritos em `data/processed/`; fila de revisão em `data/annotation/`.
+
+Originais, extrações com enunciados e imagens permanecem locais e ignorados no Git enquanto não houver condição de redistribuição demonstrada. Metadados, código e resultados de cobertura são versionados. Não há licença geral aplicada aos materiais de terceiros.
+
+Autoria do projeto: **Matheus Garcia**. Inventário, pesquisa documental, código e verificações iniciais preparados com assistência do **Codex**. Essa assistência não constitui anotação humana independente.

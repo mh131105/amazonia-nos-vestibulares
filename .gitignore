@@ -11,3 +11,10 @@ venv/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
+
+# Acervo de terceiros: preservar localmente; publicar somente quando autorizado
+data/raw/
+data/interim/
+data/processed/questoes-texto.jsonl
+data/annotation/textos/
+tmp/

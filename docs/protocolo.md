@@ -1,5 +1,7 @@
 # Protocolo de pesquisa
 
+> Atualização de escopo em 11/11/2026: o usuário confirmou **História e Geografia da Amazônia, com procedimento único**. O [registro D001](decisoes.md) documenta a precedência dessa decisão sobre as passagens abaixo que restringem o alvo a História. O corpo original e sua cópia literal foram preservados.
+
 ## 1. Objetivo e contexto
 
 Construir um projeto público de análise de dados que investigue como História da Amazônia é prevista nos programas de vestibulares de instituições públicas brasileiras e como esse conteúdo aparece nas questões efetivamente aplicadas. A análise deve incluir uma comparação explícita entre períodos anteriores e posteriores à implantação do Novo Ensino Médio, documentando transições, diferenças entre etapas e a revisão curricular de 2024.
