@@ -7,8 +7,11 @@ Recorte: aplicações de **01/01/2017 a 11/11/2026**, no horário de Manaus. O a
 ## Estado e resultados disponíveis
 
 - Inventário histórico: **2.459 observações anuais em 2017–2024**, reunindo **334 códigos públicos ou Especiais candidatos**. A fotografia de 2024, com 317 IES da rede pública, permanece preservada. Mudanças de 2025–2026 e reconciliação jurídica estão pendentes.
-- Triagem inicial: **18 processos em sete IES**, com fontes, decisões e lacunas. O levantamento nacional de processos permanece aberto.
-- Piloto: **121 vínculos documentais com 120 PDFs oficiais distintos**, incluindo editais, retificações, manuais, provas e gabaritos. São **23 cadernos** UFAM/UFRR/UERR com **300 questões segmentadas: 150 de História e 150 de Geografia**.
+- Triagem: **39 registros de processos ou ramos em 24 IES**, com fontes, decisões e lacunas nas cinco regiões. Ramos ainda não desagregados não equivalem a processos únicos comprovados. O levantamento nacional permanece aberto.
+- Piloto de questões: **23 cadernos** UFAM/UFRR/UERR com **300 questões segmentadas: 150 de História e 150 de Geografia**. A ampliação nacional acrescenta programas documentados, sem acrescentar questões presumidas.
+- Acervo de vestibulares: **131 vínculos documentais e 129 PDFs oficiais distintos**. Os cinco marcos normativos ficam em registro separado.
+- FUVEST: três anos de previsão amazônica em Geografia. UFMS: três anos em Ciências Humanas integradas, mantidos em campo próprio. O mesmo procedimento preserva a atribuição disciplinar da fonte.
+- Três datas UFAM foram confirmadas; cinco permanecem pendentes. Um gabarito tem ressalva de finalidade documental, com respostas publicadas preservadas e confirmação da versão final ainda necessária.
 - Os itens têm origem por documento, hash, página e região do PDF. **Ainda não há incidência regional calculada, referência humana, avaliação da IA ou banco educacional liberado.**
 
 Leia o [relatório inicial](reports/relatorio-inicial.md), a [cobertura documental](reports/cobertura-inicial.md) e o [estado do projeto](docs/estado.md). O [manifesto](reports/manifesto-cobertura.json) identifica as entradas e saídas desta versão.
@@ -35,6 +38,7 @@ Requer fontes oficiais disponíveis e Poppler instalado. Execute na raiz do proj
 ```sh
 uv run --locked python scripts/inventario_ies.py
 uv run --locked python scripts/historico_ies.py
+uv run --locked python scripts/contexto_normativo.py
 uv run --locked python scripts/consolidar_registro.py
 uv run --locked python scripts/pipeline.py coletar
 uv run --locked python scripts/pipeline.py extrair
@@ -48,6 +52,8 @@ uv run --locked python scripts/pipeline.py relatorio
 A coleta reaproveita arquivos íntegros, limita frequência e tentativas e registra falhas. Em uma cópia sem o acervo local, recupera os bytes conhecidos; se o URL retornar outra versão, preserva a divergência e recusa a substituição silenciosa. Para consultar e aceitar uma atualização explicitamente, use `--atualizar` nos comandos de inventário ou coleta. Novos conteúdos são preservados por hash; regras de segmentação vinculadas a outro hash exigem revisão.
 
 Com originais presentes, `uv run --locked python scripts/inventario_ies.py --offline` reconstrói o cadastro sem rede. Reexecutar a preparação da fila preserva os rótulos humanos já preenchidos.
+
+Os cinco marcos S2–S6 ficam em acervo separado, sem aplicações fictícias de vestibular. `uv run --locked python scripts/contexto_normativo.py --offline` confere os originais arquivados; os cortes temporais e as limitações estão no [contexto temporal](docs/contexto-temporal.md).
 
 ### 3. Reclassificar com IA
 
@@ -81,6 +87,7 @@ Os testes protegem integridade dos originais, mudanças de versão, limites de c
 - [Protocolo](docs/protocolo.md), [decisões posteriores](docs/decisoes.md) e [texto original preservado](docs/protocolo-original.txt).
 - [Inventário nacional inicial](docs/notas-inventario.md) e [cadastros históricos 2017–2024](docs/notas-historico-ies.md).
 - [Notas da triagem documental](docs/notas-triagem-demais.md) e [dicionário de dados](docs/dicionario-dados.md).
+- Ampliação C3: [Sul/Sudeste](docs/notas-triagem-sul-sudeste-c3.md), [Nordeste/Centro-Oeste](docs/notas-triagem-ne-co-c3.md) e [auditoria temporal UFAM](docs/notas-datas-ciclo3.md).
 - [Manual de revisão e anotação](docs/manual-anotacao.md).
 - Registros em `data/registry/`; metadados dos itens e gabaritos em `data/processed/`; fila de revisão em `data/annotation/`.
 

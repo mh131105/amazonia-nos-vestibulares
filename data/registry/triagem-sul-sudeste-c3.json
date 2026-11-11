@@ -1,0 +1,927 @@
+{
+  "versao": "0.1.0",
+  "data_triagem": "2026-11-11",
+  "responsavel": "Codex - triagem assistida por IA; revisão humana pendente de Matheus",
+  "janela_aplicacao": [
+    "2017-01-01",
+    "2026-11-11"
+  ],
+  "escopo": "Sul e Sudeste: procedimento único para História e Geografia da Amazônia, preservando disciplina e processo.",
+  "completude": "Amostra documental de9 instituições prioritárias; não é censo regional nem lista definitiva de elegíveis.",
+  "convencao_paginas": "Páginas físicas PDF são1-based; páginas impressas são registradas em campo separado quando verificadas.",
+  "fontes": [
+    {
+      "fonte_id": "fuvest_indice_2022",
+      "url": "https://www.fuvest.br/acervo-vestibular-2022/",
+      "tipo": "indice_anual",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "fuvest_indice_2023",
+      "url": "https://www.fuvest.br/acervo-vestibular-2023/",
+      "tipo": "indice_anual",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "fuvest_indice_2024",
+      "url": "https://www.fuvest.br/acervo-vestibular-2024/",
+      "tipo": "indice_anual",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "fuvest_programa_2022",
+      "url": "https://acervo.fuvest.br/fuvest/2022/fuvest2022_manual_20210804.pdf",
+      "tipo": "manual_com_programa",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido_espelho_oficial_tls_expirado",
+      "paginas_pdf": 92
+    },
+    {
+      "fonte_id": "fuvest_programa_2022_canonico",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2022_manual_20210804.pdf",
+      "tipo": "manual_com_programa",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "timeout_espelho_oficial_recuperado"
+    },
+    {
+      "fonte_id": "fuvest_programa_2023",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_manual_candidato_retificado_29092022.pdf",
+      "tipo": "manual_com_programa_retificado",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 96
+    },
+    {
+      "fonte_id": "fuvest_programa_2024",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_guia_provas.pdf",
+      "tipo": "guia_com_programa",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 69
+    },
+    {
+      "fonte_id": "fuvest_data_2022",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_gabarito_retificado.pdf",
+      "tipo": "gabarito_pos_aplicacao",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 2
+    },
+    {
+      "fonte_id": "fuvest_data_2023",
+      "url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_gabarito_primeira_fase.pdf",
+      "tipo": "gabarito_pos_aplicacao",
+      "publicador": "FUVEST/USP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 2
+    },
+    {
+      "fonte_id": "fuvest_data_2024",
+      "url": "https://jornal.usp.br/universidade/estude-na-usp/vestibular/fuvest-divulga-prova-da-primeira-fase-e-gabarito-oficial-do-vestibular-2024/",
+      "tipo": "noticia_pos_aplicacao",
+      "publicador": "Jornal da USP/Assessoria FUVEST",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida",
+      "publicado_em": "2023-11-19"
+    },
+    {
+      "fonte_id": "unicamp_indice_2024",
+      "url": "https://www.comvest.unicamp.br/ingresso-2024/vestibular-2024/",
+      "tipo": "indice_anual",
+      "publicador": "COMVEST/UNICAMP",
+      "origem_oficial": true,
+      "status_acesso": "html_lido_por_http_web_tool_indisponivel"
+    },
+    {
+      "fonte_id": "unicamp_programa_2024",
+      "url": "https://www.comvest.unicamp.br/wp-content/uploads/2023/07/VU-2024_ProgramaDeProvas.pdf",
+      "tipo": "programa_anual",
+      "publicador": "COMVEST/UNICAMP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 22
+    },
+    {
+      "fonte_id": "unicamp_arquivo",
+      "url": "https://www.comvest.unicamp.br/vestibulares-anteriores/",
+      "tipo": "indice_anual",
+      "publicador": "COMVEST/UNICAMP",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "unesp_programa_2024",
+      "url": "https://vestibular.unesp.br/Home/manualdocandidato/unesp_manual_candidato_2024-1.pdf",
+      "tipo": "manual_com_programa_por_remissao",
+      "publicador": "UNESP/VUNESP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 56
+    },
+    {
+      "fonte_id": "unesp_arquivo",
+      "url": "https://vestibular.unesp.br/index.php",
+      "tipo": "indice_anual",
+      "publicador": "UNESP",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uerj_indice_2024_ed",
+      "url": "https://www.vestibular.uerj.br/?page_id=13785",
+      "tipo": "indice_anual_exame_discursivo",
+      "publicador": "UERJ/DEPSEA",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uerj_programa_2024_ed",
+      "url": "https://www.vestibular.uerj.br/anexos/243/Manual_2fase_2024_Anexo5.pdf",
+      "tipo": "anexo_programatico",
+      "publicador": "UERJ/DEPSEA",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 12
+    },
+    {
+      "fonte_id": "ufpr_indice_2024",
+      "url": "https://servicos.nc.ufpr.br/PortalNC/Concurso?concurso=PS2024",
+      "tipo": "indice_anual",
+      "publicador": "UFPR/NC",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufpr_programa_2024_wrapper",
+      "url": "https://servicos.nc.ufpr.br/PortalNC/PublicacaoDocumento?pub=5752",
+      "tipo": "publicacao_programa",
+      "publicador": "UFPR/NC",
+      "origem_oficial": true,
+      "status_acesso": "html_lido_iframe_publico"
+    },
+    {
+      "fonte_id": "ufpr_programa_2024",
+      "url": "https://servicos.nc.ufpr.br/PortalNC/obterDocumento?pub=5752",
+      "tipo": "programa_anual",
+      "publicador": "UFPR/NC",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 14
+    },
+    {
+      "fonte_id": "ufrgs_coperse",
+      "url": "https://www.ufrgs.br/coperse/",
+      "tipo": "portal_selecao",
+      "publicador": "UFRGS/COPERSE",
+      "origem_oficial": true,
+      "status_acesso": "timeout_na_abertura"
+    },
+    {
+      "fonte_id": "ufrgs_vestibular_2024",
+      "url": "https://www.vestibular.ufrgs.br/cv2024/",
+      "tipo": "indice_anual_candidato",
+      "publicador": "UFRGS/COPERSE",
+      "origem_oficial": true,
+      "status_acesso": "inacessivel_na_abertura"
+    },
+    {
+      "fonte_id": "ufsc_programa_2026",
+      "url": "https://coperve.ufsc.br/files/2025/02/Vestibular-2026-Programa-Atualizado-1.pdf",
+      "tipo": "programa_anual",
+      "publicador": "UFSC/COPERVE",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 14
+    },
+    {
+      "fonte_id": "ufsc_indice_anteriores",
+      "url": "https://coperve.ufsc.br/vestibulares-anteriores/",
+      "tipo": "indice_anual",
+      "publicador": "UFSC/COPERVE",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "ufsc_programa_2025_link",
+      "url": "https://coperve.ufsc.br/files/2011/07/Vestibular-2025-Programa.pdf",
+      "tipo": "programa_anual",
+      "publicador": "UFSC/COPERVE",
+      "origem_oficial": true,
+      "status_acesso": "404_na_abertura_mas_resultado_indexado"
+    },
+    {
+      "fonte_id": "ufsc_faq_2026",
+      "url": "https://sistemas.coperve.ufsc.br/faq/tema/vestibular-unificado-2026",
+      "tipo": "orientacoes_edicao",
+      "publicador": "UFSC/COPERVE",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uem_indice_2024_inverno",
+      "url": "https://www.cvu.uem.br/evento_52.html",
+      "tipo": "indice_anual",
+      "publicador": "UEM/CVU",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uem_programa_2024",
+      "url": "https://www.vestibular.uem.br/arquivos/progves24.pdf",
+      "tipo": "programa_anual",
+      "publicador": "UEM/CVU",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 25
+    },
+    {
+      "fonte_id": "uem_provas_arquivo",
+      "url": "https://cvu.uem.br/provas-gabaritos.html",
+      "tipo": "indice_provas",
+      "publicador": "UEM/CVU",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uel_programa_2024",
+      "url": "https://www.cops.uel.br/v2/download.php?Acesso=YzlmNzU2YTBiMWIzYTM4MDZiM2RmN2FiYWEzZDdkMWE2N2Y1M2UzYWIzMDVlMTEwMGViM2YwYzU3ZGQ1NDVjZWMyMmFhODYzNjUyNmE3ZGU4NWRkYTgyN2U3ODA3NTlmYWM2NGJmZjFkYzdhY2FhZjhmYWY2Mzc0N2Y5Njc4OTJlMGU1ZTVkNjE1ZDQwMTc2YWE0NjEyYjliMDg0OWZlNmU5YWVlMTZmZmEyNDU5ZDk0MmQ1ZWY3MjU2ZDU5OTczNTg2NDViMzJmZTYyN2M0YWM2NzQ2ZTgyZTZmYjg2OGM%3D",
+      "tipo": "manual_com_programa",
+      "publicador": "UEL/COPS",
+      "origem_oficial": true,
+      "status_acesso": "texto_pdf_indexado_consultado_download_atual_nao_gerou_pdf_legivel"
+    },
+    {
+      "fonte_id": "uel_data_2024",
+      "url": "https://www.cops.uel.br/v2/ProvasGabaritos/DivulgacaoProvasGabaritos1FaseVestibularDefinitivo/Selecao/325/Atividade/19216",
+      "tipo": "indice_provas_pos_aplicacao",
+      "publicador": "UEL/COPS",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "uel_indice_anteriores",
+      "url": "https://www.cops.uel.br/?content=vestibular%2Fanteriores%2Fprovas.php",
+      "tipo": "indice_provas",
+      "publicador": "UEL/COPS",
+      "origem_oficial": true,
+      "status_acesso": "pagina_lida"
+    },
+    {
+      "fonte_id": "unicamp_programa_2022_html",
+      "url": "https://www.comvest.unicamp.br/ingresso-2022/vestibular-2022/manual-de-ingresso-2022/programas-das-provas/",
+      "tipo": "programa_anual_html",
+      "publicador": "COMVEST/UNICAMP",
+      "origem_oficial": true,
+      "status_acesso": "html_lido_por_http"
+    },
+    {
+      "fonte_id": "unicamp_programa_2023_indice",
+      "url": "https://www.comvest.unicamp.br/ingresso-2023/vestibular-2023/programas-das-provas/",
+      "tipo": "indice_anual_programa",
+      "publicador": "COMVEST/UNICAMP",
+      "origem_oficial": true,
+      "status_acesso": "html_lido_por_http"
+    },
+    {
+      "fonte_id": "unicamp_programa_2023_humanas_link",
+      "url": "https://www.comvest.unicamp.br/vestibular-2023/programas-das-provas/provas-de-geografia-historia-filosofia-e-sociologia/",
+      "tipo": "programa_humanas_link_publicado",
+      "publicador": "COMVEST/UNICAMP",
+      "origem_oficial": true,
+      "status_acesso": "404_na_abertura"
+    },
+    {
+      "fonte_id": "unesp_programa_2019_remissao",
+      "url": "https://vestibular.unesp.br/Home/2019/manual_unesp_2019.pdf",
+      "tipo": "manual_com_programa_por_remissao",
+      "publicador": "UNESP/VUNESP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 52
+    },
+    {
+      "fonte_id": "unesp_programa_2022_remissao",
+      "url": "https://vestibular.unesp.br/Home/manualdocandidato/vestibular-unesp-2022---manual-do-candidato.pdf",
+      "tipo": "manual_com_programa_por_remissao",
+      "publicador": "UNESP/VUNESP",
+      "origem_oficial": true,
+      "status_acesso": "pdf_lido",
+      "paginas_pdf": 60
+    },
+    {
+      "fonte_id": "curriculo_sp_ch_2012",
+      "url": "https://www.educacao.sp.gov.br/a2sitebox/arquivos/documentos/781.pdf",
+      "tipo": "curriculo_candidato_incorporacao_por_titulo",
+      "publicador": "Secretaria da Educação do Estado de São Paulo",
+      "origem_oficial": true,
+      "status_acesso": "texto_indexado_consultado_download_retornou_html"
+    },
+    {
+      "fonte_id": "curriculo_sp_link_historico",
+      "url": "https://www.educacao.sp.gov.br/curriculo",
+      "tipo": "link_curriculo_referenciado_por_manual",
+      "publicador": "Secretaria da Educação do Estado de São Paulo",
+      "origem_oficial": true,
+      "status_acesso": "redireciona_portal_atual_sem_versao_historica"
+    }
+  ],
+  "processos": [
+    {
+      "processo_id": "usp_fuvest",
+      "instituicao_sigla": "USP",
+      "instituicao_id": "inep_55",
+      "nome": "Vestibular FUVEST para ingresso na USP",
+      "etapas": [
+        "1_fase_conhecimentos_gerais",
+        "2_fase_discursiva"
+      ],
+      "estado_triagem": "elegibilidade_documental_geografia_tres_anos",
+      "fonte_ids": [
+        "fuvest_indice_2022",
+        "fuvest_indice_2023",
+        "fuvest_indice_2024",
+        "fuvest_programa_2022",
+        "fuvest_programa_2023",
+        "fuvest_programa_2024",
+        "fuvest_data_2022",
+        "fuvest_data_2023",
+        "fuvest_data_2024"
+      ],
+      "motivo": "Geografia prevê expressamente relações com países amazônicos nos três programas anuais. Aplicações da primeira fase comprovadas em 2021,2022,2023. Revisão humana pendente.",
+      "alcance": "Edições 2022–2024: programa, incorporação anual e data da primeira fase; não equivale a série completa 2017–2026. Não comprova recorte amazônico de História nem data de cada prova da segunda fase."
+    },
+    {
+      "processo_id": "unicamp_vestibular",
+      "instituicao_sigla": "UNICAMP",
+      "instituicao_id": "inep_54",
+      "nome": "Vestibular Unicamp",
+      "etapas": [
+        "1_fase",
+        "2_fase"
+      ],
+      "estado_triagem": "pendente_recorte_amazonico",
+      "fonte_ids": [
+        "unicamp_arquivo",
+        "unicamp_indice_2024",
+        "unicamp_programa_2024",
+        "unicamp_programa_2022_html",
+        "unicamp_programa_2023_indice",
+        "unicamp_programa_2023_humanas_link"
+      ],
+      "motivo": "Programa 2024 contém dinâmicas territoriais brasileiras, biomas e regionalização, mas não foi localizado recorte amazônico explícito nas seções de História ou Geografia.",
+      "alcance": "Programa 2024 em PDF e página programática 2022 lidos. Tentativa de completar 2023 parou em link oficial de Humanas que retorna404. Não há três anos efetivos com recorte amazônico comprovado. Outros ingressos, inclusive Vestibular Indígena, permanecem a triar."
+    },
+    {
+      "processo_id": "unesp_vestibular",
+      "instituicao_sigla": "UNESP",
+      "instituicao_id": "inep_56",
+      "nome": "Concurso Vestibular Unesp",
+      "etapas": [
+        "1_fase_conhecimentos_gerais",
+        "2_fase_conhecimentos_especificos_redacao"
+      ],
+      "estado_triagem": "pendente_programa_incorporado",
+      "fonte_ids": [
+        "unesp_arquivo",
+        "unesp_programa_2024",
+        "unesp_programa_2019_remissao",
+        "unesp_programa_2022_remissao",
+        "curriculo_sp_ch_2012",
+        "curriculo_sp_link_historico"
+      ],
+      "motivo": "O Anexo II 2024 incorpora DCN, BNCC e Currículo Paulista por remissão. O manual não lista o recorte amazônico; é preciso ler o currículo incorporado e provar a versão vigente.",
+      "alcance": "Manuais 2019,2022,2024 lidos: incorporam documentos curriculares por referência;2019/2022 citam Currículo do Estado de São Paulo,2024 cita Currículo Paulista. O primeiro link histórico redireciona hoje ao portal geral. Versão curricular e recorte amazônico continuam pendentes. Datas efetivas não certificadas; Meio de Ano e Provão Paulista não triados."
+    },
+    {
+      "processo_id": "uerj_vestibular_estadual",
+      "instituicao_sigla": "UERJ",
+      "instituicao_id": "inep_547",
+      "nome": "Vestibular Estadual UERJ",
+      "etapas": [
+        "1_exame_qualificacao",
+        "2_exame_qualificacao",
+        "exame_discursivo"
+      ],
+      "estado_triagem": "pendente_recorte_amazonico",
+      "fonte_ids": [
+        "uerj_indice_2024_ed",
+        "uerj_programa_2024_ed"
+      ],
+      "motivo": "Anexo programático do Exame Discursivo 2024 prevê natureza, ambiente, escala brasileira e fluminense e História do Brasil, sem menção amazônica explícita localizada.",
+      "alcance": "Somente programa do Exame Discursivo 2024 lido. Os exames de qualificação e as demais edições precisam de fonte própria. Questões amazônicas no acervo não substituem programa."
+    },
+    {
+      "processo_id": "ufpr_processo_seletivo",
+      "instituicao_sigla": "UFPR",
+      "instituicao_id": "inep_571",
+      "nome": "Processo Seletivo UFPR",
+      "etapas": [
+        "1_fase_conhecimentos_gerais",
+        "2_fase_compreensao_producao_textos",
+        "2_fase_provas_especificas"
+      ],
+      "estado_triagem": "pendente_recorte_amazonico",
+      "fonte_ids": [
+        "ufpr_indice_2024",
+        "ufpr_programa_2024_wrapper",
+        "ufpr_programa_2024"
+      ],
+      "motivo": "Programa 2024 foi recuperado a partir do visualizador oficial. As seções de Geografia e História contêm organização espacial e História do Brasil; não foi localizado recorte amazônico explícito.",
+      "alcance": "Leitura de programa 2024. Datas efetivas, conteúdos de outros anos e processos especiais/indígenas não foram concluídos."
+    },
+    {
+      "processo_id": "ufrgs_concurso_vestibular",
+      "instituicao_sigla": "UFRGS",
+      "instituicao_id": "inep_581",
+      "nome": "Concurso Vestibular UFRGS",
+      "etapas": [],
+      "estado_triagem": "pendente_acesso_documental",
+      "fonte_ids": [
+        "ufrgs_coperse",
+        "ufrgs_vestibular_2024"
+      ],
+      "motivo": "Portal COPERSE e endereço anual testados sem leitura de programa oficial nesta rodada. Resultados acadêmicos sobre vestibulares não foram usados como substitutos de edital.",
+      "alcance": "Sondagem de acesso oficial e busca de programa 2024. Não há evidência programática nem aplicação certificada neste arquivo; não é exclusão do processo."
+    },
+    {
+      "processo_id": "ufsc_vestibular",
+      "instituicao_sigla": "UFSC",
+      "instituicao_id": "inep_585",
+      "nome": "Vestibular UFSC / Vestibular Unificado",
+      "etapas": [
+        "prova_1",
+        "prova_2_ciencias_humanas"
+      ],
+      "estado_triagem": "pendente_recorte_amazonico",
+      "fonte_ids": [
+        "ufsc_programa_2026",
+        "ufsc_indice_anteriores",
+        "ufsc_faq_2026",
+        "ufsc_programa_2025_link"
+      ],
+      "motivo": "Programa 2026 trabalha História e Geografia do Brasil e de Santa Catarina, regiões, biomas e domínios morfoclimáticos; não foi encontrada menção amazônica explícita.",
+      "alcance": "Programa 2026 lido; tentativa de programa 2025 retornou404. Falta cadeia histórica. Para exames unificados, uma aplicação física não deve ser multiplicada por instituições participantes. Data prevista não foi tratada como data efetiva."
+    },
+    {
+      "processo_id": "uem_vestibular_inverno",
+      "instituicao_sigla": "UEM",
+      "instituicao_id": "inep_57",
+      "nome": "Vestibular de Inverno UEM",
+      "etapas": [
+        "prova_redacao_questoes_objetivas"
+      ],
+      "estado_triagem": "pendente_recorte_amazonico",
+      "fonte_ids": [
+        "uem_indice_2024_inverno",
+        "uem_programa_2024",
+        "uem_provas_arquivo"
+      ],
+      "motivo": "Programa 2024 contém Brasil e regionalização genéricos e recorte expresso do Paraná; não foi localizada Amazônia em História ou Geografia.",
+      "alcance": "Programa e índice da edição Inverno 2024 lidos. O link genérico atual Baixar Programa Completo na página histórica remete a 2025; usou-se a publicação datada de 2024. Verão e PAS exigem registros próprios e não foram considerados excluídos."
+    },
+    {
+      "processo_id": "uel_vestibular",
+      "instituicao_sigla": "UEL",
+      "instituicao_id": "inep_9",
+      "nome": "Processo Seletivo Vestibular UEL",
+      "etapas": [
+        "1_fase_conhecimentos_gerais",
+        "2_fase",
+        "habilidades_especificas_quando_exigidas"
+      ],
+      "estado_triagem": "pendente_recorte_amazonico",
+      "fonte_ids": [
+        "uel_programa_2024",
+        "uel_data_2024",
+        "uel_indice_anteriores"
+      ],
+      "motivo": "Programa 2024 recuperado no domínio COPS e pesquisado: não foi localizada menção amazônica explícita. O índice de provas definitivas certifica a primeira fase em 29/10/2023.",
+      "alcance": "Manual/programa 2024 lido no texto indexado; paginação física ainda pendente. Não estender a outras edições ou ao Vestibular dos Povos Indígenas do Paraná."
+    }
+  ],
+  "evidencias": [
+    {
+      "evidencia_id": "fuvest_2022_geografia_amazonia",
+      "processo_id": "usp_fuvest",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "fuvest_programa_2022",
+      "edicao": "2022",
+      "etapa": "1_fase",
+      "data_aplicacao": "2021-12-12",
+      "ano_aplicacao_verificado": 2021,
+      "fonte_vigencia_id": "fuvest_indice_2022",
+      "fonte_data_id": "fuvest_data_2022",
+      "paginas_pdf": [
+        76
+      ],
+      "paginas_impressas": [
+        72
+      ],
+      "secao": "Geografia; II - O espaço geográfico brasileiro; 4.1.2",
+      "previsao_regional": "amazonia_explicita_geografia_relacoes_transfronteiricas",
+      "evidencia_curta": "A relação com os países amazônicos.",
+      "limites": "Prevê relações territoriais internacionais do Brasil com países amazônicos. Data corresponde somente à primeira fase; não é prova de ocorrência de questão amazônica. Elegibilidade por Geografia; História não inferida."
+    },
+    {
+      "evidencia_id": "fuvest_2023_geografia_amazonia",
+      "processo_id": "usp_fuvest",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "fuvest_programa_2023",
+      "edicao": "2023",
+      "etapa": "1_fase",
+      "data_aplicacao": "2022-12-04",
+      "ano_aplicacao_verificado": 2022,
+      "fonte_vigencia_id": "fuvest_indice_2023",
+      "fonte_data_id": "fuvest_data_2023",
+      "paginas_pdf": [
+        80
+      ],
+      "paginas_impressas": [
+        75
+      ],
+      "secao": "Geografia; II - O espaço geográfico brasileiro; 4.1.2",
+      "previsao_regional": "amazonia_explicita_geografia_relacoes_transfronteiricas",
+      "evidencia_curta": "A relação com os países amazônicos.",
+      "limites": "Prevê relações territoriais internacionais do Brasil com países amazônicos. Data corresponde somente à primeira fase; não é prova de ocorrência de questão amazônica. Elegibilidade por Geografia; História não inferida."
+    },
+    {
+      "evidencia_id": "fuvest_2024_geografia_amazonia",
+      "processo_id": "usp_fuvest",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "fuvest_programa_2024",
+      "edicao": "2024",
+      "etapa": "1_fase",
+      "data_aplicacao": "2023-11-19",
+      "ano_aplicacao_verificado": 2023,
+      "fonte_vigencia_id": "fuvest_indice_2024",
+      "fonte_data_id": "fuvest_data_2024",
+      "paginas_pdf": [
+        40
+      ],
+      "paginas_impressas": [
+        40
+      ],
+      "secao": "Geografia; II - O espaço geográfico brasileiro; 4.1.2",
+      "previsao_regional": "amazonia_explicita_geografia_relacoes_transfronteiricas",
+      "evidencia_curta": "A relação com os países amazônicos.",
+      "limites": "Prevê relações territoriais internacionais do Brasil com países amazônicos. Data corresponde somente à primeira fase; não é prova de ocorrência de questão amazônica. Elegibilidade por Geografia; História não inferida."
+    },
+    {
+      "evidencia_id": "unicamp_programa_2024_geografia_triagem",
+      "processo_id": "unicamp_vestibular",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "unicamp_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "unicamp_indice_2024",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        10,
+        11,
+        12
+      ],
+      "secao": "Geografia; V - Brasil: dinâmica territorial",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Biomas, domínios naturais, formação territorial e divisão regional do Brasil aparecem sem Amazônia nominal.",
+      "limites": "A leitura de uma edição não determina exclusão do processo; depende de recorte substantivo inequívoco."
+    },
+    {
+      "evidencia_id": "unicamp_programa_2024_historia_triagem",
+      "processo_id": "unicamp_vestibular",
+      "disciplina": "História",
+      "fonte_programa_id": "unicamp_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "unicamp_indice_2024",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        12,
+        13,
+        14
+      ],
+      "secao": "História; conteúdos programáticos",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Programa organiza períodos globais e brasileiros e povos indígenas em escala ampla.",
+      "limites": "Não assumir História amazônica a partir da expressão povos indígenas."
+    },
+    {
+      "evidencia_id": "unesp_programa_2024_geografia_triagem",
+      "processo_id": "unesp_vestibular",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "unesp_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "unesp_programa_2024",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        46
+      ],
+      "secao": "Anexo II; I - Programas",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Programa definido por remissão a DCN, BNCC e Currículo Paulista.",
+      "limites": "Currículo incorporado ainda precisa de leitura e versão; ausência de palavra no manual não equivale a ausência no programa."
+    },
+    {
+      "evidencia_id": "unesp_programa_2024_historia_triagem",
+      "processo_id": "unesp_vestibular",
+      "disciplina": "História",
+      "fonte_programa_id": "unesp_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "unesp_programa_2024",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        46
+      ],
+      "secao": "Anexo II; I - Programas",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Programa definido por remissão a DCN, BNCC e Currículo Paulista.",
+      "limites": "Currículo incorporado ainda precisa de leitura e versão; ausência de palavra no manual não equivale a ausência no programa."
+    },
+    {
+      "evidencia_id": "uerj_programa_2024_ed_geografia_triagem",
+      "processo_id": "uerj_vestibular_estadual",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "uerj_programa_2024_ed",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "uerj_indice_2024_ed",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        3,
+        4
+      ],
+      "secao": "Geografia; programa",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Escalas mundial, brasileira e fluminense, biomas e gestão ambiental.",
+      "limites": "Leitura restrita ao Exame Discursivo; qualificação tem anexo distinto."
+    },
+    {
+      "evidencia_id": "uerj_programa_2024_ed_historia_triagem",
+      "processo_id": "uerj_vestibular_estadual",
+      "disciplina": "História",
+      "fonte_programa_id": "uerj_programa_2024_ed",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "uerj_indice_2024_ed",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        5,
+        6
+      ],
+      "secao": "História; programa",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Formação da sociedade brasileira e processos históricos amplos.",
+      "limites": "Questão amazônica eventual não comprova previsão nominal no programa."
+    },
+    {
+      "evidencia_id": "ufpr_programa_2024_geografia_triagem",
+      "processo_id": "ufpr_processo_seletivo",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "ufpr_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "ufpr_indice_2024",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        9,
+        10,
+        11
+      ],
+      "secao": "4.2 Geografia",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Relação sociedade-natureza, paisagem e organização espacial nas escalas brasileira e mundial.",
+      "limites": "Programa genérico não comprova recorte amazônico; datas não certificadas."
+    },
+    {
+      "evidencia_id": "ufpr_programa_2024_historia_triagem",
+      "processo_id": "ufpr_processo_seletivo",
+      "disciplina": "História",
+      "fonte_programa_id": "ufpr_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "ufpr_indice_2024",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        11,
+        12,
+        13
+      ],
+      "secao": "4.3 História",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Processos históricos, Brasil e diversidade de sociedades.",
+      "limites": "Sem Amazônia nominal localizada; outros anos e processos continuam pendentes."
+    },
+    {
+      "evidencia_id": "ufsc_programa_2026_geografia_triagem",
+      "processo_id": "ufsc_vestibular",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "ufsc_programa_2026",
+      "edicao": "2026",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "ufsc_programa_2026",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        8,
+        9
+      ],
+      "secao": "Ciências Humanas e Sociais; Geografia",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Brasil e Santa Catarina: aspectos naturais, problemas ambientais e regionalizações.",
+      "limites": "Programa se destina ao ingresso 2026; falta fonte pós-aplicação para registrar data efetiva."
+    },
+    {
+      "evidencia_id": "ufsc_programa_2026_historia_triagem",
+      "processo_id": "ufsc_vestibular",
+      "disciplina": "História",
+      "fonte_programa_id": "ufsc_programa_2026",
+      "edicao": "2026",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "ufsc_programa_2026",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        8
+      ],
+      "secao": "Ciências Humanas e Sociais; História",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Brasil e Santa Catarina, povos indígenas, ocupação e regimes políticos.",
+      "limites": "Não confundir recorte catarinense com amazônico; falta cadeia de três anos."
+    },
+    {
+      "evidencia_id": "uem_programa_2024_geografia_triagem",
+      "processo_id": "uem_vestibular_inverno",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "uem_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "uem_indice_2024_inverno",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        13,
+        14
+      ],
+      "secao": "Geografia; itens8,9,10",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Regionalização brasileira geral e recorte expresso do Paraná.",
+      "limites": "Não foi usado o link atual de programa 2025 como prova retroativa da edição 2024."
+    },
+    {
+      "evidencia_id": "uem_programa_2024_historia_triagem",
+      "processo_id": "uem_vestibular_inverno",
+      "disciplina": "História",
+      "fonte_programa_id": "uem_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "uem_indice_2024_inverno",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        15,
+        16
+      ],
+      "secao": "História",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Conteúdos nacionais e recorte do Paraná; previsão mínima de questões paranaenses.",
+      "limites": "Recorte amazônico não demonstrado; Verão e PAS são processos a examinar separadamente."
+    },
+    {
+      "evidencia_id": "uel_programa_2024_geografia_triagem",
+      "processo_id": "uel_vestibular",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "uel_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": "2023-10-29",
+      "ano_aplicacao_verificado": 2023,
+      "fonte_vigencia_id": "uel_programa_2024",
+      "fonte_data_id": "uel_data_2024",
+      "paginas_pdf": [],
+      "secao": "Programa das disciplinas; Geografia",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Menção amazônica explícita não localizada no texto indexado do programa 2024.",
+      "limites": "Paginação física pendente; tentativa de download atual não gerou PDF legível pelo extrator. Consulta limitada ao texto indexado. Data certificada apenas para primeira fase, não para todas as provas."
+    },
+    {
+      "evidencia_id": "uel_programa_2024_historia_triagem",
+      "processo_id": "uel_vestibular",
+      "disciplina": "História",
+      "fonte_programa_id": "uel_programa_2024",
+      "edicao": "2024",
+      "data_aplicacao": "2023-10-29",
+      "ano_aplicacao_verificado": 2023,
+      "fonte_vigencia_id": "uel_programa_2024",
+      "fonte_data_id": "uel_data_2024",
+      "paginas_pdf": [],
+      "secao": "Programa das disciplinas; História",
+      "previsao_regional": "recorte_amazonico_nao_demonstrado_nesta_fonte",
+      "evidencia_curta": "Menção amazônica explícita não localizada no texto indexado do programa 2024.",
+      "limites": "Paginação física pendente; tentativa de download atual não gerou PDF legível pelo extrator. Consulta limitada ao texto indexado. Data certificada apenas para primeira fase, não para todas as provas."
+    },
+    {
+      "evidencia_id": "unesp_2019_geografia_remissao",
+      "processo_id": "unesp_vestibular",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "unesp_programa_2019_remissao",
+      "edicao": "2019",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "unesp_programa_2019_remissao",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        43
+      ],
+      "paginas_impressas": [
+        43
+      ],
+      "secao": "Anexo II - Programas das provas comuns",
+      "previsao_regional": "pendente_curriculo_incorporado",
+      "evidencia_curta": "As provas incorporam DCN, PCN do Ensino Médio e Currículo do Estado de São Paulo.",
+      "limites": "A remissão está provada por edição; o endereço curricular histórico hoje redireciona. A versão exata e a previsão amazônica não estão certificadas. Não usar o currículo de 2012 como equivalente automático."
+    },
+    {
+      "evidencia_id": "unesp_2019_historia_remissao",
+      "processo_id": "unesp_vestibular",
+      "disciplina": "História",
+      "fonte_programa_id": "unesp_programa_2019_remissao",
+      "edicao": "2019",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "unesp_programa_2019_remissao",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        43
+      ],
+      "paginas_impressas": [
+        43
+      ],
+      "secao": "Anexo II - Programas das provas comuns",
+      "previsao_regional": "pendente_curriculo_incorporado",
+      "evidencia_curta": "As provas incorporam DCN, PCN do Ensino Médio e Currículo do Estado de São Paulo.",
+      "limites": "A remissão está provada por edição; o endereço curricular histórico hoje redireciona. A versão exata e a previsão amazônica não estão certificadas. Não usar o currículo de 2012 como equivalente automático."
+    },
+    {
+      "evidencia_id": "unesp_2022_geografia_remissao",
+      "processo_id": "unesp_vestibular",
+      "disciplina": "Geografia",
+      "fonte_programa_id": "unesp_programa_2022_remissao",
+      "edicao": "2022",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "unesp_programa_2022_remissao",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        50
+      ],
+      "paginas_impressas": [
+        50
+      ],
+      "secao": "Anexo II - Programas das provas comuns",
+      "previsao_regional": "pendente_curriculo_incorporado",
+      "evidencia_curta": "As provas incorporam DCN, PCN do Ensino Médio e Currículo do Estado de São Paulo.",
+      "limites": "A remissão está provada por edição; o endereço curricular histórico hoje redireciona. A versão exata e a previsão amazônica não estão certificadas. Não usar o currículo de 2012 como equivalente automático."
+    },
+    {
+      "evidencia_id": "unesp_2022_historia_remissao",
+      "processo_id": "unesp_vestibular",
+      "disciplina": "História",
+      "fonte_programa_id": "unesp_programa_2022_remissao",
+      "edicao": "2022",
+      "data_aplicacao": null,
+      "ano_aplicacao_verificado": null,
+      "fonte_vigencia_id": "unesp_programa_2022_remissao",
+      "fonte_data_id": null,
+      "paginas_pdf": [
+        50
+      ],
+      "paginas_impressas": [
+        50
+      ],
+      "secao": "Anexo II - Programas das provas comuns",
+      "previsao_regional": "pendente_curriculo_incorporado",
+      "evidencia_curta": "As provas incorporam DCN, PCN do Ensino Médio e Currículo do Estado de São Paulo.",
+      "limites": "A remissão está provada por edição; o endereço curricular histórico hoje redireciona. A versão exata e a previsão amazônica não estão certificadas. Não usar o currículo de 2012 como equivalente automático."
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "ciclo": 3,
+  "verificado_em": "2026-11-11T14:52:17.653172-04:00",
+  "commit_base": "d7efda0",
+  "tipo": "ampliacao_documental_nao_conclusao_do_estudo",
+  "testes_unitarios": {
+    "quantidade": 120,
+    "resultado": "passou",
+    "comando": "uv run --locked python -m unittest discover -s tests -q"
+  },
+  "processos_ou_ramos_registrados": 39,
+  "ies_com_triagem_parcial": 24,
+  "registros_documentais": 131,
+  "pdfs_unicos_sha256": 129,
+  "fontes_normativas_separadas": 5,
+  "aplicacoes_registradas": 33,
+  "datas_efetivas_pendentes": 5,
+  "datas_ufam_confirmadas_neste_ciclo": 3,
+  "cadernos": 23,
+  "questoes": 300,
+  "historia": 150,
+  "geografia": 150,
+  "anulacoes_oficiais": 10,
+  "respostas_com_finalidade_documental_pendente": 12,
+  "snapshot_2024_preservado": true,
+  "original_recebido_preservado": true,
+  "reexecucao_offline_identica": true,
+  "comandos_reexecucao": [
+    [
+      "scripts/inventario_ies.py",
+      "--offline"
+    ],
+    [
+      "scripts/historico_ies.py",
+      "--offline"
+    ],
+    [
+      "scripts/contexto_normativo.py",
+      "--offline"
+    ],
+    [
+      "scripts/consolidar_registro.py"
+    ],
+    [
+      "scripts/gabaritos.py"
+    ],
+    [
+      "scripts/preparar_revisao.py"
+    ],
+    [
+      "scripts/gerar_revisao.py"
+    ],
+    [
+      "scripts/pipeline.py",
+      "verificar"
+    ],
+    [
+      "scripts/pipeline.py",
+      "relatorio"
+    ]
+  ],
+  "arquivos_deterministicos_comparados": 18,
+  "consolidacao_e_relatorios_em_copia_sem_acervo_identicos": true,
+  "links_locais_validos": 31,
+  "regioes_visuais_com_hash_conferido": 372,
+  "ui_layout_modificado_neste_ciclo": false,
+  "rotulos_humanos_reais_preenchidos": 0,
+  "rotulos_humanos_preservados_sha256": "dc9016fb4bd925ddc22f0b86dc8adacb7e74053ae96a483960a796028e76a3ae",
+  "manifesto_relatorio_sha256": "78ec4c0689b5789a0625e2aae32a56be33cc97fccc8b7fe2e3d502f50c78c82d",
+  "limites": [
+    "Estudo nacional e cobertura da década incompletos; ramos a desagregar não são processos únicos comprovados.",
+    "Referência humana, teste congelado, avaliação da IA e análise substantiva permanecem pendentes.",
+    "Os cinco marcos normativos não demonstram implantação local ou mudança simultânea das provas.",
+    "A reprodução em cópia sem acervo usa metadados; recuperação de originais é modo separado."
+  ],
+  "conferencia_paginas_programas_c3": [
+    {
+      "documento_id": "ufms-vestibular2024-unica-programa",
+      "documento_sha256": "d54282e9169278b87d09324589b124cdfe2543f8110bf79ecb586895f275b821",
+      "paginas_examinadas": [
+        4
+      ],
+      "paginas_com_mencao_amazonica": [
+        4
+      ],
+      "resultado": "mencao_localizada_na_extracao_sem_substituir_revisao_humana"
+    },
+    {
+      "documento_id": "ufms-vestibular2025-unica-programa",
+      "documento_sha256": "598ed2fc879666fc489bfdaf1daee0cef2b49679fe5f08601eb09a38995cc6a5",
+      "paginas_examinadas": [
+        6,
+        7
+      ],
+      "paginas_com_mencao_amazonica": [
+        7
+      ],
+      "resultado": "mencao_localizada_na_extracao_sem_substituir_revisao_humana"
+    },
+    {
+      "documento_id": "ufms-vestibular2026-unica-programa",
+      "documento_sha256": "a6515bda4a253aafeeae3d533f4fcee0ebd26ff6b17fb59eadb91f87e90f5a9d",
+      "paginas_examinadas": [
+        4,
+        5
+      ],
+      "paginas_com_mencao_amazonica": [
+        5
+      ],
+      "resultado": "mencao_localizada_na_extracao_sem_substituir_revisao_humana"
+    },
+    {
+      "documento_id": "usp-fuvest2022-f1-programa",
+      "documento_sha256": "70be1c0096f3ba708664b7fef1170a55cb6260e7920053d096b63f2063c09a77",
+      "paginas_examinadas": [
+        76
+      ],
+      "paginas_com_mencao_amazonica": [
+        76
+      ],
+      "resultado": "mencao_localizada_na_extracao_sem_substituir_revisao_humana"
+    },
+    {
+      "documento_id": "usp-fuvest2023-f1-programa",
+      "documento_sha256": "02389d0d84ffa94b47b84528ac5c73dccbef80a283c06df68d38aa1b65890962",
+      "paginas_examinadas": [
+        80
+      ],
+      "paginas_com_mencao_amazonica": [
+        80
+      ],
+      "resultado": "mencao_localizada_na_extracao_sem_substituir_revisao_humana"
+    },
+    {
+      "documento_id": "usp-fuvest2024-f1-programa",
+      "documento_sha256": "ca32eee4e8ae8d479d4d77ac751033f20a4ca6887e828eeed9201010838975a8",
+      "paginas_examinadas": [
+        40
+      ],
+      "paginas_com_mencao_amazonica": [
+        40
+      ],
+      "resultado": "mencao_localizada_na_extracao_sem_substituir_revisao_humana"
+    }
+  ]
+}

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Vincula respostas publicadas aos itens do piloto, sem resolver questões.
 
-Lê somente gabaritos definitivos oficiais já coletados e extrações locais com
-hash conferido. Regras suportadas: tabelas numeradas UFAM PSC e a linha 37–54
+Lê publicações oficiais cadastradas como gabaritos definitivos e extrações locais
+com hash conferido. A finalidade documental pode permanecer pendente na auditoria;
+isso não modifica as respostas publicadas. Regras: tabelas UFAM PSC e a linha 37–54
 do Anexo I PI/E3 da UFRR. Outra disposição permanece não identificada.
 
 O campo ocorrencia_id referencia a ocorrência estável de questoes.csv.
@@ -21,12 +22,13 @@ import re
 import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.2.0'
+VERSION = '0.3.0'
 # Faixas do piloto com disciplina conhecida. Línguas têm colunas diferentes e
 # não recebem uma resposta por conveniência usando a primeira coluna.
 UFAM_SUPPORTED = {1: set(range(17, 29)), 2: set(range(17, 29)), 3: set(range(19, 31))}
-# Estes quatro arquivos foram identificados como definitivos no índice oficial
-# legado. O cabeçalho nomeia o projeto de ingresso, que difere da edição nas
+# Estes quatro arquivos estão indicados como definitivos no índice oficial
+# legado; PSC2019 E2 tem finalidade pendente na auditoria C3. O cabeçalho nomeia
+# o projeto de ingresso, que difere da edição nas
 # etapas 1 e 2. Só a igualdade dos bytes conhecidos autoriza essa leitura.
 UFAM_LEGACY_VERIFIED = {
     (2018, 3): {'projeto': 2018, 'sha256': '7480b62980e531574ae8276a4ea1068b9bd1b8534044a90085d08e40da923a23'},
@@ -36,7 +38,7 @@ UFAM_LEGACY_VERIFIED = {
 }
 FIELDS = ['ocorrencia_id', 'aplicacao_id', 'numero_questao',
           'disciplina', 'alternativa_oficial', 'estado_oficial',
-          'marcador_oficial', 'documento_id', 'documento_sha256', 'pagina_pdf',
+          'marcador_oficial', 'documento_id', 'documento_sha256', 'finalidade_documental', 'pagina_pdf',
           'secao_gabarito', 'url_origem', 'origem', 'revisao_humana',
           'vinculo_versao_caderno', 'responsavel_extracao', 'versao_extrator',
           'problemas']
@@ -49,6 +51,16 @@ def read_jsonl(path):
 
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def documentary_purpose(document, findings):
+    """Anexa a conclusão auditada apenas à identidade e aos bytes conferidos."""
+    matches = [row for row in findings
+               if row['documento_id'] == document['documento_id']
+               and row['sha256_arquivo'] == document['sha256']]
+    if len(matches) > 1:
+        raise ValueError('Finalidade documental com auditoria duplicada')
+    return matches[0]['resultado'] if matches else None
 
 
 def checked_path(root, value):
@@ -209,6 +221,9 @@ def link(root=ROOT):
     if len(ids) != len(set(ids)):
         raise ValueError('IDs de ocorrência duplicados em questoes.csv')
     documents = read_jsonl(root / 'data/registry/documentos.jsonl')
+    audit_path = root / 'data/registry/auditoria-datas-c3.json'
+    findings = (json.loads(audit_path.read_text(encoding='utf-8')).get('auditoria_gabaritos', [])
+                if audit_path.exists() else [])
     extracts = {row['documento_id']: row for row in read_jsonl(root / 'data/registry/extracoes.jsonl')}
     by_application = defaultdict(list)
     for document in documents:
@@ -249,6 +264,7 @@ def link(root=ROOT):
                    'marcador_oficial': result.get('marcador_oficial'),
                    'documento_id': source['documento_id'] if source else None,
                    'documento_sha256': source['sha256'] if source else None,
+                   'finalidade_documental': documentary_purpose(source, findings) if source else None,
                    'pagina_pdf': result.get('pagina_pdf'), 'secao_gabarito': result.get('secao_gabarito'),
                    'url_origem': source['url_origem'] if source else None,
                    'origem': 'extracao_gabarito_oficial', 'revisao_humana': 'pendente',

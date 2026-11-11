@@ -1,4 +1,4 @@
-# Dicionário de dados — versão 0.2.0
+# Dicionário de dados — versão 0.3.0
 
 Arquivos tabulares em UTF-8, com quebra de linha LF fixa para preservar hashes entre plataformas. Datas são ISO 8601. Páginas são posições do PDF a partir de 1. Campos vazios no CSV e `null` no JSON indicam valor ausente ou não verificado; não significam zero. Listas e regiões geométricas dentro de CSV usam JSON. Booleanos do CSV de segmentação aparecem como `True`/`False`.
 
@@ -10,6 +10,9 @@ Arquivos tabulares em UTF-8, com quebra de linha LF fixa para preservar hashes e
 | `data/registry/fontes_inventario.json` | Aquisição do cadastro e membros do ZIP; `fonte_id` | URL, data, ano, tamanho, CRC e hashes dos membros efetivamente obtidos. |
 | `data/registry/triagem_ufam.json` | Notas documentais por aplicação e modalidade | Fontes, datas, evidências de programa, retificações, aplicações futuras e pendências UFAM. |
 | `data/registry/triagem_demais.json` | Fontes, evidências e processos candidatos | Notas da pesquisa em UFRR, UEA, UERR, UEMA, UNEMAT e UEPG. |
+| `data/registry/triagem-sul-sudeste-c3.json` e `triagem-ne-co-c3.json` | Fontes, processos/ramos e evidências | Triagem nacional C3, com adoção do programa, datas efetivas e alcance das leituras. |
+| `data/registry/auditoria-datas-c3.json` | Verificação documental por aplicação | Datas confirmadas ou pendentes, retificações examinadas e ressalva de finalidade de gabarito. |
+| `data/registry/contexto-normativo.json` | Versão de fonte normativa; `fonte_id` | Marcos S2–S6 arquivados por hash, separados dos documentos de aplicações de vestibular. |
 | `data/registry/processos.csv` | Processo; `processo_id` | Consolidação de decisões com instituição, anos de programa por disciplina e alcance limitado às fontes examinadas. |
 | `data/registry/aplicacoes.csv` | Aplicação; `aplicacao_id` | Datas, edição, ingresso, etapa, contexto curricular e evidência temporal. |
 | `data/registry/evidencias-programa.csv` | Evidência disciplinar; `evidencia_id` | Páginas e fontes da triagem; não é transcrição integral dos tópicos nem vínculo questão–programa. |
@@ -36,6 +39,8 @@ Arquivos tabulares em UTF-8, com quebra de linha LF fixa para preservar hashes e
 `rede_codigo=1` representa rede pública no dicionário oficial. `categoria_administrativa_codigo` conserva 1 (federal), 2 (estadual), 3 (municipal) ou 7 (especial). Categoria Especial conserva `esfera_administrativa=a_verificar`, mesmo incluída pela rede pública. Siglas não são chave histórica suficiente para reconciliar instituições.
 
 Os estados de triagem seguem o protocolo: inclusão com recorrência, evidência insuficiente, lacuna documental e exclusões justificadas. `anos_previsao_historia/geografia` e `anos_programa_verificavel_historia/geografia` separam o número de anos positivos do alcance examinado. Uma lista vazia não comprova inexistência de programa. A condição de uma instituição na fotografia de 2024 não demonstra regularidade do seu processo seletivo.
+
+O ciclo 3 conserva `ciencias_humanas_integradas` como atribuição conjunta oficial. `anos_previsao_integrada` não alimenta automaticamente as listas de História/Geografia. Há uma evidência integrada por aplicação, com disciplinas abrangidas e interpretação em campos próprios. Os registros de ramos ainda não desagregados são pistas de investigação, sem comprovar um processo único. Recorrência de programa não comprova ocorrência de questões.
 
 ## Tempo e aplicações
 
@@ -72,6 +77,8 @@ O ciclo 2 acrescenta `pdftohtml_fragmentos_alternativo`: caixas nativas de fragm
 `hash_texto_sha256` compacta espaços do texto e sugere possíveis repetições. `conteudo_equivalente_id` permanece vazio: equivalência requer conferência de imagens, textos, alternativas e versões. Essa distinção é necessária para evitar vazamento entre desenvolvimento e teste.
 
 Em `gabaritos.csv`, `estado_oficial=alternativa_publicada` conserva a letra em `alternativa_oficial`; `estado_oficial=anulada` exige letra vazia. Documento, hash, página, seção e URL permitem conferir a origem. `vinculo_versao_caderno` e `revisao_humana` continuam pendentes. A fonte oficial não foi substituída por uma resolução do modelo.
+
+`finalidade_documental=definitivo_indicado_no_indice_sem_confirmacao_no_arquivo` preserva a divergência entre o rótulo do índice oficial e o conteúdo do PDF PSC2019 E2. As letras continuam publicadas; a finalidade para pontuação exige confirmação. O valor não classifica o documento como preliminar. `sha256_auditado`, quando presente no registro esperado, fixa os bytes examinados pela auditoria; a verificação recusa outra versão.
 
 `regionalidade` usa as quatro classes do protocolo. Nesta versão não há rótulos preenchidos. `origem_segmentacao=regra_automatica_de_layout` não é anotação humana. O manual define os campos de tema, território, demanda cognitiva e vínculo ao programa que serão usados na revisão.
 

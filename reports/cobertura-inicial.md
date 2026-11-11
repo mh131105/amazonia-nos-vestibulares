@@ -1,8 +1,8 @@
 # Cobertura documental inicial
 
-Documentos registrados nesta versão: **121**. Coletados: **121**. Com extração registrada: **121**.
+Documentos registrados nesta versão: **131**. Coletados: **131**. Com extração registrada: **131**.
 
-Os 121 registros coletados correspondem a **120 PDFs distintos por SHA-256**. Documentos compartilhados entre aplicações conservam os vínculos, sem duplicar o arquivo físico.
+Os 131 registros coletados correspondem a **129 PDFs distintos por SHA-256**. Documentos compartilhados entre aplicações conservam os vínculos, sem duplicar o arquivo físico.
 
 Essas contagens descrevem os documentos selecionados e localizados até esta versão. Não medem cobertura nacional, edições esperadas na década, incidência regional ou dificuldade das questões.
 
@@ -129,6 +129,16 @@ Essas contagens descrevem os documentos selecionados e localizados até esta ver
 | ufam-psc2023-e3-edital | edital | coletado | 30 | texto_extraido_nao_revisado |
 | ufam-psc2023-e3-prova | prova | coletado | 20 | revisar_ocr_ou_pagina_visual |
 | ufam-psc2023-e3-gabarito-definitivo | gabarito_definitivo | coletado | 1 | texto_extraido_nao_revisado |
+| ufam-psc2019-e1-retificacao-1dd9d13b | retificacao | coletado | 1 | texto_extraido_nao_revisado |
+| ufam-psc2019-e2-retificacao-1c1163a5 | retificacao | coletado | 1 | texto_extraido_nao_revisado |
+| ufam-psc2019-e1-comunicado | comunicado | coletado | 1 | texto_extraido_nao_revisado |
+| ufam-psc2019-e2-comunicado | comunicado | coletado | 1 | texto_extraido_nao_revisado |
+| ufms-vestibular2024-unica-programa | programa | coletado | 4 | texto_extraido_nao_revisado |
+| ufms-vestibular2025-unica-programa | programa | coletado | 7 | texto_extraido_nao_revisado |
+| ufms-vestibular2026-unica-programa | programa | coletado | 5 | texto_extraido_nao_revisado |
+| usp-fuvest2022-f1-programa | programa | coletado | 92 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2023-f1-programa | programa | coletado | 96 | revisar_ocr_ou_pagina_visual |
+| usp-fuvest2024-f1-programa | programa | coletado | 69 | texto_extraido_nao_revisado |
 
 A tabela CSV inclui os URLs e os hashes dos originais. `texto_extraido_nao_revisado` não significa seção disciplinar completa: a conferência de itens, imagens, gabaritos e retificações é uma etapa própria.
 

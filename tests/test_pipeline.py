@@ -204,6 +204,51 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicados"):
             pipeline.verify(self.root, require_local=False)
 
+    def test_verification_checks_bytes_examined_in_documentary_audit(self):
+        self.cached_record()
+        self.save('documentos-esperados.jsonl', [{**self.item, 'sha256_auditado': '0' * 64}])
+        with self.assertRaisesRegex(ValueError, 'bytes examinados'):
+            pipeline.verify(self.root, require_local=False)
+
+    def test_normative_context_is_verified_separately_from_exam_documents(self):
+        self.cached_record()
+        context = self.registry / 'contexto-normativo.json'
+        context.write_text(json.dumps({'fontes': [{
+            'fonte_id': 'norma-sintetica', 'status': 'coletado', 'sha256': 'a' * 64,
+            'caminho_local': 'data/raw/contexto/ausente.html', 'tamanho_bytes': 12,
+        }]}), encoding='utf-8')
+        with contextlib.redirect_stdout(io.StringIO()):
+            pipeline.verify(self.root, require_local=False)
+        with self.assertRaisesRegex(ValueError, 'contexto normativo ausente'):
+            pipeline.verify(self.root)
+
+    def test_published_key_cannot_omit_document_finality_reservation(self):
+        def table(relative, rows):
+            pipeline.write_csv(self.root / relative, rows, list(rows[0]))
+        table('data/registry/instituicoes.csv', [{'instituicao_id': 'ies-teste'}])
+        table('data/registry/processos.csv', [{'processo_id': 'processo-teste', 'instituicao_id': 'ies-teste'}])
+        table('data/registry/aplicacoes.csv', [{
+            'aplicacao_id': 'app-teste', 'processo_id': 'processo-teste', 'instituicao_id': 'ies-teste',
+            'data_aplicacao': '2024-01-01', 'ano_aplicacao': '2024', 'situacao': 'aplicada',
+        }])
+        digest = 'a' * 64
+        table('data/processed/questoes.csv', [{
+            'ocorrencia_id': 'q-teste', 'documento_id': 'prova-teste', 'documento_sha256': digest,
+            'aplicacao_id': 'app-teste', 'disciplina': 'historia', 'numero_questao': '1',
+        }])
+        key = {'ocorrencia_id': 'q-teste', 'documento_id': 'gab-teste', 'documento_sha256': digest,
+               'numero_questao': '1', 'estado_oficial': 'alternativa_publicada', 'alternativa_oficial': 'A'}
+        table('data/processed/gabaritos.csv', [key])
+        reservation = 'definitivo_indicado_no_indice_sem_confirmacao_no_arquivo'
+        documents = {
+            'prova-teste': {'sha256': digest, 'aplicacao_id': 'app-teste', 'tipo': 'prova'},
+            'gab-teste': {'sha256': digest, 'aplicacao_id': 'app-teste', 'finalidade_documental': reservation},
+        }
+        with self.assertRaisesRegex(ValueError, 'omite a ressalva'):
+            pipeline.verify_relations(self.root, documents)
+        table('data/processed/gabaritos.csv', [{**key, 'finalidade_documental': reservation}])
+        pipeline.verify_relations(self.root, documents)
+
     def test_collection_rejects_duplicate_manifest_before_network(self):
         record, _ = self.cached_record()
         self.save("documentos.jsonl", [record, dict(record)])

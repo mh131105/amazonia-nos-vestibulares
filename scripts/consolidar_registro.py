@@ -8,7 +8,12 @@ from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
-from pipeline import ROOT, REGISTRY, read_jsonl, read_csv, write_csv, write_jsonl
+if __package__:
+    from .pipeline import ROOT, REGISTRY, read_jsonl, read_csv, write_csv, write_jsonl
+    from .triagem_nacional import integrar, documentos_selecionados
+else:
+    from pipeline import ROOT, REGISTRY, read_jsonl, read_csv, write_csv, write_jsonl
+    from triagem_nacional import integrar, documentos_selecionados
 
 ALIASES = {
     'ufam_psc_2019_e3': 'ufam-psc2020-e3',
@@ -31,15 +36,95 @@ def period(year):
     return '2024' if year == 2024 else '2025-2026'
 
 
+def load_audit_c3(registry):
+    path = registry / 'auditoria-datas-c3.json'
+    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+
+
+def audited_application(item, verification):
+    """Sobrepõe evidência C3 sem reescrever as fontes de triagem C2."""
+    if not verification:
+        return item
+    result = dict(item)
+    temporal = dict(item['evidencia_data'])
+    temporal.update(fonte_cronograma=temporal['url'],
+                    localizacao_cronograma=temporal.get('localizacao'),
+                    fonte_auditoria_data='data/registry/auditoria-datas-c3.json',
+                    resultado_auditoria_data=verification['resultado'],
+                    fonte_corrobora=packed(verification.get('fonte_corrobora', [])))
+    actual = verification.get('data_aplicacao_confirmada')
+    if actual:
+        if (verification.get('fonte_tipo') != 'noticia_institucional_pos_evento'
+                or verification.get('resultado') != 'confirmada_por_noticia_institucional_pos_evento'):
+            raise ValueError('Data C3 sem confirmação primária de realização')
+        if item.get('data_aplicacao') not in (None, actual):
+            raise ValueError('Data C3 diverge da data efetiva já registrada')
+        result.update(data_aplicacao=actual, situacao='aplicada_data_corrobora_por_fonte_primaria')
+        temporal.update(url=verification['fonte_url'], localizacao=verification['seção/página'],
+                        natureza=verification['resultado'])
+    result['evidencia_data'] = temporal
+    return result
+
+
+def integrar_auditoria_c3(registry, applications, evidence, processes, expected, *, audit=None):
+    """Acrescenta vínculos e finalidade; não salva arquivos nem resolve pendências."""
+    audit = load_audit_c3(registry) if audit is None else audit
+    by_application = {row['aplicacao_id']: row for row in applications}
+    pairs = {(row['aplicacao_id'], row['url_origem']): row for row in expected}
+    additions = [(row, [row['aplicacao_id']], 'retificacao')
+                 for row in audit.get('retificacoes_adicionais', [])]
+    additions += [(row, row['aplicacoes'], 'comunicado')
+                  for row in audit.get('comunicados_adicionais', [])]
+    for source, application_ids, kind in additions:
+        for application_id in application_ids:
+            app = by_application.get(application_id)
+            if app is None:
+                raise ValueError('Documento da auditoria C3 sem aplicação')
+            url = source['fonte_url']
+            pair = application_id, url
+            if pair not in pairs:
+                suffix = '-' + hashlib.sha256(url.encode()).hexdigest()[:8] if kind == 'retificacao' else ''
+                row = {'documento_id': application_id + '-' + kind + suffix,
+                       'aplicacao_id': application_id, 'instituicao_sigla': app['instituicao_sigla'],
+                       'processo_id': app['processo_id'], 'tipo': kind,
+                       'publicador': 'COMPEC/UFAM', 'url_origem': url,
+                       'fonte_url': source['fonte_indice'], 'origem_oficial': True,
+                       'condicoes_uso': 'nao_verificadas', 'redistribuicao_autorizada': None,
+                       'escopo_coleta': 'auditoria_documental_ciclo3',
+                       'transporte': 'curl_tls_sistema',
+                       'observacao': source.get('resultado', 'Reabertura de entrega de identidade; sem alteração identificada do programa ou dia de prova.')}
+                expected.append(row)
+                pairs[pair] = row
+            if source.get('sha256'):
+                pairs[pair]['sha256_auditado'] = source['sha256']
+    by_id = {row['documento_id']: row for row in expected}
+    for finding in audit.get('auditoria_gabaritos', []):
+        row = by_id.get(finding['documento_id'])
+        if row is None or row['url_origem'] != finding['url_arquivo']:
+            raise ValueError('Gabarito auditado C3 ausente ou com URL divergente')
+        row.update(finalidade_documental=finding['resultado'],
+                   sha256_finalidade_documental=finding['sha256_arquivo'],
+                   sha256_auditado=finding['sha256_arquivo'],
+                   fonte_auditoria_finalidade='data/registry/auditoria-datas-c3.json')
+    if len({row['documento_id'] for row in expected}) != len(expected):
+        raise ValueError('Documento duplicado na auditoria C3')
+    return expected
+
+
 def expand(registry, institutions, applications, evidence, processes):
     existing = {r['aplicacao_id'] for r in applications}
     process_by_id = {r['processo_id']: r for r in processes}
     expected_path = registry / 'documentos-esperados.jsonl'
     expected = read_jsonl(expected_path)
+    audit = load_audit_c3(registry)
+    verifications = {row['aplicacao_id']: row for row in audit.get('verificacoes', [])}
+    if len(verifications) != len(audit.get('verificacoes', [])):
+        raise ValueError('Aplicação repetida na auditoria C3')
     doc_pairs = {(r['aplicacao_id'], r['url_origem']) for r in expected}
     for path in sorted(registry.glob('expansao-*-c2.json')):
         source = json.loads(path.read_text(encoding='utf-8'))
-        for item in source.get('aplicacoes', []):
+        for original in source.get('aplicacoes', []):
+            item = audited_application(original, verifications.get(original['aplicacao_id']))
             key, process_id = item['aplicacao_id'], item['processo_id']
             if key in existing:
                 raise ValueError(f'Aplicação repetida na expansão: {key}')
@@ -65,6 +150,10 @@ def expand(registry, institutions, applications, evidence, processes):
                 'fonte_data': temporal['url'], 'localizacao_data': temporal.get('localizacao'),
                 'qualidade_evidencia_data': temporal.get('natureza'),
                 'fonte_corrobora': temporal.get('fonte_corrobora'),
+                'fonte_cronograma': temporal.get('fonte_cronograma'),
+                'localizacao_cronograma': temporal.get('localizacao_cronograma'),
+                'fonte_auditoria_data': temporal.get('fonte_auditoria_data'),
+                'resultado_auditoria_data': temporal.get('resultado_auditoria_data'),
                 'serie_alvo': item.get('serie_alvo'), 'ano_serie_alvo': item.get('ano_serie_alvo'),
                 'regime_curricular_contexto': 'nao_validado_localmente',
                 'alinhamento_explicito_prova': 'nao_verificado',
@@ -106,6 +195,7 @@ def expand(registry, institutions, applications, evidence, processes):
                                  'transporte': 'curl_tls_sistema' if 'antigocompec.ufam.edu.br' in doc['url'] else 'urllib',
                                  'observacao': doc.get('observacao', doc.get('titulo', 'Conferência do documento e retificações pendente.'))})
                 doc_pairs.add(pair)
+    integrar_auditoria_c3(registry, applications, evidence, processes, expected, audit=audit)
     for process in processes:
         if process['estado_triagem'].startswith('excluido'):
             continue
@@ -247,6 +337,15 @@ def main():
                 'trecho_curto': program.get('trecho_curto'), 'fonte_url': reference['url'],
                 'origem_anotacao': 'triagem_assistida_por_ia', 'revisao_humana': 'pendente'})
     expected = expand(registry, institutions, applications, evidence, processes)
+    integrar(registry, institutions, applications, evidence, processes)
+    selected_ids = {row['documento_id']: row for row in expected}
+    for row in documentos_selecionados(registry, applications):
+        known = selected_ids.get(row['documento_id'])
+        if known and known != row:
+            raise ValueError('Solicitação nacional mudou; investigar antes de substituir')
+        if not known:
+            expected.append(row)
+            selected_ids[row['documento_id']] = row
     for label, rows, key in [('processos', processes, 'processo_id'), ('aplicacoes', applications, 'aplicacao_id'), ('evidencias-programa', evidence, 'evidencia_id')]:
         if label == 'aplicacoes':
             for row in rows:

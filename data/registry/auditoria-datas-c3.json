@@ -1,0 +1,770 @@
+{
+  "versao": "1.0",
+  "ciclo": 3,
+  "auditado_em": "2026-11-11",
+  "responsavel": "Auditoria assistida por IA; Matheus fará a revisão humana",
+  "escopo": "Oito datas UFAM antes pendentes em expansao-ufam-c2.json; fontes C2 preservadas.",
+  "criterio_data": "Confirmar dia efetivo somente com evidência primária explícita de realização, contextualizada pela edição/projeto. Terceiros e cronogramas mantidos separadamente.",
+  "resumo": {
+    "aplicacoes_auditadas": 8,
+    "datas_confirmadas_primarias": 3,
+    "datas_pendentes": 5,
+    "retificacoes_locais_examinadas": 19,
+    "retificacoes_adicionais_examinadas": 2,
+    "comunicados_adicionais_examinados": 1
+  },
+  "verificacoes": [
+    {
+      "aplicacao_id": "ufam-psc2019-e1",
+      "edicao": "PSC2019 - 1ª Etapa - Projeto 2021",
+      "data_aplicacao_prevista": "2018-12-02",
+      "revisao_humana": "pendente",
+      "data_aplicacao_confirmada": "2018-12-02",
+      "resultado": "confirmada_por_noticia_institucional_pos_evento",
+      "fonte_url": "https://antigo.ufam.edu.br/2013-04-29-19-37-05/arquivo-de-noticias/9148-estudantes-enfrentam-grandes-distancias-para-fazer-o-psc",
+      "fonte_tipo": "noticia_institucional_pos_evento",
+      "publicador": "UFAM / Equipe Ascom",
+      "autor": "Juscelino Simões",
+      "publicado_em": "2018-12-03",
+      "seção/página": "Subtítulo e primeiro parágrafo do corpo",
+      "fonte_corrobora": [
+        {
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/Edital_62_PSC2019_1Etapa.pdf",
+          "tipo": "edital_cronograma",
+          "localizacao": "Cronograma, página PDF 14",
+          "corrobora": "Prevê 02/12/2018 e liga a etapa ao projeto/edição."
+        },
+        {
+          "url": "https://vestibular.brasilescola.uol.com.br/noticias/ufam-divulga-notas-1-a-2-a-etapa-psc-2019/345127.html",
+          "tipo": "noticia_terceiro_pos_evento",
+          "publicador": "Brasil Escola",
+          "autor": "Giullya Franco",
+          "publicado_em": "2019-04-01",
+          "corrobora": "Relata provas em 02/12/2018 para as três etapas."
+        }
+      ],
+      "limites": [
+        "A notícia identifica o PSC e suas três etapas, sem escrever o nome PSC2019 no primeiro parágrafo; a ligação à edição deriva do cronograma correspondente e da documentação das etapas.",
+        "Preservar o nome do projeto: E1 Projeto 2021; E2 Projeto 2020; E3 Projeto 2019. Esses anos não são o ano-calendário de aplicação.",
+        "A divergência externa entre 02 e 03/12/2018 permanece registrada em divergencias, resolvida pelo relato institucional do dia seguinte."
+      ],
+      "evidencia_curta": "Notícia institucional de 03/12/2018 relata a aplicação no domingo, dia 2, e abrange as três etapas do PSC."
+    },
+    {
+      "aplicacao_id": "ufam-psc2019-e2",
+      "edicao": "PSC2019 - 2ª Etapa - Projeto 2020",
+      "data_aplicacao_prevista": "2018-12-02",
+      "revisao_humana": "pendente",
+      "data_aplicacao_confirmada": "2018-12-02",
+      "resultado": "confirmada_por_noticia_institucional_pos_evento",
+      "fonte_url": "https://antigo.ufam.edu.br/2013-04-29-19-37-05/arquivo-de-noticias/9148-estudantes-enfrentam-grandes-distancias-para-fazer-o-psc",
+      "fonte_tipo": "noticia_institucional_pos_evento",
+      "publicador": "UFAM / Equipe Ascom",
+      "autor": "Juscelino Simões",
+      "publicado_em": "2018-12-03",
+      "seção/página": "Subtítulo e primeiro parágrafo do corpo",
+      "fonte_corrobora": [
+        {
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/Edital_63_PSC2019_2Etapa.pdf",
+          "tipo": "edital_cronograma",
+          "localizacao": "Cronograma, página PDF 14",
+          "corrobora": "Prevê 02/12/2018 e liga a etapa ao projeto/edição."
+        },
+        {
+          "url": "https://vestibular.brasilescola.uol.com.br/noticias/ufam-divulga-notas-1-a-2-a-etapa-psc-2019/345127.html",
+          "tipo": "noticia_terceiro_pos_evento",
+          "publicador": "Brasil Escola",
+          "autor": "Giullya Franco",
+          "publicado_em": "2019-04-01",
+          "corrobora": "Relata provas em 02/12/2018 para as três etapas."
+        }
+      ],
+      "limites": [
+        "A notícia identifica o PSC e suas três etapas, sem escrever o nome PSC2019 no primeiro parágrafo; a ligação à edição deriva do cronograma correspondente e da documentação das etapas.",
+        "Preservar o nome do projeto: E1 Projeto 2021; E2 Projeto 2020; E3 Projeto 2019. Esses anos não são o ano-calendário de aplicação.",
+        "A divergência externa entre 02 e 03/12/2018 permanece registrada em divergencias, resolvida pelo relato institucional do dia seguinte."
+      ],
+      "evidencia_curta": "Notícia institucional de 03/12/2018 relata a aplicação no domingo, dia 2, e abrange as três etapas do PSC."
+    },
+    {
+      "aplicacao_id": "ufam-psc2019-e3",
+      "edicao": "PSC2019 - 3ª Etapa - Projeto 2019",
+      "data_aplicacao_prevista": "2018-12-02",
+      "revisao_humana": "pendente",
+      "data_aplicacao_confirmada": "2018-12-02",
+      "resultado": "confirmada_por_noticia_institucional_pos_evento",
+      "fonte_url": "https://antigo.ufam.edu.br/2013-04-29-19-37-05/arquivo-de-noticias/9148-estudantes-enfrentam-grandes-distancias-para-fazer-o-psc",
+      "fonte_tipo": "noticia_institucional_pos_evento",
+      "publicador": "UFAM / Equipe Ascom",
+      "autor": "Juscelino Simões",
+      "publicado_em": "2018-12-03",
+      "seção/página": "Subtítulo e primeiro parágrafo do corpo",
+      "fonte_corrobora": [
+        {
+          "url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/Edital_64_PSC2019_3Etapa.pdf",
+          "tipo": "edital_cronograma",
+          "localizacao": "Cronograma, página PDF 29",
+          "corrobora": "Prevê 02/12/2018 e liga a etapa ao projeto/edição."
+        },
+        {
+          "url": "https://vestibular.brasilescola.uol.com.br/noticias/ufam-divulga-notas-1-a-2-a-etapa-psc-2019/345127.html",
+          "tipo": "noticia_terceiro_pos_evento",
+          "publicador": "Brasil Escola",
+          "autor": "Giullya Franco",
+          "publicado_em": "2019-04-01",
+          "corrobora": "Relata provas em 02/12/2018 para as três etapas."
+        }
+      ],
+      "limites": [
+        "A notícia identifica o PSC e suas três etapas, sem escrever o nome PSC2019 no primeiro parágrafo; a ligação à edição deriva do cronograma correspondente e da documentação das etapas.",
+        "Preservar o nome do projeto: E1 Projeto 2021; E2 Projeto 2020; E3 Projeto 2019. Esses anos não são o ano-calendário de aplicação.",
+        "A divergência externa entre 02 e 03/12/2018 permanece registrada em divergencias, resolvida pelo relato institucional do dia seguinte."
+      ],
+      "evidencia_curta": "Notícia institucional de 03/12/2018 relata a aplicação no domingo, dia 2, e abrange as três etapas do PSC."
+    },
+    {
+      "aplicacao_id": "ufam-psc2021-e3",
+      "edicao": "PSC2021 - 3ª Etapa - Projeto 2021",
+      "data_aplicacao_prevista": "2021-10-31",
+      "revisao_humana": "pendente",
+      "data_aplicacao_confirmada": null,
+      "resultado": "pendente_confirmacao_primaria_do_dia_com_corroboração_externa",
+      "fonte_url": "https://www.ufam.edu.br/noticias-destaque/2705-psc-2021-inscricoes-abertas-de-11-a-25-de-agosto.html",
+      "fonte_tipo": "noticia_institucional_pre_evento",
+      "publicador": "UFAM / Equipe Ascom",
+      "autor": "Sandra Siqueira",
+      "publicado_em": "2021-07-20",
+      "seção/página": "Provas; em PSC2023 E1/E2, parágrafo da data das duas etapas",
+      "fonte_corrobora": [
+        {
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/1/Edital%2016%20de%202021.pdf",
+          "tipo": "edital_cronograma",
+          "corrobora": "Contém a data prevista, sem demonstrar por si só o dia efetivo."
+        },
+        {
+          "url": "https://vestibular.mundoeducacao.uol.com.br/amp/noticias/ufam-solta-resultado-da-3-etapa-do-psc-2021/344010.html",
+          "tipo": "noticia_terceiro_pos_evento",
+          "publicador": "Mundo Educação / Super Vestibular",
+          "autor": "Silvia Tancredi",
+          "publicado_em": "2021-12-02",
+          "atualizado_em": "2021-12-08",
+          "localizacao": "Vestibular",
+          "corrobora": "Informa aplicação em 31/10/2021.",
+          "limites": "Texto jornalístico externo; a autoria não é da UFAM. Busca recuperou conteúdo; uma abertura direta posterior expirou."
+        },
+        {
+          "url": "https://edoc.ufam.edu.br/handle/123456789/4620",
+          "tipo": "indice_oficial",
+          "corrobora": "Reúne prova/gabaritos, sustentando a ocorrência da aplicação; não explicita por si só o dia efetivo."
+        }
+      ],
+      "limites": [
+        "Anúncio anterior à prova utiliza futuro. Cronograma e chamada de colaboradores não foram promovidos a relato de realização.",
+        "Corroboração jornalística externa converge com a data prevista, mas não satisfaz o critério de confirmação primária adotado nesta auditoria.",
+        "Não localizar uma confirmação primária nas consultas executadas não prova que ela inexista.",
+        "As retificações 03 e 04 reabrem inscrições e preservam 31/10/2021 como previsão de prova; a capa do caderno tem o campo de data em branco."
+      ],
+      "evidencia_curta": "A fonte institucional anuncia a data prevista; a reportagem posterior de terceiro relata o mesmo dia. Data exata mantida pendente."
+    },
+    {
+      "aplicacao_id": "ufam-psc2022-e3",
+      "edicao": "PSC2022 - 3ª Etapa - Projeto 2022",
+      "data_aplicacao_prevista": "2022-07-17",
+      "revisao_humana": "pendente",
+      "data_aplicacao_confirmada": null,
+      "resultado": "pendente_confirmacao_primaria_do_dia_com_corroboração_externa",
+      "fonte_url": "https://ufam.edu.br/noticias-destaque/3580-ufam-divulga-edital-do-psc-2022-3-etapa-inscricoes-abertas-de-10-a-25-de-maio.html",
+      "fonte_tipo": "noticia_institucional_pre_evento",
+      "publicador": "UFAM / Equipe Ascom",
+      "autor": "Sandra Siqueira",
+      "publicado_em": "2022-04-12",
+      "seção/página": "Provas; em PSC2023 E1/E2, parágrafo da data das duas etapas",
+      "fonte_corrobora": [
+        {
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/1/Edital%2013%20de%202022.pdf",
+          "tipo": "edital_cronograma",
+          "corrobora": "Contém a data prevista, sem demonstrar por si só o dia efetivo."
+        },
+        {
+          "url": "https://vestibular.brasilescola.uol.com.br/index.php/noticias/ufam-libera-gabaritos-da-3-etapa-do-psc-2022/353045.html",
+          "tipo": "noticia_terceiro_pos_evento",
+          "publicador": "Brasil Escola",
+          "autor": "Silvia Tancredi",
+          "publicado_em": "2022-07-18",
+          "atualizado_em": "2022-07-18",
+          "localizacao": "Subtítulo e notícia sobre gabaritos",
+          "corrobora": "Notícia de 18/07 informa que as provas ocorreram no dia anterior, 17/07/2022.",
+          "limites": "Texto jornalístico externo; contém quantitativos de vagas/participantes que não foram validados e não são utilizados."
+        },
+        {
+          "url": "https://edoc.ufam.edu.br/handle/123456789/5418",
+          "tipo": "indice_oficial",
+          "corrobora": "Reúne prova/gabaritos, sustentando a ocorrência da aplicação; não explicita por si só o dia efetivo."
+        }
+      ],
+      "limites": [
+        "Anúncio anterior à prova utiliza futuro. Cronograma e chamada de colaboradores não foram promovidos a relato de realização.",
+        "Corroboração jornalística externa converge com a data prevista, mas não satisfaz o critério de confirmação primária adotado nesta auditoria.",
+        "Não localizar uma confirmação primária nas consultas executadas não prova que ela inexista."
+      ],
+      "evidencia_curta": "A fonte institucional anuncia a data prevista; a reportagem posterior de terceiro relata o mesmo dia. Data exata mantida pendente."
+    },
+    {
+      "aplicacao_id": "ufam-psc2023-e1",
+      "edicao": "PSC2023 - 1ª Etapa - Projeto 2025",
+      "data_aplicacao_prevista": "2023-07-30",
+      "revisao_humana": "pendente",
+      "data_aplicacao_confirmada": null,
+      "resultado": "pendente_confirmacao_primaria_do_dia_com_corroboração_externa",
+      "fonte_url": "https://ufam.edu.br/noticias/4913-compec-informa-prazo-de-solicitacao-de-isencao-da-taxa-de-inscricao-dos-candidatos-da-1a-e-2a-etapas-do-psc-2023.html",
+      "fonte_tipo": "noticia_institucional_pre_evento",
+      "publicador": "UFAM / Equipe Ascom",
+      "autor": "Márcia Grana",
+      "publicado_em": "2023-05-29",
+      "seção/página": "Provas; em PSC2023 E1/E2, parágrafo da data das duas etapas",
+      "fonte_corrobora": [
+        {
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/1/Edital%2013%20de%202023.pdf",
+          "tipo": "edital_cronograma",
+          "corrobora": "Contém a data prevista, sem demonstrar por si só o dia efetivo."
+        },
+        {
+          "url": "https://vestibular.brasilescola.uol.com.br/index.php/noticias/gabaritos-das-provas-da-1-e-2-etapas-do-psc-2023-da-ufam-estao-disponiveis/354823.html",
+          "tipo": "noticia_terceiro_pos_evento",
+          "publicador": "Brasil Escola",
+          "autor": "Lucas Afonso",
+          "publicado_em": "2023-07-31",
+          "atualizado_em": "2023-08-09",
+          "localizacao": "Primeiro parágrafo e Provas do PSC 2023 1ª e 2ª etapas da UFAM",
+          "corrobora": "Relata que ambas as primeiras etapas foram aplicadas em 30/07/2023.",
+          "limites": "Texto jornalístico externo; conteúdo atualizado em 09/08, portanto o estado atual não representa integralmente a versão de 31/07."
+        },
+        {
+          "url": "https://edoc.ufam.edu.br/handle/123456789/6870",
+          "tipo": "indice_oficial",
+          "corrobora": "Reúne prova/gabaritos, sustentando a ocorrência da aplicação; não explicita por si só o dia efetivo."
+        }
+      ],
+      "limites": [
+        "Anúncio anterior à prova utiliza futuro. Cronograma e chamada de colaboradores não foram promovidos a relato de realização.",
+        "Corroboração jornalística externa converge com a data prevista, mas não satisfaz o critério de confirmação primária adotado nesta auditoria.",
+        "Não localizar uma confirmação primária nas consultas executadas não prova que ela inexista."
+      ],
+      "evidencia_curta": "A fonte institucional anuncia a data prevista; a reportagem posterior de terceiro relata o mesmo dia. Data exata mantida pendente."
+    },
+    {
+      "aplicacao_id": "ufam-psc2023-e2",
+      "edicao": "PSC2023 - 2ª Etapa - Projeto 2024",
+      "data_aplicacao_prevista": "2023-07-30",
+      "revisao_humana": "pendente",
+      "data_aplicacao_confirmada": null,
+      "resultado": "pendente_confirmacao_primaria_do_dia_com_corroboração_externa",
+      "fonte_url": "https://ufam.edu.br/noticias/4913-compec-informa-prazo-de-solicitacao-de-isencao-da-taxa-de-inscricao-dos-candidatos-da-1a-e-2a-etapas-do-psc-2023.html",
+      "fonte_tipo": "noticia_institucional_pre_evento",
+      "publicador": "UFAM / Equipe Ascom",
+      "autor": "Márcia Grana",
+      "publicado_em": "2023-05-29",
+      "seção/página": "Provas; em PSC2023 E1/E2, parágrafo da data das duas etapas",
+      "fonte_corrobora": [
+        {
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/1/Edital%2014%20de%202023.pdf",
+          "tipo": "edital_cronograma",
+          "corrobora": "Contém a data prevista, sem demonstrar por si só o dia efetivo."
+        },
+        {
+          "url": "https://vestibular.brasilescola.uol.com.br/index.php/noticias/gabaritos-das-provas-da-1-e-2-etapas-do-psc-2023-da-ufam-estao-disponiveis/354823.html",
+          "tipo": "noticia_terceiro_pos_evento",
+          "publicador": "Brasil Escola",
+          "autor": "Lucas Afonso",
+          "publicado_em": "2023-07-31",
+          "atualizado_em": "2023-08-09",
+          "localizacao": "Primeiro parágrafo e Provas do PSC 2023 1ª e 2ª etapas da UFAM",
+          "corrobora": "Relata que ambas as primeiras etapas foram aplicadas em 30/07/2023.",
+          "limites": "Texto jornalístico externo; conteúdo atualizado em 09/08, portanto o estado atual não representa integralmente a versão de 31/07."
+        },
+        {
+          "url": "https://edoc.ufam.edu.br/handle/123456789/6871",
+          "tipo": "indice_oficial",
+          "corrobora": "Reúne prova/gabaritos, sustentando a ocorrência da aplicação; não explicita por si só o dia efetivo."
+        }
+      ],
+      "limites": [
+        "Anúncio anterior à prova utiliza futuro. Cronograma e chamada de colaboradores não foram promovidos a relato de realização.",
+        "Corroboração jornalística externa converge com a data prevista, mas não satisfaz o critério de confirmação primária adotado nesta auditoria.",
+        "Não localizar uma confirmação primária nas consultas executadas não prova que ela inexista."
+      ],
+      "evidencia_curta": "A fonte institucional anuncia a data prevista; a reportagem posterior de terceiro relata o mesmo dia. Data exata mantida pendente."
+    },
+    {
+      "aplicacao_id": "ufam-psc2023-e3",
+      "edicao": "PSC2023 - 3ª Etapa - Projeto 2023",
+      "data_aplicacao_prevista": "2023-04-30",
+      "revisao_humana": "pendente",
+      "data_aplicacao_confirmada": null,
+      "resultado": "pendente_confirmacao_primaria_do_dia_com_corroboração_externa",
+      "fonte_url": "https://ufam.edu.br/noticias-destaque/4441-ufam-lanca-edital-do-psc-2023-3-etapa-para-concluintes-do-ensino-medio-em-2022.html",
+      "fonte_tipo": "noticia_institucional_pre_evento",
+      "publicador": "UFAM / Equipe Ascom",
+      "autor": "Sandra Siqueira",
+      "publicado_em": "2023-01-09",
+      "seção/página": "Provas; em PSC2023 E1/E2, parágrafo da data das duas etapas",
+      "fonte_corrobora": [
+        {
+          "url": "https://edoc.ufam.edu.br/bitstream/123456789/6402/3/Edital%2004%20de%202023%20-%20PSC%202023%20-%203a%20Etapa.pdf",
+          "tipo": "edital_cronograma",
+          "corrobora": "Contém a data prevista, sem demonstrar por si só o dia efetivo."
+        },
+        {
+          "url": "https://vestibular.brasilescola.uol.com.br/noticias/ufam-divulga-resultado-do-psc-2023/354584.html",
+          "tipo": "noticia_terceiro_pos_evento",
+          "publicador": "Brasil Escola",
+          "autor": "Lucas Afonso",
+          "publicado_em": "2023-05-31",
+          "atualizado_em": "2023-05-31",
+          "localizacao": "3ª etapa PSC 2023 da UFAM",
+          "corrobora": "Relata aplicação em 30/04/2023.",
+          "limites": "Texto jornalístico externo; erro editorial em quantitativo de vagas e tempo verbal em outro trecho, não utilizados como evidência."
+        },
+        {
+          "url": "https://edoc.ufam.edu.br/handle/123456789/6402",
+          "tipo": "indice_oficial",
+          "corrobora": "Reúne prova/gabaritos, sustentando a ocorrência da aplicação; não explicita por si só o dia efetivo."
+        },
+        {
+          "url": "https://www.ufam.edu.br/noticias-destaque/4920-aprovados-lista-com-resultado-do-psc-etapa-2023-ja-esta-disponivel-2.html",
+          "tipo": "noticia_institucional_pos_evento_sem_data_da_prova",
+          "publicador": "UFAM / Ascom",
+          "publicado_em": "2023-05-31",
+          "corrobora": "Confirma divulgação do resultado, sem informar o dia da aplicação."
+        }
+      ],
+      "limites": [
+        "Anúncio anterior à prova utiliza futuro. Cronograma e chamada de colaboradores não foram promovidos a relato de realização.",
+        "Corroboração jornalística externa converge com a data prevista, mas não satisfaz o critério de confirmação primária adotado nesta auditoria.",
+        "Não localizar uma confirmação primária nas consultas executadas não prova que ela inexista.",
+        "Notícia pre-evento publicada em 09/01 e atualizada em 16/03/2023; o texto atual não permite reconstruir sozinho as versões anteriores."
+      ],
+      "evidencia_curta": "A fonte institucional anuncia a data prevista; a reportagem posterior de terceiro relata o mesmo dia. Data exata mantida pendente."
+    }
+  ],
+  "divergencias": [
+    {
+      "tema": "Dia de aplicação PSC2019",
+      "fontes": [
+        {
+          "url": "https://riu.ufam.edu.br/bitstream/prefix/5544/5/Clipping_ASCOM_21.01.2019.pdf",
+          "tipo": "clipping_institucional_de_autoria_externa",
+          "hospedador": "UFAM / RIU / Ascom",
+          "publicador_original": "Super Vestibular / Mundo Educação",
+          "autor": "Silvia Tancredi",
+          "publicado_em_original": "2019-01-18",
+          "alegacao": "Provas em 03/12/2018.",
+          "fonte_original": "https://vestibular.mundoeducacao.uol.com.br/noticias/ufam-publica-cronograma-matriculas-psc-2019/338344.html"
+        },
+        {
+          "url": "https://riu.ufam.edu.br/bitstream/prefix/5544/5/Clipping_ASCOM_21.01.2019.pdf",
+          "tipo": "clipping_institucional_de_autoria_externa",
+          "hospedador": "UFAM / RIU / Ascom",
+          "publicador_original": "Brasil Escola",
+          "autor": "Giullya Franco",
+          "publicado_em_original": "2019-01-18",
+          "alegacao": "Provas em 02/12/2018.",
+          "fonte_original": "https://vestibular.brasilescola.uol.com.br/noticias/ufam-divulga-edital-matriculas-psc-2019/344583.html"
+        },
+        {
+          "url": "https://riu.ufam.edu.br/bitstream/prefix/5601/5/Clipping_ASCOM_02.04.2019.pdf",
+          "tipo": "clipping_institucional_de_autoria_externa",
+          "hospedador": "UFAM / RIU / Ascom",
+          "publicador_original": "Brasil Escola",
+          "autor": "Giullya Franco",
+          "publicado_em_original": "2019-04-01",
+          "alegacao": "Provas em 02/12/2018 para as três etapas."
+        }
+      ],
+      "resolucao": "O relato primário Ascom de 03/12/2018 confirma o domingo 02/12/2018; a alegação externa de dia 3 não prevalece.",
+      "fonte_primaria": "https://antigo.ufam.edu.br/2013-04-29-19-37-05/arquivo-de-noticias/9148-estudantes-enfrentam-grandes-distancias-para-fazer-o-psc",
+      "limites": "Hospedagem de clipping pela instituição não transforma notícia externa em voz institucional. A divergência é preservada."
+    }
+  ],
+  "auditoria_retificacoes": [
+    {
+      "documento_id": "ufam-psc2019-e1-retificacao-3b516ee9",
+      "aplicacao_id": "ufam-psc2019-e1",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/AVISO_RET_ACR_01_EDITAL62_PSC1ETAPA.pdf",
+      "sha256": "ad92bb9038eee3fa56dc4c39f784d3b0056767671af57cfc3fbe5f7c7b9d663b",
+      "paginas_pdf_examinadas": [
+        1,
+        2,
+        3
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Pagamento da taxa, condição especial, nome social e datas de CCI; não altera dia de prova/programa.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2019-e1-retificacao-695cf5a6",
+      "aplicacao_id": "ufam-psc2019-e1",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/1_ETAPA/AVISO_RET_02_EDITAL62_PSC1ETAPA.pdf",
+      "sha256": "d647fb3c30e8246480bdb9547a8c6a9dbdcbef108c20216803b99b119781a6cf",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Divulgação do CCI passa a 23/10/2018.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2019-e2-retificacao-71da0f22",
+      "aplicacao_id": "ufam-psc2019-e2",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/AVISO_RET_ACR_01_EDITAL63_PSC2ETAPA.pdf",
+      "sha256": "fc16c3fc18c4e1abead3558f8906b83f83b7ec366923a1d2d9f53c5664fa3327",
+      "paginas_pdf_examinadas": [
+        1,
+        2,
+        3
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Pagamento da taxa, condição especial, nome social e datas de CCI; não altera dia de prova/programa.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2019-e2-retificacao-e7449e9e",
+      "aplicacao_id": "ufam-psc2019-e2",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/AVISO_RET_02_EDITAL63_PSC2ETAPA.pdf",
+      "sha256": "037d3fa3613e41911186149a705804eb44fa6b4656c7adad44e9265c86480bce",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Divulgação do CCI passa a 23/10/2018.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2019-e3-retificacao-76dace64",
+      "aplicacao_id": "ufam-psc2019-e3",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/AVISO_RET_03_EDITAL64_PSC3ETAPA.pdf",
+      "sha256": "8b5ee81ef8fe04304c17c522013ed5ee0d2d74dfc1ceebfad62903167f9b7918",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "CCI passa a 23/10/2018 e correção de opções a 29/10–01/11/2018.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2019-e3-retificacao-849bdee6",
+      "aplicacao_id": "ufam-psc2019-e3",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/Edital_64_PSC2019_3Etapa_Aviso_Retificacao_Acrescimo_01.pdf",
+      "sha256": "6e6c49bbe72a121f5bfe1f89f5c4832a91b2ff237961b1d393b258a41c68bdfa",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Acrescenta língua estrangeira à correção de categorização/curso.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2019-e3-retificacao-ac66b258",
+      "aplicacao_id": "ufam-psc2019-e3",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/AVISO_RET_ACR_02_EDITAL64_PSC3ETAPA.pdf",
+      "sha256": "ed9d9537ca4cc6a5a4e7f9cbb24c30819280a333b8018bcfcf5ece88f178961c",
+      "paginas_pdf_examinadas": [
+        1,
+        2,
+        3
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Pagamento da taxa e períodos de atendimento, CCI e correção de opção; sem alteração do dia da prova.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2019-e3-retificacao-b955bf63",
+      "aplicacao_id": "ufam-psc2019-e3",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/3_ETAPA/AVISO_RET_04_EDITAL64_PSC3ETAPA.pdf",
+      "sha256": "ab1b7baf40391262d1e25b0c840a57c8a7aa3bb9c6f2950831ec31767db0696b",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Corrige endereço de e-mail da solicitação de correção de opções.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2021-e3-retificacao-1293c6f3",
+      "aplicacao_id": "ufam-psc2021-e3",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/4620",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/34/Edital%2016%20de%202021%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%2002.pdf",
+      "sha256": "c0e8f4aee3b81650183b154b5e03c98b0b0c2373e22ee047f56322537a172461",
+      "paginas_pdf_examinadas": [
+        1,
+        2
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Altera procedimento de correção de categorização/curso/língua e remissão a identificação.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2021-e3-retificacao-22b950cf",
+      "aplicacao_id": "ufam-psc2021-e3",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/4620",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/31/Edital%2016%20de%202021%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%2001.pdf",
+      "sha256": "852c1eb8a923587dafe1248d88c5315e9138e2564614df546530c87b4c5f6bb5",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Corrige e-mail de suporte de inscrição.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2021-e3-retificacao-299acac2",
+      "aplicacao_id": "ufam-psc2021-e3",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/4620",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/42/Edital%2016%20de%202021%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20e%20Acr%c3%a9scimo%2003.pdf",
+      "sha256": "4c72dead5bb241801041a6d836ea617da45153cfc02c62423585156c02ea7adb",
+      "paginas_pdf_examinadas": [
+        1,
+        2,
+        3
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Reabre inscrições e pagamentos; CCI passa a 05/10/2021; aplicação segue prevista em 31/10/2021 (PDF p. 3).",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2021-e3-retificacao-88c43ec8",
+      "aplicacao_id": "ufam-psc2021-e3",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/4620",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/4620/52/Edital%2016%20de%202021%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%2004.pdf",
+      "sha256": "cb4e4cf75ef460ab9b6c255b72086881cc10f7f924ea98ad71e44e7fdf588c2e",
+      "paginas_pdf_examinadas": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Segunda reabertura de inscrições/pagamento; aplicação segue prevista em 31/10/2021 (PDF p. 3).",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2022-e3-retificacao-0cf1168f",
+      "aplicacao_id": "ufam-psc2022-e3",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/5418",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/43/Edital%2013%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2003.pdf",
+      "sha256": "85f66b26cb5c581875dc9222fb8b8d6fb8f66206b53e9105d870193cb5c397c1",
+      "paginas_pdf_examinadas": [
+        1,
+        2
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Nomenclaturas de aprovados/lista de espera e matrícula; não altera programa ou dia de prova.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2022-e3-retificacao-1ddaad51",
+      "aplicacao_id": "ufam-psc2022-e3",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/5418",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/32/Edital%2013%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2002.pdf",
+      "sha256": "a2f615a5742703d59919c8a026468e5a46771b6d25e2770bd0d8577d3fdd32e6",
+      "paginas_pdf_examinadas": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Vagas e quadros de cursos; retira Música do PSC para processo especial e corrige turno de Pedagogia em Parintins.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2022-e3-retificacao-858a3f38",
+      "aplicacao_id": "ufam-psc2022-e3",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/5418",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/5418/20/Edital%2013%20de%202022%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2001.pdf.pdf",
+      "sha256": "497ed86935c34b3072b93715afc147517ed0195ffb07120f4f95b714ee5fff2f",
+      "paginas_pdf_examinadas": [
+        1,
+        2
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Especifica hora inicial do período de inscrições; não altera a prova.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2023-e1-retificacao-5105cec4",
+      "aplicacao_id": "ufam-psc2023-e1",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/6870",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/10/Edital%2013%20de%202023%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2001.pdf",
+      "sha256": "67ed6904664e28bfd2f5b21c58e5391f046327cc876b3e69e7b97563e8c6dda9",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Muda recursos e resultado da isenção, sem alterar data da prova.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2023-e1-retificacao-896b3c35",
+      "aplicacao_id": "ufam-psc2023-e1",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/6870",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6870/28/Edital%2013%20de%202023%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2002.pdf",
+      "sha256": "1c227e72cc5f5b43c686e2685f7223a3817028529642152408b8fed4c8c90530",
+      "paginas_pdf_examinadas": [
+        1,
+        2
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Prorroga inscrições/pagamento/atendimentos e CCI passa a 19/07/2023; não altera prova.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2023-e2-retificacao-11427a23",
+      "aplicacao_id": "ufam-psc2023-e2",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/6871",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/28/Edital%2014%20de%202023%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2002.pdf",
+      "sha256": "6b417421c94b5330cfbec39cacaca2f48fb1f563294076c0b395239854daae42",
+      "paginas_pdf_examinadas": [
+        1,
+        2
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Prorroga inscrições/pagamento/atendimentos e CCI passa a 19/07/2023; não altera prova.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    },
+    {
+      "documento_id": "ufam-psc2023-e2-retificacao-2a8e8797",
+      "aplicacao_id": "ufam-psc2023-e2",
+      "fonte_indice": "https://edoc.ufam.edu.br/handle/123456789/6871",
+      "fonte_url": "https://edoc.ufam.edu.br/bitstream/123456789/6871/10/Edital%2014%20de%202023%20-%20Aviso%20de%20Retifica%c3%a7%c3%a3o%20Nro.%2001.pdf",
+      "sha256": "4190bc8881b50aff8df1335096894af37c12c35eedd02e45aa54bb817b5f0f31",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "metodo": "Leitura da extração digital, itens alterados e cronogramas; não houve nova revisão visual integral.",
+      "assunto": "Muda recursos e resultado da isenção, sem alterar data da prova.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false,
+      "limites": "Escopo: documento referenciado; não atesta inexistência de atos fora dos índices consultados nem vigência integral de todo o edital."
+    }
+  ],
+  "retificacoes_adicionais": [
+    {
+      "aplicacao_id": "ufam-psc2019-e1",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/AVISO_RET_ACRESCIMO_EDITAL_62.pdf",
+      "sha256": "253c4dba26107bd78f1d3b88be77b4c88c7fef9236c17fdbc3b697f50817027f",
+      "titulo": "Aviso de Retificação e Acréscimo nº 3 ao Edital 62/2018",
+      "assinado_em": "2019-04-05",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "coletado_no_acervo": false,
+      "resultado": "Não muda programa ou dia da prova; reabre entrega de identidade de candidatos com identificação especial.",
+      "divergencia_editorial": "O cabeçalho situa o edital em 20/04/2018; o edital-base/índice o vinculam a julho de 2018. Não normalizar silenciosamente.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false
+    },
+    {
+      "aplicacao_id": "ufam-psc2019-e2",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/AVISO_RET_ACRESCIMO_EDITAL_63.pdf",
+      "sha256": "d72d421ca24e6d0b6cf2cafa73d3133ccc4fcbb3351fc662bb79d25909da2535",
+      "titulo": "Aviso de Retificação e Acréscimo nº 3 ao Edital 63/2018",
+      "assinado_em": "2019-04-05",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "coletado_no_acervo": false,
+      "resultado": "Não muda programa ou dia da prova; reabre entrega de identidade de candidatos com identificação especial.",
+      "divergencia_editorial": "O cabeçalho situa o edital em 20/04/2018; o edital-base/índice o vinculam a julho de 2018. Não normalizar silenciosamente.",
+      "altera_data_aplicacao": false,
+      "altera_programa_historia_geografia": false
+    }
+  ],
+  "comunicados_adicionais": [
+    {
+      "fonte_url": "https://antigocompec.ufam.edu.br/arquivo/psc2019/COMUNICADO.pdf",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "assinado_em": "2019-04-05",
+      "paginas_pdf_examinadas": [
+        1
+      ],
+      "aplicacoes": [
+        "ufam-psc2019-e1",
+        "ufam-psc2019-e2"
+      ],
+      "resultado": "Reabertura da apresentação de identidade, sem modificar programa/data da prova.",
+      "coletado_no_acervo": false
+    }
+  ],
+  "retificacoes_que_afetam_programa_ou_data_da_prova": [],
+  "auditoria_gabaritos": [
+    {
+      "documento_id": "ufam-psc2019-e2-gabarito-definitivo",
+      "aplicacao_id": "ufam-psc2019-e2",
+      "fonte_indice": "https://antigocompec.ufam.edu.br/psc.htm",
+      "rotulo_indice": "Gabarito Definitivo - 2ª Etapa",
+      "url_arquivo": "https://antigocompec.ufam.edu.br/arquivo/psc2019/2_ETAPA/gabarito_psc2020_et2.pdf",
+      "sha256_arquivo": "c4e2b1116803a1d6896c3e8ee305a93a50601a3897a800d33b7b1e32f2b7c62d",
+      "pagina_pdf": 1,
+      "cabecalho_observado": "PROCESSO SELETIVO CONTÍNUO – PSC; PROJETO 2020 / 2ª ETAPA; PROVA DE CONHECIMENTOS GERAIS; GABARITO",
+      "rodape_observado": "Divulgado em 02/12/2018",
+      "observacao": "Há ANULAR na questão 50; a auditoria não modificou letras nem anulações. O ano 2020 do nome do arquivo corresponde ao projeto, não demonstra outra edição.",
+      "resultado": "definitivo_indicado_no_indice_sem_confirmacao_no_arquivo",
+      "finalidade": "pendente",
+      "limites": "Ausência do rótulo definitivo no arquivo não prova que seja preliminar. Resolver a finalidade/versão antes de subconjunto válido para pontuação ou banco educacional."
+    }
+  ],
+  "limites_gerais": [
+    "Busca dirigida no portal UFAM/Compec/Edoc e índices legados, com consultas por edição, data e verbos de realização. Não é certificação de completude de todos os atos.",
+    "No índice Edoc de PSC2023 E3 não se localizou aviso de retificação de edital; isso não demonstra inexistência fora do índice.",
+    "Respostas a recursos consultadas para identificação de possível data continham nomes individuais; não foram baixadas/incorporadas ao acervo nem tiveram conteúdo pessoal reproduzido nos artefatos. A via foi encerrada.",
+    "Nenhuma fonte-base C2, tabela ou consolidador foi alterado por esta auditoria. Todas as conclusões ainda requerem revisão humana."
+  ]
+}

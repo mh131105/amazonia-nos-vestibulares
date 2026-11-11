@@ -66,3 +66,21 @@ Um caderno legado faz `pdftotext -bbox-layout` abortar. `pdftohtml -xml -hidden 
 O urllib recusou a cadeia TLS do arquivo legado UFAM neste ambiente; o curl do sistema verificou a cadeia com sucesso. Esses documentos usam `curl_tls_sistema`, com HTTPS e verificação de certificados mantidos, limite de tamanho e tempo. As falhas iniciais continuam no histórico. Correções de publicador/banca não alteram hashes dos originais e recebem evento de metadados.
 
 O total de vínculos documentais não é o de arquivos únicos: nesta versão são 121 registros e 120 PDFs por SHA-256. Um comunicado de suspensão compartilhado entre etapas mantém dois vínculos e apenas um original físico. Isso não acrescenta ocorrências de questões.
+
+## D011 — 11/11/2026 — Ampliação nacional e programas integrados
+
+A triagem C3 ampliou o alcance para Sul, Sudeste, Nordeste e Centro-Oeste, conservando fontes e lacunas por processo. Na FUVEST, programas das edições 2022–2024 e datas efetivas de 2021–2023 sustentam três anos de previsão amazônica em Geografia. Esse resultado não é automaticamente transferido a História, às outras fases ou à incidência de questões.
+
+A UFMS apresenta três anos de previsão em Ciências Humanas integradas (aplicações 2023–2025). A atribuição conjunta do programa é preservada como `ciencias_humanas_integradas`, com uma evidência por aplicação e anos em campo próprio. Não duplicar essa evidência para atingir o limiar de História e Geografia. A interpretação histórica/geográfica fica separada da atribuição oficial. Ramos como EaD UFMT permanecem filas a desagregar, sem presumir um processo único confirmado.
+
+## D012 — 11/11/2026 — Datas confirmadas e finalidade do gabarito
+
+A auditoria C3 confirmou PSC2019 E1/E2/E3 em 02/12/2018 por notícia institucional publicada após o evento. O cronograma e uma divergência editorial secundária são preservados. As cinco datas restantes continuam pendentes: calendários previstos e corroboração externa não foram promovidos a confirmação primária do dia.
+
+O índice oficial chama o gabarito PSC2019 E2 de definitivo; o PDF examinado traz apenas “GABARITO” e divulgação no dia da prova. As letras publicadas permanecem, com `finalidade_documental=definitivo_indicado_no_indice_sem_confirmacao_no_arquivo`. Não há evidência suficiente para chamá-lo de preliminar. Confirmar a versão final para pontuação antes de liberar o item ao banco ou calcular desempenho. Os bytes examinados são fixados por hash.
+
+## D013 — 11/11/2026 — Contexto normativo separado das aplicações
+
+Os marcos S2–S6 foram auditados e arquivados por hash em registro próprio. Leis, cronogramas originais, suspensão de prazos e diretrizes curriculares não recebem aplicações fictícias de vestibular nem aumentam o acervo de provas. A documentação diferencia publicação original, reprodução em portal oficial e transcrição em ato local. O contexto do Distrito Federal não foi generalizado ao país.
+
+Os cortes 2017–2021, transição 2022–2023 e posterior 2024–2026 permanecem os do protocolo, com 2024 separado de 2025–2026. A auditoria normativa não demonstra implantação homogênea ou mudança simultânea nas provas. Implementação local, trajetória escolar dos candidatos e alinhamento explícito de cada seleção seguem pendentes. Ver [contexto temporal](contexto-temporal.md).

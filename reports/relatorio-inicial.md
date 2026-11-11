@@ -1,10 +1,10 @@
 # História e Geografia da Amazônia nos vestibulares públicos
 
-Relatório de implantação e ampliação documental — versão 0.2.0. Referência: 11/11/2026, Manaus.
+Relatório de implantação e ampliação documental — versão 0.3.0. Referência: 11/11/2026, Manaus.
 
 ## Resumo
 
-O inventário inicial reúne **317 IES da rede pública no Censo 2024**. A triagem inicial registra **18 processos** de **7 IES**. O piloto segmentou **300 ocorrências** em **23 cadernos**, sendo **150 de História** e **150 de Geografia**.
+O inventário inicial reúne **317 IES da rede pública no Censo 2024**. A triagem registra **39 processos ou ramos de investigação** de **24 IES**. Ramos ainda não desagregados não equivalem a processos únicos comprovados. O piloto segmentou **300 ocorrências** em **23 cadernos**, sendo **150 de História** e **150 de Geografia**.
 
 Essas quantidades descrevem o trabalho documental e os itens extraídos. Ainda não respondem qual é a incidência regional, o que mudou nas provas ou como a IA se compara a humanos. O estudo e o inventário histórico permanecem em andamento.
 
@@ -30,9 +30,13 @@ A recorrência documental é registrada por processo e disciplina, sem somar evi
 
 | Processo | Estado de triagem | Anos com previsão de História | Anos com previsão de Geografia |
 | --- | --- | --- | --- |
-| ufam-psc | incluido_recorrencia_confirmada | [2017,2019,2022,2024,2025,2026] | [2019,2022,2024,2025,2026] |
+| ufam-psc | incluido_recorrencia_confirmada | [2017,2018,2019,2022,2024,2025,2026] | [2018,2019,2022,2024,2025,2026] |
 | ufrr-integral | candidato_evidencia_insuficiente | [2024,2025] | [2024,2025] |
 | uerr-vestibular | incluido_recorrencia_confirmada | [2022,2025,2026] | [2022,2025,2026] |
+| usp-fuvest | incluido_recorrencia_confirmada | [] | [2021,2022,2023] |
+| ufms-vestibular | candidato_evidencia_insuficiente | [] | [] |
+
+A FUVEST apresenta previsão amazônica em Geografia nas edições 2022–2024, aplicadas em 2021–2023. Isso confirma recorrência documental dessa disciplina, sem demonstrar incidência de questões ou recorrência autônoma de História. Na UFMS, três aplicações (2023–2025) têm previsão em Ciências Humanas integradas; os anos ficam em campo próprio, sem duplicação nas colunas disciplinares. A triagem nacional não esgota as instituições ou processos examinados. Fontes e alcance estão nos registros `triagem-sul-sudeste-c3.json` e `triagem-ne-co-c3.json`.
 
 As etapas permanecem separadas. Na UFAM, a ampliação identificou Geografia regional nas etapas 1/2 anteriores a 2024, enquanto programas E3 mais antigos contêm Geografia geral sem menção regional explícita identificada. Essas diferenças não são resultados de incidência nas questões nem efeito da reforma.
 
@@ -45,9 +49,9 @@ Essas decisões são triagem assistida por IA, com revisão humana pendente. `ev
 | Aplicação do piloto | Data efetiva registrada | Etapa | História | Geografia |
 | --- | --- | --- | ---: | ---: |
 | ufam-psc2018-e3 | 2017-12-03 | 3 | 6 | 6 |
-| ufam-psc2019-e1 | Pendente; prevista 2018-12-02 | 1 | 6 | 6 |
-| ufam-psc2019-e2 | Pendente; prevista 2018-12-02 | 2 | 6 | 6 |
-| ufam-psc2019-e3 | Pendente; prevista 2018-12-02 | 3 | 6 | 6 |
+| ufam-psc2019-e1 | 2018-12-02 | 1 | 6 | 6 |
+| ufam-psc2019-e2 | 2018-12-02 | 2 | 6 | 6 |
+| ufam-psc2019-e3 | 2018-12-02 | 3 | 6 | 6 |
 | ufam-psc2020-e1 | 2019-12-01 | 1 | 6 | 6 |
 | ufam-psc2020-e2 | 2019-12-01 | 2 | 6 | 6 |
 | ufam-psc2020-e3 | 2019-12-01 | 3 | 6 | 6 |
@@ -72,6 +76,8 @@ Essas decisões são triagem assistida por IA, com revisão humana pendente. `ev
 
 Respostas ou anulações oficiais identificadas: **300/300** registros de gabarito. Registros não identificados permanecem pendentes. A extração de resposta oficial não é validação humana do item. Anulações não são descartadas da cobrança aplicada.
 
+**12** respostas têm ressalva de finalidade documental: no PSC2019 E2, o índice oficial chama o arquivo de definitivo, mas o PDF traz apenas “GABARITO” e data de divulgação no dia da prova. As letras são preservadas como publicadas; a versão final para pontuação exige confirmação. Isso não demonstra que o arquivo seja preliminar.
+
 Originais são preservados por SHA-256. Extrações bruta e normalizada ficam separadas, com página e coordenadas quando disponíveis. Falhas reais de bbox-layout acionam pdftohtml com geometria de fragmentos; pypdf permanece como alternativa final sem coordenadas. Controles XML proibidos são substituídos por U+FFFD somente na camada de leitura, com contagem e original intacto. Há caracteres danificados e páginas visuais sinalizadas. OCR de documentos escaneados ainda exige validação própria.
 
 O edital PSC2027 E3 registra aplicação futura em 29/11/2026, depois do corte. Não entra no corpus de questões desta versão. Ausência de caderno em um processo não vira zero questões. A grade `cobertura-anual.csv` registra investigação pendente, sem afirmar que houve prova em cada célula.
@@ -80,17 +86,21 @@ Na UFRR, PI e PSS-E3 compartilham caderno, mas o subconjunto para pontuação PS
 
 ## Comparação temporal planejada
 
+Permanecem **5** aplicações com data efetiva exata pendente. A auditoria C3 confirmou PSC2019 E1/E2/E3 em 02/12/2018 por notícia institucional posterior ao evento, preservando cronograma e divergência editorial nas fontes.
+
 | Estrato com questões segmentadas | 2017–2021: cadernos | 2022–2023: cadernos | 2024: cadernos | 2025–2026: cadernos | Data pendente | Contraste de incidência |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | UERR / uerr-vestibular / unica | Sem caderno segmentado | Sem caderno segmentado | Sem caderno segmentado | 2 | Sem caderno segmentado | Não calculado |
-| UFAM / ufam-psc / 1 | 1 | 2 | Sem caderno segmentado | Sem caderno segmentado | 2 | Não calculado |
-| UFAM / ufam-psc / 2 | 1 | 2 | Sem caderno segmentado | 1 | 2 | Não calculado |
-| UFAM / ufam-psc / 3 | 2 | Sem caderno segmentado | 1 | 1 | 4 | Não calculado |
+| UFAM / ufam-psc / 1 | 2 | 2 | Sem caderno segmentado | Sem caderno segmentado | 1 | Não calculado |
+| UFAM / ufam-psc / 2 | 2 | 2 | Sem caderno segmentado | 1 | 1 | Não calculado |
+| UFAM / ufam-psc / 3 | 3 | Sem caderno segmentado | 1 | 1 | 3 | Não calculado |
 | UFRR / ufrr-integral / unica | Sem caderno segmentado | Sem caderno segmentado | 1 | 1 | Sem caderno segmentado | Não calculado |
 
 O contraste obrigatório será 2017–2021 versus 2024–2026, com 2022–2023 fora desse contraste e posterior separado em 2024 e 2025–2026. Ainda faltam classificações regionais e denominadores validados. As datas pendentes ficam fora do contraste; estratos com observações de um lado só não simulam comparação pareada. Na pandemia, duas edições das etapas 1/2 UFAM ocorreram em 2022 para séries cursadas em 2020 e 2021; aplicação, edição e ano letivo não são intercambiáveis. Não foi estimado efeito causal da reforma.
 
 Sensibilidades pendentes: limiar de dois anos, exclusão de 2026 (2017–2025, nove anos), painel comparável versus acervo total, itens interdisciplinares e versão válida para pontuação. Ainda não há indicador final a submeter a essas sensibilidades.
+
+Os marcos S2–S6 foram arquivados por hash em registro separado dos vestibulares. O [contexto temporal](../docs/contexto-temporal.md) distingue lei, cronograma original, suspensão, revisão normativa e implementação local ainda não demonstrada. Os cortes do protocolo foram preservados; calendário escolar e publicação de normas não provam alteração simultânea das matrizes dos exames.
 
 ## Avaliação da IA
 
