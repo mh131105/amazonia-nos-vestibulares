@@ -1,7 +1,6 @@
 .DS_Store
-.venv/
-__pycache__/
-*.py[cod]
 .env
 .env.*
-acervo/
+*.log
+__pycache__/
+node_modules/

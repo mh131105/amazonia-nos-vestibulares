@@ -1,2 +1,0 @@
-# Necessário somente para reproduzir as figuras estáticas.
-matplotlib==3.10.8
