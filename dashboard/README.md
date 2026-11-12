@@ -1,6 +1,6 @@
 # Dashboard: Amazônia nas provas
 
-[Abrir a versão publicada](https://amazonia-nas-provas-matheus.quick-grebe-6416.chatgpt.site)
+[Abrir a versão publicada](https://amazonia.mhvps.site)
 
 Interface estática em HTML, CSS e JavaScript, com fonte, ilustração e ícones locais. A pesquisa, o pipeline e os resultados estão no [README do projeto](../README.md).
 

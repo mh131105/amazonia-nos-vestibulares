@@ -1,10 +1,10 @@
 # História e Geografia da Amazônia nos vestibulares
 
-[**Abrir dashboard interativo**](https://amazonia-nas-provas-matheus.quick-grebe-6416.chatgpt.site) · [Análise exploratória](resultados/relatorio.md) · [Dataset curado](dados/curado/questoes.csv)
+[**Abrir dashboard interativo**](https://amazonia.mhvps.site) · [Análise exploratória](resultados/relatorio.md) · [Dataset curado](dados/curado/questoes.csv)
 
 **Quanto do conteúdo previsto nas ementas realmente apareceu nas provas?** Este projeto reúne questões amazônicas, relaciona cada uma ao programa da respectiva prova e compara os tópicos previstos com a cobrança identificada. O repositório contém a coleta documental, as decisões de curadoria, a limpeza, a análise exploratória e o dashboard.
 
-[![Prévia do dashboard](dashboard/preview.png)](https://amazonia-nas-provas-matheus.quick-grebe-6416.chatgpt.site)
+[![Prévia do dashboard](dashboard/preview.png)](https://amazonia.mhvps.site)
 
 O acervo tem **196 questões**, **70 provas examinadas**, **53 tópicos padronizados** e **151 referências documentais**, com aplicações entre 2017 e 11 de novembro de 2026. Nas **43 provas com programa regional integral e triagem completa**, identificamos cobrança em **141 de 682 pares prova × tópico previsto: 20,7%**. Essa proporção descreve o acervo comparável; não representa todos os vestibulares públicos brasileiros.
 
