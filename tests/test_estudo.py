@@ -7,7 +7,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from limpeza import limpar, gravar_csv, ler_csv
-from analise import analisar
+from analise import analisar, serie_temporal, fmt
 
 
 class Estudo(unittest.TestCase):
@@ -65,6 +65,23 @@ class Estudo(unittest.TestCase):
         self.bruto.write_text(json.dumps(self.dados[0]) + '\n')
         with self.assertRaises(AssertionError):
             limpar(self.root)
+
+    def test_temporal_preserva_lacunas_zeros_e_etapas(self):
+        provas = [self.prova,
+                  {**self.prova, 'prova_id': 'anterior', 'ano_aplicacao': '2018'},
+                  {**self.prova, 'prova_id': 'outro-dia', 'ano_aplicacao': '2018', 'etapa': '3º dia'}]
+        serie = serie_temporal(provas, [{'prova_id': 'p'}, {'prova_id': 'outro-dia'}], [])
+        grupo = [r for r in serie if r['nivel'] == 'estrato' and r['etapa'] == '2ª fase']
+        zero = next(r for r in grupo if r['tipo'] == 'ano' and r['janela'] == '2018')
+        lacuna = next(r for r in grupo if r['tipo'] == 'ano' and r['janela'] == '2019')
+        self.assertEqual(zero['incidencia_percentual'], 0)
+        self.assertIsNone(lacuna['incidencia_percentual'])
+        posterior = next(r for r in grupo if r['tipo'] == 'período' and r['janela'] == '2024–2026')
+        self.assertEqual(posterior['diferenca_incidencia_pp_referencia'], 50)
+        painel = next(r for r in serie if r['nivel'] == 'painel comum' and r['janela'] == '2017–2021')
+        self.assertEqual(painel['provas'], 1)
+        self.assertEqual(painel['questoes_amazonicas'], 0)
+        self.assertEqual(fmt(-3.125, 2), '-3,13')
 
 
 if __name__ == '__main__':

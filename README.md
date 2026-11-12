@@ -6,9 +6,15 @@ Leia a [análise exploratória](resultados/relatorio.md) e abra o [dataset limpo
 
 Nas **43 provas com ementa regional integral e triagem completa**, houve cobrança identificada em **141 de 682 pares prova × tópico previsto (20,7%)**. A [lista padronizada de conteúdos e tópicos](dados/topicos.csv) orienta tanto a classificação das questões quanto essa comparação.
 
+Os cinco tópicos principais mais frequentes reúnem **58 das 196 questões (29,6%)**. Há **25 questões com tópicos de História e Geografia combinados**, sem duplicação no total. Na comparação de calendário 2017–2021 versus 2024–2026, a participação regional na UEA sobe **16,32 pontos percentuais na primeira fase** e cai **3,13 pontos na segunda**. As diferenças variam com a fase, a janela e a ementa; não identificam efeito causal do Novo Ensino Médio.
+
+![Cobertura da ementa nas provas comparáveis](resultados/figuras/cobertura-ementa.png)
+
+Cada ponto representa uma prova; o losango resume os totais da origem. Fonte: [previsto-cobrado.csv](resultados/previsto-cobrado.csv), aplicações 2017–11/11/2026. O relatório apresenta outras três figuras, os denominadores, sensibilidades e ressalvas.
+
 ## Executar
 
-Requer **Python 3.10 ou superior**, sem instalar bibliotecas. Execute na raiz do repositório:
+Para limpeza e cálculos, requer **Python 3.10 ou superior**, com a biblioteca padrão. Execute na raiz do repositório:
 
 ```sh
 python3 scripts/limpeza.py
@@ -17,6 +23,16 @@ python3 -m unittest discover -s tests -v
 ```
 
 Os dois primeiros comandos reconstroem o dataset limpo e os resultados a partir dos dados versionados. Funcionam sem internet e sem chamadas de IA. A curadoria semântica já está registrada nos dados brutos.
+
+Para reproduzir também as quatro figuras estáticas, instale a dependência gráfica:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/figuras.py
+```
+
+O cálculo tabular continua usando apenas a biblioteca padrão. `scripts/analise.py` e `scripts/figuras.py` leem a base curada sem modificá-la; as figuras são entregues em PNG, sem dashboard.
 
 Para recuperar e conferir os PDFs catalogados, com `curl` instalado:
 
@@ -35,7 +51,9 @@ Os originais ficam em `acervo/`, fora do Git, e são reaproveitados quando ínte
 | --- | --- |
 | `scraping/coletar.py` | Um coletor para todos os PDFs do catálogo, com verificação de integridade e extração textual opcional. |
 | `scripts/limpeza.py` | Padroniza texto, remove duplicatas exatas e confere IDs, fontes e vínculos; gera o dataset curado. |
-| `scripts/analise.py` | Calcula frequências, cobertura da ementa e comparação das fases; gera o relatório e as tabelas. |
+| `scripts/analise.py` | Calcula frequências, cobertura, fases, comparação temporal e sensibilidades; gera o relatório e as cinco tabelas. |
+| `scripts/figuras.py` | Lê as tabelas e gera as quatro figuras estáticas do relatório. |
+| `requirements.txt` | Fixa a versão de Matplotlib, necessária somente para gerar figuras. |
 | `dados/topicos.csv` | Taxonomia: disciplina → conteúdo → tópico, com definição de cada categoria. |
 | `dados/fontes.csv` | Catálogo dos PDFs: endereço de download, publicação institucional, hash e origem oficial ou cópia pública identificada. |
 | `dados/provas.csv` | Provas examinadas, inclusive as sem questões elegíveis; anos, fases, extensão da triagem e cobertura das ementas. |
@@ -47,7 +65,10 @@ Os originais ficam em `acervo/`, fora do Git, e são reaproveitados quando ínte
 | `resultados/frequencia-topicos.csv` | Frequência dos tópicos principais, anos, provas e instituições, inclusive categorias sem questões. |
 | `resultados/previsto-cobrado.csv` | Quantidade e proporção de tópicos previstos/cobrados em cada prova. |
 | `resultados/itens-ementa.csv` | Detalhamento dos itens oficiais, questões associadas e tópicos com ou sem cobrança identificada. |
-| `tests/test_estudo.py` | Verifica integridade da limpeza e se o cálculo exige um vínculo pertinente com a ementa. |
+| `resultados/temporal.csv` | Série anual, períodos de calendário, sete estratos comuns e sensibilidades, com IDs das provas e denominadores. |
+| `resultados/sensibilidade.csv` | Recalcula a cobertura retirando anulações conhecidas, questões de foco misto ou 2026, sem editar a base. |
+| `resultados/figuras/` | Quatro PNG: cobertura da ementa, tópicos recorrentes, série UEA e contraste temporal por etapa. |
+| `tests/test_estudo.py` | Verifica integridade, pertinência do vínculo, lacunas versus zeros e preservação das etapas na comparação temporal. |
 | `.gitignore` e `.gitattributes` | Mantêm originais e arquivos temporários fora do Git e padronizam as quebras de linha. |
 
 ## Cobertura
@@ -81,6 +102,28 @@ A lista de conteúdos parte das ementas. Os agentes selecionaram questões cujo 
 
 Os enunciados conservam as alternativas publicadas, inclusive distratores incorretos. Gabarito vazio significa não incorporado; não houve resolução automática para preenchê-lo. Mapas, gráficos e alternativas visuais devem ser consultados no PDF na página indicada. O texto limpo tem hash próprio, distinto do hash do documento.
 
+## Plano temporal e leitura dos indicadores
+
+As faixas de calendário são **2017–2021**, **2022–2023**, **2024** e **2025–2026**. O contraste compara a primeira faixa com 2024–2026, por instituição × processo × etapa presentes nos dois lados. A transição 2022–2023 fica fora desse contraste. A sensibilidade sem 2026 usa 2024–2025. A série usa `ano_aplicacao`, preservando as edições deslocadas pela pandemia.
+
+Os marcos do Novo Ensino Médio contextualizam essas faixas; suas fontes oficiais e regras de transição estão no relatório. Não há observação do currículo individual dos candidatos. A comparação é descritiva, com mudanças de ementa, composição e calendário explicitadas. A sensibilidade dos quatro tópicos comuns UEA resulta em **4/24 pares cobrados (16,7%) nos dois períodos**.
+
+| Campo em `temporal.csv` | Significado |
+| --- | --- |
+| `nivel`, `instituicao`, `processo`, `etapa` | Estrato literal, painel dos mesmos sete estratos ou acervo inteiro. FUVEST dia 2 e dia 3 permanecem distintos. |
+| `tipo`, `janela`, `inicio`, `fim` | Ano, período ou corte seriado; limites em anos de aplicação. Cortes PSC são aproximações de calendário, sem atribuição curricular. |
+| `provas`, `provas_ids` | Quantidade e identificadores das provas que formam cada agregado. |
+| `questoes_amazonicas`, `questoes_triadas`, `incidencia_percentual` | Questões regionais / itens do bloco examinado. O bloco é H/G ou Humanas, conforme a origem. |
+| `provas_com_ementa_completa`, `topicos_previstos`, `topicos_cobrados`, `cobertura_percentual` | Subconjunto com triagem e programa regional integrais; cobertura por pares prova × tópico explícito. |
+| `media_provas_percentual`, `media_estratos_percentual` | Incidência com peso igual por prova ou por estrato comum; diferem da razão global dos totais. |
+| `diferenca_incidencia_pp_referencia`, `diferenca_cobertura_pp_referencia` | Diferença em pontos percentuais em relação a 2017–2021 no mesmo grupo. |
+
+Proporção vazia significa denominador indisponível; zero exige um universo observado. As taxas são calculadas antes do arredondamento. `sensibilidade.csv` informa o universo de cada cenário: retirar questões mantém os programas originais, enquanto retirar 2026 também muda o conjunto de provas.
+
+A conferência complementar confirmou 141/682 e registrou uma ressalva sem impacto nessa razão: um vínculo geral adicional de UEA 2026 Q05 a “2º Reinado” não corresponde ao objeto Pará/1823. O relatório identifica questão, item e página para revisão. As bases curadas foram preservadas.
+
 O repositório anterior foi substituído por esta estrutura. O histórico permanece no Git; notas, protótipos, inventário institucional e módulo de anotação antigos foram preservados em arquivo local externo à pasta ativa.
+
+O protocolo e o dicionário anteriores podem ser consultados no Git com `git show 3f044af^:docs/protocolo.md` e `git show 3f044af^:docs/dicionario-dados.md`. As regras e os campos atuais estão documentados acima e no relatório.
 
 Autoria do projeto: **Matheus Garcia**, com pesquisa, curadoria e implementação assistidas por Codex.
