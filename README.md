@@ -37,7 +37,9 @@ As telas “Sobre os dados”, “Conferir por prova” e “Fontes consultadas�
 | `dist/app.js` | Gráficos, consulta das questões, busca, paginação, exportação e compartilhamento. |
 | `dist/model.js` | Filtros e cálculo da cobertura a partir dos registros, preservando provas sem questões. |
 | `dist/dataset.json` | Questões, provas, tópicos, itens dos programas e fontes do acervo curado. |
-| `dist/assets/mark.svg` | Marca vetorial do projeto. |
+| `dist/assets/mark.svg` | Marca vetorial com rio, folha e sol. |
+| `dist/assets/amazonia-icons.svg` | Cinco ícones vetoriais originais: rio, floresta, folha, sol e bússola. |
+| `dist/assets/amazonia-panorama.webp` | Ilustração original do cabeçalho, em WebP (312 KB). |
 | `dist/assets/manrope-latin.woff2` | Fonte local; a página funciona sem serviços de tipografia externos. |
 | `dist/assets/OFL-Manrope.txt` | Licença da fonte Manrope. |
 | `.openai/hosting.json` | Configuração da hospedagem estática e identidade do site. |
@@ -63,4 +65,13 @@ Método: *Fundamentos do Vibe Design* e *Extract HTML Design System*, do materia
 - **`dashboard-list`**: organização de indicadores, listas e controles.
 - **`sidebar`**: navegação agrupada e estados de seleção.
 
-O tema usa grafite e azul, com legendas de maior contraste, foco visível e movimento reduzido conforme a preferência do dispositivo. A fonte local acompanha a licença SIL Open Font License.
+O tema amazônico combina verde de floresta, turquesa de rio, amarelo de sol e coral sobre fundo creme. A estrutura e os textos do dashboard continuam iguais aos da primeira versão. Os cartões recebem ícones vetoriais; as linhas do rio e a folha da barra lateral têm animações em CSS. A preferência por movimento reduzido desativa essas animações. A fonte local acompanha a licença SIL Open Font License.
+
+A ilustração foi criada com o ImageGen integrado e convertida para WebP sem dependências no dashboard. A marca e os cinco ícones foram desenhados em SVG. Todos os assets são locais.
+
+<details>
+<summary>Prompt da ilustração</summary>
+
+Use case: stylized-concept. Original wide decorative illustrated panorama for an Amazon-region educational data dashboard header. A vibrant, sophisticated editorial illustration of the Brazilian Amazon: a sinuous turquoise river among layered emerald-green rainforest canopies, palm fronds and dense tropical foliage; a warm golden-yellow sun with coral-orange accents, subtle carved-print lines and natural paper grain. Rich botanical depth, precise confident shapes, luminous tropical colors, fine printmaking details. Flat illustrated editorial medium, no 3D, not photorealistic. Very wide panoramic 3:1 landscape canvas. Artwork concentrated in the right half. Reserve the left half as almost empty warm ivory/cream paper (#fff8e8) for the existing headline. Details on the far right and lower right, fading organically into ivory near the center. Not a map. Palette: #073f35, #087f5b, #18b8aa, #f5bf32, #f47850, #fff8e8. No text, labels, letters, numbers, logos, watermarks, frame or UI. Do not imitate or invent Indigenous patterns or symbols. No people, buildings, animals or extraneous props.
+
+</details>
