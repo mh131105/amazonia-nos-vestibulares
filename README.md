@@ -2,6 +2,8 @@
 
 Dashboard de História e Geografia da Amazônia nos vestibulares. O acervo reúne **196 questões**, **70 provas examinadas**, **53 tópicos padronizados** e **151 referências documentais**, com aplicações entre 2017 e 11 de novembro de 2026.
 
+[Abrir o dashboard](https://amazonia-nas-provas-matheus.quick-grebe-6416.chatgpt.site)
+
 ## Executar
 
 Requer Python 3. Não há instalação de dependências nem etapa de build.
