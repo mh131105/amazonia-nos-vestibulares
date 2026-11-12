@@ -173,7 +173,7 @@ function setupEvents(){
   $('previous-page').addEventListener('click',()=>{if(page>1){page--;renderBank();}});
   $('next-page').addEventListener('click',()=>{page++;renderBank();});
   $('download-button').addEventListener('click',download);
-  $('share-button').addEventListener('click',async()=>{try{updateURL();await navigator.clipboard.writeText(location.href);toast('Link do recorte copiado.');}catch{toast('Copie o endereço desta página para compartilhar o recorte.');}});
+  $('share-button').addEventListener('click',async()=>{updateURL();const fallback=setTimeout(()=>toast('Copie o endereço desta página para compartilhar o recorte.'),1200);try{await navigator.clipboard.writeText(location.href);clearTimeout(fallback);toast('Link do recorte copiado.');}catch{clearTimeout(fallback);toast('Copie o endereço desta página para compartilhar o recorte.');}});
   $('menu-toggle').addEventListener('click',()=>{$('sidebar').classList.toggle('open');$('menu-toggle').setAttribute('aria-expanded',String($('sidebar').classList.contains('open')));});
   document.addEventListener('click',e=>{
     const open=e.target.closest('[data-open]');if(open){closeMenu(true);({method:openMethod,programs:openPrograms,sources:openSources}[open.dataset.open])();return;}
