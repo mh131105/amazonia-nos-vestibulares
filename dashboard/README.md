@@ -2,7 +2,7 @@
 
 [Abrir a versão publicada](https://amazonia.mhvps.site)
 
-Interface estática em HTML, CSS e JavaScript, com fonte, ilustração e ícones locais. A pesquisa, o pipeline e os resultados estão no [README do projeto](../README.md).
+Interface estática em HTML, CSS e JavaScript, com fonte, imagens e ícones locais. A pesquisa, o pipeline e os resultados estão no [README do projeto](../README.md).
 
 ## Executar
 
@@ -25,9 +25,13 @@ Abra [http://localhost:8765](http://localhost:8765). O primeiro comando lê os C
 | `model.js` | Filtros e cálculo da cobertura, preservando provas sem questões. |
 | `dataset.json` | Versão gerada dos cinco CSVs canônicos para consulta no navegador. |
 | `preview.png` | Captura do dashboard usada na apresentação do projeto. |
-| `assets/mark.svg` | Marca vetorial com rio, folha e sol. |
+| `assets/logo.svg` | Marca completa, com símbolo e nome em traçados vetoriais. |
+| `assets/logo-monochrome.svg` | Versão monocromática da marca completa. |
+| `assets/mark.svg` | Símbolo isolado: páginas de um livro formam as margens de um rio. |
+| `assets/favicon.svg` | Símbolo com fundo próprio para a aba do navegador. |
 | `assets/amazonia-icons.svg` | Ícones de rio, floresta, folha, sol e bússola. |
-| `assets/amazonia-panorama.webp` | Ilustração do cabeçalho. |
+| `assets/floresta-amazonica.webp` | Panorama sintético de floresta e rio na abertura. |
+| `assets/folhagem-primeiro-plano.webp` | Folhagem com transparência sobre o panorama. |
 | `assets/manrope-latin.woff2` | Fonte local. |
 | `assets/OFL-Manrope.txt` | Licença da fonte. |
 
@@ -51,13 +55,38 @@ A navegação e os controles usam transparência e desfoque, com fundos de apoio
 
 A interface tem foco de teclado visível, link para saltar a navegação, controles nativos de seleção, tabela alternativa ao gráfico anual e diálogos com fechamento pelo teclado. Ao abrir o menu compacto, o foco vai à navegação; Escape o devolve ao botão do menu. Filtros anunciam a atualização do recorte; carregamento e erro têm mensagens próprias e opção de tentar novamente. Transições de barras, cobertura e entrada respeitam a preferência por movimento reduzido.
 
-A ilustração de floresta e rio e os traços de contorno são decorativos: não representam coordenadas, distribuição geográfica ou medições. A ilustração foi criada com o ImageGen integrado e convertida para WebP sem dependências no dashboard. A marca e os cinco ícones foram desenhados em SVG. Todos os assets são locais, e a fonte acompanha a licença SIL Open Font License.
+O panorama de floresta e rio e a folhagem foram criados em duas gerações com o ImageGen integrado e convertidos para WebP. São cenas sintéticas decorativas, não registros de uma localização identificada, mapas ou dados da pesquisa. Os traços de contorno também são decorativos. A marca original une páginas de um livro e um rio em espaço negativo; o nome está convertido em traçados SVG e tem versão monocromática, símbolo isolado e favicon. Os cinco ícones também são SVG. Todos os assets são locais, e a fonte acompanha a licença SIL Open Font License.
 
-O trabalho anterior consultou *Fundamentos do Vibe Design* e *Extract HTML Design System*, do material local em `matheus/design`, além dos exemplos `CryptoLearn / hu169yr`, `dashboard-list` e `sidebar`. O redesenho reorganiza a composição e a navegação, mantendo os assets originais e a stack estática.
+O trabalho anterior consultou *Fundamentos do Vibe Design* e *Extract HTML Design System*, do material local em `matheus/design`, além dos exemplos `CryptoLearn / hu169yr`, `dashboard-list` e `sidebar`. A composição e a navegação mantêm a stack estática; a marca e as imagens foram atualizadas para esta identidade.
 
 <details>
-<summary>Prompt da ilustração</summary>
+<summary>Prompt: floresta-amazonica.webp</summary>
 
-Use case: stylized-concept. Original wide decorative illustrated panorama for an Amazon-region educational data dashboard header. A vibrant, sophisticated editorial illustration of the Brazilian Amazon: a sinuous turquoise river among layered emerald-green rainforest canopies, palm fronds and dense tropical foliage; a warm golden-yellow sun with coral-orange accents, subtle carved-print lines and natural paper grain. Rich botanical depth, precise confident shapes, luminous tropical colors, fine printmaking details. Flat illustrated editorial medium, no 3D, not photorealistic. Very wide panoramic 3:1 landscape canvas. Artwork concentrated in the right half. Reserve the left half as almost empty warm ivory/cream paper (#fff8e8) for the existing headline. Details on the far right and lower right, fading organically into ivory near the center. Not a map. Palette: #073f35, #087f5b, #18b8aa, #f5bf32, #f47850, #fff8e8. No text, labels, letters, numbers, logos, watermarks, frame or UI. Do not imitate or invent Indigenous patterns or symbols. No people, buildings, animals or extraneous props.
+```text
+Use case: photorealistic-natural.
+Asset type: panoramic photographic background for the approved "Amazônia nas provas" educational data dashboard, not a UI mockup.
+Primary request: evoke the feeling of quietly entering the Amazon rainforest.
+Scene: a lowland Brazilian Amazon river corridor at dawn, camera near water level, looking into dense layered forest. Tall broadleaf trees with real buttress trunks, intricate humid canopy, naturally dark green-brown calm water and subtle reflections. Gentle mist suspended over the river opening in the middle-right and a little warm early daylight through the canopy. Overhanging real broad leaves and fine branches frame the upper corners; no obvious symmetrical arch.
+Composition: very wide 3:1 panorama, about 2400 by 800. Left 42 percent quieter and naturally shaded, with soft forest depth suitable for cream text overlay; the river opening and brighter detail toward the middle-right. Frame edges may crop leaves naturally. Do not add artificial empty panels or a graphic gradient.
+Style: convincing premium documentary nature photography, detailed natural bark, irregular leaves, subtle moisture, controlled highlights, realistic depth and lens perspective. Mature and immersive, no illustration or fantasy treatment.
+Palette: deep forest greens near #073b34, muted river greens near #138578, natural olive highlights and restrained warm dawn light. No neon turquoise water.
+Constraints: no text, typography, logos, watermark, people, boats, animals, buildings, mountains, charts or map. This is a decorative imagined Amazon forest scene, not documentation of an identified location.
+```
+
+</details>
+
+<details>
+<summary>Prompt: folhagem-primeiro-plano.webp</summary>
+
+```text
+Use case: photorealistic-natural.
+Asset type: transparent foreground foliage overlay for a refined Amazon rainforest dashboard hero.
+Primary request: a sparse natural leafy branch entering ONLY from the top-right corner, with leaves extending toward the upper middle and down the right edge. Most of the lower-left area must be completely transparent negative space.
+Subject: 7 to 10 naturally irregular elliptical broad leaves on one fine slender branch, plausible humid Amazon lowland forest foliage. Dark emerald mature leaves, a few soft olive-lime backlit edges, visible subtle leaf veins, delicate natural moisture and very few tiny dew drops.
+Style: high-quality real botanical close-up photography, convincing organic texture and thin stems, diffuse warm dawn light from upper right, slight depth variation, no illustration, no waxy CGI surfaces. Keep the silhouette elegant and sparse rather than a dense pile of leaves.
+Composition: landscape or square cutout, top-right corner anchored; full leaf shapes inside the canvas except the entering branch at the upper-right border. Make clean antialiased alpha edges and genuine transparency around every leaf, not white, black or checkerboard.
+Color palette: deep Amazon forest green near #073b34, subtle #138578 midtones, restrained natural yellow-green highlights.
+Constraints: transparent background. No text, logo, watermark, flowers, fruits, insects, animals, people, pots, floor shadows or visible backdrop. This will be a decorative foreground layer over a river photograph; avoid any unrelated objects.
+```
 
 </details>
