@@ -33,21 +33,27 @@ Abra [http://localhost:8765](http://localhost:8765). O primeiro comando lê os C
 
 ## Consultar
 
-Os filtros de instituição, aplicação, disciplina e fase atualizam os indicadores. As barras anuais e as origens também filtram o estudo. A busca e o tópico selecionado afetam o banco de questões; os detalhes exibem a origem, a página do PDF e os itens do programa associados. O CSV exporta o recorte do banco. A tela de metodologia permite baixar a base completa em JSON.
+A abertura apresenta a pergunta do estudo e a cobertura da ementa no recorte atual. O percentual acompanha o numerador, o denominador em pares prova × tópico e a quantidade de provas comparáveis. A navegação superior leva à visão geral, aos conteúdos e ao banco de questões.
 
-Os dados do navegador derivam de `dados/`, e não recebem edição manual. Os critérios de curadoria e as limitações estão na [análise exploratória](../resultados/relatorio.md). A mudança de pasta preserva os textos, a estrutura e o tema da interface publicada.
+Os filtros de instituição, aplicação, disciplina e fase atualizam os indicadores. As barras anuais e as origens também filtram o estudo. Os atalhos de 2017–2021, 2022–2023, 2024 e 2025–2026 selecionam faixas do calendário de aplicação; não classificam o currículo vivido pelos candidatos nem demonstram efeitos do Novo Ensino Médio. Os critérios estão na metodologia e na [análise exploratória](../resultados/relatorio.md).
 
-## Referências visuais
+O gráfico anual conta cada questão uma vez pela disciplina principal. A opção **Ver valores por ano** apresenta História, Geografia, total de questões e número de provas em uma tabela. Os filtros por disciplina também consideram tópicos secundários, portanto seus totais podem se sobrepor. “—” distingue ausência de base comparável de zero observado.
 
-Método: *Fundamentos do Vibe Design* e *Extract HTML Design System*, do material local em `matheus/design`. O trabalho partiu dos HTMLs e design systems do banco, depois adaptou tokens, componentes e estados para o dashboard.
+A busca e o tópico selecionado afetam o banco de questões. Cada registro dá acesso ao enunciado, às alternativas, à origem, à página do PDF e aos itens associados do programa. O banco mantém busca, ordenação, paginação e consulta dos detalhes em telas menores. O CSV exporta o recorte do banco; a metodologia permite baixar a base completa em JSON, e o compartilhamento conserva os filtros no endereço.
 
-- **CryptoLearn / `hu169yr`**: Manrope, base azul-clara, superfícies brancas, cartões e animações `animate-slide-up`/`animate-fade-in` de 0,8 s.
-- **`dashboard-list`**: organização de indicadores, listas e controles.
-- **`sidebar`**: navegação agrupada e estados de seleção.
+Os dados do navegador derivam de `dados/`, sem edição manual. O redesenho altera a apresentação e os controles de exploração, preservando o modelo de cálculo, os dados curados e os resultados da pesquisa.
 
-O tema amazônico combina verde de floresta, turquesa de rio, amarelo de sol e coral sobre fundo creme. A estrutura e os textos do dashboard continuam iguais aos da primeira versão. Os cartões recebem ícones vetoriais; as linhas do rio e a folha da barra lateral têm animações em CSS. A preferência por movimento reduzido desativa essas animações. A fonte local acompanha a licença SIL Open Font License.
+## Direção visual e interação
 
-A ilustração foi criada com o ImageGen integrado e convertida para WebP sem dependências no dashboard. A marca e os cinco ícones foram desenhados em SVG. Todos os assets são locais.
+A hierarquia, as proporções e o cuidado com movimento e superfícies usam a Apple como referência, com identidade própria de floresta, rio e argila. A primeira tela destaca a pergunta e o achado principal; abaixo dela, gráficos, comparação com os programas e documentos permitem aprofundar a leitura.
+
+A navegação e os controles usam transparência e desfoque, com fundos de apoio. Gráficos e tabelas ficam sobre branco opaco para manter a leitura estável. **História usa cobre e Geografia usa verde de rio**, sempre acompanhados por nomes e valores. O verde profundo organiza a abertura; o verde claro destaca a cobertura. A fonte Manrope mantém títulos, números, rótulos e notas em uma escala consistente.
+
+A interface tem foco de teclado visível, link para saltar a navegação, controles nativos de seleção, tabela alternativa ao gráfico anual e diálogos com fechamento pelo teclado. Ao abrir o menu compacto, o foco vai à navegação; Escape o devolve ao botão do menu. Filtros anunciam a atualização do recorte; carregamento e erro têm mensagens próprias e opção de tentar novamente. Transições de barras, cobertura e entrada respeitam a preferência por movimento reduzido.
+
+A ilustração de floresta e rio e os traços de contorno são decorativos: não representam coordenadas, distribuição geográfica ou medições. A ilustração foi criada com o ImageGen integrado e convertida para WebP sem dependências no dashboard. A marca e os cinco ícones foram desenhados em SVG. Todos os assets são locais, e a fonte acompanha a licença SIL Open Font License.
+
+O trabalho anterior consultou *Fundamentos do Vibe Design* e *Extract HTML Design System*, do material local em `matheus/design`, além dos exemplos `CryptoLearn / hu169yr`, `dashboard-list` e `sidebar`. O redesenho reorganiza a composição e a navegação, mantendo os assets originais e a stack estática.
 
 <details>
 <summary>Prompt da ilustração</summary>
