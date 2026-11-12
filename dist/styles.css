@@ -21,3 +21,4 @@ body{font-size:14px}.nav-link{font-size:12px}.sidebar-credit strong{font-size:11
 .year-bar-button:nth-child(2):not(:last-child) .chart-tooltip{left:0;transform:none}
 @media(max-width:700px){.question-open{width:38px;height:38px}.menu-button{width:38px;height:38px}.header-actions>.icon-button{width:36px;height:36px}.filter-bar>label>select{height:27px}}
 .annual-chart{padding-top:0}
+.table-scroll{position:relative}.visually-hidden{left:0;top:0}
