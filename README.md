@@ -1,6 +1,6 @@
 # História e Geografia da Amazônia nos vestibulares
 
-[**Abrir dashboard interativo**](https://amazonia.mhvps.site) · [Análise exploratória](resultados/relatorio.md) · [Dataset curado](dados/curado/questoes.csv) · [Fontes](dados/fontes.csv) · [Revisão técnica e competências](docs/revisao-tecnica.md)
+[**Abrir dashboard interativo**](https://amazonia.mhvps.site) · [Análise exploratória](resultados/relatorio.md) · [Dataset curado](dados/curado/questoes.csv) · [Fontes](dados/fontes.csv)
 
 **Quanto do conteúdo previsto nas ementas realmente apareceu nas provas?** Este projeto reúne questões de História e Geografia da Amazônia, registra os vínculos disponíveis com o programa da respectiva prova e compara os tópicos previstos com a cobrança identificada. O repositório contém a coleta documental, as decisões de curadoria, a limpeza, a análise exploratória e o dashboard.
 
