@@ -8,14 +8,6 @@
 
 O acervo tem **196 questões**, **70 provas examinadas**, **53 tópicos padronizados** e **151 referências documentais**, com aplicações entre 2017 e 11 de novembro de 2026. Nas **43 provas com programa regional integral e triagem completa**, identificamos cobrança em **141 de 682 pares prova × tópico previsto: 20,7%**. Essa proporção descreve o acervo comparável; não representa todos os vestibulares públicos brasileiros.
 
-## Autoria e uso de IA
-
-**Matheus Garcia** definiu o problema, o recorte e os requisitos de entrega e dirigiu as revisões do projeto. A pesquisa documental, a curadoria semântica e a implementação tiveram assistência de agentes no Codex. Essa atribuição não equivale a revisão humana item a item.
-
-A IA participa de duas formas: no **desenvolvimento**, com código, revisão e assets; no **método**, com seleção das questões, classificação dos tópicos e associação aos programas. O código Python faz a limpeza e os cálculos de forma determinística. O dashboard consulta um JSON estático, sem modelo de IA em execução.
-
-A reprodução verifica as decisões já registradas, não refaz a classificação por IA. O acervo conserva justificativas e referências, mas não os prompts analíticos, a identificação exata dos modelos ou as configurações das execuções. **Qualidade contra referência humana, horas economizadas, custos e impacto educacional não foram medidos.** A [revisão técnica](docs/revisao-tecnica.md) distingue essas lacunas das verificações de integridade e dos resultados reproduzidos.
-
 ## Resultados e recorte
 
 O catálogo registra os conteúdos das ementas em uma taxonomia comum: disciplina → conteúdo → tópico. Os nomes originais, as páginas e as fontes continuam disponíveis. Cada questão tem um tópico principal e pode ter etiquetas adicionais. Há **50 tópicos presentes nas questões**, dos 53 catalogados, e **25 questões com tópicos de História e Geografia combinados**.
@@ -104,7 +96,6 @@ dados/          catálogo, ementas, taxonomia, triagem e questões
 resultados/     relatório, tabelas e quatro figuras da análise
 dashboard/      interface, assets e dataset gerado para o navegador
 tests/          verificações da limpeza e dos indicadores Python/JavaScript
-docs/           revisão técnica, limites da IA e evidências para o portfólio
 .github/        verificações automáticas de reprodução
 ```
 
@@ -153,5 +144,3 @@ A cobertura considera a união dos tópicos regionais explícitos de cada progra
 A curadoria foi feita por agentes de IA e está identificada como tal. Os textos conservam as alternativas publicadas, inclusive distratores incorretos. Imagens, mapas e gráficos exigem consultar o PDF. Gabarito vazio significa não incorporado; as duas questões anuladas continuam no acervo por terem aparecido nos cadernos. O estudo não contém indicadores de desempenho dos candidatos.
 
 Os programas UEA 2017 e dois editais PSC 2018 permanecem pendentes. A questão UEA 2026 Humanas Q05 tem um vínculo geral adicional em revisão, sinalizado no relatório e no dashboard; ele não modifica 141/682. A análise temporal é descritiva e não identifica efeitos causais de mudanças curriculares. O [relatório](resultados/relatorio.md) detalha as ressalvas e as fontes.
-
-O histórico da pesquisa e da interface permanece no Git. Para uma apresentação curta e perguntas sobre as decisões técnicas, consulte a [revisão para o portfólio](docs/revisao-tecnica.md#apresentação-para-o-portfólio).
