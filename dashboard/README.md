@@ -37,7 +37,7 @@ Abra [http://localhost:8765](http://localhost:8765). O primeiro comando lê os C
 
 ## Consultar
 
-A abertura apresenta a pergunta do estudo e a cobertura da ementa no recorte atual. O percentual acompanha o numerador, o denominador em pares prova × tópico e a quantidade de provas comparáveis. A navegação superior leva à visão geral, aos conteúdos e ao banco de questões.
+A abertura apresenta a pergunta do estudo. A cobertura da ementa fica abaixo dos gráficos de tópicos e programas, com o percentual do recorte atual, o numerador, o denominador em pares prova × tópico e a quantidade de provas comparáveis. A navegação superior leva à visão geral, aos conteúdos e ao banco de questões.
 
 Os filtros de instituição, aplicação, disciplina e fase atualizam os indicadores. As barras anuais e as origens também filtram o estudo. Os atalhos de 2017–2021, 2022–2023, 2024 e 2025–2026 selecionam faixas do calendário de aplicação; não classificam o currículo vivido pelos candidatos nem demonstram efeitos do Novo Ensino Médio. Os critérios estão na metodologia e na [análise exploratória](../resultados/relatorio.md).
 
