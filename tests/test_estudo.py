@@ -4,10 +4,12 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from limpeza import limpar, gravar_csv, ler_csv
 from analise import analisar, serie_temporal, fmt
+from preparar_dashboard import preparar
 
 
 class Estudo(unittest.TestCase):
@@ -63,8 +65,49 @@ class Estudo(unittest.TestCase):
     def test_hash_conflitante_e_recusado(self):
         self.dados[0]['fonte_sha256'] = 'c'*64
         self.bruto.write_text(json.dumps(self.dados[0]) + '\n')
-        with self.assertRaises(AssertionError):
+        with self.assertRaisesRegex(ValueError, 'SHA-256 divergente'):
             limpar(self.root)
+
+    def test_identificador_ausente_e_fonte_de_outra_prova_sao_recusados(self):
+        fontes = ler_csv(self.root / 'dados/fontes.csv')
+        fontes.append(dict(fonte_id='outro_pdf', tipo='prova', sha256='c'*64,
+                           url='https://exemplo.edu.br/outra-prova.pdf'))
+        self.gravar('fontes', fontes)
+        casos = [({'questao_id': ''}, 'questao_id ausente'),
+                 ({'fonte_prova_id': 'outro_pdf', 'fonte_sha256': 'c'*64,
+                   'url_prova': 'https://exemplo.edu.br/outra-prova.pdf'},
+                  'Fonte diferente da prova cadastrada')]
+        for mudanca, mensagem in casos:
+            with self.subTest(mudanca=mudanca):
+                self.bruto.write_text(json.dumps({**self.dados[0], **mudanca}) + '\n')
+                with self.assertRaisesRegex(ValueError, mensagem):
+                    limpar(self.root)
+
+    def test_analise_rejeita_duplicata_antes_de_sobrescrever_resultados(self):
+        self.bruto.write_text('\n'.join(json.dumps(r) for r in self.dados) + '\n')
+        limpas = limpar(self.root)
+        analisar(self.root)
+        arquivos = {p.name: p.read_bytes() for p in (self.root / 'resultados').iterdir()}
+        gravar_csv(self.root / 'dados/curado/questoes.csv', limpas + [limpas[0]], list(limpas[0]))
+        with self.assertRaisesRegex(ValueError, 'IDs de questões ausentes ou duplicados'):
+            analisar(self.root)
+        self.assertEqual(arquivos, {p.name: p.read_bytes() for p in (self.root / 'resultados').iterdir()})
+
+    def test_publicacao_remove_assets_retirados_da_origem(self):
+        origem = self.root / 'dashboard'
+        (origem / 'assets').mkdir(parents=True)
+        (origem / 'index.html').write_text('<h1>Estudo</h1>')
+        (origem / 'assets/antigo.svg').write_text('<svg/>')
+        (origem / 'README.md').write_text('Documentação')
+        with patch('preparar_dashboard.montar_dataset', return_value={'questions': [], 'exams': []}):
+            preparar(self.root)
+            self.assertTrue((self.root / 'dist/assets/antigo.svg').exists())
+            (origem / 'assets/antigo.svg').unlink()
+            (origem / 'assets/atual.svg').write_text('<svg id="atual"/>')
+            preparar(self.root)
+        self.assertFalse((self.root / 'dist/assets/antigo.svg').exists())
+        self.assertEqual((self.root / 'dist/assets/atual.svg').read_text(), '<svg id="atual"/>')
+        self.assertFalse((self.root / 'dist/README.md').exists())
 
     def test_temporal_preserva_lacunas_zeros_e_etapas(self):
         provas = [self.prova,

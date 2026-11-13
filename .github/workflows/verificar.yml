@@ -1,0 +1,30 @@
+name: Verificar pesquisa
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  reproducao:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Testes de integridade
+        run: |
+          python3 -m unittest discover -s tests -v
+          python3 -O -m unittest discover -s tests -v
+      - name: Testes do modelo do dashboard
+        run: node --test tests/test_dashboard.mjs
+      - name: Reproduzir as saídas congeladas
+        run: |
+          python3 scripts/limpeza.py
+          python3 scripts/analise.py
+          python3 scripts/preparar_dashboard.py
+          git diff --exit-code -- dados/curado/questoes.csv resultados dashboard/dataset.json

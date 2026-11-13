@@ -3,7 +3,7 @@ from collections import Counter, defaultdict
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from statistics import median
-from limpeza import gravar_csv, ler_csv
+from limpeza import exigir, gravar_csv, ler_csv
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -14,14 +14,33 @@ def tabela(colunas, linhas):
                      ['| ' + ' | '.join(str(v).replace('|', ',') for v in linha) + ' |' for linha in linhas])
 
 
+def validar_entrada(root, questoes, provas):
+    ids = {q['questao_id'] for q in questoes}
+    exigir('' not in ids and len(ids) == len(questoes), 'IDs de questões ausentes ou duplicados')
+    exigir(len({(q['prova_id'], q['numero']) for q in questoes}) == len(questoes),
+           'Prova/número duplicado')
+    triagem_path = root / 'dados/brutos/triagem.csv'
+    if triagem_path.exists():
+        triagem = ler_csv(triagem_path)
+        exigir(len(triagem) == sum(int(p['questoes_triadas']) for p in provas),
+               'Triagem diverge do total cadastrado')
+        exigir(len({t['questao_id'] for t in triagem}) == len(triagem), 'IDs de triagem repetidos')
+        exigir({t['questao_id'] for t in triagem if t['decisao'] == 'incluir'} == ids,
+               'Seleção e banco divergem')
+        por_prova = Counter(t['prova_id'] for t in triagem)
+        exigir(all(por_prova[p['prova_id']] == int(p['questoes_triadas']) for p in provas),
+               'Triagem por prova divergente')
+
+
 def analisar(root=ROOT):
     questoes = ler_csv(root / 'dados/curado/questoes.csv')
     provas = ler_csv(root / 'dados/provas.csv')
     ementas = ler_csv(root / 'dados/ementas.csv')
     topicos = {r['topico_id']: r for r in ler_csv(root / 'dados/topicos.csv')}
+    validar_entrada(root, questoes, provas)
     por_prova, por_item = defaultdict(list), defaultdict(set)
     for q in questoes:
-        assert q['topico_id'] in topicos, q['questao_id']
+        exigir(q['topico_id'] in topicos, f"Tópico desconhecido: {q['questao_id']}")
         por_prova[q['prova_id']].append(q)
         for item in filter(None, q['ementa_itens'].split('|')):
             por_item[item].add(q['questao_id'])
@@ -311,16 +330,6 @@ def apresentar(root, questoes, provas, ementas, topicos, cobertura, frequencias)
     anuladas = [q['questao_id'] for q in questoes if q['gabarito'] == 'ANULADA']
     fontes = ler_csv(root / 'dados/fontes.csv')
     dup = {k: len(questoes) - len({q[k] for q in questoes}) for k in ['questao_id', 'sha256_texto_limpo']}
-    assert not dup['questao_id'], 'IDs duplicados'
-    assert len({(q['prova_id'], q['numero']) for q in questoes}) == n, 'Prova/número duplicado'
-    triagem_path = root / 'dados/brutos/triagem.csv'
-    if triagem_path.exists():
-        triagem = ler_csv(triagem_path)
-        assert len(triagem) == triadas, 'Triagem diverge do total cadastrado'
-        assert len({t['questao_id'] for t in triagem}) == len(triagem), 'IDs de triagem repetidos'
-        assert {t['questao_id'] for t in triagem if t['decisao'] == 'incluir'} == {q['questao_id'] for q in questoes}, 'Seleção e banco divergem'
-        por_prova_triagem = Counter(t['prova_id'] for t in triagem)
-        assert all(por_prova_triagem[p['prova_id']] == int(p['questoes_triadas']) for p in provas), 'Triagem por prova divergente'
     relatorio = f"""# Uma ementa ampla, uma prova seletiva: História e Geografia da Amazônia
 
 ## Resposta à pergunta do estudo

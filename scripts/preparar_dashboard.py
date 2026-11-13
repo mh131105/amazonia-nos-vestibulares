@@ -84,7 +84,10 @@ def preparar(root=ROOT):
     origem = root / 'dashboard'
     (origem / 'dataset.json').write_text(
         json.dumps(dataset, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
-    shutil.copytree(origem, root / 'dist', dirs_exist_ok=True,
+    destino = root / 'dist'
+    if destino.exists():
+        shutil.rmtree(destino)
+    shutil.copytree(origem, destino,
                     ignore=shutil.ignore_patterns('README.md', 'preview.png'))
     print(f"Dashboard: {len(dataset['questions'])} questões; "
           f"{len(dataset['exams'])} provas. Publicação preparada em dist/.")
