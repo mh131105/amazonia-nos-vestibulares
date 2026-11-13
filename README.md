@@ -23,8 +23,6 @@ O catálogo registra os conteúdos das ementas em uma taxonomia comum: disciplin
 
 Cada fase ou etapa tem um identificador de prova, dentro do mesmo dataset. O ano é o da aplicação; edição e ingresso ficam em campos próprios. O número de provas varia por ano, e 2026 é parcial.
 
-A comparação relacionada ao Novo Ensino Médio usa períodos do calendário de aplicação. As fases UEA seguem direções diferentes, e retirar 2026 muda a leitura da segunda fase. Sem trajetórias escolares ou respostas de candidatos, o estudo não identifica efeito da reforma nem mudança de dificuldade.
-
 O [relatório](resultados/relatorio.md) apresenta a cobertura por prova e origem, os tópicos recorrentes, a série anual, os contrastes temporais descritivos e as análises de sensibilidade. As [tabelas de resultados](resultados/) conservam os denominadores e os identificadores que permitem conferir cada agregado.
 
 ## Reproduzir
