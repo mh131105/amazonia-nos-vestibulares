@@ -93,6 +93,28 @@ class Estudo(unittest.TestCase):
             analisar(self.root)
         self.assertEqual(arquivos, {p.name: p.read_bytes() for p in (self.root / 'resultados').iterdir()})
 
+    def test_analise_gera_tabelas_sem_criar_ou_alterar_relatorio(self):
+        self.bruto.write_text('\n'.join(json.dumps(r) for r in self.dados) + '\n')
+        limpar(self.root)
+        resultados = self.root / 'resultados'
+        relatorio = resultados / 'relatorio.md'
+        editorial = '# Relatório revisado\r\n\r\nTexto com acentuação.\r\n'.encode('utf-8')
+        tabelas = {'previsto-cobrado.csv', 'frequencia-topicos.csv', 'itens-ementa.csv',
+                   'temporal.csv', 'sensibilidade.csv'}
+        for existente in (False, True):
+            with self.subTest(relatorio_existente=existente):
+                if existente:
+                    relatorio.write_bytes(editorial)
+                analisar(self.root)
+                esperados = tabelas | ({'relatorio.md'} if existente else set())
+                self.assertEqual({p.name for p in resultados.iterdir()}, esperados)
+                for nome in tabelas:
+                    self.assertTrue(ler_csv(resultados / nome), nome)
+                if existente:
+                    self.assertEqual(relatorio.read_bytes(), editorial)
+                else:
+                    self.assertFalse(relatorio.exists())
+
     def test_publicacao_remove_assets_retirados_da_origem(self):
         origem = self.root / 'dashboard'
         (origem / 'assets').mkdir(parents=True)
